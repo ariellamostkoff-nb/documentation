@@ -1,0 +1,192 @@
+---
+title: "Custom Goals"
+---
+
+# 🧠 Custom Goals Overview
+
+* [What are Custom Goals?](#what-are-custom-goals)
+* [How Custom Goals Work](#how-custom-goals-work)
+* [How to Set Up Custom Goals](#how-to-set-up-custom-goals)
+* [Common Mistakes](#common-mistakes)
+* [Limitations](#limitations)
+
+<br />
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/081fbad7d37b41c389a7d86033ebb182?sid=8fea34db-7567-41f4-9896-eee348805b50" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+# What are Custom Goals?
+
+Custom Goals allow you to track actions that occur on your website..
+
+```javascript
+// Args:
+// Arg0: The name of the custom goal. 
+// Arg1: An empty object.
+<script>
+  window.Northbeam.fireCustomGoal("sms_signup", {})
+</script>
+```
+
+Examples include:
+
+* Email or SMS signups
+* Add to Cart events
+* Initiate Checkout events
+* Quiz submissions
+* Lead form submissions
+* Any other important website interaction
+
+***
+
+# How Custom Goals Work
+
+1. A visitor completes an action on your website
+2. `fireCustomGoal()` sends the event to Northbeam
+3. The Goal ID is registered in your dashboard
+4. The event becomes available as a metric in reporting
+
+<Note>
+  ## Custom Goals are client-side events
+
+  `fireCustomGoal()` must fire directly on your website while the Northbeam Pixel is active in the visitor’s browser session.
+
+  Server-side events, webhook events, or backend-only events are not currently not supported.
+
+  These events must occur on the same website domain where the Northbeam Base Pixel is installed.
+</Note>
+
+## Supported Examples
+
+* Button clicks
+* Form submissions
+* Quiz completions
+* Add to Cart actions
+* Initiate Checkout events
+
+<br />
+
+## Unsupported Examples
+
+* Backend webhook events
+* Server-side API calls
+* Offline events
+* CRM-triggered events
+* Events occurring outside the browser session
+
+***
+
+# How to set up Custom Goals
+
+## Step 1: Confirm the Northbeam Pixel is Installed
+
+Before implementing Custom Goals, confirm:
+
+* The Northbeam Base Pixel is firing on the page where the event occurs
+* The event occurs on the same website domain where the Northbeam Base Pixel is installed
+
+<Warning>
+  Custom Goals will not track correctly unless the Northbeam Base Pixel is already installed and firing first.
+</Warning>
+
+***
+
+## Step 2: Implement the Script
+
+```javascript
+<script>
+  window.Northbeam.fireCustomGoal("sms_signup", {})
+</script>
+```
+
+1. Replace `sms_signup` with your own Goal ID.
+2. This Goal ID becomes the metric name you'll register in the Northbeam dashboard.
+
+<br />
+
+The event can be deployed:
+
+* Through Google Tag Manager (recommended for most setups)
+* Directly in your website code
+
+<Warning>
+  `fireCustomGoal()` should only fire when the intended action occurs.
+
+  Examples:
+
+  * After a form submission succeeds
+  * After an Add to Cart button click
+  * After a quiz submission completes
+</Warning>
+
+<Note>
+  **Goal ID rules:**
+
+  1. Lowercase letters, numbers, and underscores only (e.g. `sms_signup`, `add_to_cart`)
+  2. No hyphens or spaces — the event won't show up in the dashboard
+  3. Must exactly match what you register in Step 3
+  4. Tracks event count only — no revenue or values can be passed
+</Note>
+
+## Recommended Naming Conventions
+
+Examples:
+
+* `sms_signup`
+* `email_signup`
+* `add_to_cart`
+* `quiz_submit`
+* `initiate_checkout`
+
+***
+
+## Step 3: Add the Goal ID in the dashboard
+
+Go to [Settings → Custom Goals](https://dashboard.northbeam.io/settings/custom-goals) and add a new entry:
+
+* **Goal ID** → Enter the exact same Goal ID used in your script (example: `sms_signup`)
+* **Display Name** → Enter the reporting label shown in Northbeam (example: `SMS Signup`)
+
+<Frame caption="Settings > Custom Goals">
+  <img src="https://files.readme.io/889f7aac3c399ff4c6864f6a1e2fdf4fec52a6a4c6d0c13064532b14342e5ee3-CleanShot_2026-04-11_at_16.04.162x.png" alt="" />
+</Frame>
+
+***
+
+## Step 4: Add the goal to your Sales view
+
+After at least one event fires successfully, the Custom Goal becomes available as a metric on the Sales page.
+
+1. Go to the [Sales Page](https://dashboard.northbeam.io/sales)
+2. Click **Customize Table**
+
+<Frame>
+  <img src="https://files.readme.io/9e7bdc1a486d34d62b615f6036813e78474843c90bc15db399d09f6b54b6bb8d-CleanShot_2026-04-11_at_16.14.192x.png" alt="" />
+</Frame>
+
+3. Click **Custom Goals**
+4. Find your Custom Goal metric(s) and add them to your view
+
+<Frame>
+  <img src="https://files.readme.io/421106876b979358502c1d6cad09b38ecaafe5d59ad79d7d524be338f03777cb-CleanShot_2026-04-11_at_16.06.162x.png" alt="" />
+</Frame>
+
+<br />
+
+***
+
+# Common Mistakes
+
+* The Northbeam Base Pixel is not firing on the page
+* The Goal ID in the dashboard does not exactly match the script
+* The trigger conditions are incorrect
+* The event is implemented on a different domain than the Base Pixel
+
+***
+
+# Limitations
+
+Custom Goals track **event count only**.
+
+Revenue, monetary values, or additional parameters cannot be passed through `fireCustomGoal()`.

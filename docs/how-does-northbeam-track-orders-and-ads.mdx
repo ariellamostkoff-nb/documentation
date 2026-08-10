@@ -1,0 +1,37 @@
+---
+title: "How does Northbeam track Orders and Ads?"
+description: "How does Northbeam data work?"
+---
+
+Northbeam uses three core data sources to track customer journeys and attribute performance across your marketing efforts:
+
+1. **Journey Tracking via First-Party Pixel**
+   1. Captures all customer touchpoints across Paid Channels and Brand Interactions.
+2. **Order Data via Server-to-Server Integration**
+   1. Pulls in the order data from platforms like Shopify via direct backend connections.
+3. **Platform-Level Data**
+   1. Ingests Spend and Performance data directly from ad platforms like Meta and Google.
+
+# Overview Video
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/3c19f71e849e4464abd4381d8c1641d2?sid=0aba1b58-80cf-48ac-848e-c5a525399715" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+## TL;DR
+
+**About Unattributed Data**
+
+* Some orders may show up as unattributed, which is normal and expected to a certain extent. This typically occurs when pixel data is missing or incomplete.
+
+**Common causes of Unattributed Orders**:
+
+* Draft or manually created Orders
+* Wholesale or Marketplace Orders (eg., Tapcart, ClickFunnels, Walmart)
+* Third-Party Checkouts or Apps
+* Subscription Renewals from before Northbeam was installed
+* Orders from native shopping tools (Meta Shops and TikTok Shops are now supported)
+
+Any Orders that does not trigger the Northbeam Pixel and Purchase Pixel will appear as Unattributed.
+
+Northbeam monitors each dashboards for normal thresholds of unattributed data. While some unattributed data is expected, the **majority of your oder and revenue data will be properly attributed** through our integrated tracking system.

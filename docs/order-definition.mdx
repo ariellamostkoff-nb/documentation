@@ -1,0 +1,86 @@
+---
+title: "Order Definition"
+description: "This page describes Northbeam's semantic definition of an order and how order attributes play a role in determining Subscription or Returning Customer metrics"
+---
+
+# Northbeam's Definition of an Order
+
+Different Order Management Systems(OMS) consider the notion of an order differently. For best results, we recommend submitting orders that have been shipped, where the costs associated with the order (and/or other metadata subject to alteration after initial creation) is considered more or less settled.
+
+Because an unfavorable amount of time usually passes between when the order is placed and lands in a customer's OMS also support an initial order submission with 'estimated' costs (i.e. shipping that is quoted at the time of order submission, but may be subject to change) to support timely order attribution (MTA).  At the time of shipment, a customer can make an API call to update the order.  An call made that includes an order with an `order_id` that matches a previously submitted `order_id` is updated with the most recent call's attributes.
+
+# Order Attributes
+
+Each order has a set of **required** attributes as well as *optional* attributes that can be submitted for each order. These fields are also documented in the [API Reference](https://northbeam-orders-api.readme.io/reference), albeit in much more detail here.
+
+## Required Attributes
+
+Certain metadata is required for an order to be submitted.  Without these fields, an API call will return an error as part of our validation check to make sure the Orders contained in an API call pass muster.  The following order attributes are required:
+
+* `order_id` - This is the canonical identity of an order for a customer in Northbeam's Order database.  This number is typically the same as the id that is used in a customers OMS and must be the same as the `id` that is submitted using Northbeam's [Fire Purchase Event](https://northbeam-pixel-api.readme.io/recipes/fire-purchase-event) recipe from the website.  It is important that these two match so that we can pair the website event with the corresponding order.
+* `customer_id` - This is the canonical identity of a customer's customer in Northbeam's Order Database.  This number is also typically the same as the id that denotes a customer in a customer's OMS and must be the same as the `customer_id` that is submitted using Northbeam's [Fire Purchase Event](https://northbeam-pixel-api.readme.io/recipes/fire-purchase-event) recipe from the website.  It is important that these two match so that we can pair the website event with the corresponding order.
+* `time_of_purchase` - This field denotes the time at which the order is created/placed. This is also used when aggregating revenue in the platform over time.
+* `tax` - the amount in a given currency that was paid as tax for an order
+* `currency`- The currency of the order. Note, all monetary fields will assume that the currency is the one passed in this field. Please use standard ISO-4217 currency codes.
+* `purchase_total`- The amount of money collected from the customer (including taxes, shipping, and other fees) in the currency of the order.
+* `products` - a list of product objects describing the products in the order - the list could have only one line item but have at least one member. Similar to `lineItems` in Northbeam's [Fire Purchase Event](https://northbeam-pixel-api.readme.io/recipes/fire-purchase-event)
+  * `id` - A unique identifier describing the product in the order
+  * `name` - Name of the product
+  * `quantity` - How many of the product were sold in the order
+  * `price` - The price of the product in the currency of the order
+  * `variant_id` - (**optional**) A unique identifier describing the product variant in the order.
+  * `variant_name` - (**optional**) The name of the product variant. Cannot be empty when specified.
+* `shipping_cost` - The amount that was paid for shipping for this order
+
+## Optional Attributes
+
+The following order attributes are optionalL
+
+* `customer_email`- the email associated with a customer - not necessary if using Northbeam's [Fire Purchase Event](https://northbeam-pixel-api.readme.io/recipes/fire-purchase-event) - **absolutely necessary** if not using Northbeam's [Fire Purchase Event](https://northbeam-pixel-api.readme.io/recipes/fire-purchase-event) and using Northbeam's [Identify](https://northbeam-pixel-api.readme.io/recipes/identify) recipe instead
+* `customer_phone_number`- The phone number associated with a customer
+* `customer_name`- The name associated with a customer
+* `customer_ip_address` - The IP address associated with a customer
+* `discount_codes`- a list of strings that resemble Coupons or discount codes used in the order - similar to `coupons` in Northbeam's [Fire Purchase Event](https://northbeam-pixel-api.readme.io/recipes/fire-purchase-event)
+* `discount_amount`- The amount of money discounted due to discount codes in the currency of the order
+* `order_tags`- A list of internal tags describing the order - these tags may also be used to denote the subscription stage or customer stage of the order, as well as for exclusions to exclude orders that you do not seek to have attributed - to learn more read on in Subscriptions, Customer Stage, and Exclusions.
+* `is_recurring_order`- a boolean value that denotes whether or not this order is part of a recurring purchase (subscription)
+* `refunds` - A list of product objects describing the refunded products
+  * `product_id` - A unique identifier describing the product in the refund (should also be included in the products list). If an entry is made in the optional `refunds` object, this field is required.
+  * `quantity`- The number of products refunded (should be less than or equal to the corresponding quantity in the products list).  If an entry is made in the optional `refunds` object, this field is required.
+  * `refund_amount` - The total amount refunded to the customer in the currency of the order.  If an entry is made in the optional `refunds` object, this field is required.
+  * `refund_cost` - The estimated total cost of the refund, including the refund amount to the customer and any other overhead costs (i.e. shipping, fees).  If an entry is made in the optional `refunds` object, this field is required.
+  * `refund_made_at` - The time the refund was fulfilled by your brand. ISO-8601 timestamp.  If an entry is made in the optional `refunds` object, this field is required.
+  * `variant_id` - A unique identifier describing the variant of the product in the refund (should also be included in the products list).  This field is entirely optional but should be included if the refund is for a product and a `variant_id` was provided in the `products` field.
+* `customer_shipping_address` - an object that captures the shipping address for the order
+  * `address1`- The street address of a customer's shipping address. If an entry is made in the optional `customer_shipping_address` object, this field is required.
+  * `address2` - An optional additional field for the street address. If an entry is made in the optional `customer_shipping_address` object, this field is required.
+  * `city` - The city or locality of a customer's shipping address. If an entry is made in the optional `customer_shipping_address` object, this field is required.
+  * `state` - The state or region of the customer's shipping address. If an entry is made in the optional `customer_shipping_address` object, this field is required.
+  * `zip` - The postal code or region-code (in outside US) of the customer's shipping address. If an entry is made in the optional `customer_shipping_address` object, this field is required.
+  * `country code` - A three-letter ISO 3166 country code of a customer's shipping address. If an entry is made in the optional `customer_shipping_address` object, this field is required.
+
+# Roles of `order_tags` of an order
+
+Order tags play a wide variety of roles when it comes to an how ads that may have driven the order are attributed.  Order tags are used in determining if the order is
+
+* part of a subscription, and if it is a first-time or a recurring order.
+* from a first time or returning customer
+* whether the order is to be excluded from attribution altogether
+
+## Subscriptions
+
+Northbeam's customers often want to be ad attribution or revenue as a function of whether the orders are part of a subscription initiation or part of a recurring order.  Order tags are used here so that we may identify order that are part of a first time subscription order or if they are a recurring order.
+
+Using the `Subscription Order Tags` page in the `Settings` Section of your Northbeam Dashboard, a customer can choose which order tags are associated with which stage of a subscription - thus enabling them to delineate between first time or recurring subscription order and revenue.  A category `Other` is also included to capture orders that could be either.
+
+## Customer Stage
+
+Order tags can also play a role in determining if the order is from a first time or returning customer.  By default, the logic we apply to determine if an order is form a first-time or returning customer is by taking all orders from a particular `customer_id` and looking at the orders as a function of time.  The first order in the sequence is a first-time customer, and all subsequent orders are labeled returning customer.
+
+If this logic is insufficient for your use case, please contact `success@northbeam.io` and consult us on how we can leverage your order tags to capture the logic you seek to leverage!
+
+This delineation can be used to analyze orders (and revenue) as a function of both of these customer stages.
+
+## Order Exclusions
+
+There are certain cases where it is desire-able to exclude certain orders altogether.  This may be the case if you are looking to do ad attribution or analyze revenue as a function of web store orders but your OMS also includes orders that came from a brick and mortar store.  If these undesire-able orders are tagged with a specific tag, these can be added to the `Exclude Orders by Tag` section in the `Settings` page of your Northbeam dashboard.

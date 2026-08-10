@@ -1,0 +1,62 @@
+---
+title: "Exporting To S3"
+description: "This page describes the Exporting To S3 of our Data Export API"
+---
+
+# Exporting to an external S3 bucket
+
+If you want to export your data to your S3 bucket, you can do so by following the steps below:
+
+1. Create a role with **Custom trust policy**, including the Northbeam user (below) as a Principal with the `sts:AssumeRole` permission:
+   > `arn:aws:iam::892581138023:user/nb-data-orders-export-custom-sa-user`
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Statement1",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::892581138023:user/nb-data-orders-export-custom-sa-user"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+2. Copy the ARN of the role you created on step `1`, and the name of the bucket you wish to use
+3. Create a policy (inline in the role or standalone) providing the permissions below, just changing the placeholders `<BUCKET_NAME>` and `<ROLE_ARN>` with the information you got from step `2`.
+   > PS: The action iam:SimulatePrincipalPolicy is required, as our system relies on it to validate the bucket permissions.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Statement1",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:DeleteObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::<BUCKET_NAME>", // Add your bucket name
+        "arn:aws:s3:::<BUCKET_NAME>/*" // Add your bucket name
+      ]
+    },
+    {
+      "Sid": "Statement2",
+      "Effect": "Allow",
+      "Action": ["iam:SimulatePrincipalPolicy"],
+      "Resource": ["<ROLE_ARN>"] // Add your role ARN
+    }
+  ]
+}
+```
+
+4. If you created a standalone policy, attach it to the role you created on step `2`.
+5. Provide the role ARN in each data export request through the `aws_role` parameter.

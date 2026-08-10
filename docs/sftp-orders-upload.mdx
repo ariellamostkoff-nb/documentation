@@ -1,0 +1,157 @@
+---
+title: "SFTP Orders Upload"
+---
+
+This document is for new or current Northbeam customers who wish to send Orders to Northbeam without using our Orders API or native Shopify connector. Common use cases include historical order backfills and recurring order uploads from systems without API integration resources.
+
+Under the hood, this service takes your CSV file, validates it, splits it into batches, and uploads it through our standard Orders API.
+
+***
+
+## Table of Contents
+
+* [Step 1. Request Access](#step-1-request-access)
+* [Step 2. Format Your CSV](#step-2-format-your-csv)
+  * [Formatting Rules](#formatting-rules)
+  * [Field Reference](#field-reference)
+* [Step 3. Upload Your File](#step-3-upload-your-file)
+* [Step 4. Confirm Success or Troubleshoot Errors](#step-4-confirm-success-or-troubleshoot-errors)
+  * [Common Errors and Fixes](#common-errors-and-fixes)
+
+***
+
+## Step 1. Request Access
+
+[Submit a support ticket](https://www.northbeam.io/submit-a-support-ticket) to request SFTP access. Northbeam will assign you a User and Password.
+
+**Host:** sftp.robot.northbeam.io
+**User:** XXX\_orders
+**Password:** XXX
+**Port:** 22
+
+Using your preferred SFTP client, connect to your Northbeam SFTP instance with the details provided.
+
+***
+
+## Step 2. Format Your CSV
+
+Each file must follow this template exactly or the upload will fail:
+
+📄 [SFTP Orders Upload Template](https://docs.google.com/spreadsheets/d/193PYzhk2DamT6DTdiZMrY8U3nWJ03LLlTh9cPE_XASI/edit?usp=sharing)
+
+### Formatting Rules
+
+These rules are strict — most failed uploads are caused by one of the following:
+
+1. **Required columns must be present in your file.** Optional columns may be omitted entirely if you have no data for them.
+2. **Field names are case-sensitive** and must match the template exactly.
+3. **Product fields are pluralized**: `products_id`, `products_name`, `products_quantity`, `products_price`. Singular field names (`product_id`, `product_name`, etc.) will fail validation.
+4. `tax`**&#x20;and&#x20;**`shipping_cost`**&#x20;cannot be empty.** Pass `0` if there is no value to report.
+5. `time_of_purchase`**&#x20;must use the ISO-8601 standard** (e.g. `2026-03-08T09:23:45.000Z`).
+6. **Orders with multiple products use one row per product**, repeating the same order-level values (order\_id, totals, etc.) on each row. Our system consolidates rows with the same `order_id` into a single order.
+
+### Field Reference
+
+| Field                                    | Required | Notes                                                                                                                                                        |
+| ---------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `order_id`                               | Yes      | Unique ID per order. Must not be the customer ID. Must match the ID sent via `firePurchaseEvent` if a live Pixel is running.                                 |
+| `customer_id`                            | Yes      | Unique ID per customer, reused for returning customers. Must not be the order ID or an email.                                                                |
+| `time_of_purchase`                       | Yes      | When the customer placed the order, in ISO-8601 (`2026-03-08T09:23:45.000Z`).                                                                                |
+| `order_tags`                             | No       | Comma-separated, no spaces between tags. Used for subscriptions, customer stage, and exclusions.                                                             |
+| `discount_codes`                         | No       | Comma-separated, no spaces between codes.                                                                                                                    |
+| `currency`                               | Yes      | 3-digit ISO-4217 code (e.g. `USD`). All monetary fields are assumed to be in this currency.                                                                  |
+| `tax`                                    | Yes      | Cannot be empty — use `0` if no tax.                                                                                                                         |
+| `purchase_total`                         | Yes      | Total collected from the customer, including taxes, shipping, and fees.                                                                                      |
+| `shipping_cost`                          | Yes      | Cannot be empty — use `0` if no shipping.                                                                                                                    |
+| `customer_email`                         | No       | Email associated with the customer.                                                                                                                          |
+| `customer_phone_number`                  | No       | Phone number associated with the customer.                                                                                                                   |
+| `hashed_customer_email`                  | No       | Hashed email associated with the customer. See [Hashing Customer Data](/docs/hashing-customer-data) for format requirements.        |
+| `hashed_customer_phone_number`           | No       | Hashed phone number associated with the customer. See [Hashing Customer Data](/docs/hashing-customer-data) for format requirements. |
+| `discount_amount`                        | No       | Amount discounted via discount codes.                                                                                                                        |
+| `products_id`                            | Yes      | Unique product identifier. Must not be the order\_id.                                                                                                        |
+| `products_name`                          | Yes      | Product name.                                                                                                                                                |
+| `products_quantity`                      | Yes      | Quantity of this product in the order.                                                                                                                       |
+| `products_price`                         | Yes      | Product price in the order's currency.                                                                                                                       |
+| `customer_shipping_address_address1`     | No       | Street address.                                                                                                                                              |
+| `customer_shipping_address_address2`     | No       | Additional street address field.                                                                                                                             |
+| `customer_shipping_address_city`         | No       | City or locality.                                                                                                                                            |
+| `customer_shipping_address_state`        | No       | State or region.                                                                                                                                             |
+| `customer_shipping_address_zip_code`     | No       | Postal code.                                                                                                                                                 |
+| `customer_shipping_address_country_code` | No       | ISO-3166 country code.                                                                                                                                       |
+| `refunds_product_id`                     | No       | Product identifier for the refunded product (must also appear in the products fields).                                                                       |
+| `refunds_quantity`                       | No       | Number of units refunded.                                                                                                                                    |
+| `refunds_amount`                         | No       | Total amount refunded to the customer.                                                                                                                       |
+| `refunds_refund_cost`                    | No       | Estimated total cost of the refund, including overhead (shipping, fees).                                                                                     |
+| `refunds_refund_made_at`                 | No       | When the refund was fulfilled, in ISO-8601.                                                                                                                  |
+
+***
+
+## Step 3. Upload Your File
+
+Place your .CSV file in your SFTP directory. Processing begins automatically — no additional ingestion step is required on your end.
+
+**Limits:**
+
+* Each file must not exceed **200 MB** (approximately 1 million records, depending on your data).
+* For larger datasets, split your data into multiple files.
+
+***
+
+## Step 4. Confirm Success or Troubleshoot Errors
+
+Once you upload a file, our automation will process it within a few moments and move it to one of two folders:
+
+<Warning>
+  **Validation is all-or-nothing.**&#x20;
+
+  If any row in your file fails validation, the entire file is rejected and moved to `/invalid_files`. Fix all errors in the error report before re-uploading.
+</Warning>
+
+* `/processed_files` — the file was processed successfully and orders will be available after the next data processing cycle.
+* `/invalid_files` — the file contained validation errors. An error report (`<your filename>_errors.txt`) will be created alongside it with row-level details for debugging.
+
+If your file lands in `/invalid_files`, review the error report, fix the issues, and re-upload the corrected file.
+
+Example error report:
+
+```
+Validation Error Report
+File: orders_uploads/925160f8-ecc3-4457-8c3e-b75fe5dbf0ac/broken_file_sample.csv
+Client ID: 925160f8-ecc3-4457-8c3e-b75fe5dbf0ac
+Timestamp: 2026-01-30T18:10:18.917640Z
+Total Invalid Orders: 3
+================================================================================
+Row 1:
+  Order ID: O12345
+  Customer ID:
+  Validation Errors:
+    - Field: customer_id
+      Type: string_too_short
+      Message: String should have at least 1 character
+Row 3:
+  Order ID: O726883481
+  Customer ID: 815186642
+  Validation Errors:
+    - Field: time_of_purchase
+      Type: value_error
+      Message: Value error, Invalid ISO TS
+Row 4:
+  Order ID: O7292339997
+  Customer ID: 812197138
+  Validation Errors:
+    - Field: currency
+      Type: string_too_short
+      Message: String should have at least 3 characters
+```
+
+### Common Errors and Fixes
+
+| Error                                                                                                 | Cause                            | Fix                                                                                         |
+| ----------------------------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------- |
+| `tax` / `shipping_cost`: "Input should be a valid number"                                             | Field passed as empty            | Set value to `0` instead of leaving blank                                                   |
+| Errors on optional fields (e.g. `customer_email`, `discount_amount`, shipping address, refund fields) | Column headers missing from file | Optional columns can be omitted entirely — only required columns must be present            |
+| Product field errors                                                                                  | Singular field names used        | Use pluralized names: `products_id`, `products_name`, `products_quantity`, `products_price` |
+| "Invalid ISO TS"                                                                                      | Timestamp not in ISO-8601 format | Use `YYYY-MM-DDTHH:MM:SS.000Z` (UTC) or include a timezone offset                           |
+| "String should have at least 3 characters" on `currency`                                              | Missing or invalid currency code | Use a 3-digit ISO-4217 code (e.g. `USD`)                                                    |
+
+After fixing errors, simply re-upload the corrected file to the same directory.

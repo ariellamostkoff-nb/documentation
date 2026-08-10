@@ -1,0 +1,31 @@
+---
+title: "Best Practices and Limits"
+description: "This page describes the Best Practices and Limitations of our Spend API"
+---
+
+# Best Practices
+
+In a world absent of any logistical constraints, our customers would send us an API call for an order as soon as it lands in the Ad manager.  This would enable the most realtime data for orders within northbeam, and would become available for analysis by our customers following their next data pipeline run.
+
+While this is not often feasible, we generally advise you to sync as many orders as possible with a cadence of at least 2x faster than the number of times a day your pipeline runs per your services agreement.
+
+Note that if you have a data pipeline that runs hourly, and you send spend data once a day, it is likely that on any given present day, you will not be able to make best use of our data in real-time as it pertains to the spend committed on platforms we do not yet natively support (however for metrics on a basis older than the current day, the experience will be unaffected)
+
+# Tying Spend Submitted via the API to Website Events Received via Pixel
+
+The spend submitted via this API has the ability to be tied to the events that Northbeam receives from your website.  In order for this to work, the following fields on the API calls have to match the corresponding fields in the ad object tagging:
+
+* `platform_name`
+* `campaign_id`
+* `adset_id`
+* `ad_id`
+
+It is not always the case that all platforms will support the full campaign/adset/ad hierarchy - for those that do not, feel free to leave the appropriate fields empty.
+
+# Limitations
+
+Our current API accepts spend entries in batches of up to 1000 per API call.  If your volume of orders exceeds this batch size, it is best to breakup the calls to not exceed this limit.  There are no concurrency or daily/hourly limits in place.
+
+# Further Help
+
+If you have any questions, reach out to Customer Success by [submitting a ticket](https://www.northbeam.io/submit-a-support-ticket).

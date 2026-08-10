@@ -1,0 +1,58 @@
+---
+title: "Spend API"
+description: "This page describes the usage of our Spend API"
+---
+
+# What is the Spend API?
+
+The Spend API enables our customers to programmatically upload daily spend, clicks, and impressions metrics at the ad level of their choice (Campaign, Adset, Ad) for Ad platform integrations that we do not natively support. A common example is an email marketing platform (e.g. Mailchimp, SendGrid).
+
+# Functionality
+
+The Spend API allows for
+
+* upload of new entries,
+* updating of existing entries,
+* deletion of existing entries,
+* listing of uploaded entries
+
+With this flexibility, our customers can programmatically modify their spend data for platforms we do not yet natively support!
+
+# Spend Attributes
+
+Each spend entry has a set of **required** attributes as well as *optional* attributes that can be submitted for each spend entry. These fields are also documented in the [API Reference](/reference/post_spend), albeit in much more detail here.
+
+## Day by Day Data
+
+Most users will only need day-by-day data for their custom spend. This will spread out the data across the entire day linearly (For example, if you send $240 for a day, it will be attributed as 10 dollars for every hour of the day).
+
+## Required Attributes
+
+Certain metadata is required for a spend entry to be submitted. Without these fields, an API call will return an error as part of our validation check to make sure the spend entries contained in an API call pass muster. The following attributes are required:
+
+* `date` - The date the spend was committed, in a `YYYY-MM-DD` fashion.
+* `platform_name` - This field denotes the platform name the spend object will appear under in the dashboard. This must be supplied as a non-empty string.
+* `campaign_id` - While the ad hierarchies of each ad platform are different, each platform has a least one level of ads to enumerate over. Within Northbeam, we consider campaigns to be the highest-level ad object. Use this field to capture the ID of the ad object you are spending on
+* `campaign_name` - This field denotes the campaign name the spend object will appear under in the dashboard.
+* `spend` - This captures how much was spent on an ad object on a given day. If no spend was made on an ab object, consider not sending an entry for that ad object.
+* `spend_currency` - This field captures the currency that was used for the spend, per ISO-4217 standards (a 3 letter denomination)
+
+## Optional Attributes
+
+The following spend attributes are optional:
+
+* `platform_account_id` - Each Ad Platform has an account ID. In the event that a customer has multiple account IDs associated with a particular ad platform, this is useful for segregating which ad platform spend was made on. If only using one account and the account ID is unknown, use a number of your choosing, but please remain consistent in using that number!
+* `adset_id` - This field denotes the adset ID for the ad object spend was made (if applicable). If not supplied, the default will be set to `""`(Blank string)
+* `adset_name`- This field denotes the adset name the spend object will appear under in the dashboard. If not supplied, the default will be set to"" (Blank string)
+* `ad_id` - This field denotes the ad ID for the ad object spend was made (if applicable). If not supplied, the default will be set to `""` (Blank string)
+* `ad_name`- This field denotes the ad name the spend object will appear under in the dashboard. If not supplied, the default will be set to"" (Blank string)
+* `impressions`- Along with Spend, the Spend API can track additional metrics that can be gathered from the ad platform, such as impressions; these will default to `0` if not specified
+* `clicks`- Along with Spend, the Spend API can track additional metrics that can be gathered from the ad platform, such as clicks; these will default to `0` if not specified.
+
+# Notes
+
+One of the motivations for the development of this API was to avoid using Spend sheets. Spend sheets exist at Northbeam to allow Northbeam to capture spend that we do not have native connections for. This can be rather cumbersome when there are either (i) a lot of ad platforms to support via Spend sheets, or (ii) a lot of campaigns (deeper levels) of hierarchy per platform. Consider using the Spend API if developer resources are available and the time spent using the sheets is burdensome and can be leveraged otherwise!
+
+# Further Help
+
+If you have any questions, please submit a [Support](https://www.northbeam.io/submit-a-support-ticket) ticket.

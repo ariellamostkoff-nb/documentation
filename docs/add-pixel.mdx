@@ -1,0 +1,102 @@
+---
+title: "7. Pixel and Event Tracking"
+description: "Complete Pixel Placement"
+---
+
+# What is the Northbeam Pixel?
+
+<Note>
+  The Northbeam Pixel is a required snippet of code that allows us to collect behavioral information about your website visitors – including their marketing touchpoints and pages they’ve visited.
+</Note>
+
+The Northbeam Pixel serves as a critical tool for monitoring activities on your website, including tracking purchases and page views.
+
+This functionality is key for several reasons:
+
+* **Enhanced Customer Journey Insights:** By implementing pixel tracking, you gain valuable data that aids in understanding and creating the customer journey. This insight is instrumental in understanding your top and bottom of funnel!
+* **Essential for helping us create a picture of your customers:** This allows us to understand if your customers are coming back to the site so that you can differentiate and gain insights into New vs Returning customers.
+
+<Warning>
+  If the Northbeam Pixel is NOT firing...
+
+  If the pixel isn’t firing, we will not track which marketing channel(s) drove the associated Visit(s) and/or Conversion(s), and **this data is not recoverable**.
+
+  With this said, it's very important that the pixel fires on ALL pages of your site at all times.
+</Warning>
+
+# Pixel Implementation Guides
+
+Please select your e-commerce platform to follow the appropriate guide:
+
+* [Shopify](/docs/shopify-installation)
+* [We use Shopify for checkout, but have a custom site (Headless Solution)](/docs/shopify-installation)
+* [Other e-commerce platform or custom solution (e.g Salesforce, Data Lakes)](/docs/non-shopify-installation)
+  * **Only available on Pro and Enterprise Plans**
+
+# How do I add the Northbeam Pixel to my website?
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/0292b52af8cd448282f9ebc255b8b294?sid=ffee21a4-c67e-4d39-8a9a-45ce041bb5ef" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+***
+
+# Where can I find the script for the Northbeam Pixel?
+
+## In the Onboarding Flow
+
+In the onboarding flow, find the script under the “Pixel Placement” step. After selecting and connecting your platform, find it under “Northbeam Pixel”.
+
+## In the Dashboard
+
+1. Navigate to **Settings**
+2. Click on **Tracking Script Tags**
+3. See **Northbeam Pixel**
+
+<br />
+
+# 🔍 How to Test for Your Northbeam Pixel on Any Web Page
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/5af69887b65f4aa18b186be31efa0e66?sid=82fe4c47-4100-4da5-bce7-49dea856c900" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+Use the steps below to confirm that the Northbeam pixel is correctly installed and firing on your website:
+
+### 1. Open Your Website
+
+* Accept any cookie banners to ensure all scripts load.
+
+### 2. Open Developer Tools
+
+* Right-click the page → **Inspect** → go to the **Network** tab.
+* Refresh the page.
+
+<Tip>
+  **Note:** These instructions are based on Google Chrome.
+</Tip>
+
+### Step 3: Search for the Northbeam Pixel Request
+
+* In the Network tab, use the search bar to look for the request called: `**nb-collector**`
+* Click on one of the results to inspect its details.
+* In the **Payload**, look for a `pv` field.
+* The presence of `"pv"` (short for *page view*) means that a page view event was successfully captured and sent to your Northbeam dashboard.
+
+### Step 4: Verify the Correct Client ID
+
+If you have multiple dashboards (e.g., for different regions or brands):
+
+1. In the same request, locate the value for `aid`
+2. This value represents the **Client ID** associated with the pixel on that page.
+3. Confirm that the Client ID matches the correct Northbeam account to ensure data is routed properly.
+
+<Warning>
+  **Important:** Avoid mixing and matching pixels between different dashboards. Data will only show up in the account tied to the correct `aid`.
+</Warning>
+
+***
+
+### Need Help?
+
+If you don’t see the `nb-collector` request or if you’re unsure about the Client ID, please [reach out to our team for support.](https://www.northbeam.io/submit-a-support-ticket)

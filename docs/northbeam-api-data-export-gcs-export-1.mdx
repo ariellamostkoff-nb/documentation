@@ -1,0 +1,14 @@
+---
+title: "Exporting To GCS"
+description: "This page describes the Exporting To GCS of our Data Export API"
+---
+
+# Exporting to an external GCS bucket
+
+By default, all data exports are stored in Northbeam's internal GCS. However, if you prefer to export your data to your own GCS bucket, you can do so by following these steps:
+
+1. Grant `Storage Object Admin` permissions to the email address
+   `nb-data-export@north-beam-io.iam.gserviceaccount.com` in your bucket's IAM
+   configuration.
+2. Input the name of the GCS bucket you want us to send the data to
+3. Click 'validate' to make sure the connection works

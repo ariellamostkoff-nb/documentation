@@ -1,0 +1,166 @@
+---
+title: "Tracking for MNTN"
+description: "This guide will show you how to connect your MNTN account to Northbeam and pull the following metrics:"
+---
+
+* Spend
+* Impressions for CDV matching
+
+***
+
+## Supported Attribution Models
+
+The MNTN integration currently supports the following Northbeam attribution models:
+
+* First Touch
+* Last Touch
+* Last Non-Direct Touch
+* Clicks-Only
+* Clicks + Deterministic Views (C+DV)
+
+<Note>
+  Note: Clicks + Modeled Views is not supported for MNTN.
+</Note>
+
+***
+
+## **Step 1: Select MNTN Channels**
+
+1. Log into your Northbeam Dashboard
+2. Go to **Settings → Connections**
+3. Scroll down to **MNTN**
+4. Select the **MNTN channels** you are advertising on within the connection flow.
+
+<Warning>
+  **Note: This section is currently being updated.**
+
+  Previously, this step noted that CTV had limited attribution support, but that’s no longer accurate — CTV is now fully supported under Northbeam’s Clicks + Deterministic Views (C+DV) model.
+
+  The selector remains informational only and does not impact your integration.
+</Warning>
+
+<Frame caption="Settings > Connections > MNTN > MNTN Channels">
+  <img src="https://files.readme.io/39c03459f616558d85d52dd8bd3984899cb6670432d7bf310f679058bcd3c44c-Screenshot_2025-11-05_at_2.36.07_PM.png" alt="MNTN Screenshot" />
+</Frame>
+
+***
+
+## **Step 2: Enter Your API Key**
+
+To connect your MNTN account:
+
+1. Log in to your **MNTN account**.
+2. Click the **menu icon** in the top-right corner.
+3. Navigate to **My Account → API**.
+4. Copy your **API Key**.
+5. In Northbeam, go to **Settings → Connections → MNTN**.
+6. Paste your **API key** and click **Connect**.
+
+<Frame caption="Settings > Connections > MNTN > API Key">
+  <img src="https://files.readme.io/61068d468ff2126cbd2976c1aade4d8b14030723ce511fa5567c8d7b78a83cbc-Screenshot_2025-11-05_at_2.56.25_PM.png" alt="" />
+</Frame>
+
+***
+
+## **Step 3: Enable Clicks + Deterministic Views (C+DV)**
+
+Once your MNTN connection is active in Northbeam:
+
+1. Go to **Settings → Model Settings → Attribution Models**.
+2. Select **Clicks + Deterministic Views (C+DV)** from the list of attribution models.
+3. Under Available Platforms, check the box for **MNTN**.
+4. Click **Save** **Changes**.
+5. Allow up to 48 hours for MNTN impression data to populate in your dashboard.
+
+<Frame caption="Settings > Model Settings > Attribution Models Available">
+  <img src="https://files.readme.io/e2aca862fdbfd34ae179b0954855ca479a4bc8de9c6b20ec10770d7a9af824d2-Screenshot_2025-11-05_at_2.57.38_PM.png" alt="" />
+</Frame>
+
+<Warning>
+  **MNTN Data Processing**
+
+  * After initial setup, data can take up to **3 days** to fully backfill.
+  * Once live, **C+DV data processes 3× per day** in Northbeam.
+  * “Last retrieved” = when data was last received from MNTN.
+  * “Last processed” = when data was last processed and visible in the dashboard.
+</Warning>
+
+***
+
+## Step 4: Enable the Integration in MNTN
+
+After connecting your API key in Northbeam, you’ll need to enable the integration from within your MNTN account to complete the setup.
+
+1. Sign in to your **MNTN account**
+2. Click your account name in the top-right corner and select **My Account**.
+3. In the left-hand navigation, click **Integrations**.
+4. Under **Analytics Integrations**, find **Northbeam** and click **Connect**.
+5. Once connected, you’ll see a confirmation message — data will begin syncing automatically within 24–48 hours.
+6. For full instructions, visit the official [MNTN Integration Guide](https://help.mountain.com/en/articles/11644276-integrate-northbeam).
+
+<br />
+
+<Warning>
+  **Remove Legacy Tags:**  
+  If you previously implemented legacy MNTN impression tags for Northbeam, remove them after enabling the new C+DV integration.
+
+  Keeping legacy tags active can cause duplicate or conflicting impression data in reporting.
+</Warning>
+
+***
+
+## **Step 5: Verify Order ID Alignment**
+
+MNTN uses **order IDs** for deterministic matching. To confirm setup:
+
+1. In Northbeam, go to **Orders → Order ID** and note your order ID format (e.g., Shopify order numbers).
+2. In MNTN, ensure the **same order ID format** is being passed to Northbeam.
+   * Mismatched order IDs will prevent deterministic matching and CDV visibility.
+3. If misaligned, update your MNTN setup or contact Support to adjust configuration.
+
+***
+
+## **FAQs**
+
+### **1. Why am I not seeing MNTN data after enabling CDV?**
+
+If you’ve connected your account and turned on CDV but no data is visible:
+
+* Ensure order IDs are aligned between MNTN and Northbeam.
+* Confirm CDV consent was enabled in Northbeam (Account Settings → Attribution Models).
+* Allow up to **48 hours** post-consent for impression data to appear.
+* Verify that the advertiser is actively running campaigns in MNTN.
+* Check “Last retrieved” and “Last processed” timestamps in the dashboard.
+
+If all checks pass and data is still missing, contact Support for further investigation.
+
+<br />
+
+### 2. Why do MNTN conversions and revenue differ between Northbeam and GA4?
+
+Northbeam and GA4 attribute MNTN CTV performance in fundamentally different ways, so conversion and revenue numbers will not match — and this is expected.
+
+#### How GA4 attributes MNTN conversions
+
+* MNTN’s Verified Visits create direct sessions in GA4 when a user visits your site after viewing a CTV ad.
+* GA4 then attributes conversions based on its session-level model (such as DDA or last non-direct click).
+* These conversions are not tied to UTMs, since CTV impressions do not pass them.
+
+#### How Northbeam attributes MNTN conversions
+
+* Northbeam uses deterministic impression matching under Clicks + Deterministic Views (C+DV).
+* If a user converts after being exposed to a valid MNTN impression within the attribution window, Northbeam attributes that conversion to MNTN.
+* This does not rely on sessions or UTMs.
+
+#### Why they differ
+
+* GA4 attributes conversions to direct sessions triggered after a CTV impression.
+* Northbeam attributes conversions to deterministically matched impressions, independent of session source.
+* Because the attribution logic is different, conversion and revenue totals will not align between the two platforms.
+
+<br />
+
+### **3. How long does the initial sync take?**
+
+The initial sync from MNTN can take up to **72 hours**, depending on historical data volume.\
+After that, updates occur **3× per day**.

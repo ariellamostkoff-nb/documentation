@@ -1,0 +1,195 @@
+---
+title: "Setting Up Multiple Stores or Regions"
+description: "Use this page if you operate more than one store, brand, or region and want to understand how to structure your Northbeam setup."
+---
+
+A **segment** refers to any distinct part of your business you want to track separately in Northbeam. The most common examples are:
+
+* **Multiple regions** — e.g. a US store and a UK store
+* **Multiple business lines** — e.g. a DTC storefront and a wholesale storefront
+* **Multiple brands** — e.g. Brand A and Brand B under the same parent company
+
+***
+
+## Start Here
+
+Answer these two questions. If either answer is yes, you likely need multiple dashboards.
+
+**1. Do your segments live on different top-level domains?**
+Each Northbeam dashboard is tied to a single top-level domain via a DNS A Record. If you have multiple domains and want first-party tracking on each, each domain needs its own dashboard.
+
+**2. Do you need fully separated data per segment?**
+A single dashboard blends all data together. There is no way to separate orders, revenue, or attribution by segment at the order level within a single dashboard. If you need clean, independent reporting per store or region, you need multiple dashboards.
+
+> If neither applies — multiple domains don't matter to you and blended data is fine — a single dashboard may be all you need. See [Option 1](#option-1-single-dashboard-blended) below.
+
+***
+
+## Option 1: Single Dashboard (Blended)
+
+All segments feed into one dashboard. Data is not separated at the order or visit level.
+
+**Works well when:**
+
+* All segments are on the same top-level domain, OR you're fine with third-party tracking on additional domains
+* You don't need independent revenue or attribution reporting per segment
+* Consolidated reporting matters more than per-segment precision
+
+**Key caveats:**
+
+* **No order-level segmentation.** You cannot separate Store A orders from Store B orders within the dashboard.
+* **Campaign naming conventions are the only segmentation lever.** You can filter by UTM parameters or campaign names in the Attribution view, but that's it.
+* **Third-party tracking on additional domains.** If you connect a store on a different domain to an existing dashboard, that store will use third-party cookies instead of first-party. Modern browsers increasingly block third-party cookies, which reduces visit stitching accuracy and can increase unattributed revenue in your MTA data.
+
+**What you'll need:**
+
+* Northbeam pixel installed and firing on all stores' pages
+* `firePixelEvent` purchase events firing on all stores' checkouts
+* Orders and spend connected for each store
+
+<Note>
+  Need help with pixel setup? See [Troubleshooting Pixel Tracking](/docs/guide-to-troubleshooting-pixel-tracking).
+</Note>
+
+***
+
+## Option 2: Multiple Dashboards
+
+Each segment gets its own Northbeam dashboard with fully independent data. This is the setup to use when you need clean, separated reporting or have multiple domains that each require first-party tracking.
+
+There are two ways to get to multiple dashboards depending on your domain setup.
+
+***
+
+### Option 2A: Multiple Domains → One Dashboard Per Domain
+
+If each segment has its own top-level domain (or subdomain), each gets its own Northbeam dashboard. This is the standard multi-dashboard setup.
+
+**Examples:**
+
+| Segment  | Domain           | Dashboard         |
+| -------- | ---------------- | ----------------- |
+| US Store | `mystore.com`    | US Dashboard      |
+| UK Store | `uk.mystore.com` | UK Dashboard      |
+| Brand B  | `brandb.com`     | Brand B Dashboard |
+
+**Requirements:**
+
+* Each segment has a distinct domain or subdomain
+* Ad data can be separated by segment — either via unique ad accounts, or via consistent campaign/adset naming conventions (e.g. campaigns beginning with `US_`, `UK_`)
+* Orders can be matched to the correct segment via store, shipping country, currency, or other order metadata
+
+**What you'll need:**
+
+* A new Northbeam dashboard provisioned for each domain (handled by the Northbeam team)
+* Standard setup completed for each dashboard: pixel, DNS, orders, spend
+* Once set up, you can switch between all your dashboards using a single login
+
+<Warning>
+  New dashboards are always provisioned by the Northbeam team — there is no self-serve path. Reach out to your CSM to get started.
+</Warning>
+
+**Supported scenario examples:**
+
+| Segment | Ads                 | Domain           | Orders                     |
+| ------- | ------------------- | ---------------- | -------------------------- |
+| US      | US Meta Ads Account | `mystore.com`    | `mystore-us.myshopify.com` |
+| UK      | UK Meta Ads Account | `uk.mystore.com` | `mystore-uk.myshopify.com` |
+| DE      | DE Meta Ads Account | `de.mystore.com` | `mystore-de.myshopify.com` |
+
+✅ Supported — unique ad accounts, domains, and Shopify stores per segment.
+
+| Segment | Ads                        | Domain           | Orders            |
+| ------- | -------------------------- | ---------------- | ----------------- |
+| US      | Campaigns begin with `US_` | `mystore.com`    | Currency is `USD` |
+| UK      | Campaigns begin with `UK_` | `uk.mystore.com` | Currency is `GBP` |
+| DE      | Campaigns begin with `DE_` | `de.mystore.com` | Currency is `EUR` |
+
+✅ Supported — campaign naming conventions and order metadata cleanly map to each segment.
+
+| Segment | Ads                                          | Domain           | Orders            |
+| ------- | -------------------------------------------- | ---------------- | ----------------- |
+| US      | 1 shared account, campaigns begin with `US_` | `mystore.com`    | Currency is `USD` |
+| UK      | 1 shared account, campaigns begin with `UK_` | `uk.mystore.com` | Currency is `GBP` |
+
+✅ Supported — shared ad account with consistent naming conventions allows spend to be filtered per segment using Breakdown labels.
+
+| Segment | Ads                                       | Domain           | Orders                     |
+| ------- | ----------------------------------------- | ---------------- | -------------------------- |
+| US      | 1 shared ad account, no naming convention | `mystore.com`    | `mystore-us.myshopify.com` |
+| UK      | 1 shared ad account, no naming convention | `uk.mystore.com` | `mystore-uk.myshopify.com` |
+
+<Warning>
+  Domains and orders are separable, but **ad data cannot be split without naming conventions**. Separate dashboards can still be created, but spend and impressions will not be accurately attributed per segment. Naming conventions must be added before proceeding.
+</Warning>
+
+***
+
+### Shared Ad Accounts Across Segments
+
+Having one ad account that serves multiple segments is supported — but it requires clean campaign naming conventions and an extra filtering step.
+
+**How it works:**
+
+* Connect the shared ad account to **each** segment dashboard. Because the account is shared, all campaigns will pull into every dashboard by default.
+* Use **Breakdown labels** in each dashboard to filter to only the campaigns relevant to that segment (e.g. the UK dashboard filters to only show campaigns beginning with `UK_`). Northbeam will walk you through setting these up.
+* **All campaigns must follow a consistent naming convention** so they can be cleanly attributed to the right segment.
+
+**Consolidated campaigns** (e.g. a brand awareness campaign that isn't segment-specific) require a decision: include it in all dashboards, one dashboard, or exclude it entirely. There is no automatic way to split a single campaign across multiple dashboards.
+
+<Warning>
+  If campaigns aren't named consistently, there is no reliable way to split ad spend by segment. The naming convention must be in place before Northbeam can configure Breakdown labels.
+</Warning>
+
+***
+
+### Option 2B: Single Domain → Multiple Dashboards via Configurators
+
+If all your segments live on one top-level domain but you still need separated data, Northbeam can split events and orders across multiple dashboards using **Configurators**. First-party tracking is maintained across the single domain.
+
+**Examples:**
+
+| Segment | Domain           | Dashboard    |
+| ------- | ---------------- | ------------ |
+| US      | `mystore.com/us` | US Dashboard |
+| UK      | `mystore.com/uk` | UK Dashboard |
+| DE      | `mystore.com/de` | DE Dashboard |
+
+**How it works:**
+
+* A **parent dashboard** receives all events from your domain
+* **Child dashboards** each receive a split subset of events, routed by logic rules you define (e.g. page path, country code, order tags)
+* Data is fully separated at the order and visit level in each child dashboard
+* The parent always retains the blended view
+
+**Requirements:**
+
+* All segments must be cleanly separable using Northbeam's supported logic fields — the split cannot be arbitrary. See [Multi-Dashboard Setup with Configurators](/docs/multi-dashboard-setup-with-configurators) for the full list of supported fields.
+* Ad data must still be separable by segment (unique ad accounts or campaign naming conventions)
+
+**Not available to all customers.** Reach out to your CSM to find out if this setup is right for you.
+
+<Note>
+  For full details on how Configurators work, supported logic fields, and the setup process, see [Multi-Dashboard Setup with Configurators](/docs/multi-dashboard-setup-with-configurators).
+</Note>
+
+***
+
+## Decision Summary
+
+| My situation                                        | Recommended setup                                             |
+| --------------------------------------------------- | ------------------------------------------------------------- |
+| One domain, blended data is fine                    | Single dashboard                                              |
+| One domain, need separated data per segment         | Configurators (Option 2B)                                     |
+| Multiple domains, blended data is fine              | Single dashboard (third-party tracking on additional domains) |
+| Multiple domains, need first-party tracking         | One dashboard per domain (Option 2B)                          |
+| Multiple domains, need first-party + separated data | One dashboard per domain (Option 2B)                          |
+
+***
+
+## What's Next
+
+* **Single dashboard setup** → See [Welcome to Northbeam](/docs/implementation-guide)
+* **New dashboard for a new domain** → Contact your CSM
+* **Configurator setup (single domain, multiple dashboards)** → Contact your CSM, then see [Multi-Dashboard Setup with Configurators](/docs/multi-dashboard-setup-with-configurators)
+* **Questions?** [Submit a support ticket](https://www.northbeam.io/submit-a-support-ticket)

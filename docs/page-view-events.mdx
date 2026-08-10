@@ -1,0 +1,205 @@
+---
+title: "Page View Events"
+---
+
+## Table of Contents
+
+* [Overview](#overview)
+* [Prerequisites](#prerequisites)
+* [How trackPageView() Works](#how-trackpageview-works)
+* [Implementation](#implementation)
+* [trackPageView() Reference](#trackpageview-reference)
+* [Troubleshooting](#troubleshooting)
+* [Related Documentation](#related-documentation)
+
+***
+
+## Overview
+
+The Northbeam pixel automatically fires an initial page view (`trackPageViewInitial`) when it first loads on a page.
+
+However, in **Single Page Applications (SPAs)** or sites using JavaScript-based routing (e.g. Shopify Hydrogen, Next.js, Nuxt, React Router), the URL changes without triggering a full browser reload — meaning the pixel never re-fires and those page views go **untracked**.
+
+**`trackPageView()` is the method you call manually to tell Northbeam a new "virtual" page view has occurred.**
+
+<Warning>
+  **Only fire `trackPageView()` on virtual page transitions — not on full browser reloads.**
+
+  The Northbeam pixel already fires `trackPageViewInitial()` on every full-page load. Calling `trackPageView()` on a full reload as well will result in **duplicate page views**. Scope your trigger to client-side route changes only.
+</Warning>
+
+<Info>
+  **Do you need this?** Only if your site uses a JavaScript framework or SPA architecture where page navigation happens without a full browser reload (e.g. Next.js, Nuxt, React Router, Shopify Hydrogen). If your site uses traditional full-page navigation, the pixel handles page views automatically — no additional setup needed.
+
+  `trackPageView()` can be implemented via Google Tag Manager or directly in your site's code. Both approaches are covered below.
+</Info>
+
+***
+
+## Prerequisites
+
+Before implementing `trackPageView()`, confirm the following are in place:
+
+* The **Northbeam Pixel** is installed and firing on all pages of your storefront (via your theme, CMS, or Google Tag Manager). See the [All Other Platforms Installation](/docs/non-shopify-installation) guide.
+* `trackPageView()` is exposed by the Northbeam pixel — the pixel **must be loaded first**. If the pixel has not initialized when `trackPageView()` is called, the call will fail silently.
+
+***
+
+## How `trackPageView()` Works
+
+When called, `trackPageView()` sends a page view event to Northbeam for the current URL. This allows Northbeam to accurately track user journeys across virtual navigation events in SPAs and JS-routed sites.
+
+```javascript
+window.Northbeam.trackPageView();
+```
+
+There are no arguments. The method automatically captures the current `window.location` at the time it is called.
+
+***
+
+## Implementation
+
+Choose the approach that fits your setup. Both are fully supported.
+
+***
+
+### Option A — Google Tag Manager (GTM)
+
+If you manage tags through GTM, you can deploy `trackPageView()` as a Custom HTML tag scoped to virtual page changes.
+
+#### Step 1 — Confirm the Northbeam Pixel Tag Is Already in GTM
+
+The Northbeam pixel must be deployed as a separate GTM tag firing on **All Pages**. The `trackPageView()` tag depends on it — the pixel must be initialized before `trackPageView()` runs.
+
+#### Step 2 — Create a New Custom HTML Tag
+
+1. In GTM, click **Tags > New**.
+2. Set the **Tag Type** to **Custom HTML**.
+3. Paste the following into the HTML field:
+
+```html
+<script>
+  (function checkNorthbeam() {
+    if (window.Northbeam && typeof window.Northbeam.trackPageView === 'function') {
+      window.Northbeam.trackPageView();
+    }
+  })();
+</script>
+```
+
+The `if` check ensures the call is safe even if there is any loading delay — it will only execute if the Northbeam pixel is already available on the page.
+
+#### Step 3 — Set the Trigger (Virtual Page Views Only)
+
+<Warning>
+  **Do not use an "All Pages" trigger.** This tag must fire on virtual navigation events only — not full-page reloads. Using an All Pages trigger will cause duplicate page views on every initial load.
+</Warning>
+
+Use one of the following trigger types depending on how your site handles routing:
+
+| Routing Method                      | Recommended Trigger                                                                               |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------- |
+| History API / pushState (most SPAs) | **History Change** trigger in GTM                                                                 |
+| Custom data layer event             | Custom Event trigger matching your event name (e.g. `page_view`, `route_change`, `Loaded a Page`) |
+| Hash-based routing                  | History Change trigger (supports hash changes)                                                    |
+
+**To use GTM's built-in History Change trigger:**
+
+1. Go to **Triggers > New**.
+2. Set Trigger Type to **History Change**.
+3. Name it (e.g. `History Change - Virtual Page View`).
+4. Attach this trigger to your `trackPageView()` tag.
+
+<Info>
+  **Heads up for some SPAs:** The History Change trigger may fire multiple times on a single navigation event depending on how your site is built. If you see duplicate page views in Northbeam after navigating, open GTM's Preview mode and check how many History events fire per route change. If more than one fires, scope the trigger to a specific `gtm.historyChangeSource` value (e.g. `pushState` only), or switch to a custom data layer event approach instead.
+</Info>
+
+#### Step 4 — Publish
+
+Use GTM's Preview mode to confirm:
+
+* The Northbeam Pixel tag fires on **all pages**.
+* The `trackPageView()` tag fires on route/URL changes — and **only** those.
+* No duplicate page view events appear on full reloads.
+
+Once confirmed, **Submit** and publish your GTM container.
+
+<Warning>
+  **Unpublished GTM containers will not track anything.** Always publish after making changes.
+</Warning>
+
+***
+
+### Option B — Direct Script (In-Code)
+
+Call `trackPageView()` directly from within your application's router or navigation lifecycle.
+
+The key requirements are:
+
+* Call it on every client-side route change
+* Do **not** call it on full-page reloads
+* Ensure the Northbeam pixel has already loaded before the call runs
+
+#### React Router Example
+
+If you're using React Router, call `trackPageView()` after every page transition using `useLocation`. ([React Router docs](https://reactrouter.com/en/main/hooks/use-location))
+
+```javascript
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+function NorthbeamPageTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (window.Northbeam && typeof window.Northbeam.trackPageView === 'function') {
+      window.Northbeam.trackPageView();
+    }
+  }, [location]);
+
+  return null;
+}
+```
+
+Place this component inside your router so it runs on every route change. Apply the same pattern for other frameworks — hook into the router's navigation callback and call `window.Northbeam.trackPageView()` there.
+
+#### Shopify Hydrogen
+
+Shopify Hydrogen is a React-based storefront framework with its own routing and analytics layer. The correct implementation will vary depending on your Hydrogen version. Please work with your dev team to hook `window.Northbeam.trackPageView()` into your router's navigation lifecycle — the same principles apply (fire on client-side route changes only, ensure the pixel is loaded first), but the specific integration pattern depends on how your Hydrogen app is structured.
+
+***
+
+## `trackPageView()` Reference
+
+```javascript
+window.Northbeam.trackPageView();
+```
+
+| Detail               | Value                                                                    |
+| -------------------- | ------------------------------------------------------------------------ |
+| Arguments            | None                                                                     |
+| When to call         | On every client-side route/URL change (virtual page views)               |
+| When **not** to call | On full-page browser reloads — already handled by `trackPageViewInitial` |
+| Requires             | Northbeam pixel must be loaded on the page first                         |
+
+***
+
+## Troubleshooting
+
+| Symptom                                                 | Likely Cause                                                  | Fix                                                                                                                                                                        |
+| ------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Page views not increasing in Northbeam after navigation | `trackPageView()` not firing on route changes                 | Confirm your GTM History Change trigger or router hook fires on client-side URL changes                                                                                    |
+| Duplicate page views on initial load                    | `trackPageView()` trigger also fires on full-page reloads     | Scope trigger to virtual/history-change events only; do not use "All Pages" as the trigger                                                                                 |
+| Duplicate page views on navigation (GTM)                | History Change trigger firing multiple times per route change | Open GTM Preview mode; if multiple History events fire per navigation, scope trigger to `pushState` via `gtm.historyChangeSource` or use a custom data layer event instead |
+| `trackPageView is not a function` error in console      | Pixel not loaded when `trackPageView()` is called             | Add the `if (window.Northbeam && typeof window.Northbeam.trackPageView === 'function')` guard; enforce correct load order so the pixel fires first                         |
+| Tag fires but no data appears in Northbeam              | Pixel tag is not published or is blocked                      | Confirm the Northbeam pixel tag is live and not blocked by a CSP; check the browser Network tab for `nb-collector` requests                                                |
+
+***
+
+## Related Documentation
+
+* [All Other Platforms Installation](/docs/non-shopify-installation) — pixel installation guide for non-Shopify stores
+* [7. Pixel and Event Tracking](/docs/add-pixel) — overview of Northbeam's tracking setup and how to test that your pixel is firing
+* [(Optional) Additional Events](/docs/optional-additional-methods) — full reference for all Northbeam pixel methods including `identify()`, `fireCustomGoal`, and `onNorthbeamLoad`
+* [Third-Party Checkouts](/docs/third-party-checkouts) — attribution for checkout flows where a standard order ID is unavailable
+* [Troubleshooting Pixel Tracking](/docs/guide-to-troubleshooting-pixel-tracking) — how to use the Pixel Confirmed dashboard and browser debugger

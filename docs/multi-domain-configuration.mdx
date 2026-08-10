@@ -1,0 +1,73 @@
+---
+title: "Multi-domain configuration"
+description: "Setup Northbeam for multiple domains."
+---
+
+Northbeam can be implemented to track different domains separately, if your setup meets the following requirements.
+
+# Requirements
+
+| Ad Data                                              | Domains                                                         | Orders                                                                              |
+| ---------------------------------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Domain-specific ad accounts, or campaigns, or adsets | Domain-specific top-level domains, or subdomains, or page paths | Domain-specific stores, or currencies, or shipping country, or other order metadata |
+
+* **Domain-specific ad data.** At either the account, campaign, or adset level, ad data must be domain-specific / follow some naming convention. If single ad accounts are used to serve ads across multiple domains, campaigns/adsets must follow a naming convention.
+  * Unique accounts (e.g. US Meta Ads Account, UK Meta Ads Account, CA Meta Ads Account)
+  * Campaign Naming Convention (e.g. Names begins with `US_`, `UK_`, `CA_`)
+  * Adset Naming Convention (e.g. Names begins with `US_`, `UK_`, `CA_`)
+* **Domain metadata for orders.** Orders need to be able to be grouped by domain so that they can be matched with corresponding ad and visits datasets.
+* **Domain-specific dashboards.** In order to accommodate this configuration, Northbeam dashboards will be made for each domain, as opposed to a single dashboard with domain breakdowns.
+
+## FAQ
+
+**Can we consolidate all domains into a single dashboard?**
+
+* You **cannot** send data from multiple domains to a single dashboard.
+  * **Why?**
+    * Northbeam dashboards map 1:1 to domains to enable 1st party tracking. Each dashboard has a unique domain, connected to the A Record within the DNS settings.
+    * If multiple domains pointed to 1 Northbeam dashboard, only 1 domain would have 1st party tracking, and the others would use 3rd party tracking.
+* You can combine multiple dashboards into a single rollup dashboard.
+
+# Examples
+
+## Scenario 1
+
+| Domain           | Ads                             | Orders                                     |
+| ---------------- | ------------------------------- | ------------------------------------------ |
+| `mystore.com`    | ‘My Store’ Meta Ads Account     | Metadata contains "`Site: mystore.com`"    |
+| `trymystore.co`  | ‘Try My Store’ Meta Ads Account | Metadata contains "`Site: trymystore.com`" |
+| `getmystore.com` | ‘Get My Store’ Meta Ads Account | Metadata contains "`Site: getmystore.com`" |
+
+<Tip>
+  Multi-dashboard configuration is supported!
+
+  This setup has unique ad accounts, domains, and order metadata which allows dashboards to be created for each domain.
+</Tip>
+
+## Scenario 2
+
+| Domain           | Ads                                     | Orders                                     |
+| ---------------- | --------------------------------------- | ------------------------------------------ |
+| `mystore.com`    | Campaign names begin with `mystore_`    | Metadata contains "`Site: mystore.com`"    |
+| `trymystore.com` | Campaign names begin with `trymystore_` | Metadata contains "`Site: trymystore.com`" |
+| `getmystore.com` | Campaign names begin with `getmystore_` | Metadata contains "`Site: getmystore.com`" |
+
+<Tip>
+  Multi-dashboard configuration is supported!
+
+  This setup has domain-specific campaign names and orders data that map uniquely to the domains, which allows dashboards to be created for each domain.
+</Tip>
+
+## Scenario 3
+
+| Domain           | Ads                                | Orders                                     |
+| ---------------- | ---------------------------------- | ------------------------------------------ |
+| `mystore.com`    | 1 ad account, no naming convention | Metadata contains "`Site: mystore.com`"    |
+| `trymystore.com` | 1 ad account, no naming convention | Metadata contains "`Site: trymystore.com`" |
+| `getmystore.com` | 1 ad account, no naming convention | Metadata contains "`Site: getmystore.com`" |
+
+<Warning>
+  Multi-dashboard configuration is not supported.
+
+  This setup has no way to split out ad data by domain, so it is impossible to attribute spend and impressions to specific domains.
+</Warning>

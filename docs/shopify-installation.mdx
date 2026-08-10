@@ -1,0 +1,211 @@
+---
+title: "Shopify Installation"
+description: "Add the Northbeam pixel to your Shopify storefront"
+---
+
+To start collecting marketing and behavioral data in Northbeam, you’ll need to install a few scripts on your Shopify store.
+
+Here's how each one works and where to install it.
+
+***
+
+# 🧠 Core Scripts Overview
+
+<br />
+
+<Table>
+  <thead>
+    <tr>
+      <th>
+        Section
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        [Northbeam Pixel + Metadata Script Installation](#northbeam-pixel--metadata-script-installation)
+      </td>
+
+      <td>
+        Learn how to install the Northbeam Pixel and Metadata Script inside your Shopify `theme.liquid` file.
+
+        These scripts are responsible for collecting visitor behavior, marketing attribution data, regional information, and other foundational tracking required for Northbeam to function properly.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [Customer Event (firePurchaseEvent for Shopify)](#customer-event-installation)
+      </td>
+
+      <td>
+        Set up Shopify Customer Events to track completed purchases using Shopify’s native `checkout_completed` event.
+
+        This section walks through creating a custom pixel, adding the Northbeam event tracking script, configuring permissions, and ensuring customer consent settings are properly enabled.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [Post Purchase Upsell (Optional)](#post-purchase-upsell-installation-optional)
+      </td>
+
+      <td>
+        Configure optional tracking for post-purchase upsell flows that occur after the standard Shopify checkout.
+
+        This is only required for stores using post-purchase checkout apps or upsell experiences and ensures those additional purchases are attributed correctly in Northbeam.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+<br />
+
+***
+
+<br />
+
+## Where to find the scripts
+
+All scripts can be found in: [**Settings → Northbeam Pixel and Event Tracking**](https://dashboard.northbeam.io/settings/tracking-script-tags)
+
+<Frame caption="Settings > Northbeam Pixel and Event Tracking > Shopify Pixel">
+  <img src="https://files.readme.io/9963ccf06c5569afccf3c8c7e87d324052453b560ff7587c6de17dc4794e5820-CleanShot_2026-05-15_at_09.05.48.png" alt="" />
+</Frame>
+
+<br />
+
+***
+
+<br />
+
+# Northbeam Pixel + Metadata Script Installation
+
+These scripts must be added to the `<head>` section of `theme.liquid`.
+
+Place the **Metadata Script above the Northbeam Pixel**.
+
+## Step by Step Guide
+
+1. In Shopify, go to **Online Store → Themes**
+2. Click **⋮ → Edit Code**
+
+<Frame>
+  <img src="https://files.readme.io/680fa0a8abec9a44a8d53bb292edf4643a133ce43f0c7f94e3ab1f8141cd96f2-CleanShot_2026-05-15_at_09.07.30.png" alt="" />
+</Frame>
+
+3. Open **Layout → theme.liquid**
+4. Paste the scripts inside the `<head>` section.
+   1. The **Metadata Script goes first**, then the Northbeam Pixel.
+
+<Frame>
+  <img src="https://files.readme.io/a9a5aea3fd3e57216817ebbfe23d1906be58ae6d8656f3fcf06e4c23b20f8898-CleanShot_2026-05-15_at_09.11.17.png" alt="" />
+</Frame>
+
+5. Click **Save**
+
+<Info>
+  ## Can I place the Northbeam Pixel and Metadata Script in Google Tag Manager?
+
+  The Base Pixel and Metadata scripts should only be installed directly in theme.liquid, not Google Tag Manager, per our normal setup. These scripts rely on Shopify-native variables and are not supported in Google Tag Manager or other third-party tagging tools.
+</Info>
+
+<br />
+
+***
+
+<br />
+
+# Customer Event Installation
+
+This script tracks completed purchases using Shopify’s `checkout_completed` event, or their native checkout.
+
+## Step by Step Guide
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/19bb8e74bae442fab6a72ccc11a01add" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+1. In Shopify, go to **Settings**
+
+<Frame>
+  <img src="https://files.readme.io/a6f1c6f3517b21fed3e5a37d4e864eb2c151329372f9488c2eeac0508a39bc0b-settings.png" alt="" />
+</Frame>
+
+2. Navigate to **Customer Events** > **Custom Pixels** > **Add Custom Pixel**.
+
+<Frame>
+  <img src="https://files.readme.io/596d5172a1dba61bc3adde5ecfba79f7d97bcffab3537b36118c22786481cf15-add_custom_pixel.png" alt="" />
+</Frame>
+
+3. Enter a name for the pixel (ex: **Northbeam Event Tracking**), then click **Add Pixel**
+
+<Frame>
+  <img src="https://files.readme.io/e8115547147cf04c4bba63a715b6f807ce1e65e7f1e53d7c70043d7ddf825311-name_it_add_pixel.png" alt="" />
+</Frame>
+
+4. Set **Permission** to **Data collected does not qualify as data sale**, paste in the script, then click **Save**.
+
+<Frame>
+  <img src="https://files.readme.io/1f436b37960c9f281347caa0c1602ee4fd12122ca845dba95d7e7286453df049-data_sale_paste_script_save_.png" alt="" />
+</Frame>
+
+5. Click **Connect**
+
+<Frame>
+  <img src="https://files.readme.io/0ffb378329a6e2ab4508b23690529013a402b7ac8a4489174ffc7cdb5bb54d69-CleanShot_2026-05-15_at_10.07.13.png" alt="" />
+</Frame>
+
+6. Click **Connect**
+
+<Frame>
+  <img src="https://files.readme.io/687620ea46959070ffd1858bbf1295c1c48974588b40a02ca54b89b9aeda0dc1-CleanShot_2026-05-15_at_09.23.03.png" alt="" />
+</Frame>
+
+7. Go to your **Customer Privacy** settings and ensure a cookie consent banner is enabled.
+
+<Info>
+  **Important:** Without a cookie banner or consent solution, customers may not be able to opt in to tracking, which can prevent the script from firing. In most cases, this consent is managed through Shopify Customer Privacy settings.
+</Info>
+
+<Frame>
+  <img src="https://files.readme.io/26472f0f81336a26372e5678c228881024bcf05ad37fde7fa289e3f96b33df73-privacy_policy.png" alt="" />
+</Frame>
+
+<Info>
+  ## Can I place the Customer Event in Google Tag Manager?
+
+  No. These scripts rely on Shopify-native variables that GTM and similar tools cannot access, and splitting them across environments can cause firing order issues and tracking inaccuracies.
+</Info>
+
+<br />
+
+***
+
+<br />
+
+# Post Purchase Upsell Installation (Optional)
+
+Only required if your Shopify store uses a post-purchase checkout or upsell flow.
+
+## Step by Step Guide
+
+1. Go to **Settings → Checkout**
+
+<Frame>
+  <img src="https://files.readme.io/4512c78ecf07af66bd01d00345e2df802c4d9b04f74f595c0519208cf4b7cc63-CleanShot_2026-05-15_at_10.11.07.png" alt="" />
+</Frame>
+
+2. Scroll to **Post-Purchase Page**and paste script into **Additional Scripts**
+
+<Frame>
+  <img src="https://files.readme.io/bef4c22c4246a2d031650a745ad82da2cfe7f2d7ffe682dc982e0c5a6895f148-CleanShot_2026-05-15_at_10.11.24.png" alt="" />
+</Frame>
+
+3. Click **Save**

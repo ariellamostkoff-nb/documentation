@@ -1,0 +1,212 @@
+---
+title: "Differences in Unattributed Data"
+description: "When you see **Unattributed data** in your dashboard, you may be asking yourself:"
+---
+
+* Why is this happening?
+* Is there an issue with setup or tracking?
+* How can I fix this?
+
+These are all valid questions! We'll unpack the answers in the guide below.
+
+# How Does Northbeam Attribute Data?
+
+Before getting into Unattributed data, it's important to understand how we **Attribute**.
+
+To properly attribute data, our system relies on **two pieces of data** for every event.
+
+1. **Server Data** - This is the raw data that we receive from your internal system.
+2. **Pixel Data** - This is data collected through our tracking pixels placed on your website ([Northbeam Pixel](/docs/add-pixel) and [Purchase Events](https://northbeam-customer-sucess.readme.io/docs/purchase-pixel))
+
+Reference the table below to learn how **Server Data** and **Pixel Data** is collected by Northbeam.
+
+| Conversion Event                 | How Server Data is Collected | How Pixel Data Is Collected          |
+| :------------------------------- | :--------------------------- | :----------------------------------- |
+| Purchases from Shopify store     | Shopify Integration          | Northbeam Pixel and Purchase Event   |
+| Purchases from WooCommerce store | WooCommerce Plugin           | Northbeam Pixel and Purchase Event   |
+| Purchases from Magento store     | Magento Plugin               | Northbeam Pixel and Purchase Event   |
+| Purchases from a Custom store    | Orders Sync API              | Northbeam Pixel and Purchase Event   |
+| Sign Ups from Klaviyo            | Klaviyo Integration          | Northbeam Pixel and fireEmailCapture |
+| Sign Ups from Attentive          | Attentive Integration        | Northbeam Pixel and fireEmailCapture |
+
+**If we have Server Data and Pixel Data for a particular Purchase or Email Sign Up, our system attributes the conversion accordingly.**
+
+If we have Server Data, but do not have Pixel Data, we'll pull the order/event into your dashboard, but it will be categorized as "Unattributed".
+
+<Warning>
+  Exception: We exclusively use Pixel Data for [Custom Goals](https://northbeam-customer-sucess.readme.io/docs/setting-up-custom-goals)
+</Warning>
+
+# What Causes Unattributed Data?
+
+With this in mind, **Unattributed data is caused by missing pixel data.** But, Unattributed data does not always indicate a tracking/setup issue.
+
+There are many types of orders that simply don't fire web tracking pixels by nature. Therefore, missing pixel data, or Unattributed, is oftentimes expected.
+
+These are normally orders that **are not** completed through your store's online checkout:
+
+Common examples:
+
+* **Manually created orders** (ex. Draft Orders, Wholesale Orders, Orders by Sales Rep)
+* **Orders imported or completed from another marketplace or app** (ex. Tapcart, Shop App)
+* **Orders placed from a 3rd party checkout or marketplace** (ex. ClickFunnels, Walmart, etc)
+* **Orders placed through a native shopping experience**
+  * Meta Shops and TikTok Shops are an exception. We track orders through these shopping experiences.
+* **Subscription Recurring Orders that started prior to Northbeam**
+
+<Warning>
+  Any order that does not trigger our [Northbeam Pixel](https://northbeam-customer-sucess.readme.io/docs/northbeam-pixel) or [Purchase Pixel](https://northbeam-customer-sucess.readme.io/docs/purchase-pixel) will be Unattributed.
+</Warning>
+
+# How To Find Your Unattributed Orders
+
+Great! Now that you understand the definition and causes of Unattributed, here's how to find the specific Unattributed Orders in your dashboard. This should help you troubleshoot and determine if they're expected.
+
+## Step 1: Navigate to Orders Page
+
+**To find the Orders Page, click the Shopping Cart Icon on the left-side menu.**
+
+Our Orders Page is a great tool for troubleshooting orders. This is where we display all orders we received from your system -- whether they're from Shopify, WooCommerce, Magento, or a Custom Setup.
+
+## Step 2: Set Filters
+
+Scroll down to the table and set the following filter:
+
+* Attributed = No
+
+<Frame>
+  <img src="https://files.readme.io/bb9c689-Screen_Shot_2024-03-14_at_11.49.14_AM.png" alt="" />
+</Frame>
+
+## Step 3: Export Data
+
+Usually, the easiest way to look at the data is to export it -- especially, if there's high volume.
+
+Click **Export Data** and navigate to the **Documents** page to download.
+
+## Step 4: Analyze the Data
+
+Once downloaded, you'll find lots of information for each order.
+
+### For Shopify Stores:
+
+If you're on Shopify, you're in luck. This process is usually somewhat straight forward.
+
+Unattributed orders are normally from a Sales Channel that is different from "Online Store". This can vary from Draft Orders, to Grin Orders, or even Draft Orders.
+
+We've rolled out an update that pulls the Order's "App ID" into an Order Tag. The App ID correlates with a specific Sales Channel from Shopify.
+
+See mapping below.
+
+| Order Tag in Northbeam                               | Shopify Sales Channel Name | Expect Pixel Tracking and Attribution? |
+| :--------------------------------------------------- | :------------------------- | :------------------------------------- |
+| northbeam:shopify:source\_name:3890849               | Shop App                   | NO                                     |
+| northbeam:shopify:source\_name:shopify\_draft\_order | Draft Order                | NO                                     |
+| northbeam:shopify:source\_name:tiktok                | TikTok Shops               | YES                                    |
+| northbeam:shopify:source\_name:4383523               | TikTok Shops               | YES                                    |
+| northbeam:shopify:source\_name:2376822               | Grin (imported)            | NO                                     |
+| northbeam:shopify:source\_name:2329312               | Meta Shops                 | YES                                    |
+| northbeam:shopify:source\_name:web                   | Online Store               | YES                                    |
+| northbeam:shopify:source\_name:1424624               | Gorgias                    | YES                                    |
+| northbeam:shopify:source\_name:294517                | Recharge                   | YES                                    |
+
+This should help you determine if your Unattributed Orders are expected or not.
+
+For any orders from a Sales Channel where Pixel Tracking is unexpected, Unattributed is normal to see. **Please exclude these orders via Order Tag. Find directions in next step.**
+
+### For WooCommerce, Magento, Custom Stores
+
+Unfortunately, we do not pull sales channels details from these platforms like we do for Shopify Stores.
+
+Please cross reference the Unattributed orders in Northbeam to your internal order system and try to identify what could be preventing the pixel from firing.
+
+Here are a few ideas on what to look into and try to draw correlations from:
+
+* Orders from a unique checkout flow
+* Orders with a unique payment method
+* Orders from another marketplace
+* Orders from a unique sales channel
+
+# Addressing Unattributed Orders
+
+Okay, great. Now that you've identified your Unattributed orders, we have two paths forward depending on whether the Unattributed is expected or not expected.
+
+| Is Unattributed Expected? | Next Steps                       |
+| :------------------------ | :------------------------------- |
+| Expected                  | Place Order Tags and exclude.    |
+| Unexpected                | Troubleshoot the Purchase Pixel. |
+
+## Option 1: Placing Order Tags and Excluding
+
+Any orders where unattributed is expected need to be excluded from your dashboard. This way, these orders won't interfere with the rest of your orders. In addition, this is very important for your data integrity and data validation -- an mandatory step of the onboarding process.
+
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Platform
+      </th>
+
+      <th>
+        How to add Order Tags
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Shopify
+      </td>
+
+      <td>
+        \- [Creating Order Tags (Shopify Documentation)](https://help.shopify.com/en/manual/shopify-admin/productivity-tools/using-tags)  
+
+        * [Creating Order Tags via Flows (Shopify Documentation)](https://help.shopify.com/en/manual/shopify-flow/reference/actions/add-order-tags)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        WooCommerce, Magento, Custom
+      </td>
+
+      <td>
+        Tags are to be passed via API, using the "order\_tags" field. [API Docs here](/reference/post_orders).
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+Once Order Tags are appended, we can now exclude these orders from your dashboard.
+
+To find your order exclusions:
+
+1. Navigate to **Settings**
+2. Click on **Exclude orders by tag**
+
+Enter your tag name and be sure to Activate.
+
+<Frame>
+  <img src="https://files.readme.io/c6a9833-Screen_Shot_2024-03-18_at_4.46.47_PM.png" alt="" />
+</Frame>
+
+Once the orders are "Excluded", they'll be grouped into an "Excluded" Category and need to be filtered out of your specific view.
+
+1. Use the Filter function on the Overview or Sales Page
+2. Filter out "Excluded"
+3. Save it as a New View
+
+<Frame>
+  <img src="https://files.readme.io/ef7ff98-Screen_Shot_2024-03-18_at_4.49.18_PM.png" alt="" />
+</Frame>
+
+## Option 2: Troubleshooting the Purchase Pixel
+
+If your Unattributed data is not expected, it's very likely that your Purchase Pixel isn't firing correctly, if at all.
+
+Learn more about our [Purchase Pixel](https://northbeam-customer-sucess.readme.io/docs/purchase-pixel).
+
+# Need additional help?
+
+If you need further assistance, reach out to [Support](https://www.northbeam.io/submit-a-support-ticket)!

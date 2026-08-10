@@ -1,0 +1,67 @@
+---
+title: "Tracking for ROKT"
+description: "This guide will show you how to connect your ROKT account to Northbeam and pull the following metrics:"
+---
+
+* Spend
+* Impressions for C+MV modeling
+
+***
+
+## Supported Attribution Models
+
+The ROKT integration currently supports the following Northbeam attribution models:
+
+* First Touch
+* Last Touch
+* Last Non-Direct Touch
+* Clicks-Only
+* Clicks + Modeled Views (C+MV)
+
+***
+
+## **Step 1: Enter Your App ID and App Secret**
+
+### 1A. Generate your API credentials in ROKT
+
+1. Sign in to **One Platform** at `my.rokt.com`.
+2. Navigate to **Profile Settings** (under your account icon at the bottom left).
+3. Scroll to the **Generate Personal API Credentials** section.
+4. Enter a name for your app and click **Generate**.
+
+This will generate an **App ID** and **App Secret** to plug into Northbeam.
+
+<Tip>
+  Tips
+
+  * The app name can be anything. It is only used for internal reference (example: `Northbeam`).
+  * Store the **App Secret** securely. You will not have access to the App Secret again after leaving the page.
+</Tip>
+
+<Note>
+  ROKT documentation: [https://docs.rokt.com/developers/api-reference/reporting/query-api/#generating-a-rokt-app-id-and-app-secret](https://docs.rokt.com/developers/api-reference/reporting/query-api/#generating-a-rokt-app-id-and-app-secret)
+</Note>
+
+<br />
+
+### 1B. Enter credentials in Northbeam
+
+1. In Northbeam, go to **Settings → Connections → ROKT**.
+2. Paste your **App ID** and **App Secret**.
+3. Click **Connect**.
+
+<Frame caption="Settings > Connections > ROKT > API Key">
+  <img src="https://files.readme.io/cb3dc05078c61ed4442e5b331ec01d7643dcc7483ab25aa6226e7a20d668986c-CleanShot_2026-02-05_at_13.40.48.png" alt="" />
+</Frame>
+
+<br />
+
+***
+
+## Step 2: Insert UTM Parameters
+
+Reach out to your **ROKT account lead** and they will inject the necessary Northbeam UTM parameters for you.
+
+Once the connection is live and UTM parameters are appended, you're all set!
+
+<br />

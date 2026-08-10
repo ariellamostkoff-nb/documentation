@@ -1,0 +1,1138 @@
+{
+  "pages": [
+    {
+      "title": "Append Northbeam UTMs",
+      "description": null,
+      "path": "docs/8-append-our-utms.mdx",
+      "source_url": "https://docs.northbeam.io/docs/8-append-our-utms",
+      "nav_section": "docs"
+    },
+    {
+      "title": "8c. Add order tags in Shopify",
+      "description": "You only need to add additional tags that you don't already have setup.",
+      "path": "docs/8c-add-order-tags-in-shopify.mdx",
+      "source_url": "https://docs.northbeam.io/docs/8c-add-order-tags-in-shopify",
+      "nav_section": "docs"
+    },
+    {
+      "title": "8d. Configure Northbeam order exclusions (Shopify)",
+      "description": null,
+      "path": "docs/8d-configure-northbeam-order-exclusions-optional.mdx",
+      "source_url": "https://docs.northbeam.io/docs/8d-configure-northbeam-order-exclusions-optional",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Accounting Modes",
+      "description": "Our Accounting Modes are settings within the platform that determine when conversion and revenue credit are given.",
+      "path": "docs/accounting-modes.mdx",
+      "source_url": "https://docs.northbeam.io/docs/accounting-modes",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Adding / Removing Ad Accounts",
+      "description": null,
+      "path": "docs/ad-accounts.mdx",
+      "source_url": "https://docs.northbeam.io/docs/ad-accounts",
+      "nav_section": "docs"
+    },
+    {
+      "title": "5. Add Domain",
+      "description": "Set your top-level domain for your dashboard",
+      "path": "docs/add-domain.mdx",
+      "source_url": "https://docs.northbeam.io/docs/add-domain",
+      "nav_section": "docs"
+    },
+    {
+      "title": "8. Add Orders",
+      "description": "In addition to tracking client-side purchases, it's important to sync your source of truth for order data with Northbeam for accurate and up-to-date reporting.",
+      "path": "docs/add-orders.mdx",
+      "source_url": "https://docs.northbeam.io/docs/add-orders",
+      "nav_section": "docs"
+    },
+    {
+      "title": "7. Pixel and Event Tracking",
+      "description": "Complete Pixel Placement",
+      "path": "docs/add-pixel.mdx",
+      "source_url": "https://docs.northbeam.io/docs/add-pixel",
+      "nav_section": "docs"
+    },
+    {
+      "title": "10. Add Spend",
+      "description": null,
+      "path": "docs/add-spend.mdx",
+      "source_url": "https://docs.northbeam.io/docs/add-spend",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Setting Up Multiple Stores or Regions",
+      "description": "Use this page if you operate more than one store, brand, or region and want to understand how to structure your Northbeam setup.",
+      "path": "docs/adding-a-store-or-dashboard.mdx",
+      "source_url": "https://docs.northbeam.io/docs/adding-a-store-or-dashboard",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Changing Currency",
+      "description": "By default, we convert all currencies to US Dollars (USD) using the daily exchange rate.",
+      "path": "docs/adding-or-removing-users-copy-1.mdx",
+      "source_url": "https://docs.northbeam.io/docs/adding-or-removing-users-copy-1",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Adding / Removing Users",
+      "description": null,
+      "path": "docs/adding-or-removing-users-copy.mdx",
+      "source_url": "https://docs.northbeam.io/docs/adding-or-removing-users-copy",
+      "nav_section": "docs"
+    },
+    {
+      "title": "All Other Platforms Overview",
+      "description": "This page will help you get started with Northbeam's API.",
+      "path": "docs/all-other-platforms-overview.mdx",
+      "source_url": "https://docs.northbeam.io/docs/all-other-platforms-overview",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Apex FAQs",
+      "description": "Frequently asked questions about Northbeam Apex.",
+      "path": "docs/apex-faqs.mdx",
+      "source_url": "https://docs.northbeam.io/docs/apex-faqs",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for AppLovin",
+      "description": null,
+      "path": "docs/applovin.mdx",
+      "source_url": "https://docs.northbeam.io/docs/applovin",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Attribution Models",
+      "description": "Our Attribution Models are one of the most important concepts to understand.",
+      "path": "docs/attribution-models.mdx",
+      "source_url": "https://docs.northbeam.io/docs/attribution-models",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udcca Attribution Home Page",
+      "description": "This is your operational hub.",
+      "path": "docs/attribution-page.mdx",
+      "source_url": "https://docs.northbeam.io/docs/attribution-page",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Attribution Windows",
+      "description": "We offer a variety of Attribution Windows to help inform your decision-making",
+      "path": "docs/attribution-windows.mdx",
+      "source_url": "https://docs.northbeam.io/docs/attribution-windows",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Authentication",
+      "description": "Getting authentication credentials to access the Northbeam Orders API",
+      "path": "docs/authentication.mdx",
+      "source_url": "https://docs.northbeam.io/docs/authentication",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83e\uddd0 Best Practices by Teams and Departments",
+      "description": "Proven strategies and tips to help you get the most out of Northbeam.",
+      "path": "docs/best-practices-by-teams-and-departments.mdx",
+      "source_url": "https://docs.northbeam.io/docs/best-practices-by-teams-and-departments",
+      "nav_section": "docs"
+    },
+    {
+      "title": "3. Business Information",
+      "description": "Add your basic details about you and your company.",
+      "path": "docs/business-information.mdx",
+      "source_url": "https://docs.northbeam.io/docs/business-information",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Case scenario: Cash snapshot vs Accrual performance",
+      "description": null,
+      "path": "docs/case-scenario-cash-vs-accrual.mdx",
+      "source_url": "https://docs.northbeam.io/docs/case-scenario-cash-vs-accrual",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Case scenario: Clicks + Modeled Views vs Clicks-Only",
+      "description": null,
+      "path": "docs/case-scenario-clicks-views-vs-clicks-only.mdx",
+      "source_url": "https://docs.northbeam.io/docs/case-scenario-clicks-views-vs-clicks-only",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Checking Ad Platform Connections",
+      "description": "Before using the dashboard, it's important to make sure that we're receiving data from our integrated ad platforms.",
+      "path": "docs/checking-api-connections.mdx",
+      "source_url": "https://docs.northbeam.io/docs/checking-api-connections",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Checking UTM Tracking",
+      "description": "Before using the dashboard, it's important to ensure UTMs are inserted on your ads and that the UTMs are getting tracked by our pixel.",
+      "path": "docs/checking-utm-tracking.mdx",
+      "source_url": "https://docs.northbeam.io/docs/checking-utm-tracking",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83e\uddec Clicks + Deterministic Views (C+DV)",
+      "description": "Understanding Northbeam's most innovative attribution model.",
+      "path": "docs/clicks-deterministic-views.mdx",
+      "source_url": "https://docs.northbeam.io/docs/clicks-deterministic-views",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Confirm Setup Requirements",
+      "description": null,
+      "path": "docs/confirm-setup-requirements.mdx",
+      "source_url": "https://docs.northbeam.io/docs/confirm-setup-requirements",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Connect Northbeam to Claude",
+      "description": "Use this guide to connect Northbeam to Claude on the web (claude.ai), Claude Desktop, or Claude Code.",
+      "path": "docs/connect-northbeam-to-claude.mdx",
+      "source_url": "https://docs.northbeam.io/docs/connect-northbeam-to-claude",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Dashboard Access",
+      "description": null,
+      "path": "docs/create-a-dashboard.mdx",
+      "source_url": "https://docs.northbeam.io/docs/create-a-dashboard",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83c\udfa8 Creative Analytics",
+      "description": "An overview of creative ads.",
+      "path": "docs/creative-analytics.mdx",
+      "source_url": "https://docs.northbeam.io/docs/creative-analytics",
+      "nav_section": "docs"
+    },
+    {
+      "title": "How Credit Is Assigned in Northbeam",
+      "description": null,
+      "path": "docs/credit-allocation-examples.mdx",
+      "source_url": "https://docs.northbeam.io/docs/credit-allocation-examples",
+      "nav_section": "docs"
+    },
+    {
+      "title": "4. Currency",
+      "description": "Select reporting currency",
+      "path": "docs/currency.mdx",
+      "source_url": "https://docs.northbeam.io/docs/currency",
+      "nav_section": "docs"
+    },
+    {
+      "title": "What\u2019s the difference between Blotout and Northbeam\u2014and do I need both?",
+      "description": "Understanding How Northbeam and Blotout Work Together.",
+      "path": "docs/difference-between-blotout-and-northbeam-do-i-need-both.mdx",
+      "source_url": "https://docs.northbeam.io/docs/difference-between-blotout-and-northbeam-do-i-need-both",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Differences in Ad Performance",
+      "description": "It's very common to see a difference in ad performance within Northbeam. In fact, this is 100% expected and happens more often than not. Read this article to learn why.",
+      "path": "docs/differences-ad-performance.mdx",
+      "source_url": "https://docs.northbeam.io/docs/differences-ad-performance",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Differences in Ad Spend",
+      "description": "Learn how to troubleshoot differences in ad spend and missing campaigns.",
+      "path": "docs/differences-in-ad-data.mdx",
+      "source_url": "https://docs.northbeam.io/docs/differences-in-ad-data",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Differences in Unattributed Data",
+      "description": "When you see **Unattributed data** in your dashboard, you may be asking yourself:",
+      "path": "docs/differences-in-unattributed-data.mdx",
+      "source_url": "https://docs.northbeam.io/docs/differences-in-unattributed-data",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Differences in Visits and Journeys",
+      "description": "Understand differences in visit counts between Northbeam and other web tracking technologies",
+      "path": "docs/differences-in-visits.mdx",
+      "source_url": "https://docs.northbeam.io/docs/differences-in-visits",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udce7 Email/SMS/Retention Team",
+      "description": "Below is a video walkthrough that details how Email, SMS, and Retention Teams can effectively use Northbeam to evaluate their impact and make decisions around lifecycle marketing.",
+      "path": "docs/email-sms-retention.mdx",
+      "source_url": "https://docs.northbeam.io/docs/email-sms-retention",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Errors",
+      "description": null,
+      "path": "docs/errors.mdx",
+      "source_url": "https://docs.northbeam.io/docs/errors",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udd1d Executive Team",
+      "description": "This guide is especially useful for CMOs, CFOS, and CEOs.",
+      "path": "docs/executive-team.mdx",
+      "source_url": "https://docs.northbeam.io/docs/executive-team",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Exporting Data",
+      "description": "There are three primary ways to export your data from Northbeam -- let's review them!",
+      "path": "docs/exporting-data.mdx",
+      "source_url": "https://docs.northbeam.io/docs/exporting-data",
+      "nav_section": "docs"
+    },
+    {
+      "title": "UTMs for Legacy Platforms",
+      "description": null,
+      "path": "docs/facebook-utms-for-legacy-platforms.mdx",
+      "source_url": "https://docs.northbeam.io/docs/facebook-utms-for-legacy-platforms",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\u2753Frequently Asked Questions",
+      "description": "Here are quick and clear answers to help you navigate Northbeam.",
+      "path": "docs/frequently-asked-questions.mdx",
+      "source_url": "https://docs.northbeam.io/docs/frequently-asked-questions",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Gclid, Fbclid, and Redirects",
+      "description": "You might see \"gclid\" and \"fbclid\" in your Northbeam dashboard in the Campaign Level of the Sales Page. This article will answer the following questions:",
+      "path": "docs/gclid-fbclid-redirects.mdx",
+      "source_url": "https://docs.northbeam.io/docs/gclid-fbclid-redirects",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Getting Started",
+      "description": "This page will help you get started with Northbeam API. If you have any feedback, reach out to success@northbeam.io",
+      "path": "docs/getting-started.mdx",
+      "source_url": "https://docs.northbeam.io/docs/getting-started",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Troubleshooting Pixel Tracking",
+      "description": null,
+      "path": "docs/guide-to-troubleshooting-pixel-tracking.mdx",
+      "source_url": "https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Hashing Customer Data",
+      "description": "Normalization and hashing guidelines for customer email and phone numbers",
+      "path": "docs/hashing-customer-data.mdx",
+      "source_url": "https://docs.northbeam.io/docs/hashing-customer-data",
+      "nav_section": "docs"
+    },
+    {
+      "title": "How do I correctly and confidently interpret non-click channels?",
+      "description": "What\u2019s normal and expected?",
+      "path": "docs/how-do-i-correctly-confidently-interpret-non-click-channels.mdx",
+      "source_url": "https://docs.northbeam.io/docs/how-do-i-correctly-confidently-interpret-non-click-channels",
+      "nav_section": "docs"
+    },
+    {
+      "title": "How does Northbeam track Orders and Ads?",
+      "description": "How does Northbeam data work?",
+      "path": "docs/how-does-northbeam-track-orders-and-ads.mdx",
+      "source_url": "https://docs.northbeam.io/docs/how-does-northbeam-track-orders-and-ads",
+      "nav_section": "docs"
+    },
+    {
+      "title": "1. Welcome to Northbeam!",
+      "description": "Getting started with your onboarding here.",
+      "path": "docs/implementation-guide.mdx",
+      "source_url": "https://docs.northbeam.io/docs/implementation-guide",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83e\udd33 Influencer",
+      "description": "Influencer traffic often comes in *sparse* click data, but **can still be tracked using** [Custom UTMs](https://docs.northbeam.io/v2.2/docs/integrations-and-utms) or discount codes.",
+      "path": "docs/influencer.mdx",
+      "source_url": "https://docs.northbeam.io/docs/influencer",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Northbeam's Integrations",
+      "description": "For any platform where spend is not available via API, you can upload your spend manually via our Custom Spreadsheet [here](https://docs.northbeam.io/v2.2/docs/add-spend#option-2-spend-sheet).",
+      "path": "docs/integration-matrix.mdx",
+      "source_url": "https://docs.northbeam.io/docs/integration-matrix",
+      "nav_section": "docs"
+    },
+    {
+      "title": "9. Integrations and UTMs",
+      "description": "Connect Integrations and UTMs",
+      "path": "docs/integrations-and-utms.mdx",
+      "source_url": "https://docs.northbeam.io/docs/integrations-and-utms",
+      "nav_section": "docs"
+    },
+    {
+      "title": "2. Invite Team",
+      "description": null,
+      "path": "docs/invite-team.mdx",
+      "source_url": "https://docs.northbeam.io/docs/invite-team",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Limits",
+      "description": "This Page describes the limitations of the Orders API and suggested uses",
+      "path": "docs/limits.mdx",
+      "source_url": "https://docs.northbeam.io/docs/limits",
+      "nav_section": "docs"
+    },
+    {
+      "title": "6. Link DNS",
+      "description": "Configure DNS record for Northbeam",
+      "path": "docs/link-dns.mdx",
+      "source_url": "https://docs.northbeam.io/docs/link-dns",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Lookback Windows",
+      "description": "Northbeam now allows you to **set a lookback window** for how far back we consider touchpoints when attributing orders.",
+      "path": "docs/lookback-windows.mdx",
+      "source_url": "https://docs.northbeam.io/docs/lookback-windows",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Manage Breakdowns and Saved Views",
+      "description": null,
+      "path": "docs/manage-breakdowns.mdx",
+      "source_url": "https://docs.northbeam.io/docs/manage-breakdowns",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udd2d Metrics Explorer Best Practices: 7 Tips",
+      "description": "Pro tips for using the Metrics Explorer dashboard in Northbeam.",
+      "path": "docs/metrics-explorer-best-practices-7-tips.mdx",
+      "source_url": "https://docs.northbeam.io/docs/metrics-explorer-best-practices-7-tips",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\ude80 Metrics Explorer Quickstart Guide",
+      "description": "First time using Metrics Explorer? Start here.",
+      "path": "docs/metrics-explorer-quickstart-guide.mdx",
+      "source_url": "https://docs.northbeam.io/docs/metrics-explorer-quickstart-guide",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udd2d Metrics Explorer Home Page",
+      "description": "Understand the power of Northbeam's correlation visualization dashboard.",
+      "path": "docs/metrics-explorer.mdx",
+      "source_url": "https://docs.northbeam.io/docs/metrics-explorer",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Multi-business configuration",
+      "description": "Setup Northbeam for multiple businesses.",
+      "path": "docs/multi-brand-configuration.mdx",
+      "source_url": "https://docs.northbeam.io/docs/multi-brand-configuration",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Multi-Dashboard Setup with Configurators",
+      "description": "Split your data across multiple Northbeam dashboards \u2014 while maintaining first-party tracking on a single domain",
+      "path": "docs/multi-dashboard-setup-with-configurators.mdx",
+      "source_url": "https://docs.northbeam.io/docs/multi-dashboard-setup-with-configurators",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Multi-domain configuration",
+      "description": "Setup Northbeam for multiple domains.",
+      "path": "docs/multi-domain-configuration.mdx",
+      "source_url": "https://docs.northbeam.io/docs/multi-domain-configuration",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Multi-region configuration",
+      "description": "Setup Northbeam across multiple regions.",
+      "path": "docs/multi-region-configuration.mdx",
+      "source_url": "https://docs.northbeam.io/docs/multi-region-configuration",
+      "nav_section": "docs"
+    },
+    {
+      "title": "My FB ROAS is 0.7 in Northbeam, is this normal?",
+      "description": "Why are the Northbeam numbers different?",
+      "path": "docs/my-facebook-roas-is-07-in-northbeam-is-this-normal.mdx",
+      "source_url": "https://docs.northbeam.io/docs/my-facebook-roas-is-07-in-northbeam-is-this-normal",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Navigating Northbeam: Your Guided Ramp-Up",
+      "description": "Northbeam's step-by-step guided walkthroughs are meant to help you learn how to use Northbeam. We're trying to solve the biggest problem first-time users face: not knowing how to start and where to start.",
+      "path": "docs/navigating-northbeam.mdx",
+      "source_url": "https://docs.northbeam.io/docs/navigating-northbeam",
+      "nav_section": "docs"
+    },
+    {
+      "title": "New to the Team? Here's How to Get Oriented in Northbeam",
+      "description": null,
+      "path": "docs/new-to-northbeam-how-to-get-oriented.mdx",
+      "source_url": "https://docs.northbeam.io/docs/new-to-northbeam-how-to-get-oriented",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Non-Integrated Channel Setup: Spend API + UTMs",
+      "description": null,
+      "path": "docs/non-integrated-channel-setup-spend-api-utms.mdx",
+      "source_url": "https://docs.northbeam.io/docs/non-integrated-channel-setup-spend-api-utms",
+      "nav_section": "docs"
+    },
+    {
+      "title": "All Other Platforms Installation",
+      "description": "Add the Northbeam pixel to your storefront",
+      "path": "docs/non-shopify-installation.mdx",
+      "source_url": "https://docs.northbeam.io/docs/non-shopify-installation",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\u26a1 Northbeam 3.0",
+      "description": null,
+      "path": "docs/northbeam-30.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-30",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83c\udfcd\ufe0f Northbeam Apex",
+      "description": "Optimize your Meta ads against first-party Northbeam data with this new integration.",
+      "path": "docs/northbeam-apex.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-apex",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Data Export",
+      "description": "This page describes the usage of our Data Export API",
+      "path": "docs/northbeam-api-data-export-1.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-api-data-export-1",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Exporting To GCS",
+      "description": "This page describes the Exporting To GCS of our Data Export API",
+      "path": "docs/northbeam-api-data-export-gcs-export-1.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-api-data-export-gcs-export-1",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Rate Limits",
+      "description": "This page describes the Rate Limits of our Data Export API",
+      "path": "docs/northbeam-api-data-export-rate-limits-1.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-api-data-export-rate-limits-1",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Exporting To S3",
+      "description": "This page describes the Exporting To S3 of our Data Export API",
+      "path": "docs/northbeam-api-data-export-s3-export-1.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-api-data-export-s3-export-1",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Northbeam's Data Sources",
+      "description": "Where does Northbeam get its data from?",
+      "path": "docs/northbeam-data-sources.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-data-sources",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Northbeam Metrics 101",
+      "description": "Use this guide to understand our metrics",
+      "path": "docs/northbeam-metrics-101.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-metrics-101",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83c\udf1a Offline Channel",
+      "description": "Offline Channels (like Podcasts, Linear, DOOH, Direct Mail, and CTV) do not generate Clicks, so Northbeam can't directly attribute conversions to them the way it does for digital channels.",
+      "path": "docs/offline-channel.mdx",
+      "source_url": "https://docs.northbeam.io/docs/offline-channel",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Onboarding FAQs",
+      "description": "This FAQ page is designed to help you get comfortable as you navigate Northbeam's MTA",
+      "path": "docs/onboarding-faqs.mdx",
+      "source_url": "https://docs.northbeam.io/docs/onboarding-faqs",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Additional Events",
+      "description": null,
+      "path": "docs/optional-additional-methods.mdx",
+      "source_url": "https://docs.northbeam.io/docs/optional-additional-methods",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Order Definition",
+      "description": "This page describes Northbeam's semantic definition of an order and how order attributes play a role in determining Subscription or Returning Customer metrics",
+      "path": "docs/order-definition.mdx",
+      "source_url": "https://docs.northbeam.io/docs/order-definition",
+      "nav_section": "docs"
+    },
+    {
+      "title": "8b. Tell us if your business will use Order Tags (Shopify)",
+      "description": null,
+      "path": "docs/order-tags-1.mdx",
+      "source_url": "https://docs.northbeam.io/docs/order-tags-1",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Order Tags",
+      "description": "Order Tags are used to label orders within Northbeam. This begs the question -- why would I need to label my orders?",
+      "path": "docs/order-tags.mdx",
+      "source_url": "https://docs.northbeam.io/docs/order-tags",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Orders API",
+      "description": "Learn how to send order data to Northbeam using the Orders API, with steps for setup, validation, backfilling, and monitoring.",
+      "path": "docs/orders-api.mdx",
+      "source_url": "https://docs.northbeam.io/docs/orders-api",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udce6 Orders",
+      "description": "Customer journey tracking.",
+      "path": "docs/orders-tracking.mdx",
+      "source_url": "https://docs.northbeam.io/docs/orders-tracking",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83c\udfe0 Overview Home Page",
+      "description": "This is your Northbeam starting point.",
+      "path": "docs/overview-page.mdx",
+      "source_url": "https://docs.northbeam.io/docs/overview-page",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Page View Events",
+      "description": null,
+      "path": "docs/page-view-events.mdx",
+      "source_url": "https://docs.northbeam.io/docs/page-view-events",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udd0e Paid Search Team",
+      "description": "Below is a walkthrough video to show Paid Search Best Practices for our customers.",
+      "path": "docs/paid-search-team.mdx",
+      "source_url": "https://docs.northbeam.io/docs/paid-search-team",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udcf1 Paid Social Team",
+      "description": null,
+      "path": "docs/paid-social-team.mdx",
+      "source_url": "https://docs.northbeam.io/docs/paid-social-team",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83c\udf21\ufe0f Product Analytics",
+      "description": "Data-driven e-commerce merchandising and more.",
+      "path": "docs/product-analytics.mdx",
+      "source_url": "https://docs.northbeam.io/docs/product-analytics",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udcb8 Profit Benchmarks",
+      "description": "A step-by-step guide to our new benchmarking tool.",
+      "path": "docs/profitability-benchmarks.mdx",
+      "source_url": "https://docs.northbeam.io/docs/profitability-benchmarks",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udcb0 Sales",
+      "description": "Your hub for day-to-day decisions",
+      "path": "docs/sales.mdx",
+      "source_url": "https://docs.northbeam.io/docs/sales",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Set up a Meta Custom Attribution Campaign",
+      "description": "Get started with Meta's Custom Attribution using Northbeam Apex.",
+      "path": "docs/setting-up-a-meta-custom-attribution-campaign.mdx",
+      "source_url": "https://docs.northbeam.io/docs/setting-up-a-meta-custom-attribution-campaign",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Enable Apex for Meta",
+      "description": "Prepare your Meta account for Custom Attribution.",
+      "path": "docs/setting-up-apex.mdx",
+      "source_url": "https://docs.northbeam.io/docs/setting-up-apex",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Custom Goals",
+      "description": null,
+      "path": "docs/setting-up-custom-goals.mdx",
+      "source_url": "https://docs.northbeam.io/docs/setting-up-custom-goals",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Meta Ads",
+      "description": null,
+      "path": "docs/setting-up-facebook-ads-tracking.mdx",
+      "source_url": "https://docs.northbeam.io/docs/setting-up-facebook-ads-tracking",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Google + YouTube Ads",
+      "description": null,
+      "path": "docs/setting-up-google-ads-for-northbeam.mdx",
+      "source_url": "https://docs.northbeam.io/docs/setting-up-google-ads-for-northbeam",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Klaviyo",
+      "description": "This guide will show you how to set up tracking for the following Klaviyo metrics in Northbeam:",
+      "path": "docs/setting-up-klaviyo-for-northbeam.mdx",
+      "source_url": "https://docs.northbeam.io/docs/setting-up-klaviyo-for-northbeam",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for TikTok Ads",
+      "description": null,
+      "path": "docs/setting-up-tiktok-ads-for-northbeam.mdx",
+      "source_url": "https://docs.northbeam.io/docs/setting-up-tiktok-ads-for-northbeam",
+      "nav_section": "docs"
+    },
+    {
+      "title": "SFTP Orders Upload",
+      "description": null,
+      "path": "docs/sftp-orders-upload.mdx",
+      "source_url": "https://docs.northbeam.io/docs/sftp-orders-upload",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Shopify Installation",
+      "description": "Add the Northbeam pixel to your Shopify storefront",
+      "path": "docs/shopify-installation.mdx",
+      "source_url": "https://docs.northbeam.io/docs/shopify-installation",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Shopify Migration: Preserving Customer Stages",
+      "description": null,
+      "path": "docs/shopify-migration-preserving-customer-stages.mdx",
+      "source_url": "https://docs.northbeam.io/docs/shopify-migration-preserving-customer-stages",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Shopify",
+      "description": "Connect your Shopify orders data to your Northbeam dashboard",
+      "path": "docs/shopify-order-sync.mdx",
+      "source_url": "https://docs.northbeam.io/docs/shopify-order-sync",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Shopify Overview",
+      "description": null,
+      "path": "docs/shopify-overview.mdx",
+      "source_url": "https://docs.northbeam.io/docs/shopify-overview",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Best Practices and Limits",
+      "description": "This page describes the Best Practices and Limitations of our Spend API",
+      "path": "docs/spend-api-best-practices-and-limits.mdx",
+      "source_url": "https://docs.northbeam.io/docs/spend-api-best-practices-and-limits",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Spend API",
+      "description": "This page describes the usage of our Spend API",
+      "path": "docs/spend-api.mdx",
+      "source_url": "https://docs.northbeam.io/docs/spend-api",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Subscription Analytics",
+      "description": null,
+      "path": "docs/subscription-analytics.mdx",
+      "source_url": "https://docs.northbeam.io/docs/subscription-analytics",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Subscription Metrics",
+      "description": "Our Subscription Metrics are based on Order tags. To learn more about how this works, reference [Subscription Analytics](https://docs.northbeam.io/docs/subscription-analytics), under the MTA Onboarding->**Add Orders** section.",
+      "path": "docs/subscription-metrics.mdx",
+      "source_url": "https://docs.northbeam.io/docs/subscription-metrics",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udef0\ufe0f The Media Buyer Newsletter",
+      "description": "Sign up for free performance benchmarks in your inbox every week. Meta, TikTok, Applovin and more!",
+      "path": "docs/the-media-buyer-newsletter.mdx",
+      "source_url": "https://docs.northbeam.io/docs/the-media-buyer-newsletter",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Third-Party Checkouts",
+      "description": null,
+      "path": "docs/third-party-checkouts.mdx",
+      "source_url": "https://docs.northbeam.io/docs/third-party-checkouts",
+      "nav_section": "docs"
+    },
+    {
+      "title": "\ud83d\udcc2 Touchpoints Export",
+      "description": "A step-by-step guide to our touchpoints export.",
+      "path": "docs/touchpoints-export.mdx",
+      "source_url": "https://docs.northbeam.io/docs/touchpoints-export",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Amazon",
+      "description": "This guide will show you how to connect Amazon and pull the following metrics:",
+      "path": "docs/tracking-for-amazon.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-amazon",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Bliss Point by Tinuiti",
+      "description": "This guide will show you how to connect your Bliss Point Media account and pull the following metrics:",
+      "path": "docs/tracking-for-bliss-point-by-tinuiti.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-bliss-point-by-tinuiti",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Impact",
+      "description": null,
+      "path": "docs/tracking-for-impact.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-impact",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking Influencer Performance",
+      "description": null,
+      "path": "docs/tracking-for-influencers.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-influencers",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Keynes",
+      "description": null,
+      "path": "docs/tracking-for-keynes.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-keynes",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for LiveIntent",
+      "description": null,
+      "path": "docs/tracking-for-liveintent.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-liveintent",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Microsoft Ads",
+      "description": "This guide will show you how to set up tracking for the following Microsoft metrics in Northbeam:",
+      "path": "docs/tracking-for-microsoft.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-microsoft",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for MNTN",
+      "description": "This guide will show you how to connect your MNTN account to Northbeam and pull the following metrics:",
+      "path": "docs/tracking-for-mntn.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-mntn",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking Ads using Off-Domain Sites",
+      "description": "This guide explains how to track ads that send users to an off-domain site before they reach your main domain.",
+      "path": "docs/tracking-for-off-domain-sites.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-off-domain-sites",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Non-Integrated Channels",
+      "description": "This guide will show you how to set up tracking for any Non-Integrated Channels.",
+      "path": "docs/tracking-for-other-platforms.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-other-platforms",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Pinterest Ads",
+      "description": "This guide will show you how to set up tracking for the following Pinterest metrics in Northbeam:",
+      "path": "docs/tracking-for-pinterest-ads.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-pinterest-ads",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Rakuten",
+      "description": "This guide will show you how to connect your Rakuten account and pull the following metrics:",
+      "path": "docs/tracking-for-rakuten.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-rakuten",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for ROKT",
+      "description": "This guide will show you how to connect your ROKT account to Northbeam and pull the following metrics:",
+      "path": "docs/tracking-for-rokt.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-rokt",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Shops Tracking (Meta Shops, TikTok Shops)",
+      "description": null,
+      "path": "docs/tracking-for-shops.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-shops",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Snapchat Ads",
+      "description": "This guide will show you how to set up tracking for the following Snapchat metrics in Northbeam:",
+      "path": "docs/tracking-for-snapchat-ads.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-snapchat-ads",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Tatari",
+      "description": null,
+      "path": "docs/tracking-for-tatari.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-tatari",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for TradeDesk",
+      "description": "This guide will show you how to connect your TradeDesk account and pull the following metrics:",
+      "path": "docs/tracking-for-tradedesk.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-tradedesk",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Universal",
+      "description": null,
+      "path": "docs/tracking-for-universal.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-universal",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Vibe.co",
+      "description": "This guide will show you how to connect your Vibe.co account to Northbeam and pull the following metrics:",
+      "path": "docs/tracking-for-vibe-co.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-vibe-co",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for X Ads",
+      "description": "This guide will show you how to set up tracking for the following X metrics in Northbeam:",
+      "path": "docs/tracking-for-x-ads.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-x-ads",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Troubleshooting Tracking Issues",
+      "description": "How to fix tracking issues.",
+      "path": "docs/troubleshooting-tracking-issues.mdx",
+      "source_url": "https://docs.northbeam.io/docs/troubleshooting-tracking-issues",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Using the API",
+      "description": "Guidance for Using the Northbeam Orders API",
+      "path": "docs/using-the-api.mdx",
+      "source_url": "https://docs.northbeam.io/docs/using-the-api",
+      "nav_section": "docs"
+    },
+    {
+      "title": "What is a good/bad number in Northbeam?",
+      "description": "How do I correctly measure my performance?",
+      "path": "docs/what-is-a-good-bad-number-in-northbeam.mdx",
+      "source_url": "https://docs.northbeam.io/docs/what-is-a-good-bad-number-in-northbeam",
+      "nav_section": "docs"
+    },
+    {
+      "title": "What is Northbeam's Model Comparison Tool?",
+      "description": "How can it measure MTA models as well as data from outside of Northbeam?",
+      "path": "docs/what-is-northbeam-model-comparison-tool.mdx",
+      "source_url": "https://docs.northbeam.io/docs/what-is-northbeam-model-comparison-tool",
+      "nav_section": "docs"
+    },
+    {
+      "title": "What is Northbeam's MTA Methodology?",
+      "description": "What makes Northbeam's MTA unique?",
+      "path": "docs/what-is-northbeam-mta-methodology.mdx",
+      "source_url": "https://docs.northbeam.io/docs/what-is-northbeam-mta-methodology",
+      "nav_section": "docs"
+    },
+    {
+      "title": "What is Northbeam? Start here.",
+      "description": "How Northbeam works and what you need to get started.",
+      "path": "docs/what-is-northbeam.mdx",
+      "source_url": "https://docs.northbeam.io/docs/what-is-northbeam",
+      "nav_section": "docs"
+    },
+    {
+      "title": "What To Expect During Implementation",
+      "description": null,
+      "path": "docs/what-to-expect-during-implementation.mdx",
+      "source_url": "https://docs.northbeam.io/docs/what-to-expect-during-implementation",
+      "nav_section": "docs"
+    },
+    {
+      "title": "What's the difference between Organic vs Unattributed?",
+      "description": null,
+      "path": "docs/whats-the-difference-between-organic-vs-unattributed.mdx",
+      "source_url": "https://docs.northbeam.io/docs/whats-the-difference-between-organic-vs-unattributed",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Why Doesn't Northbeam Match My Shopify Reporting?",
+      "description": "Learn why Northbeam Total Revenue and Orders may differ from Shopify and how to compare the two using an apples-to-apples Shopify Orders export.",
+      "path": "docs/why-doesnt-northbeam-match-my-shopify-reporting.mdx",
+      "source_url": "https://docs.northbeam.io/docs/why-doesnt-northbeam-match-my-shopify-reporting",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Why is my FB ROAS so much lower in Northbeam?",
+      "description": null,
+      "path": "docs/why-is-my-fb-roas-so-much-lower-in-northbeam.mdx",
+      "source_url": "https://docs.northbeam.io/docs/why-is-my-fb-roas-so-much-lower-in-northbeam",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Why is so much of my revenue \u201cunattributed\u201d?",
+      "description": "\u201c**Unattributed**\u201d revenue can occur for many different reasons:",
+      "path": "docs/why-is-so-much-of-my-revenue-unattributed.mdx",
+      "source_url": "https://docs.northbeam.io/docs/why-is-so-much-of-my-revenue-unattributed",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Why is Northbeam's Methodology better than our internal reporting platforms?",
+      "description": "What makes Northbeam MTA unique?",
+      "path": "docs/why-is-the-northbeam-methodology-better-than-internal-platforms.mdx",
+      "source_url": "https://docs.northbeam.io/docs/why-is-the-northbeam-methodology-better-than-internal-platforms",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Attentive",
+      "description": "This guide will show you how to set up tracking for the following Attentive metrics in Northbeam:",
+      "path": "docs/working-tracking-for-attentive.mdx",
+      "source_url": "https://docs.northbeam.io/docs/working-tracking-for-attentive",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Add aliases to existing orders",
+      "description": null,
+      "path": "reference/addorderaliases.mdx",
+      "source_url": "https://docs.northbeam.io/reference/addorderaliases",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Delete a spend record",
+      "description": null,
+      "path": "reference/delete_spend-hourly.mdx",
+      "source_url": "https://docs.northbeam.io/reference/delete_spend-hourly",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Delete a spend record",
+      "description": null,
+      "path": "reference/delete_spend.mdx",
+      "source_url": "https://docs.northbeam.io/reference/delete_spend",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Fetch all available attribution models",
+      "description": null,
+      "path": "reference/get_attribution-models-1.mdx",
+      "source_url": "https://docs.northbeam.io/reference/get_attribution-models-1",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Fetch all labels available for breakdown",
+      "description": null,
+      "path": "reference/get_breakdowns-1.mdx",
+      "source_url": "https://docs.northbeam.io/reference/get_breakdowns-1",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Fetch a data export result",
+      "description": null,
+      "path": "reference/get_data-export-result-export-id-1.mdx",
+      "source_url": "https://docs.northbeam.io/reference/get_data-export-result-export-id-1",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Fetch all available metrics",
+      "description": null,
+      "path": "reference/get_metrics-1.mdx",
+      "source_url": "https://docs.northbeam.io/reference/get_metrics-1",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Fetch a list of orders",
+      "description": null,
+      "path": "reference/get_orders-1.mdx",
+      "source_url": "https://docs.northbeam.io/reference/get_orders-1",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Fetch a list of orders",
+      "description": null,
+      "path": "reference/get_orders.mdx",
+      "source_url": "https://docs.northbeam.io/reference/get_orders",
+      "nav_section": "reference"
+    },
+    {
+      "title": "List spend records",
+      "description": null,
+      "path": "reference/get_spend-hourly.mdx",
+      "source_url": "https://docs.northbeam.io/reference/get_spend-hourly",
+      "nav_section": "reference"
+    },
+    {
+      "title": "List spend records",
+      "description": null,
+      "path": "reference/get_spend.mdx",
+      "source_url": "https://docs.northbeam.io/reference/get_spend",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Partially update existing orders",
+      "description": null,
+      "path": "reference/patchorders.mdx",
+      "source_url": "https://docs.northbeam.io/reference/patchorders",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Create a data export config",
+      "description": null,
+      "path": "reference/post_data-export-1.mdx",
+      "source_url": "https://docs.northbeam.io/reference/post_data-export-1",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Upsert a list of orders to Northbeam",
+      "description": null,
+      "path": "reference/post_orders-1.mdx",
+      "source_url": "https://docs.northbeam.io/reference/post_orders-1",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Upsert a list of orders to Northbeam",
+      "description": null,
+      "path": "reference/post_orders.mdx",
+      "source_url": "https://docs.northbeam.io/reference/post_orders",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Upsert one or multiple hourly spend records",
+      "description": null,
+      "path": "reference/post_spend-hourly.mdx",
+      "source_url": "https://docs.northbeam.io/reference/post_spend-hourly",
+      "nav_section": "reference"
+    },
+    {
+      "title": "Upsert one or multiple spend records",
+      "description": null,
+      "path": "reference/post_spend.mdx",
+      "source_url": "https://docs.northbeam.io/reference/post_spend",
+      "nav_section": "reference"
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+---
+title: "Multi-Dashboard Setup with Configurators"
+description: "Split your data across multiple Northbeam dashboards — while maintaining first-party tracking on a single domain"
+---
+
+## Overview
+
+By default, each Northbeam dashboard is linked to one domain. But there are situations where you want **multiple dashboards tied to a single top-level domain** — for example, if you operate multiple regions or brands all living on one site.
+
+Northbeam supports this through **Configurators**: a setup that captures all events on your single domain, then intelligently routes pixel events and orders to the correct dashboard based on rules you define.
+
+This is how Northbeam handles multi-region setups where all regions share one domain (e.g. `mystore.com/us`, `mystore.com/uk`, `mystore.com/de`). Instead of being forced into a single blended dashboard, you can maintain clean, separate reporting per segment — without sacrificing first-party tracking.
+
+<Warning>
+  **Configurators are built and managed by the Northbeam team on the backend — but you'll need to provide the logic.**
+
+  The fields in this doc are what you'll need to define and share with your CSM before setup can begin. Not available to all customers. Reach out to your CSM to get started.
+</Warning>
+
+***
+
+## Setup Process
+
+<Note>
+  **Getting the Pixel Configurator right from the start is critical.**
+
+  Once data starts flowing into your child dashboards, changing the routing logic mid-stream can create data inconsistencies and require re-validation. We strongly recommend taking the time upfront to define your pixel, orders, and breakdown logic correctly — even if it means a slightly longer implementation timeline.
+</Note>
+
+Before setup begins, you'll need to define and share three things with your CSM:
+
+1. **Pixel config logic** — which fields and values should route front-end events to each child dashboard (e.g. page path `/uk` → UK dashboard)
+2. **Orders config logic** — which fields and values should route orders to each child dashboard (e.g. shipping country = `GB` → UK dashboard)
+3. **Breakdown label criteria** (if applicable) — the campaign naming conventions used to filter ad spend per segment (e.g. campaigns beginning with `UK_` → UK dashboard)
+
+Once you've provided this, the Northbeam team handles the rest:
+
+1. **Configurator Implementation** - the Pixel Configurator, Orders Configurator, and Breakdown labels on the backend.
+2. **Data validation** — the Northbeam team works closely with you to verify data is splitting correctly across all parent and child dashboards before go-live. This is where we ensure data fidelity and catch any routing issues before they impact your reporting. Timeline varies by complexity, but we prioritize getting it right over rushing go-live.
+
+***
+
+## How It Works: Parent and Child Dashboards
+
+When Configurators are enabled, your dashboards are structured as **parent** and **child** dashboards.
+
+* The **parent dashboard** receives all events from your domain — it acts as the blended, top-level view.
+* **Child dashboards** each receive a subset of events, split according to the logic you define.
+
+**Examples:**
+
+| Setup                                | Structure             |
+| ------------------------------------ | --------------------- |
+| 1 main store + 1 regional store      | 1 parent + 1 child    |
+| 5 regional storefronts on one domain | 1 parent + 5 children |
+
+Every event is captured at the parent level first, then distributed to the appropriate child dashboard based on matching logic. This ensures first-party tracking is maintained across the entire domain while giving you clean, separated data per segment.
+
+***
+
+## The Two Configurators
+
+### 1. Pixel Configurator
+
+The Pixel Configurator routes **front-end events** to the correct child dashboard. This includes:
+
+* Page view events
+* Purchase events
+* Any custom goal events you have set up
+
+Routing is based on logic rules applied to the following fields. Multiple conditions can be used simultaneously — if an event matches more than one rule, the priority order you define determines which rule takes precedence.
+
+| Field                     | Description                                          |
+| ------------------------- | ---------------------------------------------------- |
+| `page_path`               | The URL path of the page (e.g. `/us/checkout`)       |
+| `page_path_regex`         | A regex pattern matched against the page path        |
+| `geo_country_code`        | The visitor's country code, resolved by IP           |
+| `datalayer_region_code`   | A region code pushed to the browser's data layer     |
+| `page_utm_params`         | UTM parameters present in the page URL               |
+| `datalayer_currency_code` | Currency code pushed to the browser's data layer     |
+| `page_domain`             | The domain of the page (useful for subdomain splits) |
+
+***
+
+### Using Local Storage for Region and Currency Codes
+
+Page path-based routing is the most common approach, but it can get complicated — especially when the URL changes between the storefront and checkout. For example, a customer might browse `store.com/uk` but land on a checkout URL that no longer contains `/uk`, causing the pixel to lose track of the segment.
+
+In these cases, the cleaner approach is to use **local storage codes** that persist across the entire session, regardless of URL changes.
+
+Northbeam supports two local storage fields:
+
+* `nb__region_code` — maps to the `datalayer_region_code` pixel config field
+* `nb__currency_code` — maps to the `datalayer_currency_code` pixel config field
+
+**For Shopify stores**, Northbeam provides the following script which automatically sets these values using Shopify's built-in localization variables. Add this to your Shopify theme:
+
+```html
+<!-- Begin: Northbeam metadata info -->
+<script>
+  localStorage.setItem('nb__region_code', "{{ localization.country.iso_code }}");
+  localStorage.setItem('nb__currency_code', "{{ localization.country.currency.iso_code }}");
+</script>
+<!-- End: Northbeam metadata info -->
+```
+
+**For non-Shopify stores**, you can use a custom script to set the same local storage items — but you'll need to make sure the correct region or currency values are being passed in. The key names (`nb__region_code` and `nb__currency_code`) must match exactly.
+
+***
+
+### 2. Orders Configurator
+
+The Orders Configurator routes **order data** to the correct child dashboard. The available logic fields differ slightly depending on whether you're using Shopify or the Orders API.
+
+#### Shopify
+
+| Field                            | Description                                                |
+| -------------------------------- | ---------------------------------------------------------- |
+| Shopify URL                      | The specific Shopify store URL the order came from         |
+| Country code of shipping address | The destination country of the order                       |
+| Order tag contains               | Matches orders with a specific tag                         |
+| Customer email                   | Routes based on customer email address                     |
+| Order value                      | Routes based on the order total (greater than / less than) |
+| Order date                       | Routes based on order date (greater than / less than)      |
+
+#### Orders API
+
+| Field                            | Description                                                |
+| -------------------------------- | ---------------------------------------------------------- |
+| Country code of shipping address | The destination country of the order                       |
+| Order tag contains               | Matches orders with a specific tag                         |
+| Customer email                   | Routes based on customer email address                     |
+| Order value                      | Routes based on the order total (greater than / less than) |
+
+<Note>
+  Date-based logic (`order date`) is currently only available for Shopify and has not yet been built for the Orders API.
+</Note>
+
+***
+
+## Breakdown Labels
+
+Breakdown labels are only required if you have a **shared ad account** across segments. If each segment has its own dedicated ad account, you can skip this.
+
+When a shared ad account is connected to multiple child dashboards, all campaigns from that account will appear in every dashboard by default. Breakdown labels filter each dashboard's ad view down to only the campaigns relevant to that segment.
+
+**How it works:**
+
+* Each segment dashboard gets a custom Breakdown label based on your campaign naming convention (e.g. the UK dashboard is configured to show only campaigns beginning with `UK_`)
+* Northbeam sets up these labels as part of the implementation process
+* The requirement is that **all campaigns follow a consistent naming convention** — without it, there is no reliable way to filter spend by segment
+
+**Consolidated campaigns** that aren't segment-specific (e.g. a brand-wide awareness campaign) require a decision: include in all dashboards, one dashboard, or exclude entirely.
+
+<Warning>
+  **Breakdown labels are based entirely on naming conventions.**
+
+  If your campaigns aren't named consistently, spend cannot be cleanly split by segment regardless of how your pixel and orders are configured.
+</Warning>
+
+***
+
+## Pixel Config Constraint: Ad Traffic Must Land on a Matching URL
+
+This constraint applies when routing is based on **page path or subdomain**. It does not apply if you're using `geo_country_code` or local storage-based routing (`datalayer_region_code`, `datalayer_currency_code`).
+
+**The constraint:** Each child dashboard only captures traffic from URLs that match its pixel config logic. If an ad sends a visitor to a URL that doesn't match the segment's configured path — such as a shared homepage — that visit and any resulting conversion will **not** be attributed to that segment's dashboard.
+
+**Example:**
+
+* Your UK segment dashboard is configured to capture traffic on `store.com/uk`
+* A UK ad sends a visitor to `store.com/` (the homepage) instead
+* That visit is not captured by the UK dashboard — the conversion appears unattributed or lands in the parent dashboard only
+
+**How to avoid this:**
+
+* Ensure all ads for a segment point to that segment's configured URL path or subdomain
+* Or consider using local storage-based routing (`datalayer_region_code`) or `geo_country_code` — both of which are URL-independent and not affected by this constraint
+
+***
+
+## Is This Right for You?
+
+**Good fit:**
+
+* Segments have distinct page paths, country codes, order tags, or other supported fields that cleanly map to one dashboard
+* No ambiguity — an event or order could not reasonably belong to more than one segment
+* All ads for each segment send traffic to that segment's configured URL
+
+**Not a good fit:**
+
+* Shared ad accounts with no campaign naming convention (ad data cannot be split)
+* Split logic doesn't map to any supported fields
+* Events or orders overlap across segments
+* Ads send traffic to shared URLs that don't match any segment's configured path
+
+<Warning>
+  Configurators must use the supported fields listed above — the split cannot be based on arbitrary criteria. If your setup can't be expressed through those fields, a Configurator setup may not be possible.
+</Warning>
+
+***
+
+## Setup Process
+
+Before setup begins, you'll need to define and share three things with your CSM:
+
+1. **Pixel config logic** — which fields and values should route front-end events to each child dashboard (e.g. page path `/uk` → UK dashboard)
+2. **Orders config logic** — which fields and values should route orders to each child dashboard (e.g. shipping country = `GB` → UK dashboard)
+3. **Breakdown label criteria** — the campaign naming conventions used to filter ad spend per segment (e.g. campaigns beginning with `UK_` → UK dashboard)
+
+Once you've provided this, the Northbeam team handles the rest:
+
+1. **The Northbeam team implements** the Pixel Configurator, Orders Configurator, and Breakdown labels on the backend.
+2. **Data validation** — the Northbeam team works closely with you to verify data is splitting correctly across all parent and child dashboards before go-live. Timeline varies by complexity.
+
+***
+
+## Frequently Asked Questions
+
+**Can I see a blended view across all my child dashboards?**
+Yes — the parent dashboard always shows a blended view. You can also combine dashboards into a rollup for a consolidated view.
+
+**Is there a limit on child dashboards?**
+No hard limit, but more child dashboards means a more complex setup and validation process. Your CSM can help you assess what makes sense.
+
+**Can I modify the configurator logic after go-live?**
+Changes require involvement from the Northbeam implementation team. Reach out to your CSM if you need to update your routing rules.
+
+**What if an event matches more than one rule?**
+The priority order defined during setup determines which rule takes precedence.
+
+***
+
+## What's Next
+
+* **Ready to get started?** Contact your CSM.
+* **Not sure if you need this?** See [Setting Up Multiple Stores or Regions](/docs/adding-a-store-or-dashboard).
+* **Questions?** [Submit a support ticket](https://www.northbeam.io/submit-a-support-ticket)

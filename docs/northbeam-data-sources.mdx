@@ -1,0 +1,112 @@
+---
+title: "Northbeam's Data Sources"
+description: "Where does Northbeam get its data from?"
+---
+
+Here is a breakdown of our data sources as well as how they work together to capture the full customer journey.
+
+# Frontend Data Source
+
+<Table align={["left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        [Northbeam Pixel](/docs/add-pixel)
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        [Purchase Events](/docs/add-pixel)
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        UTM Parameters
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        First-Party Cookies
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        What is it?
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        A small code snippet embedded in your website.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Northbeam provides a variety of scripts to track conversions. This includes purchases, email sign ups, or even a custom goal.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Tags added to URLs to track where traffic comes from (e.g., ads, emails, social).
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Small data files set by the website a user visits.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        What does it do?
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Collects behavioral data from visitors, including Marketing touchpoints & Pages visited.  
+
+        Feeds data into Northbeam's backend device graph.  
+
+        Tracks complete customer journeys from initial visit to purchase.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        These scripts are unique to Northeam. They feed into your device graph and displayed in your dashboard
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Helps connect conversion events to the ad or marketing channel that drove them.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Stores login, preferences, and browsing behavior.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+## How Northbeam tracks using First-Party Cookies
+
+* Northbeam sets up first-party tracking using a subdomain (e.g., i.store.com).
+* This subdomain is owned by your domain, making tracking first-party and not blocked by browsers.
+* First-party cookies store user data, and pixel events are sent securely to your Northbeam dashboard
+* This ensures accurate attribution and privacy-compliant tracking without relying on third-party cookies.
+
+# Backend Data Source
+
+| Shopify Integration                                                                                                                    |
+| :------------------------------------------------------------------------------------------------------------------------------------- |
+| Northbeam natively integrates with Shopify, allowing us to fetch all your order data and establish a reliable revenue source of truth. |
+
+## We rely on server-side data as the source of truth to ensure we capture all order information—including orders that don’t fire web pixels. This includes:
+
+* Offline Orders
+* Draft Orders
+* Recurring Subscriptions
+* Other cases where client-side tracking misses
+
+# Connecting Frontend and Backend
+
+<Frame>
+  <img src="https://files.readme.io/ca27b5fdb1580ed910e1cf799c1160c46137751fe27c95ea24ba1ca6a1619ab1-Screenshot_2025-04-16_at_6.32.44_PM.png" alt="" />
+</Frame>
+
+Northbeam's data sources work together to give you the most accurate and complete view of customer's journey. Please submit a [Support ticket here](https://www.northbeam.io/submit-a-support-ticket) if you have any further questions.

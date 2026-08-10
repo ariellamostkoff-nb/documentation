@@ -1,0 +1,521 @@
+---
+title: "All Other Platforms Installation"
+description: "Add the Northbeam pixel to your storefront"
+---
+
+# Northbeam Pixel Installation
+
+There are two methods of installing the pixel:
+
+* Pasting the pixel in the header of your theme file
+* Creating it as a tag within Google Tag Manager
+
+<br />
+
+You’ll need to install this script in the `<head>` section of every page on your site. Be sure to replace `{DATA_CLIENT_ID}` with your unique Northbeam Data Client ID, which you can find [here](https://dashboard.northbeam.io/settings/api-keys).
+
+<Warning>
+  Do not modify the script
+
+  Other than setting your Data Client ID, **do not modify the script in any way**.
+</Warning>
+
+```html
+<!-- Begin: Northbeam pixel -->
+<script>(function(){var t;(n=t=t||{}).A="identify",n.B="trackPageView",n.C="fireEmailCaptureEvent",n.D="fireCustomGoal",n.E="firePurchaseEvent",n.F="trackPageViewInitial",n.G="fireSlimPurchaseEvent",n.H="identifyCustomerId";var n="//j.northbeam.io/ota-sp/{DATA_CLIENT_ID}.js";function r(n){for(var e=[],t=1;t<arguments.length;t++)e[t-1]=arguments[t];i.push({fnName:n,args:e})}var e,i=[],a=((e={})[t.F]=function(n){r(t.F,n)},(a={_q:i})[t.A]=function(n,e){return r(t.A,n,e)},a[t.B]=function(){return r(t.B)},a[t.C]=function(n,e){return r(t.C,n,e)},a[t.D]=function(n,e){return r(t.D,n,e)},a[t.E]=function(n){return r(t.E,n)},a[t.G]=function(n){return r(t.G,n)},a[t.H]=function(n,e){return r(t.H,n,e)},Object.assign(function(n){for(var e=[],t=1;t<arguments.length;t++)e.push(arguments[t]);return r.apply(null,[n].concat(e))},a));window.Northbeam=a,(a=document.createElement("script")).async=!0,a.src=n,document.head.appendChild(a),e.trackPageViewInitial(window.location.href);})()</script>
+<!-- End: Northbeam pixel -->
+```
+
+<Warning>
+  Content Security Policy
+
+  In order for the pixel to use this subdomain, your Content Security Policy (CSP) must explicitly or implicitly allow traffic to the i subdomain. Please make sure your CSP includes either:
+
+  * `*.your-store.com`, or
+  * `i.your-store.com`
+
+  in the connect-src of your CSP.
+</Warning>
+
+<br />
+
+***
+
+# `firePurchaseEvent` Installation
+
+<br />
+
+Use the `window.Northbeam.fireSlimPurchaseEvent` OR `window.Northbeam.firePurchaseEvent` Northbeam Pixel JavaScript function for any non-Shopify native checkout. These functions **equally** signal that a **conversion** has taken place within the visitor's session, but the target function to use depends on your usage intent, available fields, and actionability requirements.
+
+| Function Name           | Usage                                                                                                                                                                                                          | Complexity |
+| :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- |
+| `fireSlimPurchaseEvent` | Directly targets an order for attribution if the only guaranteed value is the Order Number and/or when backend revenue data will be sent on time for actionability. **This our default recommended function**. | Low        |
+| `firePurchaseEvent`     | Directly targets an order for attribution when revenue values need to be actionable before backend revenue data is sent to us.                                                                                 | Moderate   |
+
+*Either* event **must** fire when a transaction is completed — once the final order details are available — typically on the **Order Confirmation** or **Thank You** page.  A timely and proper trigger is required for purchase matching in Northbeam, and they can be deployed natively into your site's code or injected externally via Google Tag Manager.
+
+<br />
+
+## &#x20;Global Requirements  (both `fireSlimPurchaseEvent` and `firePurchaseEvent`)
+
+**Your chosen function must:**
+
+* Fire **after the core Northbeam base pixel.**
+* Fire **only after the order is finalized and all charges have been processed** to prevent ingestion of cancelled transactions.
+* Fire **once per completed order; do not repeat `id` values.**
+* Contain **all corresponding keys with defined values**. `NULL` values are invalid.
+
+<br />
+
+## Critical: `id` = `order_id`
+
+We use the value from the `id` key (Please see function requirements below) to match the frontend purchase event (`fireSlimPurchaseEvent` AND/OR `firePurchaseEvent`) to your backend source of truth (orders sent via the [Northbeam Orders API](/reference/post_orders)).
+
+If the value does not exactly match the corresponding server-side order (Case-sensitive): that purchase will not attribute correctly. It is **strongly** recommended that someone with basic JavaScript knowledge implements these scripts.
+
+***Important:*** Historical purchase data cannot be recovered. An improper implementation will result in missing attribution. Thus: It is **critical** that `fireSlimPurchaseEvent` / `firePurchaseEvent` is configured correctly from day one.
+
+<br />
+
+## &#x20;*window\.Northbeam.fireSlimPurchaseEvent*
+
+### Definitions
+
+This lightweight function signals that the order/transaction number passed in the `id` field is a valid conversion that should be attributed. It only requires a single value for activation. This is our**primary recommended function for most\* implementations**.
+
+| Key  | Type     | Description                                                                                                                                                                                                                                               | Example |
+| :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ |
+| `id` | *String* | The actual transaction/order number. It must be an exact match to the [Northbeam Orders API](/reference/post_orders) `order_id` value for stitching. Must be a `string` containing at least 1 character and it's case-sensitive. | "A123"  |
+
+<br />
+
+### fireSlimPurchaseEvent example
+
+```javascript
+<script type="application/javascript">
+  window.Northbeam.fireSlimPurchaseEvent("A123" || "Missing - unmatched order")
+</script>
+```
+
+* Note: The `id` key/field is an **implicit parameter** in `fireSlimPurchaseEvent` and does ***not*** need to be externally defined for the function to operate. It only needs a *value*, which is automatically mapped to the implicit `id` key.
+* In the above example: "A123" is a hard-coded string with your order\_id, but this should be a variable that ties to the value.
+
+### Considerations
+
+* `fireSlimPurchaseEvent` does *not* process monetary values and is therefore not recommended when operational actionability is a crucial consideration -AND- your corresponding backend Northbeam API upsert implementation is not synchronized to your Dashboard processing cycles. On such cases: `firePurchaseEvent` is best used instead of `fireSlimPurchaseEvent`.
+
+<br />
+
+## &#x20;*window\.Northbeam.firePurchaseEvent*
+
+### Definitions
+
+This full-fledged function not only signals that the order/transaction number passed in the `id` field is a valid conversion that should be attributed, but it also contains transactional information that is actionable for revenue, tax, and shipping calculations in your Northbeam Dashboard. This function **requires** a full transactional object `{}` with distinct keys rather than the `order_id` string alone, which increases complexity and should only be used when actionable data is a crucial concern -AND- your corresponding backend Northbeam API upsert implementation is not synchronized to your Dashboard processing cycles.
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Key
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Example
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `id`
+      </td>
+
+      <td>
+        _String_
+      </td>
+
+      <td>
+        The actual transaction/order number. It must be an exact match to the [Northbeam Orders API](/reference/post_orders) `order_id` value for stitching. Must be a `string` containing at least 1 character and it's case-sensitive.
+      </td>
+
+      <td>
+        "ORD98"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `totalPrice`
+      </td>
+
+      <td>
+        _Number_
+      </td>
+
+      <td>
+        The final paid value _after_ taxes, shipping, and discounts. Must be a positive `number`.
+      </td>
+
+      <td>
+        12
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `shippingPrice`
+      </td>
+
+      <td>
+        _Number_
+      </td>
+
+      <td>
+        The value for shipping charges. Must be a positive `number`.
+      </td>
+
+      <td>
+        6
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `taxPrice`
+      </td>
+
+      <td>
+        _Number_
+      </td>
+
+      <td>
+        The value for tax charges. Must be a positive `number`.
+      </td>
+
+      <td>
+        7
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `coupons`
+      </td>
+
+      <td>
+        _String_
+      </td>
+
+      <td>
+        Discount coupons applied to the order. Must be a single `string`, but multiple values can be separated via comma as a single string (EX: `"coupon 1, coupon 2"`).
+      </td>
+
+      <td>
+        "PROMO 4"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `currency`
+      </td>
+
+      <td>
+        _String_
+      </td>
+
+      <td>
+        The currency code of the transaction. Must be a 3-digit `string` using the [3-digit ISO-4217 standard](https://www.iso.org/iso-4217-currency-codes.html).
+      </td>
+
+      <td>
+        "USD"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `customerId`
+      </td>
+
+      <td>
+        _String_
+      </td>
+
+      <td>
+        The visitor/customer identifier. Must be a `string` containing at least 1 character.
+      </td>
+
+      <td>
+        "VICTOR12"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `lineItems`
+      </td>
+
+      <td>
+        _Array `[]` of Objects `{}`_
+      </td>
+
+      <td>
+        The list of individual items purchased in the order. This is a _**single**_ array `[]` composed of individual objects `{}` (One per product) all nested within the array. The object uses the following keys (Which must all exist and contain a value): `productId`, `variantId`, `productName`, `variantName`, `price` and `quantity`.
+      </td>
+
+      <td>
+        `[{productId: "SKU-0001",
+                                                              variantId: "0001-A",
+                                                              productName: "Pants",
+                                                              variantName: "Blue",
+                                                              price: 10,
+                                                              quantity: 1}]`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `productId`
+      </td>
+
+      <td>
+        _String_
+      </td>
+
+      <td>
+        The identifier for the global parent product. Must be a `string` containing at least 1 character. Belongs to the `lineItems` array `[]` of objects `{}` and can not be used outside the object.
+      </td>
+
+      <td>
+        "SKU-01"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `variantId`
+      </td>
+
+      <td>
+        _String_
+      </td>
+
+      <td>
+        An identifier used if the global parent product has an alternative identifier or sub-type identifier. Must be a `string`. Belongs to the `lineItems` array `[]` of objects `{}` and can not be used outside the object.
+      </td>
+
+      <td>
+        "VAR-01"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `productName`
+      </td>
+
+      <td>
+        _String_
+      </td>
+
+      <td>
+        The commercial product name for the purchased item. Must be a `string` containing at least 1 character. Belongs to the `lineItems` array `[]` of objects `{}` and can not be used outside the object.
+      </td>
+
+      <td>
+        "Hat"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `variantName`
+      </td>
+
+      <td>
+        _String_
+      </td>
+
+      <td>
+        An identifier used if the item name has a sub-type or alternative name. Must be a `string`. Belongs to the `lineItems` array `[]` of objects `{}` and can not be used outside the object.
+      </td>
+
+      <td>
+        "Green Hat"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `price`
+      </td>
+
+      <td>
+        _Number_
+      </td>
+
+      <td>
+        The gross merchandise value of the item in the current object. Must be a positive `number`. Belongs to the `lineItems` array `[]` of objects `{}` and can not be used outside the object.
+      </td>
+
+      <td>
+        12
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `quantity`
+      </td>
+
+      <td>
+        _Number_
+      </td>
+
+      <td>
+        The number of times the item in the current object was purchased. Must be a positive `number`. Belongs to the `lineItems` array `[]` of objects `{}` and can not be used outside the object.
+      </td>
+
+      <td>
+        2
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+<br />
+
+### firePurchaseEvent example
+
+```javascript
+<script type="application/javascript">
+  window.Northbeam.firePurchaseEvent({
+  id: "ORD98" || "Missing - unmatched order",
+  totalPrice: 100 || 0,
+  shippingPrice: 10 || 0,
+  taxPrice: 5.5 || 0,
+  coupons: "SALE20, FAMILY10" || "",
+  currency: "USD" || "USD",
+  customerId: "customer-93" || "UNKNOWN VISITOR",
+  lineItems: [
+    {
+      productId: "SKU-0001" || "UNKNOWN PRODUCT",
+      variantId: "0001-A" || "",
+      productName: "Pants" || "UNKNOWN VARIANT",
+      variantName: "Blue" || "",
+      price: 10 || 0,
+      quantity: 1 || 0,
+    }]
+	})
+</script>
+```
+
+* Note: The payload must be structured as an object and thus wrapped in curly brackets `{}`.
+* In the above example: "ORD98" is a hard-coded string with your order\_id, but this should be a variable that ties to the value.
+
+<br />
+
+### Considerations
+
+* Values from `totalPrice`, `shippingPrice` and `taxPrice` will directly power Northbeam Dashboard metrics tied to revenue, shipping, and taxes respectively.
+* The Northbeam Orders API is the ultimate source of truth. In case of a value conflict with the corresponding `order_id` payload: Values from `firePurchaseEvent` will be overwritten and replaced by the Northbeam API value.
+* Timely/synchronized Northbeam Orders API upserts negate the need to use `firePurchaseEvent`. We recommend using `fireSlimPurchaseEvent` with synchronized API Upserts when possible.
+
+<br />
+
+## Validation and testing
+
+A valid/fully-compliant event trigger for *either* `fireSlimPurchaseEvent` or `firePurchaseEvent` shows a network request (**nb-collector**) with a payload containing the data object **ue** (`data: [{e: "ue",…}]`) alongside second payload containing the data object **se** (`data: [{e: "se",…}]`). The **se\_la** key of the **se** object **contains the order number we received** .
+
+These 2 events and network requests are only ever seen together as requests when the trigger is valid.
+
+These events can can only be reviewed if the network console is open *before* the event fires. They can not be reviewed after the fact.
+
+<br />
+
+## Sequencing
+
+The [Northbeam base pixel](/docs/add-pixel) must fire **before** `firePurchaseEvent`.
+
+If deploying via Google Tag Manager, configure tag sequencing correctly: https://support.google.com/tagmanager/answer/6238868?hl=en
+
+Improper sequencing may prevent the purchase event from registering.
+
+<br />
+
+## Publishing
+
+If deploying via Google Tag Manager:
+
+* Ensure the tag is configured correctly
+* Publish the container
+
+Unpublished containers will prevent tracking.
+
+<br />
+
+## Final Checklist
+
+Before going live, confirm:
+
+* `firePurchaseEvent` fires on the confirmation page
+* It fires once per order
+* The Order ID matches backend data exactly (Orders API)
+* The base pixel fires first
+* GTM container is published
+
+If these conditions are met, purchase matching will function correctly.
+
+<br />
+
+## Best Practices
+
+* Wrap `fireSlimPurchaseEvent` or `firePurchaseEvent` in a function that logs if the script was successful or if it failed. This eases debugging and validation.
+* Wrap `fireSlimPurchaseEvent` or `firePurchaseEvent` in a function that checks if `window.Northbeam` is defined and ready to push the function, or retry if it isn't. This helps with scrip sequencing issues.
+
+<br />
+
+### fireSlimPurchaseEvent with debug function example
+
+```javascript
+<script type="application/javascript">
+(function northbeamPurchaseRetry() {
+
+    function attemptPurchaseEvent() {
+        if (
+            window.Northbeam &&
+            typeof window.Northbeam.fireSlimPurchaseEvent === 'function'
+        ) {
+            console.log('Northbeam fireSlimPurchaseEvent fired');
+
+            window.Northbeam.fireSlimPurchaseEvent(
+                "A123" || "Missing - unmatched order"
+            );
+
+            console.log('Northbeam fireSlimPurchaseEvent successful');
+        } else {
+            console.log('Northbeam fireSlimPurchaseEvent not ready, retrying in 3 seconds...');
+
+            setTimeout(attemptPurchaseEvent, 3000);
+        }
+    }
+
+    attemptPurchaseEvent();
+
+})();
+</script>
+```
+
+<br />
+
+<br />

@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("https://cdn.prod.website-files.com/63ce823acf939e1e64f927c4/64fbb59915ed201d5be55a54_Poppins-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("https://cdn.prod.website-files.com/63ce823acf939e1e64f927c4/64fbb59a8bd363e1b7a0f733_Poppins-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("https://cdn.prod.website-files.com/63ce823acf939e1e64f927c4/64fbb59905654630a1d25548_Poppins-SemiBold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("https://cdn.prod.website-files.com/63ce823acf939e1e64f927c4/64fbb5996b4ef83f4e99196e_Poppins-ExtraBold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Commons";
+  src: url("https://cdn.prod.website-files.com/63ce823acf939e1e64f927c4/6961b7fca6b92ec52507490a_TypeType%20-%20TT%20Commons%20Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Commons";
+  src: url("https://cdn.prod.website-files.com/63ce823acf939e1e64f927c4/6961b7fc9314560ce5d98473_TypeType%20-%20TT%20Commons%20Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700 900;
+  font-display: swap;
+}
+
+.northbeam-home {
+  font-family: "TT Commons", "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+.northbeam-home ::selection {
+  color: #01082b;
+  background: #ccff01;
+}
+
+.northbeam-home pre {
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}

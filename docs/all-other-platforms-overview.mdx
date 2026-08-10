@@ -1,0 +1,50 @@
+---
+title: "All Other Platforms Overview"
+description: "This page will help you get started with Northbeam's API."
+---
+
+# Background
+
+For Northbeam's Multi-Touch Attribution(MTA) and Mixed Media Modeling(MMM) offerings, we use our customers
+
+* Ad Platform Spend Data as the ground truth for Ad Spend
+* Orders as the ground truth for Revenue.
+* Website Events (via Northbeam's pixel) to connect the journey from a customer clicking or seeing an ad to a potential purchase
+
+This enables Northbeam to perform Ad Attribution on Purchases that took place (MTA) and to assist in predicting what will take place (MMM).  While the mechanics of the Pixel are covered elsewhere, this documentation concerns itself with how your Orders and Spend data can be collected via Northbeam's API.
+
+## Spend
+
+Northbeam supports a wide variety of native integrations into your existing ad platforms. These include, but are not limited to:
+
+* Facebook/Meta
+* Google Ads
+* Tiktok
+* Bing/Microsoft Ads
+* Snapchat
+* Amazon Ads
+
+For a full list, Please see the **PLATFORM SETUP GUIDES** section.
+
+There are often cases where our customers leverage ad platforms that we do not have native integrations for.  For these platforms, we have a *Custom Spend API* which provides a means by which our customers can send us data about their spend, to be surfaced and included in the  Northbeam dashboard. The Custom Spend API is a standard solution that that accepts HTTP API calls where the payload contains a list of Ad Objects and their spend on a given date.
+
+## Orders
+
+For customers that use Shopify of Amazon as their ground truth for Orders, we support a Shopify and Amazon native integrations.  These integrations sync a customer's Shopify/Amazon store and get information about orders.  This data is subsequently used for attribution (MTA) or for predictive analytics (MMM).
+
+It is sometimes the case that Shopify or Amazon are not the customer's go-to for the most up-to-date Order information. The native integrations (Shopify/Amazon) are covered elsewhere in the Guide and will not be covered in this section.
+
+* In some cases, customers employ a collection of Shopify/Amazon stores from which they internally pull data into their own data pipelines for centralization, or downstream data transformation (i.e. currency conversion, time-zone manipulation, filtering of incomplete orders, or for tagging purposes)
+* In other cases customers do not use either Shopify or Amazon and use an Order Management System that does not have native support in Northbeam
+
+In either of these above cases (or others), we support the Custom Orders API so that Northbeam can obtain the order information needed to support operations for MMM and MTA. The Custom Orders API is a standard solution that accepts HTTP API calls where the payload contains a list of orders and associated metadata for the orders.
+
+## Data Export
+
+At Northbeam, data export is crucial because it allows for the seamless transfer of valuable information to different platforms, enabling enhanced data integration, analysis, and reporting.
+
+This capability is particularly important for businesses seeking to leverage their data for strategic decision-making, ensuring that insights are accessible across various tools and departments.
+
+By enabling data export, Northbeam helps organizations maximize the utility of their data, improve operational efficiency, and gain a competitive edge through informed data-driven strategies.
+
+If you have any feedback, please submit a [Support](https://www.northbeam.io/submit-a-support-ticket) ticket.

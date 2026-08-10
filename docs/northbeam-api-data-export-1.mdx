@@ -1,0 +1,545 @@
+---
+title: "Data Export"
+description: "This page describes the usage of our Data Export API"
+---
+
+# What is the Data Export API?
+
+The Data Export API allows you to export your performance metrics, such as Attributed Revenue, Transactions, for different Attribution Windows (1, 3, 7, etc), Accounting Modes (cash or accrual), and Attribution Models (ie. Clicks only or Clicks + Modeled Views).
+
+To start using the Data Export API, you'll need an API key. You can generate one by following the instructions in the [Authentication](/docs/authentication) guide, which provides more information on how to generate an API key.
+
+Once you have the API key, you can start using the API. Before creating an export, we recommend fetching the available **attribution models**, **metrics**, and **breakdown labels** first. This will help you know your options when creating an export.
+
+> Keep in mind that if you have any doubts on how to use the endpoints, you can always refer to the [API Reference](/reference/post_data-export-1) for guidance.
+
+***
+
+## Fetching attribution models
+
+To fetch your attribution models, you can use one of the following snippets:
+
+> You can find request examples in other languages in the [API Reference](/reference/post_data-export-1)
+
+```curl
+curl --request GET \
+     --url https://api.northbeam.io/v1/exports/attribution-models \
+     --header 'Authorization: Basic <api_key>' \
+     --header 'Data-Client-ID: <client_id>' \
+     --header 'accept: application/json'
+```
+
+```python
+import requests
+
+url = "https://api.northbeam.io/v1/exports/attribution-models"
+
+headers = {
+    "accept": "application/json",
+    "Authorization": "<api_key>",
+    "Data-Client-ID": "<client_id>"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+```
+
+This will send a GET request to the Data Export API, which will return the available attribution models for your account in JSON format. Make sure to replace `<api_key>`, and `<client_id>` with the appropriate values for your account.
+
+Once you send the GET request to the Data Export API using the shell snippet provided earlier, you will receive a JSON response containing the available attribution models for your account. The response will appear as follows:
+
+```json
+{
+  "attribution_models": [
+    {
+      "id": "northbeam_custom",
+      "name": "Clicks only"
+    },
+    {
+      "id": "northbeam_custom__va",
+      "name": "Clicks + Modeled Views"
+    },
+    {
+      "id": "last_touch",
+      "name": "Last touch"
+    },
+    {
+      "id": "last_touch_non_direct",
+      "name": "Last non-direct touch"
+    },
+    {
+      "id": "first_touch",
+      "name": "First touch"
+    },
+    {
+      "id": "linear",
+      "name": "Linear"
+    }
+  ]
+}
+```
+
+***
+
+## Fetching metrics
+
+To fetch your metrics, you can use this snippet:
+
+```curl
+curl --request GET \
+     --url https://api.northbeam.io/v1/exports/metrics \
+     --header 'Authorization: Basic <api_key>' \
+     --header 'Data-Client-ID: <client_id>' \
+     --header 'accept: application/json'
+```
+
+```python
+import requests
+
+url = "https://api.northbeam.io/v1/exports/metrics"
+
+headers = {
+    "accept": "application/json",
+    "Authorization": "<api_key>",
+    "Data-Client-ID": "<client_id>"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+```
+
+This will send a GET request to the Data Export API, which will return the available metrics for your account in JSON format. Make sure to replace `<api_key>`, and `<client_id>` with the appropriate values for your account.
+
+After executing the request, you will receive a JSON response that contains the available metrics. If you have connected any platform with their own metrics, such as TikTok, Meta (Facebook), or Google, they will also be listed in the response.
+
+The response will look like the following:
+
+```json JSON
+{
+  "metrics": [
+    {
+      "id": "aov",
+      "label": "AOV"
+    },
+    {
+      "id": "aovFt",
+      "label": "AOV (1st time)"
+    },
+    {
+      "id": "aovFtLtv",
+      "label": "LTV AOV (1st time)"
+    },
+    {
+      "id": "aovLtv",
+      "label": "LTV AOV"
+    },
+    {
+      "id": "aovRtn",
+      "label": "AOV (Returning)"
+    },
+    {
+      "id": "aovRtnLtv",
+      "label": "LTV AOV (Returning)"
+    },
+    {
+      "id": "cac",
+      "label": "CAC"
+    },
+    {
+      "id": "cacFt",
+      "label": "CAC (1st time)"
+    },
+    {
+      "id": "cacFtLtv",
+      "label": "LTV CAC (1st time)"
+    },
+    {
+      "id": "cacLtv",
+      "label": "LTV CAC"
+    },
+    {
+      "id": "cacOrderSubscription",
+      "label": "Subscription CAC"
+    },
+    {
+      "id": "cacOrderSubscriptionFirstTime",
+      "label": "Subscription CAC (1st time)"
+    },
+    {
+      "id": "cacOrderSubscriptionOther",
+      "label": "Subscription CAC (Other)"
+    },
+    {
+      "id": "cacOrderSubscriptionRecurring",
+      "label": "Subscription CAC (Recurring)"
+    },
+    {
+      "id": "cacRtn",
+      "label": "CAC (Returning)"
+    },
+    {
+      "id": "cacRtnLtv",
+      "label": "LTV CAC (Returning)"
+    },
+    {
+      "id": "cpm",
+      "label": "CPM"
+    },
+    {
+      "id": "ctr",
+      "label": "CTR"
+    },
+    {
+      "id": "customGoal:email_capture",
+      "label": "Email Signups"
+    },
+    {
+      "id": "customGoalCost:email_capture",
+      "label": "Cost per Email Signup"
+    },
+    {
+      "id": "customGoalCostLtv:email_capture",
+      "label": "LTV Cost per Email Signup"
+    },
+    {
+      "id": "customGoalLtv:email_capture",
+      "label": "LTV Email Signups"
+    },
+    {
+      "id": "customGoalRate:email_capture",
+      "label": "Email Signup Rate"
+    },
+    {
+      "id": "customGoalRateLtv:email_capture",
+      "label": "LTV Email Signup Rate"
+    }
+  ]
+}
+```
+
+> The JSON response above is for demonstration porpouse only and therefore does not include all possible metrics.
+
+***
+
+## Fetching breakdown labels
+
+To fetch your breakdowns, use the following shell snippet:
+
+```curl
+curl --request GET \
+     --url https://api.northbeam.io/v1/exports/breakdowns \
+     --header 'Authorization: Basic <api_key>' \
+     --header 'Data-Client-ID: <client_id>' \
+     --header 'accept: application/json'
+```
+
+```python
+import requests
+
+url = "https://api.northbeam.io/v1/exports/breakdowns"
+
+headers = {
+    "accept": "application/json",
+    "Authorization": "<api_key>",
+    "Data-Client-ID": "<client_id>"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+```
+
+Executing this shell command will send a GET request to the Data Export API and return the available labels you can use to break down your exported data by different attributes. Please replace `<api_key>` and `<client_id>` with your own account's values.
+
+It's worth noting that breakdown labels can be useful for grouping your data by different platforms, allowing you to analyze your data by platform and identify trends or areas for improvement.
+
+The response will be in JSON format and will include all the available breakdown labels for platforms in your account. Here is an example of the JSON response:
+
+```json
+{
+  "breakdowns": [
+    {
+      "key": "Category (Northbeam)",
+      "values": [
+        "Paid - Other",
+        "Influencer",
+        "Organic",
+        "Paid - Prospecting",
+        "Synthetic",
+        "Unattributed",
+        "Organic Search",
+        "Email",
+        "Organic Social",
+        "Other",
+        "Transactional",
+        "Paid - Display",
+        "Paid - Video",
+        "Paid - Nonbranded Search",
+        "Paid - Awareness"
+      ]
+    },
+    {
+      "key": "Targeting (Northbeam)",
+      "values": [
+        "Paid - Other",
+        "Other",
+        "Paid - Prospecting",
+        "Paid - Display",
+        "Paid - Video",
+        "Paid - Nonbranded Search"
+      ]
+    },
+    {
+      "key": "Platform (Northbeam)",
+      "values": [
+        "Google Ads",
+        "Influencer",
+        "Organic",
+        "LinkedIn Ads",
+        "Other",
+        "Unattributed",
+        "Organic Search",
+        "Other Email",
+        "TikTok",
+        "Transactional",
+        "Facebook Organic",
+        "Pinterest",
+        "YouTube Ads",
+        "Misc - Exclude Me",
+        "Facebook Ads",
+        "Klaviyo",
+        "Snapchat Ads"
+      ]
+    },
+    {
+      "key": "Influencers (by Platform)",
+      "values": ["TikTok", "YouTube", "Podcast", "Instagram"]
+    }
+  ]
+}
+```
+
+> When creating a data export, you have the option to choose not to use any breakdown label. In this case, the exported data will not be grouped by any platform or other criteria, and will not include any breakdowns.
+
+***
+
+## Creating a data export
+
+To create a data export, you can use the following request example:
+
+```curl
+curl --request POST \
+     --url https://api.northbeam.io/v1/exports/data-export \
+     --header 'Authorization: Basic <api_key>' \
+     --header 'Data-Client-ID: <client_id>' \
+     --header 'accept: application/json' \
+     --header 'content-type: application/json' \
+     --data '
+{
+  "level": "ad",
+  "time_granularity": "DAILY",
+  "period_type": "YESTERDAY",
+  "breakdowns": [
+    {
+      "key": "Category (Northbeam)",
+      "values": [
+        	"Influencer",
+        	"Organic",
+        	"Organic Search",
+        	"Email",
+        	"Organic Social",
+        	"Other"
+      ]
+    }
+  ],
+  "options": {
+    "export_aggregation": "BREAKDOWN",
+    "remove_zero_spend": false,
+    "aggregate_data": false,
+    "include_ids": false,
+    "include_kind_and_platform": false,
+  },
+  "attribution_options": {
+    "attribution_models": ["northbeam_custom__va"],
+    "accounting_modes": ["accrual", "cash"],
+    "attribution_windows": ["1"],
+  },
+  "metrics": [
+    {"id": "customGoal:email_capture"},
+    {"id": "cpm"},
+    {"id": "spend", "label": "yesterday_spend"},
+    {"id": "cac"},
+    {"id": "rev"}
+  ]
+}
+'
+```
+
+```python
+import requests
+
+url = "https://api.northbeam.io/v1/exports/data-export"
+
+payload = {
+  "level": "ad",
+  "time_granularity": "DAILY",
+  "period_type": "YESTERDAY",
+  "breakdowns": [
+    {
+      "key": "Category (Northbeam)",
+      "values": [
+        	"Influencer",
+        	"Organic",
+        	"Organic Search",
+        	"Email",
+        	"Organic Social",
+        	"Other"
+      ]
+    }
+  ],
+  "options": {
+    "export_aggregation": "BREAKDOWN",
+    "remove_zero_spend": False,
+    "aggregate_data": False,
+    "include_ids": False,
+    "include_kind_and_platform": False
+  },
+  "attribution_options": {
+    "attribution_models": ["northbeam_custom__va"],
+    "accounting_modes": ["accrual", "cash"],
+    "attribution_windows": ["1"],
+  },
+  "metrics": [
+    {"id": "customGoal:email_capture"},
+    {"id": "cpm"},
+    {"id": "spend", "label": "yesterday_spend"},
+    {"id": "cac"},
+    {"id": "rev"}
+  ]
+}
+headers = {
+    "accept": "application/json",
+    "content-type": "application/json",
+    "Authorization": "<api_key>",
+    "Data-Client-ID": "<client_id>"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.text)
+```
+
+Note that only `metrics` and `attribution_options` are required to create an export. The other fields are either optional or have default values.
+
+> For more information on payload options please refer to the
+> [API Reference](/reference/post_data-export-1) for assistance.
+
+Here is a brief explanation of some of the key parameters in the request body:
+
+* `level`: Specifies the level of granularity for the export. In this case, the
+  export is at the ad level.
+* `time_granularity`: Specifies the time granularity for the export, in this
+  case, it's set to daily.
+* `period_type`: Specifies the period for which the data should be exported. In
+  this case, the period is set to yesterday.
+* `breakdowns`: Specifies the breakdowns to apply to the exported data. In this
+  case, the data will be grouped by the values in the "Category (Northbeam)"
+  breakdown. You must use the labels fetched from the `/breakdowns` endpoint.
+* `metrics`: Specifies the metrics to include in the exported data. You must use
+  the metrics available from the `/metrics` endpoint. Note that the `label`
+  parameter under `metrics` is optional and can be used to specify a custom
+  label for the metric in the exported data. If a label is not provided, the
+  default label for the metric will be used.
+* `attribution_options`: Specifies the attribution models, attribution windows,
+  and accounting modes to apply to the exported data. The attribution models
+  must be the ones from the `/attribution-models` endpoint.
+* `options`: Specifies additional options, such as whether to aggregate data,
+  whether to remove zero spend rows, and how to aggregate data.
+
+After sending the request, you will receive a response in JSON format containing the ID of the export. You can use the ID to check the status of the export or to download the exported data.
+
+```json
+{
+  "id": "<export_id>"
+}
+```
+
+***
+
+## Pinging export status and downloading it
+
+Once you created a data export, then you can use the results endpoint to ping
+its status and file location.
+
+Here's a request snippet:
+
+```curl
+curl --request GET \
+     --url https://api.northbeam.io/v1/exports/data-export/result/<export_id> \
+     --header 'Authorization: Basic <api_key>' \
+     --header 'Data-Client-ID: <client_id>' \
+     --header 'accept: application/json'
+```
+
+```python
+import requests
+
+url = "https://api.northbeam.io/v1/exports/data-export/result/<export_id>"
+
+headers = {
+    "accept": "application/json",
+    "Authorization": "<api_key>",
+    "Data-Client-ID": "<client_id>"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+```
+
+Please replace `<export_id>`, `<api_key>`, and `<client_id>` for appropriate
+values.
+
+> You can make a request to this endpoint once every second. To know more about other endpoints rate limits please refer to [Rate Limits](/docs/northbeam-api-data-export-rate-limits-1) page.
+
+The response will contain a `status` field indicating the current state of the export. There are three possible values:
+
+| Status    | Description                                                                          |
+| --------- | ------------------------------------------------------------------------------------ |
+| `PENDING` | The export is still being processed. Continue polling until the status changes.      |
+| `SUCCESS` | The export is complete. The `result` field will contain a link to the exported file. |
+| `ERROR`   | The export failed. You will need to submit a new export request.                     |
+
+**While the export is processing (`PENDING`):**
+
+```json
+{
+  "data_export_id": "<export_id>",
+  "status": "PENDING",
+  "result": [],
+  "created_at": "2023-05-03T19:12:53.933Z",
+  "finished_at": null
+}
+```
+
+**When the export is complete (`SUCCESS`):**
+
+```json
+{
+  "data_export_id": "<export_id>",
+  "status": "SUCCESS",
+  "result": ["<link_to_file>"],
+  "created_at": "2023-05-03T19:12:53.933Z",
+  "finished_at": "2023-05-03T19:13:20.000Z"
+}
+```
+
+> **Important:** Exports can take anywhere from a few seconds to several minutes to complete. Continue polling the result endpoint until `status` is `"SUCCESS"` — a `200 OK` response does not mean the export is ready.
+
+Once the status is **SUCCESS**, the `result` field will contain a link to the exported file, which you can use to download the file using a GET request.
+
+> Currently, the only supported format is a CSV file.
+
+It's important to note that the link to the exported file is only valid for a limited time. If the download link is expired, you will need to perform the request again.

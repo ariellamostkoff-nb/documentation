@@ -1,0 +1,244 @@
+---
+title: "How Credit Is Assigned in Northbeam"
+---
+
+## Overview
+
+Every number you see in Northbeam is shaped by three levers working together:
+
+| Lever                  | What it controls                                                             |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| **Accounting Mode**    | *When* credit is assigned (e.g. at the time of touchpoint vs. time of order) |
+| **Attribution Model**  | *How* credit is split across touchpoints in a customer journey               |
+| **Attribution Window** | *How long* after a touchpoint a conversion can still earn credit             |
+
+Changing any one of these will change the numbers you see. The examples below walk through common scenarios to show how they interact.
+
+***
+
+## Table of Contents
+
+1. [Quick Reference Glossary](#quick-reference-glossary)
+2. [Example 1: Revenue & ROAS](#example-1-revenue--roas)
+3. [Example 2: Transactions & CAC](#example-2-transactions--cac)
+4. [Example 3: How Attribution Models Affect Credit](#example-3-how-attribution-models-affect-credit)
+5. [Example 4: How Accounting Mode Affects Credit](#example-4-how-accounting-mode-affects-credit-accrual-vs-cash)
+6. [Key Takeaways](#key-takeaways)
+
+***
+
+## Quick Reference Glossary
+
+| Term                      | Definition                                                                                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Attributed Revenue**    | Revenue tied to a specific marketing touchpoint (used in Accrual mode)                                                                            |
+| **LTV**                   | Infinite attribution window — credit given for any purchase made after the touchpoint, regardless of time                                         |
+| **Transactions**          | Purchases attributed to a touchpoint; can be fractional when credit is split across multiple touchpoints                                          |
+| **ROAS**                  | Return on Ad Spend = Attributed Revenue ÷ Spend                                                                                                   |
+| **CAC**                   | Customer Acquisition Cost = Spend ÷ Transactions                                                                                                  |
+| **Clicks-Only**           | Attribution model that prioritizes credit to click-based upper funnel touchpoints                                                                 |
+| **Accrual**               | Accounting mode that assigns credit at the time the touchpoint occurred                                                                           |
+| **Cash Snapshot**         | Accounting mode that assigns credit at the time the purchase occurred                                                                             |
+| **First Touch**           | All credit goes to the first touchpoint in the journey                                                                                            |
+| **Last Touch**            | All credit goes to the last touchpoint in the journey                                                                                             |
+| **Linear**                | Credit is split equally across all touchpoints                                                                                                    |
+| **Upper Funnel**          | Paid Social, Paid Search (non-branded), Organic Social, Influencer, Display, etc.                                                                 |
+| **Lower Funnel**          | Direct, Organic Search, Branded Search, Email, SMS                                                                                                |
+| **Model Comparison Tool** | A Northbeam feature (Menu in top-right corner → Model Comparison) that displays multiple attribution models side by side for the same time period |
+
+***
+
+## Example 1: Revenue & ROAS
+
+**Settings:**
+
+* Time Period: Jan 1–31, 2024
+* Attribution Model: Clicks-Only
+* Attribution Window: 1 Day
+* Accounting Mode: Accrual
+
+| Platform     | Spend | Attributed Rev (1d) | LTV Attributed Rev | ROAS (1d) | LTV ROAS |
+| ------------ | ----- | ------------------- | ------------------ | --------- | -------- |
+| Facebook Ads | $50   | $75                 | $150               | 1.5       | 3.0      |
+| Google Ads   | $50   | $125                | $175               | 2.5       | 3.5      |
+| Email        | $0    | $50                 | $75                | —         | —        |
+
+### Spend
+
+Spend is pulled directly from each ad platform via API. $50 went to Facebook, $50 to Google, and $0 to Email (Email has no paid spend).
+
+### Attributed Revenue (1d) vs. LTV Attributed Revenue
+
+These two columns show the same revenue metric under two different attribution windows:
+
+* **Attributed Rev (1d)** — only counts purchases made within **1 day** of the click
+* **LTV Attributed Rev** — counts purchases made **at any point** after the click (infinite window)
+
+Because this is a **Clicks-Only** model, credit flows only to click-based upper funnel touchpoints. Email retains a small amount of credit only when there was no other upper funnel touchpoint in the journey.
+
+### ROAS (1d) vs. LTV ROAS
+
+Both are calculated the same way — Revenue ÷ Spend — just using different attribution windows:
+
+* **ROAS (1d)** = Attributed Rev (1d) ÷ Spend → Google: $125 ÷ $50 = **2.5**
+* **LTV ROAS** = LTV Attributed Rev ÷ Spend → Google: $175 ÷ $50 = **3.5**
+
+Use the 1d window for short-term optimization. Use LTV ROAS when evaluating channels that influence long-term buying behavior.
+
+***
+
+## Example 2: Transactions & CAC
+
+**Settings:**
+
+* Time Period: Jan 1–31, 2024
+* Attribution Model: Clicks-Only
+* Attribution Window: 3 Day
+* Accounting Mode: Accrual
+
+| Platform     | Spend | Transactions (3d) | LTV Transactions | CAC (3d) | LTV CAC |
+| ------------ | ----- | ----------------- | ---------------- | -------- | ------- |
+| Facebook Ads | $50   | 2.20              | 5.67             | $22.73   | $8.82   |
+| Google Ads   | $50   | 6.25              | 10.81            | $8.00    | $4.63   |
+| Email        | $0    | 2.02              | 3.59             | —        | —       |
+
+### Why Are Transactions Fractional?
+
+In Accrual mode, credit is divided between all touchpoints in a customer journey — so a single purchase might give 0.6 credit to Facebook and 0.4 to Google. This is why you see decimals like 2.20 instead of whole numbers.
+
+### Transactions (3d) vs. LTV Transactions
+
+* **Transactions (3d)** — counts purchases made within **3 days** of the click
+* **LTV Transactions** — counts purchases made **at any point** after the click
+
+Example: A click on Jan 1 that converts on Jan 31 (30 days later) would appear in LTV Transactions but not in Transactions (3d).
+
+### CAC (3d) vs. LTV CAC
+
+CAC = Spend ÷ Transactions. Lower is better.
+
+* **CAC (3d)** = Spend ÷ Transactions (3d) → Facebook: $50 ÷ 2.20 = **$22.73**
+* **LTV CAC** = Spend ÷ LTV Transactions → Facebook: $50 ÷ 5.67 = **$8.82**
+
+LTV CAC will almost always be lower because more purchases are counted in the denominator. Use LTV CAC when evaluating channels that influence repeat purchases or have longer consideration cycles.
+
+***
+
+## Example 3: How Attribution Models Affect Credit
+
+This example shows how choosing a different Attribution Model changes who gets credit — even when everything else stays the same.
+
+**Settings:**
+
+* Time Period: Jan 1–31, 2024
+* Attribution Window: 7 Day
+* Accounting Mode: Accrual
+
+**Journey:** A customer sees and clicks three ads before making a $90 purchase.
+
+1. Jan 1 — Facebook Ad click
+2. Jan 3 — TikTok Ad click
+3. Jan 5 — Google Branded Search click → $90 purchase
+
+| Platform              | First Touch | Last Touch | Linear | Clicks-Only |
+| --------------------- | ----------- | ---------- | ------ | ----------- |
+| Facebook Ads          | $90         | $0         | $30    | $45         |
+| TikTok Ads            | $0          | $0         | $30    | $45         |
+| Google Branded Search | $0          | $90        | $30    | $0          |
+
+<Note>
+  **Note:** The Sales page only displays one Attribution Model at a time, so you cannot replicate this table directly in your dashboard.
+
+  To compare models against each other, use the **Model Comparison Tool** (Menu in top-right corner → Model Comparison). This tool is purpose-built for seeing how different models interpret the same data without having to toggle back and forth manually.
+</Note>
+
+### What is happening here?
+
+* **First Touch** gives all $90 to Facebook — the first touchpoint in the journey
+* **Last Touch** gives all $90 to Google Branded Search — the final touchpoint before purchase
+* **Linear** splits credit equally: $30 to each of the three touchpoints
+* **Clicks-Only** gives $45 each to Facebook and TikTok, and $0 to Google Branded Search — because Branded Search is a lower funnel channel and receives no credit when upper funnel touchpoints exist in the journey
+
+### Why does this matter?
+
+If you were optimizing off Last Touch, you would conclude Google Branded Search is your best performer and potentially over-invest there. But Branded Search is largely capturing intent that was created upstream by Facebook and TikTok. Clicks-Only surfaces where that intent actually came from.
+
+This is also why the Model Comparison Tool is useful in practice — rather than switching models manually and trying to remember the numbers, you can see the delta across models in one view and make more informed budget decisions.
+
+**Recommended model for day-to-day decisions:** Clicks-Only. It is conservative, upper-funnel focused, and directionally accurate for media buying decisions. Use the Model Comparison Tool to sanity check your Clicks-Only numbers against other models when needed.
+
+<Info>
+  **Want to understand how C+DV assigns credit across clicks and views?**
+
+  See [Clicks + Deterministic Views](/docs/clicks-deterministic-views) for a full breakdown including worked examples.
+</Info>
+
+***
+
+## Example 4: How Accounting Mode Affects Credit (Accrual vs. Cash)
+
+This example shows how switching Accounting Mode changes *when* credit is assigned — which can significantly affect how a given day or week looks in your dashboard.
+
+**Settings:**
+
+* Attribution Model: Clicks-Only
+* Attribution Window: 7 Day
+
+**Journey:**
+
+1. Jan 1 — Facebook Ad click
+2. Jan 5 — Purchase for $90
+
+### Accrual Mode
+
+In Accrual, credit is assigned to the date the **touchpoint occurred**.
+
+| Date  | Platform                          | Attributed Rev (7d) |
+| ----- | --------------------------------- | ------------------- |
+| Jan 1 | Facebook Ads                      | $90                 |
+| Jan 5 | Purchase date — no new touchpoint | $0                  |
+
+Facebook receives $90 on Jan 1 — the day the click happened — because the purchase occurred within the 7-day window.
+
+### Cash Snapshot Mode
+
+In Cash Snapshot, credit is assigned to the date the **purchase occurred**, regardless of when the touchpoint happened.
+
+| Date  | Platform     | Revenue |
+| ----- | ------------ | ------- |
+| Jan 1 | Facebook Ads | $0      |
+| Jan 5 | Facebook Ads | $90     |
+
+Facebook receives $90 on Jan 5 — the day of the purchase — not the day of the click.
+
+### What is the practical difference?
+
+|                                | Accrual                                       | Cash Snapshot                                          |
+| ------------------------------ | --------------------------------------------- | ------------------------------------------------------ |
+| Credit assigned on             | Touchpoint date                               | Purchase date                                          |
+| Attribution windows available? | Yes                                           | No                                                     |
+| Best for                       | Day-to-day media buying, channel optimization | Reconciling against Shopify revenue, finance reporting |
+| Matches Shopify closely?       | Not directly                                  | Yes                                                    |
+
+**Important:** Attribution Windows are only available in Accrual mode. If you switch to Cash Snapshot, all window options are removed and revenue is reported on the day it was collected regardless of when the touchpoint occurred.
+
+**When to use each:** Use Accrual for media buying decisions. Use Cash Snapshot when you need your numbers to tie back to actual revenue collected — for example, when reconciling with your finance team or Shopify dashboard.
+
+***
+
+## Key Takeaways
+
+1. **Three levers, one number** — Accounting Mode, Attribution Model, and Attribution Window all affect your metrics simultaneously. Always check which settings are active before drawing conclusions.
+2. **Fractional transactions are normal** — they reflect credit being shared across touchpoints, not a data error.
+3. **Short window vs. LTV** — short windows (1d, 3d) are better for optimizing recent performance; LTV is better for understanding full customer value.
+4. **Email deprioritization is intentional** — in Clicks-Only mode, Northbeam pulls credit away from Email to surface the true impact of paid upper funnel channels.
+5. **Accrual vs. Cash Snapshot** — use Accrual for media buying decisions and Cash Snapshot when reconciling with Shopify or finance reporting.
+6. **No single model tells the whole story** — use the Model Comparison Tool (Menu in top-right corner → Model Comparison) to see how different models interpret the same data before making budget decisions.
+
+***
+
+*For deeper dives, see:*
+
+* [Attribution Models](/docs/attribution-models)
+* [Attribution Windows](/docs/attribution-windows)
+* [Accounting Modes](/docs/accounting-modes)

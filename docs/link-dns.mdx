@@ -1,0 +1,94 @@
+---
+title: "6. Link DNS"
+description: "Configure DNS record for Northbeam"
+---
+
+# What is DNS Setup?
+
+DNS (Domain Name System) setup involves creating an **A Record** in your domain provider. For Northbeam, this means adding a subdomain—commonly named `i`—that points to an address provided in your dashboard.
+
+This simple step enables **first-party tracking** using your domain, unlocking advanced tracking capabilities while avoiding many of the limitations of third-party tracking.
+
+# Setting up your DNS
+
+Having a dedicated DNS entry for Northbeam improves our ability to track your customers when they return to your website after their first visit.
+
+In your domain provider, you'll need to create an A Record, named `i`, pointing to a specific address you’ll find in your dashboard. This allows first-party tracking.
+
+If the subdomain `i` is already mapped to something, please get in touch with us so we can help you pick a different subdomain name.
+
+<Warning>
+  Content Security Policy
+
+  In order for the pixel to use this subdomain, your Content Security Policy (CSP) must explicitly or implicitly allow traffic to the i subdomain. Please make sure your CSP includes either:
+
+  * `*.your-store.com`, or
+  * `i.your-store.com`
+
+  in the connect-src of your CSP.
+</Warning>
+
+## Examples
+
+* `www.my-store.com`
+  * Top-level domain: `my-store.com`
+  * Create a DNS record for `i.my-store.com`
+* `try.my-product.com` and `get.my-product.com`
+  * Top-level domain: `my-product.com`
+  * Create a DNS record for `i.my-product.com`
+
+## Instructions are available for multiple Domain providers
+
+* Generic
+* GoDaddy
+* CloudFlare
+* Google Domains
+
+# Following the onboarding flow here will lead you to success\*\*
+
+:tada:
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/a1432a29b59f47448a936ddd3e5d4a59" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+## Instructions:
+
+Follow these steps to enable first-party tracking with Northbeam:
+
+1. **Log In to Your Domain Provider**\
+   Access the DNS settings for the domain you want to use with Northbeam.
+
+2. **Create an A Record**
+   * **Host Name**: Use `i`
+   * **Address**: This is provided in your Northbeam dashboard. Copy and paste it exactly as shown.
+   * **Examples of A-Record Entries**\
+     Here’s what your DNS setup might look like:
+     * `i.northbeam.io` -> The top-level domain here is `northbeam.io`.
+     * `i.company-2.com` -> The top-level domain here is `company-2.com`.
+
+3. **Save Your Changes**\
+   Once saved, your DNS setup will enable first-party tracking through Northbeam.
+
+***
+
+## ⚠️ Additional Step for Domains Using DNSSEC
+
+If your domain has **DNSSEC (DNS Security Extensions)** enabled, you’ll need to add a **CAA record** to allow certificate issuance by Let's Encrypt. Without this step, your SSL certificate may fail to generate, resulting in issues like `404 not found` or certificate mismatch errors.
+
+### Add the following CAA record:
+
+| Field     | Value                            |
+| --------- | -------------------------------- |
+| **Type**  | CAA                              |
+| **Name**  | `i` (or your assigned subdomain) |
+| **TTL**   | `3600`                           |
+| **Flag**  | `0`                              |
+| **Tag**   | `issue`                          |
+| **Value** | `letsencrypt.org`                |
+
+<Info>
+  ### If you're unsure whether DNSSEC is enabled, check with your domain provider or DNS settings panel.
+
+  You can also use tools like [https://dnschecker.org](https://dnschecker.org) to verify DNSSEC and CAA status.
+</Info>

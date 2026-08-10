@@ -1,0 +1,158 @@
+---
+title: "10. Add Spend"
+---
+
+<Info>
+  ### Upload spend for any channels that do not integrate with Northeam.
+
+  There are two main ways to do this:
+
+  1. [Spend API (preferred)](/docs/add-spend#option-1-spend-api)
+  2. [Spend Sheet](/docs/add-spend#option-2-spend-sheet)
+</Info>
+
+This will allow you to:
+
+* See cost-based metrics (ex. ROAS, CAC, CPC) for non-integrated channels
+* Include ALL advertising costs to give you a full picture of total business performance
+
+<Note>
+  Background
+
+  Northbeam integrates with most major ad platforms and is able to fetch spend data. Platforms include Facebook, Google, TikTok, Snapchat, Pinterest, etc. See [Channel Tracking Overview](/docs/all-other-platforms-overview) for full list.
+
+  For any channels that don't integrate, you're able to upload spend data using the Spend API or a Spend Sheet.
+</Note>
+
+***
+
+## When to Use the Spend API Instead of a Spend Sheet
+
+Spend Sheets let you share spend data for ad platforms we don’t natively support by using a Google Sheet. However, they can become challenging to manage when you have:
+
+* Multiple ad platforms to support
+* Numerous campaigns with complex structures per platform.
+
+The Spend API was developed to simplify these cases. Consider using the Spend API if:
+
+* You have developer resources to assist with setup
+* Your spend data is complex enough that manually updating a sheet would be burdensome.
+
+### Comparison: Spend API vs. Spend Sheet
+
+|                                        | Spend Sheet | Spend API |
+| -------------------------------------- | ----------- | --------- |
+| Import ad spend data from any platform | ✅           | ✅         |
+| No dev resources required              | ✅           | ❌         |
+| Minimal ongoing overhead to support    | ❌           | ✅         |
+| Supports Hourly data                   | ❌           | ✅         |
+
+# Option 1: Spend API
+
+## What is the Spend API?
+
+The Spend API enables our customers to programmatically upload daily spend, clicks, and impressions metrics at the ad level of their choice (Campaign, Adset, Ad) for Ad platform integrations that we do not natively support. A common example is an email marketing platform (e.g. Mailchimp, SendGrid).
+
+Read more about the Spend API [here](/docs/spend-api) and the API reference [here](/reference/post_spend).
+
+## When should I use the Spend API?
+
+If you want to associate spend with campaigns that Northbeam is tracking from platforms that we don't natively integrate with, upload spend data associated with those campaigns using the Spend API. To correctly associate spend with campaigns, you need to provide:
+
+* The date the spend was committed
+* This name of the platform to associate the spend with (this label will apply to the spend object in the dashboard)
+* The campaign ID and name that the spend is for
+* The currency and amount spent on the campaign
+
+## How do I set up the Spend API?
+
+Read more about the Spend API [here](/docs/spend-api) and the API reference [here](/reference/post_spend).
+
+***
+
+# Option 2: Spend Sheet
+
+## What is a Spend Sheet?
+
+A Spend Sheet is a Google Sheet where you can manually enter your spend data, which is then uploaded to your dashboard to reflect this data in the backend.  This method provides an efficient way to track cost metrics like ROAS and CAC even for platforms or channels that don’t have direct integrations with Northbeam.
+
+## When should I use a Spend Sheet?
+
+If you don’t have development resources to set up an automated API POST request to send spend data on a regular cadence to your dashboard, the Spend Sheet is an effective alternative. While it requires more manual setup, there are ways to streamline and partially automate the process.
+
+## How do I set up a Spendsheet?
+
+### Step 1: Request a Spend Sheet
+
+First, check if you already have a Spend Sheet in your dashboard by going to Settings > Data Spreadsheets.
+
+If not, [reach out our team](https://info.northbeam.io/knowledge/help) to request one. We’ll create it, share it with you, and connect it to your backend.
+
+### Step 2: Fill out the Custom Spendsheet
+
+For detailed step-by-step instructions:
+
+* Watch the instructional video above
+* Refer to the **Instructions** tab directly in the spreadsheet
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/facbabb40ec941f1bdfadbba6b241012?sid=c904cb45-ab93-47e4-ba37-a1db264438f2" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+<br />
+
+<Tip>
+  Key Steps for using the Spendsheet
+
+  1. **Daily Spend Entry:**
+  1. Enter platform and campaign names in the “Input” sheet. Platform names go in Row 1, and campaign names or spend labels go in Row 2.
+  2. Refer to the spreadsheet for examples and validation requirements.
+  2. **Use the Validation Tool:**
+  1. After entering data, use the “Validation Tool” tab to verify accuracy. Follow the instructions in the spreadsheet to ensure your spend data aligns properly between the “Input” and “IMPORT\_TARGET” sheets.
+  3. **Align Spend Names for Grouping with Revenue:**
+  1. To allow grouping of spend with revenue for cost-based metrics like ROAS and CAC, it’s crucial that campaign names in the “Input” sheet match exactly with utm\_campaign values. By maintaining consistency with UTM naming, Northbeam can group spend and revenue data effectively on the backend.
+
+  2. Simply set up the correct naming in the Spend Sheet, and our team will manage the labeling and categorization for seamless reporting.
+</Tip>
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/1404292d21b14b138a31e570f39e82bc?sid=96d06769-c154-47be-8b0c-5b546ba59dc6" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+> 4. **Automate Data Entry**
+>    1. Utilize the “Raw Data Import” sheet as a sandbox. Automate data import here and transfer it into the “Input” sheet in the required format. (See spreadsheet notes for more on setting up data automation.)
+
+<Note>
+  **Spendsheet FAQs**
+
+  * **Removing or Adding Spend Sources:** See the FAQs tab in the spreadsheet for guidance on adding/removing spend sources without altering the spreadsheet structure.
+  * **Entering Data in USD:** Enter spend in U.S. dollars, regardless of dashboard currency. The spreadsheet will handle conversion.
+  * **Troubleshooting Missing Data in the Dashboard:** If data is missing, check the “Validation Tool” and the “Other” platform group on the dashboard. Reach out to our support team if needed.
+</Note>
+
+<br />
+
+## Step 3: Re-Categorize Custom Spend
+
+When your spend data is uploaded, it might initially appear under the “**Other**” platform group in your dashboard. You can use the **Breakdowns Manager** to customize spend categories. This tool allows you to reassign spend to the appropriate platform, making it easier to analyze spend metrics by platform.
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/a18acb22ddb24ac38dbc98c8c8e6d154?sid=51ebb6ac-6aa7-4f51-8d0f-09a46f3f03e3" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+***
+
+# FAQ:
+
+## **Why can't I find my spend?**
+
+If you can't locate your spend data, try the following troubleshooting steps in order of priority:
+
+**Check for Misclassified Spend:**\
+Often, spend data is categorized under the "Other" platform group. Start by sorting spend from highest to lowest to bring it to the top. Alternatively, you can use the search bar at the campaign level and search for the spend source name. Applying the platform breakdown view can help reveal where it’s categorized
+
+**Review the IMPORT\_TARGET Tab:**\
+Although you shouldn’t have edit access, occasionally formulas can misalign. If the IMPORT\_TARGET tab appears out of sync with the Input tab, please reach out to our support team.
+
+**Verify Spreadsheet Connection:**\
+Ensure your spend sheet is connected to your dashboard by going to Settings > Data Spreadsheets. This should already be set up by our team, but it’s worth confirming.

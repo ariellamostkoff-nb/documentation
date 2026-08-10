@@ -1,0 +1,129 @@
+---
+title: "Attribution Windows"
+description: "We offer a variety of Attribution Windows to help inform your decision-making"
+---
+
+# What is an Attribution Window?
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/b866d7271dfb4833ab3a44cb34222d7e?sid=96bf4624-250f-4754-b2b9-0dfc09a57a92" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+An Attribution Window refers to the length of time in which a touchpoint receives credit for a purchase.
+
+<Warning>
+  Note: Attribution Windows are only available using the **Accrual Accounting Mode**
+</Warning>
+
+***
+
+# Which Attribution Windows are available?
+
+Here are the following attribution windows available for our Click-Based models (except for Clicks + Modeled Views):
+
+* 1-Day Click
+* 3-Day Click
+* 7-Day Click
+* 14-Day Click
+* 30-Day Click
+* 90-Day Click
+* LTV
+
+Here our Attribution Windows for Clicks + Modeled Views:
+
+* 1-Day Click / 1-Day View
+* 3-Day Click / 1-Day View
+* 7-Day Click / 1-Day View
+* 14-Day Click / 1-Day View
+* 30-Day Click / 1-Day View
+* 90-Day Click / 1-Day View
+
+***
+
+# Attribution Windows in Northbeam
+
+We offer Attribution Windows for every conversion-based metric including: Revenue, Transactions, Email Sign Ups, Subscription Orders, and any Custom Event.
+
+Windows are also offered for any formulaic metric that contain a conversion metric, such as ROAS and CAC.
+
+Within the dashboard, every metric with an Attribution Window has either a "(d)" or "LTV."
+
+For example:
+
+* Attributed Rev (1d)
+* LTV Attributed Revenue
+* ROAS (7d)
+* LTV ROAS
+* CAC (3d)
+* LTV CAC
+
+| Attribution Window | Meaning         | Definition                                                                          |
+| :----------------- | :-------------- | :---------------------------------------------------------------------------------- |
+| (1d)               | 1-day window    | Credit is given from conversions that occurred within 1 day after the touchpoint.   |
+| (3d)               | 3-day window    | Credit is given from conversions that occurred within 3 days after the touchpoint.  |
+| (7d)               | 7-day window    | Credit is given from conversions that occurred within 7 days after the touchpoint.  |
+| (14d)              | 14-day window   | Credit is given from conversions that occurred within 14 days after the touchpoint. |
+| (30d)              | 30-day window   | Credit is given from conversions that occurred within 30 days after the touchpoint. |
+| (60d)              | 60-day window   | Credit is given from conversions that occurred within 60 days after the touchpoint. |
+| (90d)              | 90-day window   | Credit is given from conversions that occurred within 90 days after the touchpoint. |
+| LTV                | Infinite Window | Credit is given from conversions that occurred any time after the touchpoint.       |
+
+# Attribution Window Examples
+
+To understand the credit allocation based on the different attribution windows, let's take an example.
+
+1. Jan 1 - Facebook Ad click
+2. Jan 3 - Google Ad click
+3. Jan 5 - Direct visit resulting in a purchase for $90
+
+For simplicity, let's say we're using an equal weighting model (Linear) in the Accrual Accounting Mode.
+
+### Jan 1 Performance
+
+| Platform | Attributed Rev (1d) | Attributed Rev (3d) | Attributed Rev (7d) | LTV Attributed Rev |
+| :------- | :------------------ | :------------------ | :------------------ | :----------------- |
+| Facebook | $0                  | $0                  | **$30**             | **$30**            |
+| Google   | $0                  | $0                  | $0                  | $0                 |
+| Direct   | $0                  | $0                  | $0                  | $                  |
+
+Remember, we're using the Accrual mode, so credit is only given to touchpoints that occurred on Jan 1st, which in this case is Facebook.
+
+The purchase happened 4 days after the Facebook touchpoint. As a result, the 1-day and 3-day windows do not get credit.  But, the 7-day and LTV windows do since 4 days falls within both of these windows.
+
+### Jan 3 Performance
+
+| Platform | Attributed Rev (1d) | Attributed Rev (3d) | Attributed Rev (7d) | LTV Attributed Rev |
+| :------- | :------------------ | :------------------ | :------------------ | :----------------- |
+| Facebook | $0                  | $0                  | $0                  | $0                 |
+| Google   | $0                  | $30                 | $30                 | **$30**            |
+| Direct   | $0                  | $0                  | $0                  | $0                 |
+
+We're using the Accrual mode so only the touchpoints that occurred on Jan 3 receive credit, which in this case is Google.
+
+The purchase happened 2 days after the Google touchpoint. Therefore, 1-day window does not get credit. But, 3-day, 7-day and LTV do since 2 days falls within all of these windows.
+
+### Jan 5 Performance
+
+| Platform | Attributed Rev (1d) | Attributed Rev (3d) | Attributed Rev (7d) | LTV Attributed Rev |
+| :------- | :------------------ | :------------------ | :------------------ | :----------------- |
+| Facebook | $0                  | $0                  | $0                  | $0                 |
+| Google   | $0                  | $0                  | $0                  | $0                 |
+| Direct   | **$30**             | **$30**             | **$30**             | **$30**            |
+
+Again, we're using the Accrual mode so only the touchpoints that occurred on Jan 5 receive credit, which in this case is Direct.
+
+The purchase happened the same day as the Direct touchpoint. Because this was less than 24 hours, this falls within all of the attribution windows.
+
+### Jan 1-5 Performance
+
+Let's put it all together. As a reminder, this is our journey:
+
+1. Jan 1 - Facebook Ad click
+2. Jan 3 - Google Ad click
+3. Jan 5 - Direct visit resulting in a purchase for $90
+
+| Platform | Attributed Rev (1d) | Attributed Rev (3d) | Attributed Rev (7d) | LTV Attributed Rev |
+| :------- | :------------------ | :------------------ | :------------------ | :----------------- |
+| Facebook | $0                  | $0                  | **$30**             | **$30**            |
+| Google   | $0                  | **$30**             | **$30**             | **$30**            |
+| Direct   | **$30**             | **$30**             | **$30**             | **$30**            |

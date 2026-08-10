@@ -1,0 +1,119 @@
+---
+title: "Tracking for Rakuten"
+description: "This guide will show you how to connect your Rakuten account and pull the following metrics:"
+---
+
+* Spend and Impressions, which enables our view-through modeling data
+
+***
+
+# Step 1: Inserting Click UTMs
+
+There are a few NB UTMs that need to be added in your **Link Parameters** menu
+
+1. Navigate to your **[Rakuten Advertising Dashboard](https://dashboard.linkshare.com/)**
+2. In the header, click **Links**
+3. Click **Link Parameters**
+4. Add the following 4 parameters:
+
+| Parameter Type | Parameter Name     | Parameter Value                                    | Mapping in Northbeam                                           |
+| :------------- | :----------------- | :------------------------------------------------- | :------------------------------------------------------------- |
+| Advertiser     | nb\_platform       | rakuten                                            | Categorizes traffic under "Rakuten" channel                    |
+| Linkshare      | nb\_offer\_id      | Offer ID *(selected from Linkshare dropdown)*      | Pulls Campaign Names into the Campaign Level of the Sales Page |
+| Linkshare      | nb\_publisher\_sid | Publisher SID *(selected from Linkshare dropdown)* | Pulls Publisher Names into the Adset Level of the Sales Page   |
+| Linkshare      | nb\_creative\_id   | Creative ID *(selected from Linkshare dropdown)*   | Pulls Ad Names into the Adset Level of the Sales Page          |
+
+<Frame>
+  <img src="https://files.readme.io/216ced53c7be459fc023f2a4a6ffa6cc087e95b8e2db85b4ad520aa2642d62fc-Untitled_design_2.png" alt="" />
+</Frame>
+
+***
+
+# Step 2: Set Up Scheduled Reports
+
+You’ll need to create **two** scheduled reports to ensure full coverage:
+
+* One for **This Month** named `nb_reporting_tm`
+* One for **Last Month** named `nb_reporting_lm`
+
+<Warning>
+  **Important: Report Currency Must Be in USD**
+
+  Northbeam assumes all Rakuten data is in USD. If your dashboard is in another currency, Northbeam will convert spend using the daily exchange rate — but if your Rakuten reports are not in USD, the conversion will be wrong.
+
+  **If your Rakuten account is not in USD, please to contact Rakuten support** to change the report output currency.
+</Warning>
+
+Before proceeding, locate the unique email address where the report should be sent by visiting the **Connections** page in your Northbeam dashboard.
+
+1. Log in to **Northbeam**
+2. Navigate to **Settings > Connections**
+3. Scroll to **Rakuten**
+4. Copy the **Email Address**
+   * Format: `[your_client_id]zzznbzzzrakuten@robot.northbeam.io`
+
+<br />
+
+### Report 1: "This Month" Report (`nb_reporting_tm`)
+
+1. Navigate to your **[Rakuten Advertising Dashboard](https://dashboard.linkshare.com/)**
+2. In the header, click **Reports > Reporting > Create New Report**
+3. Add the following fields and metrics:
+
+```
+ # of clicks
+ # of impressions
+ Offer ID
+ Offer Name
+ Publisher ID
+ Publisher Name
+ Publisher Encrypted ID
+ Total Commission
+ Transaction Date
+ Publisher Group ID
+ Publisher Group ID Name
+ Link ID
+ Link Name
+```
+
+4. Click **Save Report** and name it `nb_reporting_tm`
+5. Click **Manage Report > Schedule Report**
+6. Adjust the following fields:
+   1. **Date Range**: This Month
+   2. **Time Zone**: (GMT+00:00) GMT
+   3. **Date Type**: Transaction Date
+   4. Uncheck **"Include Summary"**
+   5. **Schedule Time**:
+      1. Daily
+      2. Set the hour to anything between 10AM and 6PM
+   6. Check **"Deliver report to Email"**
+   7. Insert the **Email Address** from the previous step
+7. Click **Set Scheduling**
+
+<br />
+
+### Report 2: "Last Month" Report (`nb_reporting_lm`)
+
+Repeat the same steps above, but with the following adjustments:
+
+* **Report Name**: `nb_reporting_lm`
+* **Date Range**: Last Month
+
+All other settings remain the same.
+
+***
+
+# Step 3: Enable Rakuten Integration
+
+1. Navigate to the **Connections** menu in Northbeam:
+   1. Go to **Settings**
+   2. Select **Connections**
+   3. Scroll down to locate **Rakuten**
+2. In the **Connections** menu, check the boxes to confirm that the following have been set up:
+   1. Click UTMs
+   2. Scheduled Report
+3. Click **Connect**
+
+<Frame>
+  <img src="https://files.readme.io/a49addf755b633f2eb0befcac49eca514af2284df43efba6e19338e00db162f5-Screen_Shot_2024-12-31_at_2.19.18_PM.png" alt="" />
+</Frame>

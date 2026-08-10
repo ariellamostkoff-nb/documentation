@@ -1,0 +1,16 @@
+---
+title: "Partially update existing orders"
+openapi: "openapi/orders-v2.json PATCH /orders"
+---
+
+Update specific fields of existing orders. Only fields present in the
+request payload will be modified. Omitted fields retain their existing values.
+Use explicit null to clear optional field values.
+
+**Note:** The `products` and `refunds` fields currently cannot be patched. To modify
+products or refunds, re-submit the full order via POST.
+
+Array fields (order_tags, discount_codes) are replaced entirely when
+present - no per-item merging is performed.
+
+The entire batch fails if any order_id does not exist or any entry fails validation.

@@ -1,0 +1,122 @@
+---
+title: "Apex FAQs"
+description: "Frequently asked questions about Northbeam Apex."
+---
+
+# FAQs
+
+### What is Meta Custom Attribution, and how does it relate to Apex?
+
+Custom Attribution is Meta's official way of letting advertisers optimize campaigns against an outside attribution model instead of Meta's default. Apex is the data connection that feeds Northbeam's attribution into Meta's Custom Attribution system.
+
+### When will Custom Attribution be available to me?
+
+All customers can enable Apex and start sending data to Meta today. Live optimization is in an invite-only beta, with broader rollout expected in **June 2026**. Setting up Apex now means Meta is already training on your data when broader access opens up.
+
+### Do I need to set anything up in Meta Business Manager?
+
+No. Northbeam handles all Meta-side configuration as part of the in-app setup — we attach a Custom Attribution Source to your selected pixel(s) and configure the CAPI connection automatically. Your existing pixel and CAPI connection are unchanged.
+
+### Will this affect my current CAPI connection or attribution?
+
+No. Apex runs in parallel. It uses a custom event type (Passback&#x20;
+
+I cannot complete this instruction because the input text is empty and the instruction itself appears to be a fragment of a larger document rather than a clear instruction for creating markdown content. The instruction text seems to be part of a technical specification or documentation that's incomplete.
+
+If you'd like me to create markdown content, please provide:
+
+1. Clear input text to edit, or
+2. A complete, clear instruction for what markdown to generate
+
+### What is the difference between a Meta Pixel and a Meta Custom Attribution Source (CAS)?
+
+**TL;DR: The Pixel is what *collects&#x20;*&#x74;he data from your website or app. A Custom Attribution Source is what *feeds&#x20;*&#x79;our Meta algorithm.&#x20;**
+
+**Meta Pixel** is the browser-based tracking code you install on your site. It tracks user actions like purchases or sign-ups after they've interacted with an ad, sending that raw event data to Northbeam so actions (like purchases) can be attributed to your ads.
+
+A **Meta Custom Attribution Source** is the object that appears in Meta Events Manager when you turn on Apex. Instead of raw events, it ingests already-attributed performance from Northbeam.&#x20;
+
+Northbeam's MTA model splits credit across every touchpoint in the customer journey, and Apex sends the Northbeam-attributed performance for each ad to Meta, which uses that signal to optimize delivery against the outcomes you actually measure — rather than how Meta measures by default.
+
+The **North Star** metric is a specific attributed outcome you set up in Northbeam, serving as the exact definition of "good" that Meta's algorithm then optimizes toward.
+
+Many brands have multiple pixels and, therefore, multiple Custom Attribution Sources. **A separate CAS is created for each pixel in a single Northbeam dashboard.**<br />
+
+**Example:**
+
+![](https://files.readme.io/96bb50ec50b01ace0406f620ef02e5e6df07f29bc592fc60a64674819dacef16-Screenshot_2026-07-23_at_4.17.18_PM.png)
+
+<br />
+
+### I'm already using an enrichment tool (ex. Elevar). Should I turn it off?
+
+No. Do not turn off or change your existing pixel or CAPI setup. Enrichment tools push more raw events into Meta's pixel-driven attribution. Apex sends Northbeam's already-attributed, cross-channel performance to Meta so its algorithm can optimize against the same numbers you trust in Northbeam. They are complementary, not redundant.
+
+### Is this data passed as standard CAPI events?
+
+No. Apex uses custom event types (Passback and AppendAttribution events) specifically requested by Meta for improved signal quality. They are not Purchase events, do not appear as such in Ads Manager, and do not affect EMQ.
+
+### What data does Meta actually see about my customers?
+
+Ad-level attributed performance — transactions, spend, revenue, custom metrics — plus your attribution model, window, accounting mode, and breakdowns. At the order level, events include IP address and user agent (which Meta requires for any server-side CAPI event), but **no emails, names, phone numbers, or device IDs**.
+
+### My North Star is Clicks + Deterministic Views (C+DV). Can I use it with Custom Attribution?
+
+Not yet — Custom Attribution does not currently support C+DV. To run a Custom Attribution test today, set your North Star to **Clicks-only**. If you switch from C+DV to Clicks-only, wait at least **10 days** after the change before starting the test, and evaluate results under the Clicks-only model.
+
+### I changed my North Star — do I need to wait again?
+
+Yes. Changing your North Star resets the model's calibration period. Plan for approximately two weeks before running a new test. The model will still function during that period but will be re-learning from the new signal.
+
+### My results in Meta Ads Manager don't match my Northbeam dashboard. Why?
+
+Two main reasons: (1) Meta's Ads Manager renders results as blended even when your North Star isn't, and (2) there is a 48-hour reporting lag for Custom Attribution data in Ads Manager. Use Northbeam as your source of truth for all budget and performance decisions.
+
+### Meta's reported ROAS went down after I turned on Apex. Is something wrong?
+
+No — this is expected. When Apex is on, Meta's algorithm optimizes against Northbeam's attribution data, but Meta's surface reporting in Ads Manager still uses its own last-click model. The two are now misaligned by design. Evaluate performance in Northbeam, not Ads Manager, where all attribution is consistent.
+
+### I turned on Apex but Meta still isn't optimizing. Why?
+
+Three possible causes:
+
+* **Meta is still warming up.** It takes approximately 14 days of high-quality signal before Custom Attribution becomes selectable in Ads Manager. Check the readiness indicator in Events Manager — it needs to show **High** before you can proceed.
+* **You haven't created a Custom Attribution campaign yet.** Turning on Apex does not automatically apply to existing campaigns. Custom Attribution must be selected on a new (or duplicated) Sales-objective campaign at the ad-set level.
+* **You're not on the beta whitelist yet.** Apex setup is available to all customers, but Meta-side optimization is invite-only. If you're not on the list, model training is happening but live optimization is not. Reach out to your CSM or [Support Team](https://www.northbeam.io/submit-a-support-ticket) to be added.
+
+### My pixel isn't showing up in the Apex setup wizard. Why?
+
+Two possible causes:
+
+* The Meta login used to connect your Ads account in Northbeam is missing `business_management` permission for the business that owns that pixel. Reconnect using a login that has it. Agency-managed accounts typically only have `ads_management` — the brand side will need to reconnect with the correct login.
+* The pixel may belong to a business that the connected user doesn't have access to administer. Confirm the pixel's owning business is one the connected user can manage.
+
+### Can I run Apex and Incremental Attribution at the same time?
+
+Yes, but not on the same ad set. Custom Attribution and Incremental Attribution are mutually exclusive at the ad-set level. You can run both within the same campaign by using different ad sets for each.
+
+### I have multiple Meta ad accounts connected to Northbeam. Does my North Star apply to all of them?
+
+Yes. All Meta ad accounts connected to a single Northbeam dashboard inherit the same North Star settings. If you need different settings for different accounts, those would need to be on separate Northbeam dashboards.
+
+### I just had a positive test — what's next?
+
+Scale as quickly as you can with confidence. The ideal next step is a **50/50 account-level A/B test** on Custom Attribution. If that's not feasible, move at least **20% of budget to Custom Attribution for at least two weeks** to confirm sustained performance before going broader.
+
+Avoid letting it sit at a small budget share (1–3%). The model learns from the traffic it generates — at low spend it can't improve fast enough, results will be misleading, and you'll underrealize the gains even if your A/B test already showed it wins.
+
+### Will Apex affect my Meta performance immediately?
+
+No. Apex currently supports Meta model training. Live optimization begins once you create a Custom Attribution campaign and the 14-day warm-up period is complete.
+
+### Will Apex eventually support TikTok, Google, or other channels?
+
+Yes — additional platform integrations are on the roadmap.
+
+### Can Meta's access to my data be audited?
+
+Yes. Northbeam logs every data export. We can deactivate or revoke a partner's access and reconstruct exactly what was accessed and when.
+
+***
+
+Please reach out to your Customer Success Manager, Media Strategist, or [Support](https://www.northbeam.io/submit-a-support-ticket) if you have any questions.

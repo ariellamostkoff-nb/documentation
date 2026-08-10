@@ -1,0 +1,116 @@
+---
+title: "Shopify Migration: Preserving Customer Stages"
+---
+
+**This guide is for existing Northbeam customers migrating from a custom order management system using Orders API to Shopify.**
+
+It covers one specific task: preserving your historical Customer IDs so Northbeam can continue accurately classifying customers as **New** or **Returning** after migration.
+
+> This guide does not cover full order or customer data migration into Shopify..
+
+***
+
+## Why this matters
+
+Shopify generates its own unique Customer IDs when customer records are imported. Northbeam relies on consistent Customer IDs to determine whether a customer is New or Returning.
+
+Without this step, every existing customer will appear as a **New customer** in Northbeam — because Shopify-generated IDs have never been seen before.
+
+To prevent this, you'll store your historical Customer IDs in a Shopify customer **metafield**, which Northbeam's engineering team will then map to your existing customer records.
+
+***
+
+## Before You Start
+
+Make sure you have:
+
+* Access to your Shopify admin
+* A customer export from your previous system with **Customer IDs and email addresses intact**
+* Your Northbeam pixel still active on your storefront
+
+<Warning>
+  **Important:** Do not remove the Northbeam pixel until your Shopify integration is fully verified. Running both systems in parallel during the transition prevents gaps in attribution data.
+</Warning>
+
+***
+
+## Step 1: Create a Customer Metafield in Shopify
+
+Do this **before** starting your migration.
+
+1. **Login to your Shopify store** at [shopify.com](https://www.shopify.com) if you haven't already
+
+   ![](https://files.readme.io/1a708c5270946de8900157c49e397623a9e8a9eeb42033086af9054f22836958-image.png)
+2. **Click on Settings** — find this in your Shopify homepage on the bottom left corner
+
+<Frame caption="Metafields and metaobjects should be on the left in your settings menu">
+  <img src="https://files.readme.io/bd69fe301be3d871e70c8e0ae623fe997b35ecd81cfc075482be333e9bd7ecd3-image.png" alt="" />
+</Frame>
+
+3. **Click on Customers**
+
+   ![](https://files.readme.io/e9a3f85632efd1f3cf7fe55dd0b883a7a4e3ae70daf807ca730c589c0b5e10c0-image.png)
+4. **Click Add definition** If you haven't added one before, this button will be center-stage!
+
+   ![](https://files.readme.io/17a229a1b7c534bd4f42152afa2717e5f2f60fbee8d9c4d727bba3822a2479d3-image.png)
+5. **Customer Metafield Details**
+   1. Name: `legacy_customer_id` — note this name exactly, you'll need it later.
+   2. Type: **Single line text**
+   3. Validation: minimum of **1** and max of **256**
+
+![](https://files.readme.io/5b01f4d38b3829e37d84f5e1c7d72a564e92a6c404fa81a1341afecbb0fad13e-image.png)
+
+6. Click **Save**
+
+The metafield namespace will default to `custom`, making the full field key `customer.metafields.custom.legacy_customer_id`
+
+This is the column header you'll use in your CSV import.
+
+***
+
+## Step 2: Export customer data from your current system
+
+Before disconnecting your old system, export your customer list. At minimum, your export must include:
+
+* **Customer ID** (from your legacy system)
+* **Email address**
+
+Store this export securely — you'll use it to populate the import file in Step 3 and to verify your data in Step 4.
+
+***
+
+<Warning>
+  Do not remove the Northbeam pixel from your website until your Shopify integration is fully verified. Running both in parallel during the transition prevents gaps in attribution data.
+</Warning>
+
+***
+
+## Step 3: Format Your Customer List for Shopify
+
+Use the [Northbam Shopify Import Template](https://docs.google.com/spreadsheets/d/1x17iJWc7gx8f13ML5hq15MeCo4D5tqg3Sb4T-9vpKa8/edit?usp=sharing) to format your data
+
+The most common formatting mistake is getting the metafield column name wrong. It must be **exactly**:
+
+`customer.metafields.custom.legacy_customer_id`
+
+***
+
+## Step 4: Import your Customers into Shopify
+
+Proceed to your **Customers** page in Shopify.
+
+1. In the top left corner, click Import:
+
+![](https://files.readme.io/57cd04c05a1f99f5f34e1544a68e01335abfe8d70a7ef7a0f6bd30e172eaabc5-image.png)
+
+2. Import your CSV files!
+
+   ![](https://files.readme.io/a40d5fea43f42a1acfd02716d309cd2e3cc653386998f26834183d7d3e42c3a2-image.png)
+
+   *We recommend following the [following template](https://docs.google.com/spreadsheets/d/1x17iJWc7gx8f13ML5hq15MeCo4D5tqg3Sb4T-9vpKa8/edit?usp=sharing) for guidance  -- as the template that Shopify provides does not account for Customer metafields*
+
+***
+
+## Step 5: Notify your CSM at Northbeam
+
+Once your data has been uploaded, inform your CSM at Northbeam along with the name of your **legacy customer\_id** field.  Once we have this, the Northbeam engineering Team can map your old Customer IDs into your dashboard, preserving customer stages.

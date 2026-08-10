@@ -1,0 +1,258 @@
+---
+title: "Why Doesn't Northbeam Match My Shopify Reporting?"
+description: "Learn why Northbeam Total Revenue and Orders may differ from Shopify and how to compare the two using an apples-to-apples Shopify Orders export."
+---
+
+When comparing Northbeam's Total Revenue and Orders to Shopify, it's common to see differences in the data. Use this guide to understand why, and how to make a true apples-to-apples comparison.
+
+**This guide should answer the following question:**
+
+* *"Why is my total revenue/orders in Northbeam different than what Shopify shows?"*
+
+<Warning>
+  **Start here: Northbeam and Shopify *reports* will rarely match exactly, and that's expected.**
+
+  Northbeam pulls your order data directly from **Shopify's API**.
+
+  Shopify's standard reports, such as Total Sales, Net Sales, GMV, and Analytics dashboards, apply internal calculations and transformations on top of raw order data. These transformations are **not exposed through the API** and cannot be fully replicated by Northbeam or any third-party platform.
+
+  A few examples of report-only logic:
+
+  * Gift card purchases are excluded from sales until redeemed
+  * Deleted and test orders are removed entirely
+  * Order edits or exchanges can be counted differently
+  * Refunds may be reported on the date the refund was processed, rather than the original order date
+
+  **What this means in practice:**
+
+  * Small differences, typically low single-digit %, between Northbeam and Shopify reports are normal.
+  * **The only apples-to-apples comparison is an export from your [Shopify Orders page](https://admin.shopify.com/orders)**, not a Shopify report.
+  * If you've matched accounting mode, revenue formula, order sources, filters, timezone, and data freshness, all covered below, and your **Orders page export** still does not line up, that's when it's worth submitting a ticket.
+</Warning>
+
+**How each platform produces its number:**
+
+| Source                      | What the number is based on                  | Notes                                                                                                            |
+| :-------------------------- | :------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
+| Northbeam                   | Raw orders from Shopify's API                | Server-side order data, plus your configured revenue formula.                                                    |
+| Shopify Orders Page         | Raw order data                               | Your **Orders page export** should align closely with Northbeam when using the same revenue formula and filters. |
+| Shopify Reports / Analytics | Raw orders **+ report-only transformations** | Applies additional logic on top of raw orders. **Will not fully match Northbeam**. See the common reasons below. |
+
+<Note>
+  **My revenue still isn't lining up. What's going on?**
+
+  Check these in order:
+
+  1. [Accounting Mode](#1-accounting-mode)
+  2. [Revenue Calculation](#2-revenue-calculation)
+  3. [Omitted or Additional Order Sources](#3-omitted-or-additional-order-sources)
+  4. [Orders Labeled as Excluded](#4-orders-labeled-as-excluded)
+  5. [Timezone](#5-timezone)
+  6. [Data Freshness & Recent Dates](#6-data-freshness--recent-dates)
+</Note>
+
+***
+
+## 1. Accounting Mode
+
+Be sure to toggle to **Cash** accounting mode. The default view is Accrual.
+
+* **Cash:** revenue is reported on the day the order was placed. **Use this mode when comparing against Shopify**, since Shopify also reports based on time of purchase.
+* **Accrual:** revenue is reported on the day(s) the contributory touchpoint(s) occurred.
+  * *Example: If 3 touchpoints led to a sale, revenue is divided across those touchpoints. If the touchpoints happened on different days, revenue may be split across multiple dates.*
+
+<Tip>
+  **Tip:** The **Orders page** always shows revenue and orders in Cash terms, so it can be a quicker comparison point than toggling modes on the Overview or Sales pages.
+</Tip>
+
+Learn more about our [Accounting Modes](/docs/accounting-modes).
+
+***
+
+## 2. Revenue Calculation
+
+Northbeam calculates revenue differently than Shopify's "Total Sales":
+
+| Platform               | Revenue Calculation                                  |
+| :--------------------- | :--------------------------------------------------- |
+| Northbeam, default     | Gross Sales + Shipping + Taxes - Discounts           |
+| Shopify, "Total Sales" | Gross Sales + Shipping + Taxes - Discounts - Refunds |
+
+The key difference is that **Northbeam does not deduct refunds by default**. However, your Northbeam revenue formula can be customized to:
+
+* Exclude Shipping
+* Exclude Taxes
+* Deduct Refunds
+* Add order-level Discounts back into the topline
+
+To request a change, [submit an inquiry here](https://www.northbeam.io/submit-a-support-ticket).
+
+<Note>
+  **No single Shopify metric matches Northbeam's default.** Always confirm which Shopify metric you're comparing against:
+
+  | Shopify Metric  | Formula                                                   |
+  | :-------------- | :-------------------------------------------------------- |
+  | **Gross Sales** | Gross - Discounts                                         |
+  | **Net Sales**   | Gross - Discounts - Refunds *(excludes shipping & taxes)* |
+  | **Total Sales** | Gross + Shipping + Taxes - Discounts - Refunds            |
+
+  *Note: In the Shopify Orders export, "Gross Sales" appears as the&#x20;****Subtotal****&#x20;column.*
+</Note>
+
+### Refunds
+
+Refunds are an order value difference, not an order source difference.
+
+By default, Northbeam does not deduct refunds from revenue. If you want Northbeam revenue to align more closely with Shopify's "Total Sales," you may need to update your revenue formula to deduct refunds.
+
+<Note>
+  **Important to Know**
+
+  **If refunds are deducted, historical revenue data will update when refunds are processed.**
+
+  For example, if an order is placed on January 1 but refunded on February 1, revenue for January 1 will update on February 1 to reflect the refund.
+</Note>
+
+Even when refunds are deducted, Northbeam and Shopify reports may date refunds differently:
+
+* **Northbeam:** Because we use Shopify's API, refunds are tied to the *initial order date*.
+  * Example: If an order was placed on January 1 and refunded on February 15, the refund is recorded under January 1.
+* **Shopify Reports:** In Shopify's standard reports, refunds are tied to the *refund processed date*.
+  * Example: In the same scenario, the refund is reported on February 15.
+
+This means a refund can affect different dates depending on which platform you're viewing. Over a date range that includes the order but not the refund, or vice versa, totals can diverge. The gap grows with refund volume.
+
+<Warning>
+  **Which Shopify data source should I compare to Northbeam?**
+
+  **Only an export from the Shopify Orders page will align with Northbeam. Shopify reports will not match.**
+
+  Shopify's standard reports, such as Total Sales, Net Sales, and GMV, apply internal calculations and transformations that are not available through Shopify's API. Because of this, discrepancies may remain even if you adjust for refunds, taxes, or shipping.
+
+  **To export your Orders page:**
+
+  1. Log into Shopify
+  2. Click **Orders**
+  3. Click **Export**
+
+  *When cross-referencing, use the "Order Name" field to match orders in Northbeam.*
+
+  ![Shopify Orders export](https://files.readme.io/5e701d99a78e371ea7f01d8bbdbe9472bcf52e2ae23b96a364e5af670e3fdae0-CleanShot_2026-03-04_at_09.47.15.png)
+</Warning>
+
+***
+
+## 3. Omitted or Additional Order Sources
+
+Some discrepancies happen because Northbeam and Shopify are not looking at the same set of orders. This is different from a revenue formula issue. In these cases, the order itself may be included in one system but not the other.
+
+### Shopify POS and In-Person Orders
+
+By default, Northbeam ingests your **online** Shopify orders. **In-person orders processed through Shopify POS are not included by default. Typically, these are orders where Sales Channel is POS.**
+
+If your store processes in-person or retail transactions through Shopify POS, those orders may appear in Shopify but **not in Northbeam**, making Northbeam lower.
+
+If this applies to your store and you'd like POS orders included, [submit an inquiry here](https://www.northbeam.io/submit-a-support-ticket) and our team can enable POS ingestion.
+
+### Non-Shopify Revenue in Northbeam
+
+Northbeam's Total Revenue includes **all connected revenue sources**, not just Shopify. If you've connected Amazon Seller Central or another sales channel, Northbeam may be higher than Shopify by the value of that additional revenue.
+
+To isolate Shopify revenue in Northbeam:
+
+1. On the Sales page, click **Add Filters**
+   1. Click **Tile Settings**
+   2. Click **Add Filters**
+   3. Filter to your Shopify platform and click **Apply**
+2. On the Overview page, click the **3 dots (...)** in any tile
+   1. Click **Tile Settings**
+   2. Click **Add Filters**
+   3. Filter to your Shopify platform and click **Apply**
+
+***
+
+## 4. Orders Labeled as Excluded
+
+Northbeam can label certain orders as **Excluded** based on order tags or other configured rules. However, these orders are not always automatically removed from every Northbeam view.
+
+In many cases, excluded orders are still visible in Northbeam and are simply labeled as **Excluded**. A user would need to intentionally filter them out for those orders to be omitted from the view they are looking at.
+
+Because of this, excluded order tags are usually **not the most common reason** for a Northbeam vs. Shopify discrepancy, but they are worth checking if the numbers still do not line up.
+
+Common examples of orders that may be labeled as excluded include:
+
+* Phone orders and customer-service-placed orders
+* Wholesale / B2B orders
+* Influencer gifting, replacements, and warranty orders
+* 3rd-party retailer orders, such as Amazon, Walmart, Macy's, etc.
+
+These rules are configured either during onboarding or afterward in your dashboard.
+
+**To review your current exclusions:**
+
+1. Navigate to **Settings**
+2. Find the **Exclude Orders by Tag** section
+3. Review the list of excluded order tags
+
+If an order tag is listed here, orders with that tag may appear in Northbeam with an **Excluded** label. If you or another user filters excluded orders out of your view, Northbeam may appear lower than Shopify by the value of those filtered orders.
+
+***
+
+## 5. Timezone
+
+Minor differences are often caused by a mismatch between your Northbeam dashboard timezone and your Shopify store timezone. Orders placed near midnight may fall on different days in each system.
+
+To see your Northbeam timezone:
+
+1. Navigate to **Settings**
+2. Click **Profile**
+
+To check your Shopify store timezone, go to **Settings → General → Store details**.
+
+***
+
+## 6. Data Freshness & Recent Dates
+
+Northbeam processes order data on a schedule, so **the most recent day or two may not be finalized**. Comparing today's or yesterday's numbers against Shopify, which updates in real time, may show a temporary gap.
+
+For the most accurate comparison:
+
+* Compare a **closed date range** that ended at least 1-2 days ago.
+* Confirm data has processed by hovering over **Last Processed**. See Troubleshooting below.
+
+***
+
+# Troubleshooting
+
+If you've worked through the sections above and still suspect an issue, follow these steps.
+
+## Step 1: Check your Connection
+
+Hover over **Last Processed** to identify broken connections. Under **Revenue**, you'll see the connection for your **Shopify** revenue source. A broken connection displays a red error message.
+
+![Connection status](https://files.readme.io/31b476e-Screen_Shot_2024-01-26_at_4.07.48_PM.png)
+
+## Step 2: Compare Northbeam Orders to your Shopify Orders
+
+If the connection looks fine, do an order-level comparison to identify missing orders, extra orders, or revenue discrepancies. You do not need to pull every order. A small subset, such as a single day, is usually enough.
+
+To export your orders from Northbeam:
+
+1. In the left-side navigation, go to **Orders**
+2. Filter for **E-Commerce Platform = Shopify**
+3. Click **Export Data**
+
+![Northbeam Orders export](https://files.readme.io/5533343-Screen_Shot_2024-01-26_at_4.12.27_PM.png)
+
+Cross-reference against your Shopify **Orders page export**, not Reports or Analytics, using the order number as the identifier. Northbeam's **Order Value** reflects your active revenue formula, so rebuild the equivalent value from the Shopify export columns below and compare:
+
+| Northbeam Metric | Shopify Orders Export Column |
+| :--------------- | :--------------------------- |
+| Order Number     | **Name**                     |
+| Gross Sales      | **Subtotal**                 |
+| Shipping         | **Shipping**                 |
+| Taxes            | **Taxes**                    |
+| Discounts        | **Discount Amount**          |
+| Refund           | **Refunded Amount**          |
+
+Apply your revenue formula line-by-line. See [Revenue Calculation](#2-revenue-calculation), sum it, and compare to Northbeam's Order Value. They should match.

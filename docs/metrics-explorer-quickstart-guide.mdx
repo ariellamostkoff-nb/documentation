@@ -1,0 +1,98 @@
+---
+title: "🚀 Metrics Explorer Quickstart Guide"
+sidebarTitle: "Metrics Explorer Quickstart Guide"
+description: "First time using Metrics Explorer? Start here."
+---
+
+Below is a step-by-step guide to help you run your first-ever Metrics Explorer correlation analysis. Follow along with each step and you'll finish this process with a real insight!
+
+### Step 1: Navigate to Metrics Explorer inside the Northbeam dashboard.
+
+Click the telescope icon on the navigation bar on the left to find Metrics Explorer.
+
+<Frame>
+  <img src="https://files.readme.io/f5b9d7583db5821bbbcd7a6a07b2fd49e93c8097aa7f09310f4d225d95115fda-Screenshot_2024-10-24_at_12.57.28_PM.png" alt="" />
+</Frame>
+
+### Step 2: Select the first "quick start" link at the center, titled "Revenue (1st time) & Spend by Platform."
+
+These quick links are designed to help you get started fast, and contain ideas from our most common correlation analyses. Feel free to start with these and customize them to your specific needs.
+
+<Frame>
+  <img src="https://files.readme.io/8e0c80b13b00e527c7e4f0e7cc6f091385ef0194994e3f6d093e2ccd0618866f-Screenshot_2024-10-24_at_1.00.28_PM.png" alt="" />
+</Frame>
+
+### Step 3: Adjust your filters and attribution windows.
+
+For this example, let's select:
+
+* **Accounting mode:** Accrual
+* **Attribution model & window:** First Touch, 60 days
+* **Granularity:** Daily
+* **Time period:** 60d (60 days)
+
+Once you choose these filters, the correlation tiles will update. This selection of filters will help us identify which spend on these channels is driving strong [first-touch](/docs/attribution-models) revenue.
+
+<Frame>
+  <img src="https://files.readme.io/144844ceb19e7f316a5b6668249ebed5d75e42214fe9e5021b7c842fc04846b9-Screenshot_2024-10-24_at_1.18.45_PM.png" alt="" />
+</Frame>
+
+### Step 4: Analyze your results!
+
+Next, let's look at the correlation tiles in this example from a real business.
+
+<Frame>
+  <img src="https://files.readme.io/3df2a3b16145757959e33d47539d3e89071d9dea2865b397b8ef8da5612ce87c-Screenshot_2024-10-24_at_1.20.22_PM.png" alt="" />
+</Frame>
+
+**In this example, you can see that over the last 60 days, given a large first-touch lookback window, 1st time revenue is very strongly positively related to Amazon Ad spend.**
+
+To a lesser degree, there's a similar relationship with Facebook Ads spend. There's no correlation between revenue and spend on Neon Pixel, Google Ads, Or TikTok for this business over this time period.
+
+Which relationships exist in your dataset?
+
+**But it may feel backwards to see how "spend" changes against revenue.** Let's check this relationship from both angles.
+
+### Step 5: Click a different metric to see the relationships from a different angle.
+
+**Click the correlation tile of the most strongly correlated metric in your dataset.**
+
+In the example, I would click the "Spend: Amazon - Ads and Organic" tile, as seen in this image. This changes "Spend: Amazon - Ads and Organic" into the primary metric, meaning all the other tiles now show their correlations to this metric instead of the original tile (Revenue 1st time.)
+
+<Frame>
+  <img src="https://files.readme.io/005d756daa49cba4bae852ec83e08e23bc49c5c4a8d14ffd405f5e5f1b720b57-Screenshot_2024-10-24_at_1.25.44_PM.png" alt="" />
+</Frame>
+
+**As we can see, there's a very strong positive relationship between Revenue (1st time) and Amazon Ads spend.**
+
+**This analysis suggests that increases in Amazon Ad spend will drive up first-time revenue.** However, it doesn't guarantee that result - remember, correlation does not imply causation.
+
+<Warning>
+  When interpreting correlations, be sure to examine every relationship from multiple angles, metrics, and perspectives. This helps to prevent you falling into the "correlation does not imply causation" fallacy and strengthens your analysis. It's good statistical practice!
+</Warning>
+
+### Step 6: Look at the charts to identify visual trends.
+
+Looking at the chart visuals can assist you in validating the relationship between metrics - and identifying outlier moments you might need to account for.
+
+<Frame>
+  <img src="https://files.readme.io/e4f4e744c78e6598af15b813faa0771767f694211433f44f8c0a60527a28ddac-Screenshot_2024-10-24_at_4.27.46_PM.png" alt="" />
+</Frame>
+
+In this visual, we can see a few strong outliers. The green line, which represents TikTok Spend, dropped to zero for several days in September. This suggests that while there doesn't appear to be any relationship, the TikTok data isn't very consistent either. This is worth deeper analysis to understand how TikTok spend actually affects revenue.
+
+The Amazon spend, however, saw a huge spike around October 9. This could be an early Prime Day sale. The major success on that specific day could be enough to influence the whole analysis.
+
+When using Metrics Explorer, be sure to have access to the wider context of your marketing strategy. Know what product launches, promotional periods, or holidays might exist in your selected time range. This can help you limit [confounding variables](https://en.wikipedia.org/wiki/Confounding).
+
+### Step 7: Save your view for easier access later.
+
+In the top right hand corner of the Metrics Explorer screen, select "Save -> Save as new" to save your existing view for future reference.
+
+<Frame>
+  <img src="https://files.readme.io/87e89281b0ab2aaaec2240c3c156897f80ad9a4740696cb5d7fc7392cbd924aa-Screenshot_2024-10-25_at_12.09.03_PM.png" alt="" />
+</Frame>
+
+### Congratulations! You just made your first analysis on Metrics Explorer!
+
+Let's look at some best practices next.

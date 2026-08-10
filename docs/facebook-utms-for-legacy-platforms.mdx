@@ -1,0 +1,88 @@
+---
+title: "UTMs for Legacy Platforms"
+---
+
+## **Using Legacy Facebook UTMs with Northbeam**
+
+Northbeam can ingest UTMs from other tracking tools like **Triple Whale, Hyros, Rockerbox, and Wicked Reports**. If your ads are already using UTMs from these platforms, you **may not need to implement Northbeam's UTMs**—helping you avoid sending ads back into the learning phase.
+
+### **🚨 Important: UTM Keys & Values Must Match Exactly**
+
+Ensure that the **UTM keys and values** match precisely, including capitalization, for Northbeam to recognize and track them properly.
+
+### **Supported Legacy UTMs by Platform**
+
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Tool
+      </th>
+
+      <th>
+        Legacy UTMs
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Triple Whale
+      </td>
+
+      <td>
+        **One (1) of the following source parameters + values is required:**  
+
+        tw\_source=\{\{site\_source\_name}}\
+        tw\_source=facebook\
+        utm\_source=facebook\
+        utm\_source=\{\{site\_source\_name}}  
+
+        **One (1) of the following adid parameters + values is required:**  
+
+        tw\_adid=\{\{ad.id}}\
+        fbadid=\{\{ad.id}}  
+
+        **Examples UTMs that are acceptable:**  
+
+        * tw\_source=facebook\&tw\_adid=\{\{ad.id}}
+        * tw\_source=\{\{site\_source\_name}}\&fbadid=\{\{ad.id}}
+        * utm\_source=\{\{site\_source\_name}}\&tw\_adid=\{\{ad.id}}
+        * utm\_source=facebook\&fbadid=\{\{ad.id}}
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Hyros
+      </td>
+
+      <td>
+        fbc\_id=\{\{adset.id}}\&h\_ad\_id=\{\{ad.id}}
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Rockerbox
+      </td>
+
+      <td>
+        fb\_campaignid=\{\{campaign.id}}\&fb\_adsetid=\{\{adset.id}}\&fb\_adid=\{\{ad.id}}
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Wicked Reports
+      </td>
+
+      <td>
+        WickedSource=Facebook\&WickedID=\{\{ad.id}}
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+By using these existing UTMs, you can streamline your transition to Northbeam tracking without disrupting your ad performance.

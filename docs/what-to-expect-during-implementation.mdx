@@ -1,0 +1,121 @@
+---
+title: "What To Expect During Implementation"
+---
+
+<Tip>
+  Standard Setup
+
+  The steps below apply to a **standard setup**: one dashboard, one domain, per brand.
+
+  ***
+
+  If your configuration differs (e.g., one brand with multiple dashboards or multiple domains), additional steps will be required and the process may vary.
+</Tip>
+
+***
+
+Below is a practical overview of the three parts of your Northbeam implementation:
+
+1. **Account Setup** – Getting your dashboard, store, tracking, and ad accounts connected so data can flow into Northbeam.
+2. **Data Validation** – This is where we double-check that everything is set up correctly. Thanks for being patient — our team will reach out with quick questions and updates as we confirm your data is accurate.
+3. **Using the Platform** – Once validation is complete, you’ll learn how to use Northbeam and, if included, work with your Media Strategy team.
+
+***
+
+## 1. Account Setup
+
+This is where you connect your store, place tracking, and link your ad accounts so Northbeam can start collecting data.
+
+* **Dashboard Creation**
+  * Our team will create your account and provide access to your team.
+
+* **Set up your DNS A-Record**
+  * Enables first-party tracking. Without it, pixel and event tracking won’t function correctly.
+  * *Guide: /docs/link-dns*
+
+* **Pixel and Event Setup**
+  * Add the Northbeam Pixel site-wide and configure conversion tracking (e.g., Purchase Event).
+  * *Guide: /docs/add-pixel*
+
+* **Upload Order Data**
+  * **Shopify**: Install our native app.
+    * *Guide: /docs/shopify-order-sync*
+  * **Non-Shopify**: Send orders to Northbeam via the Orders API.
+    * *Guide: /docs/orders-api/*
+    * *API Ref: /reference/orders*
+
+* **Connect your Ad Accounts**
+  * Ad account connections are *user-based*. The user connecting must have *admin access* to the account.
+  * If that user loses admin access, the account will disconnect from Northbeam. An admin will need to reconnect or restore access.
+  * **Agencies**: Best practice is to have someone from the brand side connect accounts.
+  * **Multiple Ad Accounts**: The connecting user must have admin access to all accounts.
+  * **Multiple Google Ads Accounts:**  All accounts should be under a Parent MCC, and the connecting user must be an admin on the MCC.
+
+* **TikTok Shops and Meta Shops Setup**
+  * Orders from TikTok Shop and Meta Shop must flow into your source of truth (Shopify or your custom backend).
+
+  * **Shopify Stores**: Make sure TikTok and Meta Shop orders are syncing into your Shopify account so they are included with the rest of your Shopify orders sent to Northbeam.
+
+  * **Custom Stores**: Send TikTok and Meta Shop orders to Northbeam via the Orders API, using a unique order tag to distinguish them from other order sources.
+
+  * This setup is especially important for **TikTok GMV Max campaigns**, since these transactions are processed through TikTok Shop.
+
+  * *Guide: /docs/tracking-for-shops#/*
+
+* **Attach UTM Parameters**
+  * Required for accurate reporting and attribution — see note below.
+
+<Warning>
+  **UTM Parameters Are Required**
+
+  Northbeam requires specific UTM parameters for proper tracking.
+
+  * Adding UTMs may reset ads into a learning phase, but we strongly recommend implementing them immediately.
+  * For plans that include data reviews and walkthroughs, these will be delayed until UTMs are attached so that we’re working with fully healthy data.
+  * _Bottom line: The longer UTMs are delayed, the longer your implementation will take._
+</Warning>
+
+* **Additional Spend Data (Optional)**
+  * Use Custom Spend Sheets or the Spend API for channels without spend integrations (e.g., email, influencer, affiliate, partners).
+  * *Guide: /docs/add-spend/*
+
+* **Typical Timelines**
+  * Shopify brands: **2–4 weeks** (light dev work).
+  * Non-Shopify brands: **4–8 weeks** (depends on dev resources).
+  * Timeline varies based on the availability of your dev team.
+
+***
+
+## 2. Data Validation
+
+At this stage, we confirm that everything is flowing correctly and matches your source of truth. Expect communication from us with updates and follow-ups.
+
+* **Activation & Validation Period**
+  * After setup, our team validates your data to confirm orders, pixels, UTMs, and integrations are healthy. We require at least 3 fully tracked days of data before validating to ensure a large enough sample size.
+  * *During this period, our team checks the following:*
+    * **Orders Data** – Confirm we’re receiving orders through the Shopify App or Orders API.
+    * **Pixel Tracking Rate** – We validate that conversion events fire for online orders. The target is 85% of all web orders, with some loss expected from cookie blockers. If a cookie banner blocks pixel events, please provide the acceptance rate, as this will adjust the target.
+    * **UTMs** – We'll confirm UTM coverage across all integrated channels (e.g., Meta, Google, TikTok, Pinterest, Snapchat).
+  * **Integrations** – We ensure all ad accounts remain connected with valid permissions.
+
+* **Revenue Reconciliation**
+  * Northbeam default: `Gross Sales + Shipping + Taxes – Discounts`
+
+***
+
+## 3. Using the Platform (and Media Strategy, if applicable)
+
+Once your data is validated, your implementation and support will depend on your plan.
+
+| Feature                             |                                         Professional & Enterprise                                         |                                             Starter                                             |
+| ----------------------------------- | :-------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| **Platform walkthrough & training** |  ✅ Guided session covering Sales and Overview pages, saving views, and using attribution/accounting modes |                                                ❌                                                |
+| **Customer Success Manager (CSM)**  |                                  ✅ Setup, troubleshooting, and operations                                 |                                                ❌                                                |
+| **Support team**                    |      ✅ Ticket Support via [Ticket Submission Form](https://www.northbeam.io/submit-a-support-ticket)      | ✅ Ticket Support via [Ticket Submission Form](https://www.northbeam.io/submit-a-support-ticket) |
+| **Media Strategy Team**             |                      ✅ Optimization guidance, budget strategy, recurring Data Reviews                     |                                                ❌                                                |
+| **First Data Review**               | ✅ Scheduled session with strategist, leave-behinds (agendas, saved views, best practices), and follow-ups |                                                ❌                                                |
+| **Self-service resources**          |                                   ✅ Documentation and training materials                                  |                              ✅ Documentation and training materials                             |
+
+<br />
+
+<br />

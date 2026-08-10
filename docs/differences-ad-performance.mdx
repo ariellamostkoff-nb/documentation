@@ -1,0 +1,66 @@
+---
+title: "Differences in Ad Performance"
+description: "It's very common to see a difference in ad performance within Northbeam. In fact, this is 100% expected and happens more often than not. Read this article to learn why."
+---
+
+**This guide will answer the following question:**
+
+* Why is my \[platform] \[metric] in Northbeam much lower/higher than in-platform?
+
+**Examples:**\
+“My Facebook ROAS in Northbeam is 0.8, but Facebook Ads Manager is reporting a 2.1"\
+“My Google CAC in Northbeam is $60, but Google Ads Manager is reporting $25"\
+“My Pinterest ROAS in Northbeam is 0.5, but Pinterest Ads Manager is reporting a 1.7"
+
+**Ad performance discrepancies are expected. This boils down to 3 core principles:**
+
+1. [**Attribution Model**](/docs/attribution-models)
+2. [**Attribution Window**](/docs/attribution-windows)
+3. **Customer Journey**
+
+# Key Takeways
+
+* Northbeam’s **attribution model** and **attribution window** are different from legacy models that platforms use. This creates a difference in credit allocation and performance across your campaigns.
+* Northbeam recognizes touchpoints from all channels within the **customer journey,** whereas in-platform does not. That said, even if you're using the same attribution model and window, a difference in credit allocation and performance is expected.
+
+If there are discrepancies between in-platform and Northbeam in regards to a specific campaign or channel, this is **expected**.
+
+Our approach to weighting credit is different from how in-platform metrics traditionally weigh credit. In short, this boils down to differences between our Multi-Touch Attribution (MTA) model and in-platform traditional models. Our MTA divides credit between touchpoints, whereas in-platform models tend to give full credit to a single touchpoint (usually on a last-touch basis).
+
+# Example:
+
+Let's say somebody placed an order for $100. Below is their customer journey:
+
+* User clicks on FB Campaign called "Prospecting"
+* User clicks on FB Campaign called "Retargeting"
+* User clicks on Klaviyo Email
+* User clicks on Branded Search ad and purchases
+
+See the credit allocation for each touchpoint across a few different attribution models.
+
+|                  | Clicks-Only (Northbeam's model) | Last Touch (Northbeam's model) | Last Touch (Facebook's model) |
+| :--------------- | :------------------------------ | :----------------------------- | :---------------------------- |
+| FB "Prospecting" | $50                             | $0                             | $0                            |
+| FB "Retargeting" | $50                             | $0                             | $100                          |
+| Klaviyo Email    | $0                              | $0                             | $0                            |
+| Branded Search   | $0                              | $100                           | $0                            |
+
+Here are the biggest differences:
+
+* Our MTA models (Clicks-Only and Clicks + Modeled Views) divide credit among all touchpoints
+* The Northbeam Pixel recognizes touchpoints across the full journey (from all channels) - hence the difference in Last Touch
+
+Other differences that aren't depicted above are:
+
+* Attribution Windows
+* Accounting Modes
+
+All of these create differences in performance when comparing Northbeam to legacy platform reporting. We believe this is a more accurate way to make media buying decisions.
+
+**See the article below for more information and scenarios. The article speaks specifically to Facebook, but the concept can be applied to all platforms.**
+
+[“What are the differences between Northbeam and in-platform reporting”](/docs/what-is-northbeam#one-of-the-most-common-questions-we-get-is)
+
+# Need additional help?
+
+If you need further assistance, reach out to [Support](https://www.northbeam.io/submit-a-support-ticket)!

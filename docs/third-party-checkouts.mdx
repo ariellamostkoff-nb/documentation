@@ -1,0 +1,173 @@
+---
+title: "Third-Party Checkouts"
+---
+
+## Overview
+
+Northbeam matches client-side pixel events to server-side orders using a unique identifier generated at the time of purchase. The specific identifier used depends on your platform:
+
+| Platform   | Identifier             |
+| ---------- | ---------------------- |
+| Shopify    | Shopify Checkout Token |
+| Orders API | `order_id`             |
+
+If the identifier is *unavailable* when the `firePurchaseEvent` fires — which is common with third-party checkout providers (e.g. CheckoutChamp, CartHook, Purple Dot) — the order cannot be matched and will be **Unattributed**.
+
+<Tip>
+  **The fix:** Use Northbeam's `identify()` method. Instead of relying on a Checkout Token or Order ID, `identify()` ties the browser session to the customer's **email address** — giving Northbeam what it needs to attribute the order.
+</Tip>
+
+***
+
+## How `identify()` Works
+
+`identify()` tells Northbeam who the current browser user is by associating a customer's email address with their active session. When an order arrives server-side, Northbeam looks for a matching email from a recent browser session and attributes the order accordingly.
+
+<Info>
+  `identify()` should be called as early as possible in the checkout flow — ideally on the page where the customer submits their contact details that contain their email address. The earlier it fires, the better the attribution match rate.
+</Info>
+
+***
+
+<Note>
+  ## Prerequisites
+
+  Before implementing `identify()`, confirm the following are in place:
+
+  * The **Northbeam Pixel** is installed on all pages of your storefront (via your theme, CMS, or Google Tag Manager).
+  * Orders are flowing into Northbeam via the **Shopify integration** or the **Orders API**.
+  * The `customer_email` field is included on every order sent to Northbeam. This field is **required** when using `identify()` as the matching method.
+  * The third-party checkout must be hosted on the **same root domain** as your store (e.g. `checkout.yourstore.com` is supported — a completely separate domain is not).
+  * You have developer access to the third-party checkout page (or can deploy scripts via Google Tag Manager).
+</Note>
+
+***
+
+## Implementation
+
+### Step 1 — Ensure the Northbeam Pixel Is on All Pages
+
+The Northbeam Pixel must be present on **every page** — including pages served by your third-party checkout provider. Without it, the browser session cannot be tracked and `identify()` will have nothing to attach to.
+
+If your checkout runs on a subdomain (e.g. `checkout.yourstore.com`), the pixel must be installed there as well. Confirm your Content Security Policy allows traffic to your `i.*` subdomain:
+
+```html
+<!-- Begin: Northbeam pixel -->
+<script>(function(){var t;(n=t=t||{}).A="identify",n.B="trackPageView",n.C="fireEmailCaptureEvent",n.D="fireCustomGoal",n.E="firePurchaseEvent",n.F="trackPageViewInitial",n.G="fireSlimPurchaseEvent",n.H="identifyCustomerId";var n="//j.northbeam.io/ota-sp/{DATA_CLIENT_ID}.js";function r(n){for(var e=[],t=1;t<arguments.length;t++)e[t-1]=arguments[t];i.push({fnName:n,args:e})}var e,i=[],a=((e={})[t.F]=function(n){r(t.F,n)},(a={_q:i})[t.A]=function(n,e){return r(t.A,n,e)},a[t.B]=function(){return r(t.B)},a[t.C]=function(n,e){return r(t.C,n,e)},a[t.D]=function(n,e){return r(t.D,n,e)},a[t.E]=function(n){return r(t.E,n)},a[t.G]=function(n){return r(t.G,n)},a[t.H]=function(n,e){return r(t.H,n,e)},Object.assign(function(n){for(var e=[],t=1;t<arguments.length;t++)e.push(arguments[t]);return r.apply(null,[n].concat(e))},a));window.Northbeam=a,(a=document.createElement("script")).async=!0,a.src=n,document.head.appendChild(a),e.trackPageViewInitial(window.location.href);})()</script>
+<!-- End: Northbeam pixel -->
+```
+
+<Warning>
+  Replace `{DATA_CLIENT_ID}` with your unique Northbeam Data Client ID, found under **Settings > API Keys** in your Northbeam dashboard. Do not modify any other part of the script.
+</Warning>
+
+***
+
+### Step 2 — Call `identify()` When the Customer's Email Is Known
+
+Call `identify()` on the checkout step where the customer's email address first becomes available — typically the contact/information step.
+
+```javascript
+window.Northbeam.identify("email", "customer@example.com");
+//                                  ↑ Replace with the actual customer email
+```
+
+In most third-party checkout setups, the email will come from a template variable or data layer. See the options below.
+
+#### Option A — Template Variable
+
+```html
+<script type="application/javascript">
+  // Replace {{ customer.email }} with your platform's template syntax
+  window.Northbeam.identify("email", "{{ customer.email }}");
+</script>
+```
+
+#### Option B — Google Tag Manager (GTM)
+
+1. Create a **Data Layer Variable** in GTM for the customer email (e.g. `dlv - customer_email`).
+2. Create a new **Custom HTML Tag** in GTM.
+3. Paste the `identify()` snippet and reference your variable:
+
+```javascript
+   window.Northbeam.identify("email", "{{dlv - customer_email}}");
+```
+
+4. Set the trigger to fire on the checkout page where the email is captured.
+5. **Publish** the GTM container.
+
+***
+
+### Step 3 — Confirm `customer_email` Is Sent with Every Order
+
+When using `identify()`, the `customer_email` field is **required** on every order Northbeam receives. Without it, Northbeam cannot match the browser session to the order.
+
+**If using the Orders API**, verify the field is present in your payload:
+
+```json
+{
+  "id": "12345",
+  "customer_email": "customer@example.com",
+  "total_price": 99.00,
+  "currency": "USD"
+}
+```
+
+**If using the Shopify integration**, Northbeam pulls the email directly from the Shopify order. Confirm the email is populated on the order in your Shopify admin.
+
+***
+
+## `identify()` Argument Reference
+
+```javascript
+window.Northbeam.identify("email", "[email protected]")
+```
+
+| Argument  | Required | Type   | Description                      |
+| --------- | -------- | ------ | -------------------------------- |
+| 1 — type  | Required | String | Always pass the string `"email"` |
+| 2 — email | Required | String | The customer's email address     |
+
+> **Note:** `identify()` currently supports only email as an identifier type. The first argument must always be the string `"email"`.
+
+***
+
+## Advanced: `identifyCustomerId()`
+
+If you prefer not to pass a customer's email address to the Northbeam pixel, you can use `identifyCustomerId()` instead. This method associates the browser session with the customer's ID from your Order Management System (OMS) — no PII shared.
+
+```javascript
+window.Northbeam.identifyCustomerId("custom", "1234567890");
+//                                   ↑ namespace  ↑ customer ID from your OMS
+```
+
+| Argument       | Required | Type   | Description                                                                           |
+| -------------- | -------- | ------ | ------------------------------------------------------------------------------------- |
+| 1 — namespace  | Required | String | Use `"custom"` for the Orders API. Use `"shopify"` for the Shopify integration.       |
+| 2 — customerId | Required | String | The customer's ID in your OMS. Must match the `customer_id` field in your order data. |
+
+<Warning>
+  The `customer_id` passed here must **exactly match** the `customer_id` field on the corresponding Northbeam order — otherwise the match will fail.
+</Warning>
+
+<br />
+
+***
+
+## Troubleshooting
+
+| Symptom                                           | Likely Cause                                                    | Fix                                                                                            |
+| ------------------------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Orders from 3rd party checkout still Unattributed | `identify()` not firing, or `customer_email` missing from order | Confirm `identify()` fires before checkout completes; verify `customer_email` in order payload |
+| `identify()` fires but no match                   | Email mismatch between browser event and order                  | Ensure the email passed to `identify()` exactly matches the email on the Northbeam order       |
+| Pixel not detected on checkout page               | Pixel missing from 3rd party domain/subdomain                   | Install pixel on checkout subdomain                                                            |
+
+***
+
+## Related Documentation
+
+* [Additional Events Reference](/docs/optional-additional-methods) — full `identify()`, `identifyCustomerId()`, and `fireCustomGoal` docs
+* [Pixel and Event Tracking](/docs/add-pixel) — pixel installation guide
+* [Order Definition (Orders API)](/docs/order-definition) — full list of order fields including `customer_email`
+* [Troubleshooting Pixel Tracking](/docs/guide-to-troubleshooting-pixel-tracking) — Pixel Confirmed dashboard guide
+* [Differences in Unattributed Data](/docs/differences-in-unattributed-data) — understanding and reducing unattributed orders

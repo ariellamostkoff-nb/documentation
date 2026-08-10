@@ -1,0 +1,204 @@
+---
+title: "Troubleshooting Tracking Issues"
+description: "How to fix tracking issues."
+---
+
+Here's a breakdown of the most common issues and how to resolve them.
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Symptoms / Findings
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Affected Metric(s)
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        How we track
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        How to check
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        My ad spend is incorrect
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Ad Spend
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        API Connection / Custom Spend Sheet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        API Connection: Settings > Connections\
+        Custom Spend: Settings > Data Spreadsheets
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Certain campaigns/ads have very poor performance and abnormally high CPCs
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Visits, Transactions, Revenue
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        UTMs and Base Pixel
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Verify all ads have UTMs (see UTM Guide) and test website and landing page(s) for Northbeam Pixel
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        All my ads have normal CPCs, but extremely low revenue
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Transactions + Revenue
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Purchase Pixel
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Check website backend for the Purchase Pixel script
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        All of my revenue and visits are attributed to Organic.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Visits, Transactions, Revenue
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        A-Record
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Check DNS Provider for A-Record
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+# Here are Tracking Principles for Proper Tracking in Northbeam
+
+1. [Landing Page on the Correct Domain](#1-landing-page-on-the-correct-domain)
+2. [Northbeam Pixel Placed and Firing](#2-northbeam-pixel-placed-and-firing)
+3. [Channels Connected and Correct UTMs](#3-channels-connected-and-correct-utms)
+4. [Purchase Pixel on Checkout Page](#4-purchase-pixel-on-checkout-page)
+5. [A-Record Setup](#5-a-record-setup)
+
+<Tip>
+  As long as all tracking principles are followed, your data will be properly tracked in Northbeam.
+</Tip>
+
+***
+
+## 1. Landing Page on the Correct Domain
+
+Ensure your landing pages drive traffic to the domain linked to your Northbeam dashboard. This is typically your store's primary domain.
+
+* **Find Your Domain**:\
+  Go to **Settings > Account Settings > Profile**. The domain listed here is where all traffic should be directed.
+
+* **Publisher Ads Exception**:\
+  If traffic is sent to a domain other than your dashboard domain (e.g., [myblog.com](http://myblog.com)) before redirecting to your store (e.g., [mystore.com](http://mystore.com)), this traffic will appear as referral (e.g., "referral: myblog.com"). To avoid this issue:
+  * Use **Redirect Links** to retain attribution.
+  * Submit an inquiry [here](https://www.northbeam.io/submit-a-support-ticket) for help setting this up.
+
+***
+
+## 2. Northbeam Pixel Placed and Firing
+
+The [Northbeam Pixel](/docs/add-pixel) is a snippet of code that tracks visitor behavior, marketing touchpoints, and customer journeys. It must fire on all pages of your website to ensure proper tracking.
+
+* **Why This Matters**:\
+  Without the Pixel firing on all pages, critical attribution data—such as visits, transactions, and revenue—could be incomplete.
+
+***
+
+## 3. Channels Connected and Correct UTMs
+
+UTM parameters allow Northbeam to associate conversions with specific ad campaigns or channels. Without UTMs, conversions may not be attributed correctly.
+
+* **Check Ad Account Connections**:
+  * Go to **Settings > Connections** to verify all accounts are connected and active.
+
+* **UTMs for Attribution**:
+  * Follow the UTM Guide under **Settings > Onboarding Tasks > UTM Guide**. For platforms not in the guide, use [standard UTM parameters](https://northbeam-customer-sucess.readme.io/docs/tracking-for-other-platforms)\ <br />
+
+### How to check for your UTM Parameters on Google, Facebook, and TikTok
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/84c43de7eb9c4b2582a7e632b2332256?sid=32163d9f-5281-425e-b1b8-848e326cc24a" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+* **Avoid Redirect Issues**:
+
+  * **Redirects can strip UTMs, leading to tracking gaps.**
+
+    1. Copy the full URL with UTMs and paste it into a browser.
+    2. Verify the UTMs remain intact after the redirect.
+
+    **Example Redirect Issue**:
+
+    * **Before Redirect**: `www.mystore.com/red-product?utm_source=google`
+    * **After Redirect**: `www.mystore.com/red-product` (UTM stripped).
+
+    **Solutions**:
+
+    * Avoid redirects where possible.
+    * Ensure UTMs transfer from the initial URL to the final URL.
+
+***
+
+## 4. Purchase Pixel on Checkout Page
+
+The[ Purchase Pixel](/docs/add-pixel) tracks revenue and conversion events. If this pixel is missing, all revenue will be unattributed, or attributed to Organic.
+
+* **Shopify**
+  * Ensure the Purchase Pixel script is in the **Order Status Page** field under **Settings > Tracking Script Tags**.
+* **Custom Setups**
+* Verify the [firePurchaseEvent script](/docs/add-pixel#firepurchaseevent-for-all-non-shopify-stores) is placed on the final page of checkout (e.g., "Thank You" or "Order Confirmation") and configured correctly.
+
+***
+
+## 5. A-Record Setup
+
+The A-Record ensures your domain properly tracks visits and revenue. Misconfigured DNS settings can prevent your Pixel from firing, even if the Pixel is correctly installed on your website.
+
+* **Check Your A-Record**:\
+  Go to **Settings > Setup DNS Entry** and confirm your DNS provider has the correct A-Record pointing to the designated hostname (e.g., "i").
+
+* **Why This Matters**:
+  * The Northbeam Pixels rely on the A-Record to function properly.
+  * If the A-Record isn’t set up correctly, the Pixels won’t fire, resulting in incomplete tracking of visits, transactions, and revenue.
+  * Without a properly configured A-Record, all revenue will appear as Unattributed, or attributed to Organic, and campaign attribution will be lost.
+
+***
+
+# Summary
+
+By following these principles, you can ensure accurate tracking of visits, transactions, and revenue in Northbeam. If issues persist, [submit a support ticket](https://www.northbeam.io/submit-a-support-ticket) or consult additional resources linked throughout this guide.

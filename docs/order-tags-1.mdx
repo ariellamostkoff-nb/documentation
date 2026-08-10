@@ -1,0 +1,27 @@
+---
+title: "8b. Tell us if your business will use Order Tags (Shopify)"
+---
+
+### Roles of order tags of an Order
+
+Order tags are super important for figuring out how ads are attributed to orders. They help us determine if an order is:
+
+* **Subscriptions:** if the order is part of a subscription, and if it is a first-time or a recurring order
+* **Order Exclusions:** whether the order is to be excluded from attribution altogether
+  * Some orders, like draft orders, wholesale orders, or POS orders, don’t go through your store’s online checkout, so our tracking pixel won’t pick them up. These are common order types we don’t track for attribution and recommend excluding from your revenue data in the dashboard.
+
+<Note>
+  If you have any of these order types, please label them with order tags in Shopify so we can categorize and/or exclude them from your revenue data in the dashboard
+</Note>
+
+### Subscriptions
+
+Many Northbeam customers want to track ad attribution or revenue based on whether an order kicks off a new subscription or is part of a recurring one. Order tags make it easy to spot first-time subscriptions versus recurring orders, so you can see both types of attribution in your dashboard.
+
+More information on [Subscription Analytics](/docs/subscription-analytics) available here.
+
+### Meta and Tiktok Shops
+
+While Northbeam can add a tracking pixel to your web store, we can’t do the same for your Meta or TikTok Shop. To attribute orders from these platforms—where we don’t get web events—we have a special approach that helps you optimize your ad spend and maximize revenue. If your Shopify store is connected to Meta and TikTok shops, Northbeam can see the source name and categorize the orders accordingly. It’s also a best practice to add an order tag for Meta and TikTok shops to keep everything organized!
+
+More information on Meta/TikTok Shops tracking available in our guide here: [Shops Tracking (Web, Meta, TikTok Shops)](/docs/tracking-for-shops)

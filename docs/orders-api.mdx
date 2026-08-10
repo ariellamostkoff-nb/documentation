@@ -1,0 +1,616 @@
+---
+title: "Orders API"
+description: "Learn how to send order data to Northbeam using the Orders API, with steps for setup, validation, backfilling, and monitoring."
+---
+
+<br />
+
+<Warning>
+  ## The Northbeam Orders API is a customizable solution specific to your business
+
+  To setup appropriately, you will utilize this API to actively push order data to Northbeam by making POST requests to this endpoint:
+
+  **Full API Reference: [/reference/post_orders-1](/reference/post_orders-1).**
+</Warning>
+
+<br />
+
+## Table of Contents
+
+1. [Step 1. Get API Credentials](#step-1-get-api-credentials)
+2. [Step 2. Build Your Payload (All Required Fields)](#step-2-build-your-payload-all-required-fields)
+   * [Example Payload](#example-payload)
+3. [Step 3. Verify Your Payload](#step-3-verify-your-payload)
+   * [Common Mistakes to Avoid](#-common-mistakes-to-avoid)
+4. [Step 4. Backfill Historical Orders](#step-4-backfill-historical-orders)
+5. [Step 5. Set Up Ongoing Batches](#step-5-set-up-ongoing-batches)
+6. [Step 6. Test in Sandbox (Optional)](#step-6-test-in-sandbox-optional)
+7. [Step 7. Data Diagnostics](#step-7-data-diagnostics)
+   * [Where to Find the Diagnostics Tools](#where-to-find-the-diagnostics-tools)
+   * [Error Table](#error-table)
+   * [Error Trends](#error-trends)
+     <br />
+
+***
+
+<br />
+
+## Step 1. Get API Credentials
+
+* In your Northbeam dashboard go to **Settings → API Keys**
+* Click **Create new API key** to generate:
+  * **Authorization** (API Key)
+  * **Data-Client-ID** (Client ID)
+
+<Frame caption="Onboarding Flow: Add Orders > Other E-Commerce Platform">
+  <img src="https://files.readme.io/67c6fc6a0d25878b84999a2ec8664aa646cf3995d35a6258f4d5dcab8fdc5ca0-Screenshot_2025-09-29_at_4.04.15_PM.png" alt="" />
+</Frame>
+
+<Frame caption="Dashboard: Settings > API Keys">
+  <img src="https://files.readme.io/787d5c490ddb95d6a21741525217452fb35b56e4555205de640a9355792d64e6-Screenshot_2025-09-29_at_4.08.07_PM.png" alt="" />
+</Frame>
+
+<br />
+
+| Header           | Value              | Description                       |
+| ---------------- | ------------------ | --------------------------------- |
+| `Authorization`  | `<API_KEY>`        | Your Northbeam API key            |
+| `Data-Client-ID` | `<CLIENT_ID>`      | Your Northbeam client ID          |
+| `Content-Type`   | `application/json` | Tells the API you’re sending JSON |
+
+**Production Endpoint:**`https://api.northbeam.io/v2/orders`
+
+**Example (cURL):**
+
+```curl
+curl --request POST \
+  --url https://api.northbeam.io/v2/orders \
+  --header 'Authorization: <API_KEY>' \
+  --header 'Data-Client-ID: <CLIENT_ID>' \
+  --header 'Content-Type: application/json' \
+  --data @orders.json
+```
+
+<Note>
+  These headers are **required for every request**.
+
+  Without them, the Orders API will reject your call.
+</Note>
+
+<br />
+
+***
+
+<br />
+
+## Step 2. Build Your Payload (All Required Fields)
+
+All these fields are required for full functionality in Northbeam.
+
+**Full API reference: /reference/post_orders-1.**
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Field
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `order_id`
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        Unique identifier for the order.
+
+        Must match the `id` in [firePurchaseEvent](https://northbeam-pixel-api.readme.io/recipes/fire-purchase-event) so we can pair website events with orders.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `customer_id`
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        Must be unique per customer in your OMS.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `customer_email`
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        The email associated with the customer.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `time_of_purchase`
+      </td>
+
+      <td>
+        date-time (ISO-8601)
+      </td>
+
+      <td>
+        Must be in ISO-8601 format.
+
+        **Must occur AFTER the frontend [firePurchaseEvent](https://northbeam-pixel-api.readme.io/recipes/fire-purchase-event).**
+
+        Include a timezone offset if not reporting in UTC.
+
+        **Example:**
+        FPE timestamp = `2025-09-29T15:30:00Z`
+
+        ❌ `2025-09-29T15:00:00Z` (too early)
+
+        ✅ `2025-09-29T15:31:00Z` (UTC)
+
+        ✅ `2025-09-29T15:31:00-07:00` (with offset)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `currency`
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        ISO-4217 currency code (e.g., USD).
+
+        All monetary fields assume this currency.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `purchase_total`
+      </td>
+
+      <td>
+        number
+      </td>
+
+      <td>
+        Total collected including tax, shipping, and fees.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `tax`
+      </td>
+
+      <td>
+        number
+      </td>
+
+      <td>
+        Amount paid as tax.
+
+        Required if you want taxes deducted from revenue in reporting.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `shipping_cost`
+      </td>
+
+      <td>
+        number
+      </td>
+
+      <td>
+        Amount paid for shipping.
+
+        Required if you want shipping deducted from revenue in reporting.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `products`
+      </td>
+
+      <td>
+        array of objects
+      </td>
+
+      <td>
+        Must contain at least one product.
+
+        Required objects:
+        `id` (string)
+        `name` (string)
+        `quantity` (number)
+        `price` (number).
+
+        Optional objects:
+        `variant_id` (string)
+        `variant_name` (string)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `order_tags`
+      </td>
+
+      <td>
+        array of strings
+      </td>
+
+      <td>
+        Required for offline orders.
+
+        Used to mark subscription stage or exclude orders from attribution.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `refunds`
+      </td>
+
+      <td>
+        array of objects
+      </td>
+
+      <td>
+        Used to keep revenue calculations correct
+
+        Required objects:
+        `product_id` (string)
+        `quantity` (number)
+        `refund_amount`(number)
+        `refund_made_at` (date-time).
+
+        If you want refunds broken out in reporting, you must also include an `order_tag`.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `customer_shipping_address`
+      </td>
+
+      <td>
+        object
+      </td>
+
+      <td>
+        Enables Customer LTV reporting by region and state.
+
+        Required fields if included:
+        `address1` (string)
+        `address2` (string)
+        `city` (string)
+        `state` (string)
+        `zip` (string)
+        `country_code` (string)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `discount_codes`
+      </td>
+
+      <td>
+        array of strings
+      </td>
+
+      <td>
+        Enables Customer LTV by discount code.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `discount_amount`
+      </td>
+
+      <td>
+        number
+      </td>
+
+      <td>
+        Required if you want discounts broken out in dashboard reporting.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+<br />
+
+## Example Payload
+
+```json
+[
+  {
+    "order_id": "abc-123",
+    "customer_id": "def-456",
+    "customer_email": "example@gmail.com",
+    "time_of_purchase": "2025-09-29T15:31:00Z",
+    "currency": "USD",
+    "purchase_total": 110.99,
+    "tax": 5.00,
+    "shipping_cost": 10.99,
+    "products": [
+      {
+        "id": "prod-1",
+        "name": "Sample Product",
+        "quantity": 1,
+        "price": 95.00,
+        "variant_id": "var-1",
+        "variant_name": "Size M"
+      }
+    ],
+    "order_tags": [
+      "Online Order",
+      "Subscription First"
+    ],
+    "refunds": [
+      {
+        "product_id": "prod-1",
+        "quantity": 1,
+        "refund_amount": 10.00,
+        "refund_made_at": "2025-09-30T10:00:00Z"
+      }
+    ],
+    "customer_shipping_address": {
+      "address1": "123 Main St.",
+      "address2": "Apt. 1A",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94112",
+      "country_code": "USA"
+    },
+    "discount_codes": [
+      "WELCOME10"
+    ],
+    "discount_amount": 10.00
+  }
+]
+```
+
+<br />
+
+***
+
+<br />
+
+## Step 3. Verify Your Payload
+
+Before sending the orders, confirm your payload structure and values are valid. Most issues come from malformed payloads or missing fields.
+
+**Common Validation Checks:**
+
+* ✅ `order_id` must be unique per order and match the `id` used in `firePurchaseEvent`.
+* ✅ `time_of_purchase` must be **AFTER** the corresponding `firePurchaseEvent` timestamp and in proper ISO-8601 format with timezone offset.
+* ✅ `products` array must include at least one product with `id`, `name`, `quantity`, and `price`.
+* ✅ `currency` must be a valid ISO-4217 code (e.g., `USD`, `EUR`).
+* ✅ `customer_email` must match the email on the actual order in your OMS (case-sensitive in some systems).
+* ✅ `customer_id` accuracy is critical – this is what Northbeam uses to distinguish between new and returning customers. If it’s inconsistent (e.g., mixing Shopify IDs and internal IDs), customer LTV and new/returning logic will be incorrect.
+* ✅ `order_tags` are required and used for two main purposes:
+  * **Subscriptions** – Use distinct tags to separate:
+    1. First-time subscription orders (subscription starts)
+    2. Recurring subscription renewals (auto-charges that happen in the backend)
+  * **Offline Orders** – Tag any orders not placed through your live production website (and therefore without frontend pixel events). Our team excludes these from diagnostics monitoring.
+
+<Warning>
+  Order tags are **very important for our data validation phase**.
+
+  We cross-check pixel events against raw order data. If tags are missing or incorrect and large discrepancies appear, we’ll need to investigate further — which can prolong the implementation process.
+</Warning>
+
+* ✅ `refunds` objects must include `product_id`, `quantity`, `refund_amount`, and `refund_made_at`.
+* ✅ If including `customer_shipping_address`, all required subfields (`address1`, `city`, `state`, `zip`, `country_code`) must be present.
+
+***
+
+### 🚧 Common Mistakes to Avoid
+
+* ❌ Using inconsistent `customer_id`s (e.g., switching between Shopify and internal IDs)
+* ❌ `time_of_purchase` set **BEFORE** the frontend pixel fire
+* ❌ Untagged **subscription orders**, which prevents [Subscription Analytics](/docs/subscription-analytics#) from working correctly
+* ❌ Untagged **offline orders**, leading to large discrepancies in pixel vs. order data. This prolongs our data validation process.
+* ❌ Missing `products` array or leaving it empty
+* ❌ Currency not set as a valid ISO-4217 code (e.g., using “US Dollars” instead of `USD`)
+
+<br />
+
+***
+
+<br />
+
+## Step 4. Backfill Historical Orders
+
+Backfilling your historical data is extremely important. This ensures your Customer LTV is complete. This is also key for accurate New and Returning Data.
+
+<Note>
+  Accurate New and Returning Data
+
+  Northbeam determines whether a customer is **new** or **returning** based on the `customer_id` attached to each order.
+
+  ***
+
+  Without historical orders, someone who purchased in the past but buys again today will be counted as a **new** customer — because their first order isn’t in the system.
+
+  **Backfilling ensures repeat customers are recognized correctly.**
+</Note>
+
+### What to Send
+
+* Send all historical orders you want in Northbeam (recommended: up to 5 years).
+* Use the same payload format from Step 2.
+* Keep `order_id` stable; resending the same `order_id` overwrites the prior record.
+
+### How to Send
+
+* Batch up to **1000 orders per request**.
+* Backfill in time windows (for example, month by month).
+
+<Tip>
+  Backfilling data is only required for new onboards!
+
+  If your historical orders already exist for any reason (e.g., transition from Shopify to the Orders API), this step isn’t needed..
+</Tip>
+
+<br />
+
+***
+
+<br />
+
+## Step 5. Set Up Ongoing Batches
+
+After history is loaded, keep Northbeam up to date with regular batches.
+
+### Cadence
+
+* Northbeam processes on your plan frequency, not in real time.
+* Send **at least 2× more frequently** than your plan’s processing cadence.
+  * Example: on a 4× per day plan, send **8× per day**.
+
+### Batching
+
+* Up to **1000 orders per request**.
+* Include new and changed orders since the last run.
+* Resend modified orders using the same `order_id`.
+
+### Operational Notes
+
+* **Retries**: if a request fails, retry the same batch; using the same `order_id`s is safe.
+* **Idempotency**: the latest record for an `order_id` takes priority.
+
+<Note>
+  Implementation Tip
+
+  Most teams set this up as a scheduled job (e.g., cron, Airflow, or a serverless function like AWS Lambda).
+</Note>
+
+<br />
+
+***
+
+<br />
+
+## Step 6. Test in Sandbox (Optional)
+
+Use the UAT endpoint to validate payloads before sending real data to production.
+
+**Sandbox Endpoint:**
+
+`https://api-uat.northbeam.io/v2/orders`
+
+<br />
+
+<Warning>
+  Sandbox Testing Notes
+
+  * The sandbox does **not save orders**— it only checks that your payload is valid.
+  * A “pass” response confirms the request structure is correct, but it does **not** validate the actual numbers.
+
+  ***
+
+  **For full validation of values (totals, tax, discounts, etc.)**, send test data to the production endpoint. We can remove those test orders for you afterward if needed.
+</Warning>
+
+<br />
+
+***
+
+<br />
+
+## Step 7. Data Diagnostics
+
+Northbeam provides a diagnostics tool to help you monitor Orders API activity in production.
+
+If there are any issues with your API upserts, errors will appear here with details to help you debug.
+Common causes include **malformed payloads** or **missing required fields**.
+
+***
+
+### Where to Find the Diagnostics Tools:
+
+In the Northbeam dashboard:
+
+1. Go to **Settings**
+2. Select **Data Diagnostics** (bottom of the left-hand column)
+
+***
+
+### Error Table
+
+Each error entry includes:
+
+* **Request ID**
+* **Error message**
+* **Error type** (e.g., `payload_validation_error`)
+* **Timestamp of error**
+* **Link to request** for deeper inspection
+
+<Warning>
+  Tip
+
+  Most errors are due to **missing required fields** or **invalid payload format**.
+  Fix the payload and resend with the same `order_id` — the latest record will take priority.
+</Warning>
+
+<Frame caption="Dashboard: Settings > Data Diagnostics">
+  <img src="https://files.readme.io/0e0a97761850aa5a1f3e1bc1c569c1451490549a3a4694ebb48543faabb1b98b-6d5501e4e4629e57eb5844f821aaab7f0c074c09c2e6331488cb3a5e4828e271-image.png" alt="" />
+</Frame>
+
+***
+
+### Error Trends
+
+* A chart shows API error counts over time (1–30 day ranges available).
+  * Errors typically appear within **1–3 minutes** after they occur.
+    * Use this view to identify spikes or recurring issues.
+
+<Note>
+  Monitoring
+
+  This view is most helpful for spotting systemic issues (e.g., a bad deploy or recurring field mismatch) rather than one-off errors.
+</Note>
+
+<Frame caption="Dashboard: Settings > Data Diagnostics">
+  <img src="https://files.readme.io/57af865fc4eaf85c2387ef02e5a7502e092426b22a0720462bdada7bbbfb0c6f-7b3f71ed9fe095bf5526f43c59f1c72b73f17e92ffe9b8b980d804aedbc146d2-image.png" alt="" />
+</Frame>
+
+<br />
