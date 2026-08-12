@@ -614,3 +614,58 @@ Each error entry includes:
 </Frame>
 
 <br />
+
+
+***
+
+## API reference details
+
+*The sections below were consolidated from the legacy API - Orders pages.*
+
+### Background
+
+# Background
+
+For Northbeam's Multi-Touch Attribution(MTA) and Mixed Media Modeling(MMM) offerings we use our customer's Orders as the ground truth for Revenue.  This enables Northbeam to perform Ad Attribution on Purchases that took place (MTA) and to assist in predicting what will take place (MMM).
+
+For customers that use Shopify or Amazon as their ground truth for Orders, we support a Shopify and Amazon native integrations.  These integrations sync a customer's Shopify/Amazon store to get information about orders that is subsequently used for attribution (MTA) or for predictive analytics (MMM)
+
+It is sometimes the case that Shopify or Amazon are not the customer's go-to for the most up-to-date Order information.
+
+* In some cases, customers employ a collection of Shopify/Amazon stores from which they internally pull data into their own data pipelines for centralization, or downstream data transformation (i.e. currency conversion, time-zone manipulation, filtering of incomplete orders, or for tagging purposes)
+* In other cases customers do not use either Shopify or Amazon and use an Order Management System that does not have native support in Northbeam
+
+In either of these above cases (or others), we support the Orders API so that Northbeam can obtain the order information needed to support operations for MMM and MTA. The Orders API is a standard solution that accepts HTTP API calls where the payload contains a list of orders and associated metadata for the orders.
+
+### Authentication
+
+The Northbeam API uses API keys to authenticate requests. If you don't have an API key or need to create a new one, you can easily generate it from the Settings page on our Dashboard. Simply go to `Settings -> API Keys -> Create new API Key`.
+
+<Frame>
+  <img src="https://files.readme.io/f26bd40-Screenshot_2024-03-26_at_5.22.35_PM.png" alt="" />
+</Frame>
+
+This will yield:
+
+* `Data-Client-ID`- a UUID used to identify you as the customer
+* `API Key`- Used to Authenticate the API call
+
+Both will be used in making the API calls to Submit/Correct/Get Orders from our system
+
+> If you have any questions or encounter any difficulties while creating an API key, please don't hesitate to reach out to us at [success@northbeam.io](mailto:success@northbeam.io). We're here to help.
+
+# Testing
+
+When testing, you can use the following values without the need for production keys. In the testing environment, no orders are saved and we only return the results of validation.
+
+```
+--header 'Authorization: None'
+--header 'Content-Type: application/json'
+--header 'Data-Client-ID: test'
+```
+
+Testing with your user keys is also supported, though the development database is purged from time to time to limit storage bloat so it should only be treated as a testing environment and not a stable one.
+
+### Limits
+
+The Orders API upsert function allows for uploads of order batches.  While the API has a hard limit of 1000 orders per call, we recommend using the order size per call that best suits your needs. There are no concurrency or daily/hourly limits otherwise.

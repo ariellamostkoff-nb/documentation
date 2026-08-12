@@ -67,7 +67,6 @@
             "group": "Northbeam Essentials",
             "pages": [
               "docs/what-is-northbeam",
-              "docs/new-to-northbeam-how-to-get-oriented",
               "docs/navigating-northbeam",
               "docs/northbeam-data-sources",
               "docs/integration-matrix"
@@ -78,26 +77,20 @@
             "pages": [
               "docs/what-to-expect-during-implementation",
               "docs/confirm-setup-requirements",
-              "docs/implementation-guide",
               "docs/onboarding-faqs"
             ]
           },
           {
             "group": "Dashboard & Business Setup",
             "pages": [
-              "docs/create-a-dashboard",
               "docs/invite-team",
               "docs/business-information",
               "docs/currency",
-              "docs/add-domain",
               "docs/link-dns",
               {
                 "group": "Stores, Brands & Regions",
                 "pages": [
                   "docs/adding-a-store-or-dashboard",
-                  "docs/multi-region-configuration",
-                  "docs/multi-brand-configuration",
-                  "docs/multi-domain-configuration",
                   "docs/multi-dashboard-setup-with-configurators"
                 ],
                 "expanded": false
@@ -108,7 +101,6 @@
             "group": "Tracking & Events",
             "pages": [
               "docs/add-pixel",
-              "docs/shopify-overview",
               "docs/all-other-platforms-overview",
               "docs/shopify-installation",
               "docs/non-shopify-installation",
@@ -136,7 +128,6 @@
             "pages": [
               "docs/add-spend",
               "docs/integrations-and-utms",
-              "docs/8-append-our-utms",
               "docs/spend-api",
               "docs/spend-api-best-practices-and-limits"
             ]
@@ -190,8 +181,7 @@
               "docs/paid-search-team",
               "docs/executive-team",
               "docs/email-sms-retention",
-              "docs/offline-channel",
-              "docs/influencer"
+              "docs/offline-channel"
             ]
           },
           {
@@ -234,7 +224,6 @@
                   "docs/tracking-for-impact",
                   "docs/tracking-for-amazon",
                   "docs/working-tracking-for-attentive",
-                  "docs/tracking-for-influencers",
                   "docs/tracking-for-shops"
                 ],
                 "expanded": false
@@ -327,7 +316,6 @@
                 "group": "Methodology & Models",
                 "pages": [
                   "docs/what-is-northbeam-mta-methodology",
-                  "docs/why-is-the-northbeam-methodology-better-than-internal-platforms",
                   "docs/how-does-northbeam-track-orders-and-ads",
                   "docs/what-is-northbeam-model-comparison-tool"
                 ],
@@ -337,10 +325,8 @@
                 "group": "Performance Interpretation",
                 "pages": [
                   "docs/what-is-a-good-bad-number-in-northbeam",
-                  "docs/my-facebook-roas-is-07-in-northbeam-is-this-normal",
                   "docs/why-is-my-fb-roas-so-much-lower-in-northbeam",
                   "docs/how-do-i-correctly-confidently-interpret-non-click-channels",
-                  "docs/why-is-so-much-of-my-revenue-unattributed",
                   "docs/whats-the-difference-between-organic-vs-unattributed"
                 ],
                 "expanded": false
@@ -371,13 +357,10 @@
           {
             "group": "Orders API",
             "pages": [
-              "docs/getting-started",
-              "docs/authentication",
               "docs/using-the-api",
               "docs/order-definition",
               "docs/hashing-customer-data",
               "docs/errors",
-              "docs/limits",
               {
                 "group": "v2 Endpoints",
                 "pages": [
@@ -494,5 +477,75 @@
         ]
       }
     ]
-  }
+  },
+  "redirects": [
+    {
+      "source": "/docs/new-to-northbeam-how-to-get-oriented",
+      "destination": "/docs/navigating-northbeam"
+    },
+    {
+      "source": "/docs/implementation-guide",
+      "destination": "/docs/what-to-expect-during-implementation"
+    },
+    {
+      "source": "/docs/create-a-dashboard",
+      "destination": "/docs/what-to-expect-during-implementation"
+    },
+    {
+      "source": "/docs/add-domain",
+      "destination": "/docs/link-dns"
+    },
+    {
+      "source": "/docs/shopify-overview",
+      "destination": "/docs/what-to-expect-during-implementation"
+    },
+    {
+      "source": "/docs/multi-brand-configuration",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/docs/multi-domain-configuration",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/docs/multi-region-configuration",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/docs/8-append-our-utms",
+      "destination": "/docs/integrations-and-utms"
+    },
+    {
+      "source": "/docs/tracking-for-influencers",
+      "destination": "/docs/tracking-for-other-platforms"
+    },
+    {
+      "source": "/docs/influencer",
+      "destination": "/docs/tracking-for-other-platforms"
+    },
+    {
+      "source": "/docs/why-is-the-northbeam-methodology-better-than-internal-platforms",
+      "destination": "/docs/what-is-northbeam-mta-methodology"
+    },
+    {
+      "source": "/docs/my-facebook-roas-is-07-in-northbeam-is-this-normal",
+      "destination": "/docs/why-is-my-fb-roas-so-much-lower-in-northbeam"
+    },
+    {
+      "source": "/docs/why-is-so-much-of-my-revenue-unattributed",
+      "destination": "/docs/differences-in-unattributed-data"
+    },
+    {
+      "source": "/docs/authentication",
+      "destination": "/docs/orders-api"
+    },
+    {
+      "source": "/docs/getting-started",
+      "destination": "/docs/orders-api"
+    },
+    {
+      "source": "/docs/limits",
+      "destination": "/docs/orders-api"
+    }
+  ]
 }
