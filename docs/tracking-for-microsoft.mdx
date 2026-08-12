@@ -3,6 +3,10 @@ title: "Tracking for Microsoft Ads"
 description: "This guide will show you how to set up tracking for the following Microsoft metrics in Northbeam:"
 ---
 
+import TrackingChecklist from '/snippets/tracking-issue-checklist.mdx';
+
+import DiscrepancyExplanation from '/snippets/discrepancy-explanation.mdx';
+
 * Spend,
 * Impressions,
 * Visits, and
@@ -154,11 +158,7 @@ Reference our step-by-step guide below:
 
 For example, Northbeam's Clicks-Only model divides credit across all touchpoints and tries to push credit to your upper funnel channels. Let's say your in-platform model uses Last Click, which gives credit to the last touchpoint in the journey. This is going to cause a discrepancy.
 
-To take it one step further, let's say both Northbeam and in-platform are using Last Click. Northbeam is unique in that we recognize all touchpoints from every single channel. Whereas most platforms only recognize touchpoints from that same platform.
-
-In addition, there's often a difference in the attribution window. By default, Northbeam leverages a 1-Day window, which is different than many other platforms' default.
-
-To get the most apples to apples comparison, be sure to compare data using same Attribution Model and Attribution Window. But keep in mind, it will never be exact.
+<DiscrepancyExplanation />
 
 ### Attribution Models and Windows
 
@@ -199,10 +199,7 @@ If you find manually added Northbeam parameters, remove them and allow the autom
 
 ### Still having trouble?
 
-* **Connection**: Make sure your Ad Account is still connected. Go to Settings > Connections and check for any errors. Connections could break for a variety of reasons, but most commonly, the User losing access to the Ad Account.
-* **Northbeam Pixel**: Ensure the Northbeam Pixel is firing on your landing page. Note that some site themes may not automatically transfer to landing pages on certain third-party apps, necessitating manual pixel placement.
-* **Purchase Pixel:** Confirm that the Purchase Pixel is firing on your checkout page.
-* **A-Record Setup:** Verify that the A-Record is correctly configured in your DNS Settings.
+<TrackingChecklist />
 * If the Microsoft Advertising application ID (d42ffc93-c136-491d-b4fd-6f18168c68fd) doesn't exist in your Azure tenant: This can happen if you are trying to authenticate to a tool provider and never created your own Azure App registration and added **msads.manage** to it. To fix this, you will need to contact the Active Directory administrator to enable the service via a [Microsoft Graph API call](https://learn.microsoft.com/en-us/advertising/guides/authentication-oauth-register?view=bingads-13#register-an-application-with-entra-id).&#x20;
 
 <br />

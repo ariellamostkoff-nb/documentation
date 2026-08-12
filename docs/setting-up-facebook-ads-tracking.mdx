@@ -2,6 +2,10 @@
 title: "Tracking for Meta Ads"
 ---
 
+import TrackingChecklist from '/snippets/tracking-issue-checklist.mdx';
+
+import DiscrepancyExplanation from '/snippets/discrepancy-explanation.mdx';
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
@@ -331,11 +335,7 @@ Your **Attributed Revenue** and **Transactions** will seamlessly incorporate thi
 
 Northbeam's Clicks-Only model divides credit across all touchpoints and tries to push credit to your upper funnel channels. Let's say your in-platform model uses Last Click, which gives credit to the last touchpoint in the journey. This is going to cause a discrepancy.
 
-To take it one step further, let's say both Northbeam and in-platform are using Last Click. Northbeam is unique in that we recognize all touchpoints from every single channel. Whereas most platforms only recognize touchpoints from that same platform.
-
-In addition, there's often a difference in the attribution window. By default, Northbeam leverages a 1-Day window, which is different than many other platforms' default.
-
-To get the most apples to apples comparison, be sure to compare data using same Attribution Model and Attribution Window. But keep in mind, it will never be exact.
+<DiscrepancyExplanation />
 
 ### Attribution Models and Windows
 
@@ -392,8 +392,4 @@ If you're seeing a difference in value and/or volume, a few things could cause t
 
 Please reference our [Troubleshooting Tracking Issues FAQ](/docs/troubleshooting-tracking-issues).
 
-* **Connection**: Make sure your Ad Account is still connected. Go to Settings > Connections and check for any errors. Connections could break for a variety of reasons, but most commonly, the User losing access to the Ad Account.
-* **UTMs**: Ensure all your Meta Ads contain Northbeam UTMs, listed above under Step 2.
-* **Northbeam Pixel**: Ensure the Northbeam Pixel is firing on your landing page. Note that some site themes may not automatically transfer to landing pages on certain third-party apps, necessitating manual pixel placement.
-* **Purchase Pixel:** Confirm that the Purchase Pixel is firing on your checkout page.
-* **A-Record Setup:** Verify that the A-Record is correctly configured in your DNS Settings.
+<TrackingChecklist />

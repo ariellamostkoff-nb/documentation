@@ -3,6 +3,8 @@ title: "Tracking for Attentive"
 description: "This guide will show you how to set up tracking for the following Attentive metrics in Northbeam:"
 ---
 
+import DiscrepancyExplanation from '/snippets/discrepancy-explanation.mdx';
+
 * Visits, revenue, and orders from Attentive Campaigns and Flows
 * Email and SMS sign-up events from Attentive’s opt-in forms
 
@@ -126,11 +128,7 @@ If you'd like, you could upload your spend numbers through a Custom Spendsheet. 
 
 For example, Northbeam's Clicks-Only model divides credit across all touchpoints and tries to push credit to your upper funnel channels. Let's say your in-platform model uses Last Click, which gives credit to the last touchpoint in the journey. This is going to cause a discrepancy.
 
-To take it one step further, let's say both Northbeam and in-platform are using Last Click. Northbeam is unique in that we recognize all touchpoints from every single channel. Whereas most platforms only recognize touchpoints from that same platform.
-
-In addition, there's often a difference in the attribution window. By default, Northbeam leverages a 1-Day window, which is different than many other platforms' default.
-
-To get the most apples to apples comparison, be sure to compare data using same Attribution Model and Attribution Window. But keep in mind, it will never be exact.
+<DiscrepancyExplanation />
 
 ### Attribution Models and Windows
 
