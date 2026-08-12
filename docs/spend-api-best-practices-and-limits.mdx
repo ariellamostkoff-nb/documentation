@@ -5,9 +5,9 @@ description: "This page describes the Best Practices and Limitations of our Spen
 
 # Best Practices
 
-In a world absent of any logistical constraints, our customers would send us an API call for an order as soon as it lands in the Ad manager.  This would enable the most realtime data for orders within northbeam, and would become available for analysis by our customers following their next data pipeline run.
+In a world absent of any logistical constraints, our customers would send us a spend record as soon as it is available in the ad manager. This would enable the most realtime spend data within Northbeam, and would become available for analysis by our customers following their next data pipeline run.
 
-While this is not often feasible, we generally advise you to sync as many orders as possible with a cadence of at least 2x faster than the number of times a day your pipeline runs per your services agreement.
+While this is not often feasible, we generally advise you to sync as much spend data as possible with a cadence of at least 2x faster than the number of times a day your pipeline runs per your services agreement.
 
 Note that if you have a data pipeline that runs hourly, and you send spend data once a day, it is likely that on any given present day, you will not be able to make best use of our data in real-time as it pertains to the spend committed on platforms we do not yet natively support (however for metrics on a basis older than the current day, the experience will be unaffected)
 
@@ -24,7 +24,7 @@ It is not always the case that all platforms will support the full campaign/adse
 
 # Limitations
 
-Our current API accepts spend entries in batches of up to 1000 per API call.  If your volume of orders exceeds this batch size, it is best to breakup the calls to not exceed this limit.  There are no concurrency or daily/hourly limits in place.
+Our current API accepts spend entries in batches of up to 1000 per API call.  If your volume of spend records exceeds this batch size, it is best to break up the calls to not exceed this limit.  There are no concurrency or daily/hourly limits in place.
 
 # Further Help
 
