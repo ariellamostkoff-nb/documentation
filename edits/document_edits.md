@@ -14,7 +14,7 @@ How to use:
 - PART 4 is the 19 merges. Rule for every merge: move any unique content
   into the target page, then add a redirect (docs.json).
 - Done bar for every page: no false facts, no dead links, no video-only
-  info without a text summary, owner + review date set.
+  info without a text summary.
 
 =====================================================================
 STRUCTURE CHANGE : RETIRE "START HERE" (2026-08-12)
@@ -175,8 +175,9 @@ SWEEP G : VIDEO MINIMUMS (text summary required where video is the only carrier)
 - add-spend : text summaries for all three Looms
 - new-to-northbeam (or merged target) : one-paragraph UI tour summary
 
-SWEEP H : OWNERSHIP
-Every page: set an owner and a review date. No exceptions.
+SWEEP H : OWNERSHIP (DROPPED 2026-08-12)
+Not doing page-level owner/review-date frontmatter. Git history covers
+who-changed-what. Skip this sweep.
 
 =====================================================================
 PART 3 : PER-PAGE EDITS BY TARGET SECTION
