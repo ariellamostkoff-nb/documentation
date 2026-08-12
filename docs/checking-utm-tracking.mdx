@@ -3,13 +3,32 @@ title: "Checking UTM Tracking"
 description: "Before using the dashboard, it's important to ensure UTMs are inserted on your ads and that the UTMs are getting tracked by our pixel."
 ---
 
-# Video 1: How to check for your UTM Parameters on Google, Facebook, and TikTok
+Checking UTMs is a two-part check: first confirm the UTM parameters are actually on your ad links in each ad platform, then confirm Northbeam's pixel is capturing them in your data.
+
+## Part 1: Check that UTMs are on your ads (Google, Facebook, TikTok)
+
+1. Open the ad platform's manager (Google Ads, Meta Ads Manager, or TikTok Ads Manager).
+2. Navigate to the final URL / tracking template for a live ad.
+3. Confirm the Northbeam UTM parameters are present and correctly formed (for example `utm_source`, `utm_medium`, `utm_campaign`).
+4. Repeat for at least one ad per platform you run.
+
+<Note>
+  Walkthrough for this part:
+</Note>
 
 <Frame>
   <iframe src="https://www.loom.com/embed/84c43de7eb9c4b2582a7e632b2332256?sid=23ff1b97-9632-4138-9aaa-e455d2c09d4e" width="100%" height="450" allowfullscreen></iframe>
 </Frame>
 
-# Video 2: How to check your data to make sure UTMs are getting tracked
+## Part 2: Check that Northbeam is tracking the UTMs
+
+1. In Northbeam, open a view that breaks down traffic by campaign or source.
+2. Confirm your UTM-tagged campaigns are appearing with recognizable names (not lumped under "unattributed" or "unknown").
+3. If tagged traffic is missing, the UTMs may not be firing on click or the pixel may not be capturing them — see [Troubleshooting Tracking Issues](/docs/troubleshooting-tracking-issues).
+
+<Note>
+  Walkthrough for this part:
+</Note>
 
 <Frame>
   <iframe src="https://www.loom.com/embed/044702a503464c0a8768006b44437884?sid=f07e5adf-aae8-448b-b328-00f31c4c9411" width="100%" height="450" allowfullscreen></iframe>
