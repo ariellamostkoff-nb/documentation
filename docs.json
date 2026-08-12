@@ -117,7 +117,6 @@
               "docs/subscription-analytics",
               "docs/order-tags",
               "docs/shopify-order-sync",
-              "docs/order-tags-1",
               "docs/8c-add-order-tags-in-shopify",
               "docs/8d-configure-northbeam-order-exclusions-optional",
               "docs/orders-api"
@@ -546,6 +545,10 @@
     {
       "source": "/docs/limits",
       "destination": "/docs/orders-api"
+    },
+    {
+      "source": "/docs/order-tags-1",
+      "destination": "/docs/order-tags"
     }
   ]
 }
