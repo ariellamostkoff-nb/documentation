@@ -6,20 +6,20 @@ mode: "custom"
 
 <div className="northbeam-home">
   <section className="relative overflow-hidden bg-[#01082b] bg-cover bg-bottom" style={{backgroundImage: "url('/images/northbeam/hero-background.avif')"}}>
-    <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 py-11 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8 lg:py-12">
+    <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8 lg:py-16">
       <div className="relative z-10 max-w-xl">
-        <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#acb6ff]">Northbeam Documentation</div>
-        <h1 className="mt-4 text-3xl font-normal leading-[1.08] tracking-[-0.03em] text-white sm:text-[2.75rem] sm:leading-[1.04]">
+        <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#7081ff]">Northbeam Documentation</div>
+        <h1 className="mt-5 text-4xl font-normal leading-[1.02] tracking-[-0.035em] text-white sm:text-[3.25rem]">
           Numbers you can act on.
         </h1>
-        <p className="mt-4 max-w-lg text-base leading-7 text-[#a4aab5]">
+        <p className="mt-5 max-w-lg text-base leading-7 text-[#a4aab5] sm:text-[1.0625rem]">
           Guides, concepts, and API reference for implementing Northbeam and understanding your marketing data.
         </p>
-        <div className="mt-6 flex flex-wrap gap-2.5">
-          <a href="/docs/what-to-expect-during-implementation" className="inline-flex items-center justify-center rounded-full bg-[#bcfbba] px-5 py-2.5 text-sm font-bold text-[#01082b] no-underline transition hover:shadow-[0_10px_40px_rgba(188,251,186,0.35)]">Get started</a>
-          <a href="/docs/integrations-and-utms" className="inline-flex items-center justify-center rounded-full border border-[#7081ff]/60 px-5 py-2.5 text-sm font-semibold text-white no-underline transition hover:border-[#7081ff]">Connect a channel</a>
-          <a href="/reference/post_orders-1" className="inline-flex items-center justify-center rounded-full border border-[#7081ff]/60 px-5 py-2.5 text-sm font-semibold text-white no-underline transition hover:border-[#7081ff]">API reference</a>
-          <a href="/docs/what-is-northbeam" className="inline-flex items-center justify-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-[#a4aab5] no-underline transition hover:text-white">What is Northbeam?</a>
+        <div className="mt-7 flex flex-wrap gap-2.5">
+          <a href="/docs/what-to-expect-during-implementation" className="inline-flex items-center justify-center rounded-[4px] bg-[#50ba58] px-5 py-2.5 text-sm font-semibold text-white no-underline transition hover:bg-[#5fca67]">Get started</a>
+          <a href="/docs/integrations-and-utms" className="inline-flex items-center justify-center rounded-[4px] border border-white/20 px-5 py-2.5 text-sm font-semibold text-white no-underline transition hover:border-[#7081ff] hover:bg-white/5">Connect a channel</a>
+          <a href="/reference/post_orders-1" className="inline-flex items-center justify-center rounded-[4px] border border-white/20 px-5 py-2.5 text-sm font-semibold text-white no-underline transition hover:border-[#7081ff] hover:bg-white/5">API reference</a>
+          <a href="/docs/what-is-northbeam" className="inline-flex items-center justify-center px-3 py-2.5 text-sm font-semibold text-[#a4aab5] no-underline transition hover:text-white">What is Northbeam? →</a>
         </div>
       </div>
       <div className="hidden min-w-0 items-center justify-center lg:flex">
@@ -28,154 +28,172 @@ mode: "custom"
     </div>
   </section>
 
-  <div className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8">
-    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7081ff]">Products</div>
-    <h2 className="mt-2 text-3xl font-normal tracking-[-0.03em] text-[#011230] dark:text-white">The Northbeam measurement stack</h2>
+  <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8">
+    <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#7081ff]">Products</div>
+    <h2 className="mt-2 text-[2rem] font-normal leading-tight tracking-[-0.03em] text-[#011230] dark:text-white">The Northbeam measurement stack</h2>
     <p className="mt-3 max-w-2xl text-base leading-7 text-[#4e596e] dark:text-[#a4aab5]">
       Three complementary methods that answer three different questions. Read together, they tell you what to trust and where to spend. No single one gives you the whole picture.
     </p>
 
-    <div className="mt-7 grid grid-cols-1 gap-5 md:grid-cols-3">
-      <a href="/docs/what-is-northbeam-mta-methodology" className="group flex flex-col rounded-xl border border-[#e6e8eb] bg-white p-6 no-underline transition hover:border-[#7081ff] hover:shadow-[0_12px_40px_rgba(112,129,255,0.12)] dark:border-white/10 dark:bg-white/[0.03]">
-        <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#7081ff]">Multi-Touch Attribution</div>
-        <h3 className="mt-2 text-xl font-normal text-[#011230] dark:text-white">What touched this customer?</h3>
+    <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+      <a href="/docs/what-is-northbeam-mta-methodology" className="group relative flex flex-col overflow-hidden rounded-[6px] border border-[#e6e8eb] bg-white p-6 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+        <span className="absolute inset-x-0 top-0 h-[3px] bg-[#50ba58] opacity-0 transition group-hover:opacity-100" />
+        <div className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[#7081ff]">Multi-Touch Attribution</div>
+        <h3 className="mt-2 text-xl font-normal tracking-[-0.01em] text-[#011230] dark:text-white">What touched this customer?</h3>
         <p className="mt-2 flex-1 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Event-log attribution across every channel and touchpoint. The read you optimize on day to day.</p>
-        <span className="mt-4 text-sm font-semibold text-[#7081ff]">MTA methodology →</span>
+        <span className="mt-4 text-sm font-semibold text-[#011230] dark:text-white">MTA methodology →</span>
       </a>
-      <a href="/docs/incrementality" className="group flex flex-col rounded-xl border border-[#e6e8eb] bg-white p-6 no-underline transition hover:border-[#7081ff] hover:shadow-[0_12px_40px_rgba(112,129,255,0.12)] dark:border-white/10 dark:bg-white/[0.03]">
-        <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#7081ff]">Incrementality</div>
-        <h3 className="mt-2 text-xl font-normal text-[#011230] dark:text-white">Did the ad actually cause it?</h3>
+      <a href="/docs/incrementality" className="group relative flex flex-col overflow-hidden rounded-[6px] border border-[#e6e8eb] bg-white p-6 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+        <span className="absolute inset-x-0 top-0 h-[3px] bg-[#50ba58] opacity-0 transition group-hover:opacity-100" />
+        <div className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[#7081ff]">Incrementality</div>
+        <h3 className="mt-2 text-xl font-normal tracking-[-0.01em] text-[#011230] dark:text-white">Did the ad actually cause it?</h3>
         <p className="mt-2 flex-1 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Controlled tests that isolate the revenue your marketing truly caused. The causal ground truth.</p>
-        <span className="mt-4 text-sm font-semibold text-[#7081ff]">Incrementality →</span>
+        <span className="mt-4 text-sm font-semibold text-[#011230] dark:text-white">Incrementality →</span>
       </a>
-      <a href="/docs/mixed-media-modeling" className="group flex flex-col rounded-xl border border-[#e6e8eb] bg-white p-6 no-underline transition hover:border-[#7081ff] hover:shadow-[0_12px_40px_rgba(112,129,255,0.12)] dark:border-white/10 dark:bg-white/[0.03]">
-        <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#7081ff]">Mixed Media Modeling</div>
-        <h3 className="mt-2 text-xl font-normal text-[#011230] dark:text-white">What contributes over time?</h3>
+      <a href="/docs/mixed-media-modeling" className="group relative flex flex-col overflow-hidden rounded-[6px] border border-[#e6e8eb] bg-white p-6 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+        <span className="absolute inset-x-0 top-0 h-[3px] bg-[#50ba58] opacity-0 transition group-hover:opacity-100" />
+        <div className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[#7081ff]">Mixed Media Modeling</div>
+        <h3 className="mt-2 text-xl font-normal tracking-[-0.01em] text-[#011230] dark:text-white">What contributes over time?</h3>
         <p className="mt-2 flex-1 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Time-series modeling of channel contribution, independent of pixels. The read you plan budgets on.</p>
-        <span className="mt-4 text-sm font-semibold text-[#7081ff]">Mixed Media Modeling →</span>
+        <span className="mt-4 text-sm font-semibold text-[#011230] dark:text-white">Mixed Media Modeling →</span>
       </a>
     </div>
 
-    <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
-      <a href="/docs/northbeam-apex" className="group overflow-hidden rounded-xl border border-[#e6e8eb] bg-white no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+    <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
+      <a href="/docs/northbeam-apex" className="group overflow-hidden rounded-[6px] border border-[#e6e8eb] bg-white no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
         <div className="flex h-40 items-center justify-center overflow-hidden bg-[#01082b] p-5">
           <img src="/images/northbeam/apex.avif" alt="Northbeam Apex sends first-party performance data to ad platforms" className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.02]" noZoom />
         </div>
         <div className="p-5">
-          <h3 className="text-lg font-normal text-[#011230] dark:text-white">Northbeam Apex</h3>
+          <h3 className="text-lg font-normal tracking-[-0.01em] text-[#011230] dark:text-white">Northbeam Apex</h3>
           <p className="mt-1.5 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Send first-party performance data back to ad platforms to improve targeting and bidding.</p>
         </div>
       </a>
-      <a href="/docs/clicks-deterministic-views" className="group overflow-hidden rounded-xl border border-[#e6e8eb] bg-white no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+      <a href="/docs/clicks-deterministic-views" className="group overflow-hidden rounded-[6px] border border-[#e6e8eb] bg-white no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
         <div className="flex h-40 items-center justify-center overflow-hidden bg-[#01082b] p-5">
           <img src="/images/northbeam/deterministic-views.avif" alt="Northbeam deterministic view-through attribution" className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.02]" noZoom />
         </div>
         <div className="p-5">
-          <h3 className="text-lg font-normal text-[#011230] dark:text-white">Clicks + Deterministic Views</h3>
+          <h3 className="text-lg font-normal tracking-[-0.01em] text-[#011230] dark:text-white">Clicks + Deterministic Views</h3>
           <p className="mt-1.5 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Measure revenue from awareness and video campaigns that happens beyond the click.</p>
         </div>
       </a>
-      <a href="/docs/connect-northbeam-to-claude" className="group flex flex-col rounded-xl border border-[#e6e8eb] bg-white p-6 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
-        <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#7081ff]">AI</div>
-        <h3 className="mt-2 text-lg font-normal text-[#011230] dark:text-white">Connect Northbeam to Claude</h3>
+      <a href="/docs/connect-northbeam-to-claude" className="group relative flex flex-col overflow-hidden rounded-[6px] border border-[#e6e8eb] bg-white p-6 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+        <span className="absolute inset-x-0 top-0 h-[3px] bg-[#50ba58] opacity-0 transition group-hover:opacity-100" />
+        <div className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[#7081ff]">AI</div>
+        <h3 className="mt-2 text-lg font-normal tracking-[-0.01em] text-[#011230] dark:text-white">Connect Northbeam to Claude</h3>
         <p className="mt-1.5 flex-1 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Query your Northbeam data in natural language through the Model Context Protocol.</p>
-        <span className="mt-4 text-sm font-semibold text-[#7081ff]">Set up the MCP server →</span>
+        <span className="mt-4 text-sm font-semibold text-[#011230] dark:text-white">Set up the MCP server →</span>
       </a>
     </div>
   </div>
 
-  <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8">
-    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7081ff]">Get started</div>
-    <h2 className="mt-2 text-3xl font-normal tracking-[-0.03em] text-[#011230] dark:text-white">From setup to numbers you trust</h2>
+  <div className="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
+    <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#7081ff]">Get started</div>
+    <h2 className="mt-2 text-[2rem] font-normal leading-tight tracking-[-0.03em] text-[#011230] dark:text-white">From setup to numbers you trust</h2>
     <p className="mt-3 max-w-2xl text-base leading-7 text-[#4e596e] dark:text-[#a4aab5]">Four stages take you from an empty dashboard to decisions you can defend.</p>
 
-    <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-9 grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
       <div>
         <div className="flex items-center gap-3">
-          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#011230] text-sm font-bold text-white dark:bg-[#bcfbba] dark:text-[#01082b]">1</span>
+          <span className="flex h-7 w-7 items-center justify-center rounded-[5px] bg-[#50ba58] text-sm font-bold text-white">1</span>
           <h3 className="text-base font-semibold text-[#011230] dark:text-white">Set up your dashboard</h3>
         </div>
         <ul className="mt-4 space-y-2.5 border-l border-[#e6e8eb] pl-4 dark:border-white/10">
-          <li><a href="/docs/what-to-expect-during-implementation" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">What to expect during implementation</a></li>
-          <li><a href="/docs/business-information" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Add your business information</a></li>
-          <li><a href="/docs/add-pixel" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Install the pixel</a></li>
-          <li><a href="/docs/add-orders" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Add orders</a></li>
-          <li><a href="/docs/add-spend" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Add spend</a></li>
+          <li><a href="/docs/what-to-expect-during-implementation" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">What to expect during implementation</a></li>
+          <li><a href="/docs/business-information" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Add your business information</a></li>
+          <li><a href="/docs/add-pixel" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Install the pixel</a></li>
+          <li><a href="/docs/add-orders" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Add orders</a></li>
+          <li><a href="/docs/add-spend" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Add spend</a></li>
         </ul>
       </div>
       <div>
         <div className="flex items-center gap-3">
-          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#011230] text-sm font-bold text-white dark:bg-[#bcfbba] dark:text-[#01082b]">2</span>
+          <span className="flex h-7 w-7 items-center justify-center rounded-[5px] bg-[#50ba58] text-sm font-bold text-white">2</span>
           <h3 className="text-base font-semibold text-[#011230] dark:text-white">Connect your channels</h3>
         </div>
         <ul className="mt-4 space-y-2.5 border-l border-[#e6e8eb] pl-4 dark:border-white/10">
-          <li><a href="/docs/integrations-and-utms" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Integrations and UTMs</a></li>
-          <li><a href="/docs/setting-up-facebook-ads-tracking" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Facebook Ads</a></li>
-          <li><a href="/docs/setting-up-google-ads-for-northbeam" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Google Ads</a></li>
-          <li><a href="/docs/setting-up-tiktok-ads-for-northbeam" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">TikTok Ads</a></li>
-          <li><a href="/docs/integration-matrix" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">See all integrations</a></li>
+          <li><a href="/docs/integrations-and-utms" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Integrations and UTMs</a></li>
+          <li><a href="/docs/setting-up-facebook-ads-tracking" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Facebook Ads</a></li>
+          <li><a href="/docs/setting-up-google-ads-for-northbeam" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Google Ads</a></li>
+          <li><a href="/docs/setting-up-tiktok-ads-for-northbeam" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">TikTok Ads</a></li>
+          <li><a href="/docs/integration-matrix" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">See all integrations</a></li>
         </ul>
       </div>
       <div>
         <div className="flex items-center gap-3">
-          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#011230] text-sm font-bold text-white dark:bg-[#bcfbba] dark:text-[#01082b]">3</span>
+          <span className="flex h-7 w-7 items-center justify-center rounded-[5px] bg-[#50ba58] text-sm font-bold text-white">3</span>
           <h3 className="text-base font-semibold text-[#011230] dark:text-white">Understand your data</h3>
         </div>
         <ul className="mt-4 space-y-2.5 border-l border-[#e6e8eb] pl-4 dark:border-white/10">
-          <li><a href="/docs/attribution-models" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Attribution models</a></li>
-          <li><a href="/docs/attribution-windows" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Attribution windows</a></li>
-          <li><a href="/docs/accounting-modes" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Accounting modes</a></li>
-          <li><a href="/docs/northbeam-metrics-101" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Northbeam Metrics 101</a></li>
-          <li><a href="/docs/what-is-a-good-bad-number-in-northbeam" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">What is a good or bad number?</a></li>
+          <li><a href="/docs/attribution-models" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Attribution models</a></li>
+          <li><a href="/docs/attribution-windows" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Attribution windows</a></li>
+          <li><a href="/docs/accounting-modes" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Accounting modes</a></li>
+          <li><a href="/docs/northbeam-metrics-101" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Northbeam Metrics 101</a></li>
+          <li><a href="/docs/what-is-a-good-bad-number-in-northbeam" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">What is a good or bad number?</a></li>
         </ul>
       </div>
       <div>
         <div className="flex items-center gap-3">
-          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#011230] text-sm font-bold text-white dark:bg-[#bcfbba] dark:text-[#01082b]">4</span>
+          <span className="flex h-7 w-7 items-center justify-center rounded-[5px] bg-[#50ba58] text-sm font-bold text-white">4</span>
           <h3 className="text-base font-semibold text-[#011230] dark:text-white">Use the platform</h3>
         </div>
         <ul className="mt-4 space-y-2.5 border-l border-[#e6e8eb] pl-4 dark:border-white/10">
-          <li><a href="/docs/overview-page" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Overview page</a></li>
-          <li><a href="/docs/attribution-page" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Attribution page</a></li>
-          <li><a href="/docs/creative-analytics" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Creative Analytics</a></li>
-          <li><a href="/docs/metrics-explorer" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Metrics Explorer</a></li>
-          <li><a href="/docs/manage-breakdowns" className="text-sm text-[#4e596e] no-underline hover:text-[#7081ff] dark:text-[#a4aab5]">Manage breakdowns</a></li>
+          <li><a href="/docs/overview-page" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Overview page</a></li>
+          <li><a href="/docs/attribution-page" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Attribution page</a></li>
+          <li><a href="/docs/creative-analytics" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Creative Analytics</a></li>
+          <li><a href="/docs/metrics-explorer" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Metrics Explorer</a></li>
+          <li><a href="/docs/manage-breakdowns" className="text-sm text-[#4e596e] no-underline transition hover:text-[#7081ff] dark:text-[#a4aab5]">Manage breakdowns</a></li>
         </ul>
       </div>
     </div>
   </div>
 
-  <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8">
-    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7081ff]">Developers &amp; API</div>
-    <h2 className="mt-2 text-3xl font-normal tracking-[-0.03em] text-[#011230] dark:text-white">Build with Northbeam data</h2>
+  <div className="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
+    <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#7081ff]">Developers &amp; API</div>
+    <h2 className="mt-2 text-[2rem] font-normal leading-tight tracking-[-0.03em] text-[#011230] dark:text-white">Build with Northbeam data</h2>
     <p className="mt-3 max-w-2xl text-base leading-7 text-[#4e596e] dark:text-[#a4aab5]">Send orders and spend, or export attribution data into your own systems.</p>
-    <div className="mt-6">
-      <CardGroup cols={4}>
-        <Card title="Orders API" icon="cart-shopping" href="/docs/orders-api">Create, fetch, update, and alias orders.</Card>
-        <Card title="Spend API" icon="dollar-sign" href="/docs/spend-api">Upload daily or hourly marketing spend.</Card>
-        <Card title="Data Export API" icon="cloud-arrow-down" href="/docs/northbeam-api-data-export-1">Export attribution data, metrics, and breakdowns.</Card>
-        <Card title="API reference" icon="code" href="/reference/post_orders-1">Every endpoint, with an interactive playground.</Card>
-      </CardGroup>
+    <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <a href="/docs/orders-api" className="group rounded-[6px] border border-[#e6e8eb] bg-white p-5 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+        <div className="flex h-9 w-9 items-center justify-center rounded-[6px] bg-[#f4f5ff] dark:bg-white/[0.06]"><Icon icon="cart-shopping" color="#7081ff" size={17} /></div>
+        <h3 className="mt-3 text-base font-semibold text-[#011230] dark:text-white">Orders API</h3>
+        <p className="mt-1 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Create, fetch, update, and alias orders.</p>
+      </a>
+      <a href="/docs/spend-api" className="group rounded-[6px] border border-[#e6e8eb] bg-white p-5 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+        <div className="flex h-9 w-9 items-center justify-center rounded-[6px] bg-[#f4f5ff] dark:bg-white/[0.06]"><Icon icon="dollar-sign" color="#7081ff" size={17} /></div>
+        <h3 className="mt-3 text-base font-semibold text-[#011230] dark:text-white">Spend API</h3>
+        <p className="mt-1 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Upload daily or hourly marketing spend.</p>
+      </a>
+      <a href="/docs/northbeam-api-data-export-1" className="group rounded-[6px] border border-[#e6e8eb] bg-white p-5 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+        <div className="flex h-9 w-9 items-center justify-center rounded-[6px] bg-[#f4f5ff] dark:bg-white/[0.06]"><Icon icon="cloud-arrow-down" color="#7081ff" size={17} /></div>
+        <h3 className="mt-3 text-base font-semibold text-[#011230] dark:text-white">Data Export API</h3>
+        <p className="mt-1 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Export attribution data, metrics, and breakdowns.</p>
+      </a>
+      <a href="/reference/post_orders-1" className="group rounded-[6px] border border-[#e6e8eb] bg-white p-5 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+        <div className="flex h-9 w-9 items-center justify-center rounded-[6px] bg-[#f4f5ff] dark:bg-white/[0.06]"><Icon icon="code" color="#7081ff" size={17} /></div>
+        <h3 className="mt-3 text-base font-semibold text-[#011230] dark:text-white">API reference</h3>
+        <p className="mt-1 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Every endpoint, with an interactive playground.</p>
+      </a>
     </div>
   </div>
 
-  <div className="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 lg:px-8">
-    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7081ff]">Keep learning</div>
-    <h2 className="mt-2 text-3xl font-normal tracking-[-0.03em] text-[#011230] dark:text-white">Resources &amp; support</h2>
-    <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <a href="/docs/troubleshooting-tracking-issues" className="rounded-xl border border-[#e6e8eb] bg-white p-5 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+  <div className="mx-auto max-w-7xl px-4 pb-24 pt-20 sm:px-6 lg:px-8">
+    <div className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#7081ff]">Keep learning</div>
+    <h2 className="mt-2 text-[2rem] font-normal leading-tight tracking-[-0.03em] text-[#011230] dark:text-white">Resources &amp; support</h2>
+    <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <a href="/docs/troubleshooting-tracking-issues" className="rounded-[6px] border border-[#e6e8eb] bg-white p-5 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
         <h3 className="text-base font-semibold text-[#011230] dark:text-white">Troubleshoot</h3>
         <p className="mt-1.5 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Fix tracking issues and reconcile numbers that don't match.</p>
       </a>
-      <a href="/docs/frequently-asked-questions" className="rounded-xl border border-[#e6e8eb] bg-white p-5 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+      <a href="/docs/frequently-asked-questions" className="rounded-[6px] border border-[#e6e8eb] bg-white p-5 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
         <h3 className="text-base font-semibold text-[#011230] dark:text-white">FAQs</h3>
         <p className="mt-1.5 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Quick answers to the questions we hear most often.</p>
       </a>
-      <a href="/docs/changelog" className="rounded-xl border border-[#e6e8eb] bg-white p-5 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+      <a href="/docs/changelog" className="rounded-[6px] border border-[#e6e8eb] bg-white p-5 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
         <h3 className="text-base font-semibold text-[#011230] dark:text-white">Release notes</h3>
         <p className="mt-1.5 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">What's new and what's changed in Northbeam.</p>
       </a>
-      <a href="https://www.northbeam.io/submit-a-support-ticket" className="rounded-xl border border-[#7081ff]/30 bg-[#f4f5ff] p-5 no-underline transition hover:border-[#7081ff] dark:border-white/10 dark:bg-white/[0.03]">
+      <a href="https://www.northbeam.io/submit-a-support-ticket" className="rounded-[6px] border border-[#50ba58]/40 bg-[#50ba58]/[0.06] p-5 no-underline transition hover:border-[#50ba58] dark:bg-[#50ba58]/[0.08]">
         <h3 className="text-base font-semibold text-[#011230] dark:text-white">Contact support</h3>
         <p className="mt-1.5 text-sm leading-6 text-[#4e596e] dark:text-[#a4aab5]">Stuck on something? Reach the Northbeam team directly.</p>
       </a>
