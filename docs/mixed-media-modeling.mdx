@@ -1,0 +1,41 @@
+---
+title: "Mixed Media Modeling (MMM)"
+description: "Measure the long-run contribution of each channel to revenue using time-series regression, independent of pixels and user-level tracking."
+---
+
+## What MMM is
+
+Mixed Media Modeling (MMM) uses time-series data to build a regression model that predicts marketing outputs (sales, revenue) from marketing inputs (spend by channel, over time). Where MTA reads individual user journeys, MMM steps back and looks at the whole business over weeks and months.
+
+At its simplest, MMM predicts a "Sales" time series from the spend time series of each channel:
+
+| Date | Facebook Spend | TikTok Spend | (etc.) | → | Sales |
+| --- | --- | --- | --- | --- | --- |
+| Jan 1 | $3,283 | $570 | … | | 2,381 |
+| Jan 2 | $2,193 | $112 | … | | 4,291 |
+
+A naive model would assume "correlation implies causation," which isn't generally true. Good MMM reduces that reliance by explicitly modeling confounding variables, for example promotional periods and seasonality, to avoid drawing the wrong conclusion from a coincidental pattern.
+
+## Why MMM matters
+
+* **It doesn't depend on pixels or user-level tracking.** MMM works from aggregate spend and revenue, so it's resilient to iOS privacy changes and cookie deprecation, the same signal loss that gives MTA blind spots.
+* **It captures long-run and cross-channel effects.** Brand and upper-funnel channels that MTA under-credits (because their impact shows up later and diffusely) are visible in the time series.
+* **It's built for strategic budget planning.** MMM answers "how much does each channel contribute over time," which is the right question for setting a media mix, where MTA answers "what touched this customer" for day-to-day optimization.
+
+## How MMM relates to MTA and Incrementality
+
+Northbeam treats these three as complementary measurement methods, each with different strengths:
+
+* **MTA** — event-log analysis. Best for channel-level optimization and attribution. Correlational.
+* **MMM** — time-series regression. Best for strategic budget planning. Correlational, and slower to update.
+* **Incrementality** — controlled experiments. The causal ground truth. Best for validating and calibrating the other two.
+
+They disagree by design, because they measure different things. The value comes from reading them together: incrementality results calibrate MMM's estimates, and both inform how much to trust MTA at the channel level.
+
+## Limitations to keep in mind
+
+* MMM is based on historical patterns, so it updates more slowly than attribution and reacts to recent changes with a lag.
+* It reports at the channel and business level, not the campaign or ad level. Use MTA for that granularity.
+* Model quality depends on having enough history and clean spend/revenue data.
+
+{/* TODO(product): confirm which MMM outputs and cadence are exposed to customers today, and add "how to read your MMM results in Northbeam" once confirmed. */}

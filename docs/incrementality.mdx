@@ -1,0 +1,66 @@
+---
+title: "Incrementality"
+description: "Measure the causal impact of your marketing: the revenue a channel actually caused, above and beyond what would have happened anyway."
+---
+
+## The problem with attribution alone
+
+MTA and MMM are powerful, but they share a limitation: they measure correlation, not causation.
+
+MTA tracks which channels and touchpoints appeared in a customer's journey before a conversion. MMM identifies patterns between spend and revenue over time. Neither can answer the most important question in marketing:
+
+**Would this customer have bought anyway, even without the ad?**
+
+If you can't answer that, you can't know whether your ad spend is driving growth or just showing up alongside it.
+
+## What incrementality testing is
+
+Incrementality testing is a controlled experiment that measures the **causal impact** of a marketing channel or campaign: the revenue it actually caused, above and beyond what would have happened organically.
+
+It works by dividing your audience into two groups:
+
+* **Test group** — exposed to your ads as normal
+* **Control group (holdout)** — withheld from seeing your ads
+
+By comparing outcomes between the two groups, you isolate the lift directly attributable to your marketing. That lift, the difference in conversions or revenue between the groups, is your **incremental impact**.
+
+<Note>
+  When a true randomized holdout isn't possible, Northbeam builds comparable test and control groups other ways, most commonly by geography (geo testing).
+</Note>
+
+## How it relates to MTA and MMM
+
+|  | MTA | MMM | Incrementality |
+| --- | --- | --- | --- |
+| **What it measures** | Which touchpoints appeared in the journey | Long-run contribution of channels to revenue | Whether a channel causally drove a purchase |
+| **Methodology** | Correlational | Correlational | Experimental (exposed vs. unexposed) |
+| **Answers** | "What touched this customer?" | "How much does each channel contribute over time?" | "Did this ad actually cause the sale?" |
+| **Best for** | Channel optimization and attribution | Strategic budget planning | Validating and calibrating your other tools |
+
+Incrementality testing doesn't replace MTA or MMM. It **ground-truths them**. Results can be fed back into your MTA model to correct for over- and under-attribution, and into MMM to replace correlation-based estimates with causal ones.
+
+## Why it matters
+
+**Attribution overstates platform performance.** Ad platforms report ROAS on their own attribution logic, which is almost always inflated: they only see their own touchpoints and have an incentive to take credit. MTA corrects for some of this, but still can't separate causation from correlation.
+
+**Some spend is not incremental.** A significant portion of ad spend goes to customers who would have converted organically. High-ROAS retargeting is the classic example: it looks efficient because it targets high-intent users who were often already going to buy. Without a test, you can't tell a campaign that caused a purchase from one that just took credit for it.
+
+**Budget decisions depend on causal truth.** When you decide whether to scale, cut, or rebalance, you need to know what's actually driving revenue, not what's getting credit for it.
+
+**Signal loss has made this urgent.** iOS privacy changes and third-party cookie deprecation have reduced user-level tracking accuracy, giving MTA more blind spots. Geo-based incrementality, which doesn't rely on user-level data or pixels, provides a more reliable read on true media performance.
+
+## What good incrementality testing requires
+
+A test is only as trustworthy as its design. Key requirements:
+
+* **Balanced test and control groups** — comparable before the test begins, accounting for differences across geographies, segments, and purchase patterns
+* **Sufficient statistical power** — designed around spend levels, conversion volume, and expected lift so a conclusive result is achievable
+* **Contamination monitoring** — mid-test events (budget changes, targeting edits, market shifts) can corrupt results and need to be detected in real time
+* **Temporal spillover correction** — an ad's effect doesn't end when the test ends; conversion lag before and after the window must be captured
+* **Actionable output** — results expressed in metrics that connect to decisions (iROAS, calibrated ROAS) and feed back into your other tools
+
+## In one sentence
+
+MTA tells you who got credit. MMM tells you the long-run trend. Incrementality testing tells you what actually caused the sale, and makes both of your other measurement tools more accurate over time.
+
+{/* TODO(product): add the customer-facing "how to set up an incrementality test in Northbeam" steps once confirmed. Apex Conversion Lift setup is related: /docs/setting-up-a-meta-custom-attribution-campaign */}
