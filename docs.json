@@ -162,6 +162,88 @@
         ]
       },
       {
+        "tab": "Data & terminology",
+        "groups": [
+          {
+            "group": "Attribution fundamentals",
+            "pages": [
+              "docs/attribution-models",
+              "docs/attribution-windows",
+              "docs/lookback-windows",
+              "docs/accounting-modes",
+              "docs/credit-allocation-examples"
+            ]
+          },
+          {
+            "group": "Metrics & data",
+            "pages": [
+              "docs/northbeam-metrics-101",
+              "docs/subscription-metrics",
+              "docs/northbeam-data-sources",
+              "docs/how-does-northbeam-track-orders-and-ads"
+            ]
+          },
+          {
+            "group": "Reading the numbers",
+            "pages": [
+              "docs/what-is-a-good-bad-number-in-northbeam",
+              "docs/how-do-i-correctly-confidently-interpret-non-click-channels",
+              "docs/whats-the-difference-between-organic-vs-unattributed",
+              "docs/case-scenario-cash-vs-accrual",
+              "docs/case-scenario-clicks-views-vs-clicks-only"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Features",
+        "groups": [
+          {
+            "group": "Features",
+            "pages": [
+              "docs/manage-breakdowns",
+              "docs/profitability-benchmarks",
+              "docs/what-is-northbeam-model-comparison-tool",
+              "docs/exporting-data",
+              "docs/touchpoints-export",
+              "docs/subscription-analytics"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Platform",
+        "groups": [
+          {
+            "group": "Dashboards",
+            "pages": [
+              "docs/overview-page",
+              "docs/sales",
+              "docs/attribution-page",
+              "docs/creative-analytics",
+              "docs/product-analytics",
+              "docs/orders-tracking"
+            ]
+          },
+          {
+            "group": "Metrics Explorer",
+            "pages": [
+              "docs/metrics-explorer",
+              "docs/metrics-explorer-quickstart-guide",
+              "docs/metrics-explorer-best-practices-7-tips"
+            ]
+          },
+          {
+            "group": "Account & admin",
+            "pages": [
+              "docs/adding-or-removing-users-copy",
+              "docs/ad-accounts",
+              "docs/adding-or-removing-users-copy-1"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Products",
         "groups": [
           {
@@ -196,88 +278,6 @@
             "group": "AI",
             "pages": [
               "docs/connect-northbeam-to-claude"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Using Northbeam",
-        "groups": [
-          {
-            "group": "Data & terminology",
-            "pages": [
-              {
-                "group": "Attribution fundamentals",
-                "pages": [
-                  "docs/attribution-models",
-                  "docs/attribution-windows",
-                  "docs/lookback-windows",
-                  "docs/accounting-modes",
-                  "docs/credit-allocation-examples"
-                ]
-              },
-              {
-                "group": "Metrics & data",
-                "pages": [
-                  "docs/northbeam-metrics-101",
-                  "docs/subscription-metrics",
-                  "docs/northbeam-data-sources",
-                  "docs/how-does-northbeam-track-orders-and-ads"
-                ]
-              },
-              {
-                "group": "Reading the numbers",
-                "pages": [
-                  "docs/what-is-a-good-bad-number-in-northbeam",
-                  "docs/how-do-i-correctly-confidently-interpret-non-click-channels",
-                  "docs/whats-the-difference-between-organic-vs-unattributed",
-                  "docs/case-scenario-cash-vs-accrual",
-                  "docs/case-scenario-clicks-views-vs-clicks-only"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Platform",
-            "pages": [
-              {
-                "group": "Dashboards",
-                "pages": [
-                  "docs/overview-page",
-                  "docs/sales",
-                  "docs/attribution-page",
-                  "docs/creative-analytics",
-                  "docs/product-analytics",
-                  "docs/orders-tracking"
-                ]
-              },
-              {
-                "group": "Metrics Explorer",
-                "pages": [
-                  "docs/metrics-explorer",
-                  "docs/metrics-explorer-quickstart-guide",
-                  "docs/metrics-explorer-best-practices-7-tips"
-                ]
-              },
-              {
-                "group": "Account & admin",
-                "pages": [
-                  "docs/adding-or-removing-users-copy",
-                  "docs/ad-accounts",
-                  "docs/adding-or-removing-users-copy-1"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Features",
-            "pages": [
-              "docs/manage-breakdowns",
-              "docs/profitability-benchmarks",
-              "docs/what-is-northbeam-model-comparison-tool",
-              "docs/exporting-data",
-              "docs/touchpoints-export",
-              "docs/subscription-analytics"
             ]
           }
         ]
@@ -336,47 +336,67 @@
         ]
       },
       {
-        "tab": "Resources",
+        "tab": "Troubleshoot",
         "groups": [
           {
-            "group": "Troubleshoot",
+            "group": "Numbers don't match",
             "pages": [
-              {
-                "group": "Numbers don't match",
-                "pages": [
-                  "docs/differences-ad-performance",
-                  "docs/differences-in-ad-data",
-                  "docs/differences-in-unattributed-data",
-                  "docs/differences-in-visits",
-                  "docs/why-doesnt-northbeam-match-my-shopify-reporting",
-                  "docs/why-is-my-fb-roas-so-much-lower-in-northbeam"
-                ]
-              },
-              {
-                "group": "Tracking & pixel",
-                "pages": [
-                  "docs/checking-api-connections",
-                  "docs/checking-utm-tracking",
-                  "docs/troubleshooting-tracking-issues",
-                  "docs/guide-to-troubleshooting-pixel-tracking",
-                  "docs/gclid-fbclid-redirects"
-                ]
-              },
-              {
-                "group": "FAQ & comparisons",
-                "pages": [
-                  "docs/frequently-asked-questions",
-                  "docs/difference-between-blotout-and-northbeam-do-i-need-both"
-                ]
-              }
+              "docs/differences-ad-performance",
+              "docs/differences-in-ad-data",
+              "docs/differences-in-unattributed-data",
+              "docs/differences-in-visits",
+              "docs/why-doesnt-northbeam-match-my-shopify-reporting",
+              "docs/why-is-my-fb-roas-so-much-lower-in-northbeam"
             ]
           },
           {
-            "group": "Release notes",
+            "group": "Tracking & pixel",
+            "pages": [
+              "docs/checking-api-connections",
+              "docs/checking-utm-tracking",
+              "docs/troubleshooting-tracking-issues",
+              "docs/guide-to-troubleshooting-pixel-tracking",
+              "docs/gclid-fbclid-redirects"
+            ]
+          },
+          {
+            "group": "FAQ & comparisons",
+            "pages": [
+              "docs/frequently-asked-questions",
+              "docs/difference-between-blotout-and-northbeam-do-i-need-both"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "menu": [
+          {
+            "item": "Release notes",
+            "icon": "sparkles",
+            "description": "What's new and what's changed in Northbeam",
             "pages": [
               "docs/changelog",
               "docs/northbeam-30"
             ]
+          },
+          {
+            "item": "FAQs",
+            "icon": "circle-question",
+            "description": "Quick answers to the questions we hear most",
+            "href": "/docs/frequently-asked-questions"
+          },
+          {
+            "item": "Troubleshooting",
+            "icon": "flag",
+            "description": "Fix tracking issues and reconcile numbers",
+            "href": "/docs/troubleshooting-tracking-issues"
+          },
+          {
+            "item": "Contact support",
+            "icon": "envelope",
+            "description": "Reach the Northbeam team directly",
+            "href": "https://www.northbeam.io/submit-a-support-ticket"
           }
         ]
       },
