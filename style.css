@@ -1,0 +1,22 @@
+/* ------------------------------------------------------------------ *
+ * Northbeam docs — custom overrides
+ * Auto-loaded by Mintlify (any .css in the content dir applies site-wide)
+ * ------------------------------------------------------------------ */
+
+/* Widen the left sidebar from 224px (w-56) to 268px, and shift the doc
+   content to clear it. The content-offset selector mirrors Mintlify's own
+   peer rule so it applies to normal doc pages only — never the custom
+   full-width home page. */
+@media (min-width: 1024px) {
+  nav#sidebar-content {
+    width: 268px;
+  }
+  .peer.is-not-custom ~ #body-content {
+    padding-left: 268px;
+  }
+}
+
+/* Light hairline divider between the sidebar and the content. */
+nav#sidebar-content {
+  border-right: 1px solid rgba(128, 128, 128, 0.18);
+}
