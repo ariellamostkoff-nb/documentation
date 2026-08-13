@@ -3,20 +3,32 @@
  * Auto-loaded by Mintlify (any .css in the content dir applies site-wide)
  * ------------------------------------------------------------------ */
 
-/* Widen the left sidebar from 224px (w-56) to 268px, and shift the doc
+/* Widen the left sidebar from 224px (w-56) to 280px, and shift the doc
    content to clear it. The content-offset selector mirrors Mintlify's own
    peer rule so it applies to normal doc pages only — never the custom
    full-width home page. */
 @media (min-width: 1024px) {
   nav#sidebar-content {
-    width: 268px;
+    width: 280px;
   }
   .peer.is-not-custom ~ #body-content {
-    padding-left: 268px;
+    padding-left: 280px;
   }
 }
 
 /* Light hairline divider between the sidebar and the content. */
 nav#sidebar-content {
   border-right: 1px solid rgba(128, 128, 128, 0.18);
+}
+
+/* Keep every sidebar label on a single line; truncate overflow with an
+   ellipsis instead of wrapping to two lines (easier to scan). */
+#sidebar-content a .flex-wrap {
+  flex-wrap: nowrap;
+}
+#sidebar-content a span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
