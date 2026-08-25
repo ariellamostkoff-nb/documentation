@@ -1,0 +1,30 @@
+---
+title: "Environments"
+description: "Production and UAT base URLs, and what each one is for"
+icon: "server"
+---
+
+Northbeam's APIs are served from two environments:
+
+| Environment | Base URL | Use it for |
+| :--- | :--- | :--- |
+| Production | `https://api.northbeam.io/v2` | Live data. Orders sent here are used for attribution (MTA) and predictive analytics (MMM). |
+| UAT | `https://api-uat.northbeam.io/v2` | Customer testing only. Production-equivalent, but orders submitted here are **not** used in attribution. |
+
+## Start in UAT
+
+Use the UAT environment to test your integration end to end before
+pointing it at production — same endpoints, same
+[authentication](/docs/authentication), no effect on your live
+attribution data.
+
+## Switching to production
+
+When your integration works in UAT, change the base URL to
+`https://api.northbeam.io/v2`. Everything else stays the same.
+
+<Info>
+  The [API reference](/reference/post_orders-1) lets you call either
+  environment directly from the docs — insert your API keys and use the
+  example values to try a request.
+</Info>

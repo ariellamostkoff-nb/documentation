@@ -1,0 +1,39 @@
+---
+title: "Authentication"
+description: "Every Northbeam API request is authenticated with two headers"
+icon: "key"
+---
+
+All Northbeam APIs use the same two headers, on every request:
+
+| Header | Value |
+| :--- | :--- |
+| `Authorization` | Your API key |
+| `Data-Client-ID` | Your client ID |
+
+## Where to find your credentials
+
+Both values live in the Northbeam dashboard under **Settings → API keys**:
+
+* **API Key** — sent as the `Authorization` header
+* **Client ID** — sent as the `Data-Client-ID` header
+
+## Example
+
+```bash
+curl --request GET \
+  --url https://api.northbeam.io/v2/orders \
+  --header 'Authorization: <your_api_key>' \
+  --header 'Data-Client-ID: <your_client_id>'
+```
+
+<Warning>
+  A `401 Unauthorized` response means the API key or `Data-Client-ID`
+  header is missing or invalid. See [Errors](/docs/errors) for the full
+  list of response codes.
+</Warning>
+
+## Keep credentials out of your client
+
+Treat the API key like a password: send it only from your servers, never
+from a browser or mobile app, and rotate it if it's ever exposed.
