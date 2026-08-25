@@ -1,0 +1,66 @@
+---
+title: "Google + YouTube Ads: Insert the UTMs"
+sidebarTitle: "2. Insert the UTMs"
+icon: "link"
+---
+
+## Step 1: Insert Northbeam UTM Parameters
+
+
+Please add the following UTM parameters in the **Final URL Suffix** at the **Account Level**.
+
+```
+nbt=nb%3Aadwords%3A{network}%3A{campaignid}%3A{adgroupid}%3A{creative}
+```
+
+### Step-By-Step Guide
+
+For a visual walkthrough of setting up UTM parameters, reference the video below.
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/8af9854ac3de4f4696cb7f6c595ef090?sid=186a79f5-a93c-40dd-ae59-b850e10e91cf" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+<Note>
+  ## UTM Parameter Priority
+
+  Google Ads applies UTM parameters based on hierarchy. **Lower-level UTMs always take priority over higher-level UTMs.**
+
+  Priority order, highest to lowest:
+
+  1. **Ad level**
+  2. **Ad group level**
+  3. **Campaign level**
+  4. **Account level**
+
+  This means that if UTMs exist at the campaign, ad group, or ad level, they will **override** anything set at the account-level Final URL Suffix.
+
+  ### What if I already have UTMs at the Campaign, Ad Group or Ad level?
+
+  You have two valid options:
+
+  * **Move your existing UTMs up** to the account level to centralize tracking
+  * **Move Northbeam UTMs down** to the same level as your existing UTMs
+
+  Either approach works as long as UTMs are applied consistently and not overridden at a lower level.
+
+  If UTMs exist at multiple levels, Google will always respect the lowest-level definition.
+</Note>
+
+### Have existing UTM parameters?
+
+If you have existing parameters, please add our parameters to the end (or beginning) and we'll all set. Be sure to use an ampersand (&) to connect your existing parameters to our parameters.
+
+For example:
+
+utm\_source=paid\&utm\_medium=google&**nbt=nb%3Aadwords%3A\{network}%3A\{campaignid}%3A\{adgroupid}%3A\{creative}**
+
+<br />
+
+<Note>
+  UTM Auto-Appending
+
+  If you would like Northbeam to automatically append UTM parameters to all Google ads from ad accounts connected to your dashboard, please [reach out to our Support team](https://www.northbeam.io/submit-a-support-ticket) to enable this feature.
+</Note>
+
+***

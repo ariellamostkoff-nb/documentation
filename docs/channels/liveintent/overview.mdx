@@ -1,0 +1,86 @@
+---
+title: "Tracking for LiveIntent"
+sidebarTitle: "Overview"
+icon: "tv"
+---
+
+**This guide will show you how to set up LiveIntent tracking in Northbeam.**
+
+The LiveIntent integration currently supports:
+
+* LiveIntent spend and platform reporting
+* Click-based attribution using Northbeam tracking parameters
+* Campaign- and creative-level reporting
+
+Support for deterministic impression and view-through attribution is planned for a future release.
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Input
+      </th>
+
+      <th>
+        Output
+      </th>
+
+      <th>
+        If Input is missing...
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        LiveIntent Integration
+      </td>
+
+      <td>
+        LiveIntent platform data is pulled into Northbeam, including:
+
+        - Spend
+        - Impressions
+        - Clicks
+        - Campaign names
+        - Creative names
+      </td>
+
+      <td>
+        LiveIntent platform metrics and campaign details will not appear in Northbeam.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Northbeam Tracking Parameters
+      </td>
+
+      <td>
+        Visits, transactions, revenue, and other conversion metrics attributed to LiveIntent campaigns and creatives
+      </td>
+
+      <td>
+        Spend and platform metrics may still appear, but Northbeam may not be able to attribute visits and conversions to the corresponding LiveIntent campaigns and creatives.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+***
+
+## How LiveIntent data maps to Northbeam
+
+
+Once connected, LiveIntent data appears in Northbeam using the following hierarchy:
+
+| LiveIntent Level     | Northbeam Level |
+| :------------------- | :-------------- |
+| Campaign             | Campaign Level  |
+| \[Placeholder Value] | Adset Level     |
+| Creative             | Ad Level        |
+
+LiveIntent performance is reported at the Campaign and Ad levels. The Adset level displays a placeholder to preserve Northbeam’s reporting hierarchy.
+
+***

@@ -1,0 +1,52 @@
+---
+title: "Tatari FAQ"
+sidebarTitle: "FAQ"
+icon: "circle-question"
+---
+
+## Tatari FAQs
+
+
+1. [Where Can I Find My Tatari Data in Northbeam?](#1-where-can-i-find-my-tatari-data-in-northbeam)
+2. [How Often Is Tatari Data Updated in Northbeam?](#2-how-often-is-tatari-data-updated-in-northbeam)
+3. [I See Clicks and Matchbacks, but No Revenue or Transactions. What Should I Check?](#3-i-see-clicks-and-matchbacks-but-no-revenue-or-transactions-what-should-i-check)
+
+***
+
+## Tatari FAQ
+
+
+### 1. Where Can I Find My Tatari Data in Northbeam?
+
+After completing the integration, your Tatari data will appear under the **Clicks & Matchbacks** attribution model in Northbeam. "Matchbacks" represent data provided by Tatari for attributed orders.
+
+<Warning>
+  Data Notice
+
+  It may take up to **7 days** for your Tatari data to fully populate in Northbeam. Data is processed from oldest to newest upon initial integration.
+</Warning>
+
+### 2. How Often Is Tatari Data Updated in Northbeam?
+
+Tatari provides data reports once daily, typically with about a \~23-hour delay. Northbeam processes the file in the next scheduled run after it arrives. Because of that timing, Tatari data can sometimes appear 1–2 days behind in the dashboard depending on when the report was made available.
+
+**Example:**
+
+A report delivered by Tatari on May 13 may only contain data through May 12. If you check Northbeam on the morning of May 14 before the next processing run completes, the latest Tatari data available may still only reflect data through May 12.
+
+This is expected behavior and does not necessarily indicate an issue with the integration.
+
+### 3. I See Clicks and Matchbacks, but No Revenue or Transactions. What Should I Check?
+
+If you see clicks and matchbacks but no attributed orders, verify the following:
+
+* **Ensure all integration steps are completed:**
+  * User tracking is set up correctly.
+  * AWS credentials are configured properly.
+  * Tatari ID is accurate.
+
+* **Check that the customer IDs in your Tatari user tracking match the customer IDs in your Northbeam orders:**
+  * For Shopify users, this is typically a match since Shopify has a direct integration.
+  * For custom implementations, mismatches are more common and can result in missing data.
+
+If everything appears correct but data is still missing, please contact Northbeam support for further assistance.

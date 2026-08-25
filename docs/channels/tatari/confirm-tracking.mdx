@@ -1,0 +1,32 @@
+---
+title: "Tatari: Confirm tracking"
+sidebarTitle: "3. Confirm tracking"
+icon: "circle-check"
+---
+
+## Step 4: Allow 24 Hours for the Tatari Connection to Process
+
+
+After entering your Tatari ID and selecting the source of truth in Northbeam, please allow up to 24 hours for the integration to fully process.
+
+<Warning>
+  Attempting to connect your AWS Credentials too early can result in an error:
+
+  ![API Error 400: Invalid ARNs](https://files.readme.io/46aed383f3101466cd1f92dbd0a607d134ea0e757cd1db907911e9e2de54185b-image_117.png)
+
+  "API Error 400: Invalid ARNs"
+
+  This is expected behavior if the connection has not yet completed. Simply wait and retry after the 24-hour window.
+</Warning>
+
+Once the connection is live and UTMs are on your ads, confirm data is
+flowing:
+
+* **UTMs captured** — follow [Checking UTM tracking](/docs/checking-utm-tracking)
+  to confirm Northbeam parameters are present on your landing pages.
+* **Connection syncing** — follow
+  [Checking platform connections](/docs/checking-api-connections) to confirm
+  the account shows connected and data is arriving.
+
+If either check fails, see
+[Troubleshooting tracking issues](/docs/troubleshooting-tracking-issues).

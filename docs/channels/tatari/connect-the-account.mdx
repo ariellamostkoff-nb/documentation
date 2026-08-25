@@ -1,0 +1,106 @@
+---
+title: "Tatari: Connect the account"
+sidebarTitle: "1. Connect the account"
+icon: "plug-circle-check"
+---
+
+## Step 1: Enable User Tracking
+
+
+Enabling user tracking in Tatari is essential for Northbeam to accurately attribute Tatari-driven orders. This process differs based on whether you're using Shopify or a custom platform.
+
+#### 🛒 For Shopify
+
+1. **Install the Tatari Tag Manager App:**
+   * Visit the [Tatari Tag Manager](https://apps.shopify.com/tatari-tv) on the Shopify App Store.
+   * Click **Add app** and follow the installation prompts.
+
+2. **Verify Installation:**
+   * Once installed, the app will automatically manage the necessary pixels on your website to track funnel events related to your TV advertising campaigns.
+
+For more details, refer to Tatari's official [User Tracking Guide](https://drive.google.com/file/d/1U-ETZyVeEMclKiCY63falhOSN4EtbIAq/view?usp=sharing).
+
+#### 🌐 For Non-Shopify (Custom Platform)
+
+1. **Implement the Tatari JavaScript Library:**
+
+   * Access your website's `<head>` section in the HTML code.
+   * Insert the following script, replacing YOUR\_TOKEN with the token provided by Tatari:
+
+```python html
+ <script>  
+     !function(){try{!function(t,i){if(!i.version){window.tatari=i,i  
+     .init=function(t,n){var e=function(t,n){i[n]=function(){t.push([  
+     n].concat(Array.prototype.slice.call(arguments,0)))}};"track  
+     pageview identify".split(" ")  
+     .forEach(function(t){e(i,t)}),i.\_i=t,i.config=n,i.pageview()}  
+     ,i.version="1.2.1"; var  
+     n=t.createElement("script");n.type="text/javascript",n.async=!0  
+     ,n.src="https://d2hrivdxn8ekm8.cloudfront.net/tag-manager/YOUR_TOKEN-latest.js";var e=t.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)}}(document,window.tatari||[])}catch(t){console.log(t)}}();  
+     tatari.init('YOUR_TOKEN');  
+ </script>
+```
+
+2. **Enable User Identification:**
+   * When a user logs in, call the tatari.identify(`{user_id}`); function, replacing `{user_id}` with your internal user identifier.
+   * Ensure that the same user IDs are used as customer IDs in Northbeam to maintain consistent attribution.
+
+For more details, refer to Tatari's official [User Tracking Guide](https://drive.google.com/file/d/1U-ETZyVeEMclKiCY63falhOSN4EtbIAq/view?usp=sharing).
+
+<Tip>
+  **Important:**
+
+  **It's crucial to use consistent customer IDs across both Tatari and Northbeam.** Since custom implementations can vary, ensure that your user identification aligns with Northbeam's requirements.
+</Tip>
+
+<Warning>
+  Need help with User Tracking setup?
+
+  Please reach out to your Tatari representative as Northbeam cannot assist here.
+</Warning>
+
+## Step 2: Enable AWS Data Sharing
+
+
+AWS Data Sharing allows Northbeam to access Tatari-attributed order data.
+
+1. **Log into Tatari:**
+   * Navigate to your [Tatari Dashboard](https://www.tatari.tv/).
+
+2. **Enable AWS Data Sharing:**
+   * Go to **Account Settings**.
+   * Select **Integrations**.
+   * Ensure that **AWS Data Sharing** is enabled.
+
+## Step 3: Insert Tatari ID and Source of Truth
+
+
+Providing your Tatari ID and specifying the source of truth ensures accurate data synchronization between Tatari and Northbeam.
+
+1. **Retrieve Your Tatari ID:**
+   * Log into your Tatari account.
+   * Your Tatari ID is visible in your account URL.
+
+2. **Configure Northbeam:**
+   * Log into your [Northbeam Dashboard](https://dashboard.northbeam.io/).
+   * Navigate to **Settings** > **Connections**.
+   * Find the **Tatari** section.
+   * Enter your **Tatari ID** and select your **Orders Source of Truth**.
+   * Click **Connect**.
+
+## Step 5: Insert AWS Credentials in Tatari
+
+
+To complete the integration, input the AWS credentials from Northbeam into your Tatari account.
+
+1. **Obtain AWS Credentials from Northbeam:**
+   * In Northbeam, after connecting your Tatari ID, AWS credentials will be generated.
+
+2. **Input Credentials into Tatari:**
+   * Log into your Tatari account.
+   * Navigate to **Account Settings** > **Integrations**.
+   * Select **AWS Data Sharing**.
+   * Enter the AWS credentials provided by Northbeam.
+   * Click **Add** to finalize the setup.
+
+***

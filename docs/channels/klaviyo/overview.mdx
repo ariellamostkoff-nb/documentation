@@ -1,0 +1,120 @@
+---
+title: "Tracking for Klaviyo"
+sidebarTitle: "Overview"
+icon: "envelope"
+---
+
+Visits, revenue, and orders from Klaviyo Campaigns and Flows
+* Email and SMS sign-up events from Klaviyo’s forms
+* Spend data using a Custom Spendsheet
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Input
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Output
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        If Input is missing...
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Klaviyo Integration (required)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Sign up event volume is imported from Klaviyo to your Northbeam dashboard.
+
+        This populates all associated metrics including: Email Sign Ups, Cost per Email Sign Up, Email Sign Up Rate
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Sign up volume will be missing and associated metrics will not be populated
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        UTM Parameters (required)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Revenue attribution to Klaviyo Flows + Campaigns
+
+        (ex. "Welcome Series" drove $X in revenue)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Revenue will not be attributed to your Klaviyo Flows or Campaigns
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Email Sign Up Event
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Sign Up attribution to all channels
+
+        (ex. Facebook drove X amount of Sign Ups)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Sign ups will be Unattributed
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Custom Spendsheet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Spend/Cost data associated to Klaviyo.
+
+        Required for cost-based metrics associated Klaviyo (ex. ROAS, CAC)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        There will be no costs associated with Klaviyo
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+Step 1: Connect Your Klaviyo Account (required)
+
+Step 2: Insert Northbeam UTM Parameters (required)
+
+Step 3: Set up Email Sign Up event
+
+Step 4: Set up Custom Spendsheet
+
+***
+
+## Step 3: Implement Sign Up Event
+
+
+Once the integration is set up, we'll begin pulling the raw sign up events from your Klaviyo account. In order to see attribution of these events (ex. Facebook Ads drove X email sign ups), we'll need our [Sign Up Event- Email](/docs/setting-up-klaviyo-for-northbeam) to be placed.
+
+## Step 4A: Requesting a Custom Spendsheet (Optional)
+
+
+Our Klaviyo integration doesn't fetch any spend/cost data from the platform. If you'd like to upload this data to your dashboard, you can use a [Custom Spendsheet](/docs/tracking-for-other-platforms#step-2-upload-costs-via-custom-spendsheet).
+
+## Step 4B: Re-Categorizing Custom Spend (Optional)
+
+
+If you decide to upload costs via Custom Spendsheet, the Spend data will be categorized under the platform called "Other". We can use our [Breakdowns Manager](/docs/tracking-for-other-platforms#part-3-re-label-custom-spend-via-labels) to move it into "Klaviyo".
+
+***

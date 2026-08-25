@@ -1,0 +1,84 @@
+---
+title: "TradeDesk: Connect the account"
+sidebarTitle: "1. Connect the account"
+icon: "plug-circle-check"
+---
+
+## Step 1: Retrieve TradeDesk Integration Details
+
+
+Retrieve the information needed to set up your integration by navigating to the Connections menu in your dashboard. Follow these steps:
+
+1. Go to **Settings**
+2. Select **Connections**
+3. Scroll down to find **TradeDesk**
+
+You'll find the following:
+
+* **TradeDesk Channels** - These are the  Tradedesk channels that are available. Keep in mind, any view-only channels are not measurable at the time (Audio, Digital, Out of Home).
+* **Click UTMs** – URLs to be used in Click Tracking.
+* **Email for Scheduled Report** – The email address for sending scheduled reports.
+
+<Frame>
+  <img src="https://files.readme.io/68ab56ed275a5b09e0569b361cdcd48a993107e338546cee88fad7766aaf129b-Screenshot_2025-05-05_at_10.09.49_AM.png" alt="" />
+</Frame>
+
+## Step 3: Enable TradeDesk Integration
+
+
+1. Navigate to the **Connections** menu in Northbeam:
+   * Go to **Settings**.
+   * Select **Connections**.
+   * Scroll down to locate **TradeDesk**.
+
+2. In the **Connections** menu:
+   * Select the **TradeDesk Channels** you're advertising on.
+     1. *Note: Attribution may be limited on specific channels.*
+   * **Check the boxes** to confirm that the following have been set up:
+     * Click UTMs
+     * Scheduled Reports
+   * Click **Connect**.
+
+Once enabled, Northbeam will begin reporting spend and click performance during the next data refresh.
+
+<Note>
+  TradeDesk View-Based Modeling Update
+
+  **Supported Channels**
+
+  Our current TradeDesk supports the following [channels](https://partner.thetradedesk.com/v3/portal/api/doc/Channel) on a click-basis:
+
+  * Display
+  * Video
+  * Native Display
+  * Native Video
+
+  **Supported Attribution Models**
+
+  For these click-based channels, the following attribution models are supported:
+
+  * First Touch
+  * Last Time
+  * Last Non-Direct Touch
+  * Linear
+  * Clicks-Only
+
+  **Channels with limited attribution**
+
+  The following channels generally don't lead directly to website clicks and will see minimal  tracking and performance data:
+
+  * TV
+  * Digital Out Of Home
+  * Audio
+
+  **Unsupported Attribution Models**
+
+  The above placements are not supported by our view-based attribution models including:
+
+  * Clicks + Modeled Views
+  * Clicks + Deterministic Views
+
+  ***
+
+  Scheduled reports (Step 3) will continue to function as normal, so you can expect to see spend data pulling in as usual.
+</Note>

@@ -1,0 +1,51 @@
+---
+title: "Klaviyo: Connect the account"
+sidebarTitle: "1. Connect the account"
+icon: "plug-circle-check"
+---
+
+## Step 1: Connect Your Klaviyo Account
+
+
+### What does the connection do?
+
+Our integration with Klaviyo imports all Klaviyo events associated with the  "new subscriber" tag. You'll see these reporting under the metric called "Email Sign Ups".
+
+### 1A: Find your Public API Key
+
+1. Log in to Klaviyo.
+2. Go to **Settings** → **API Keys**.
+3. Copy the **Public API Key**
+
+<Frame>
+  <img src="https://files.readme.io/268a6a647812bfd0ed90d96617df44316de2e0129ada8e1ab8b2fa5ec07a9e0b-mceclip0.png" alt="" />
+</Frame>
+
+### 1B: Find your Private API Key
+
+1. In Klaviyo, go to **Settings** → **API Keys**.
+2. Under **Private API Keys**, click **Create Private API Key**.
+3. Name the key something like **Northbeam (Read-only)**.
+4. Set permissions to **Read-only**.
+5. Click **Create**.
+
+<Frame caption="Settings > API Keys > Private API Key > Read-Only Key">
+  <img src="https://files.readme.io/aaf332f494513b9440ad98828dfc0921447977c55786f7137409eec083064331-Create_private_API_key0.jpg" alt="" />
+</Frame>
+
+<Note>
+  Official Klaviyo documentation:
+
+  * **Finding your Public API Key:** [https://help.klaviyo.com/hc/en-us/articles/115005062267](https://help.klaviyo.com/hc/en-us/articles/115005062267)
+  * **Creating a Private API Key:** [https://help.klaviyo.com/hc/en-us/articles/7423954176283](https://help.klaviyo.com/hc/en-us/articles/7423954176283)
+</Note>
+
+<br />
+
+### 1C: Enter API Keys in Northbeam
+
+In Northbeam, paste your **Public API Key** and **Private API Key** to complete the Klaviyo connection..
+
+<Frame caption="Settings > Connections > Klaviyo">
+  <img src="https://files.readme.io/6131d9faa30eb318f589004837158647e6399e7f457c0b8f3732c9c78bf33863-Screenshot_2026-01-06_at_8.41.04_AM.png" alt="" />
+</Frame>

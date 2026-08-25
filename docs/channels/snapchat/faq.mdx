@@ -1,0 +1,46 @@
+---
+title: "Snapchat Ads FAQ"
+sidebarTitle: "FAQ"
+icon: "circle-question"
+---
+
+import TrackingChecklist from '/snippets/tracking-issue-checklist.mdx';
+import DiscrepancyExplanation from '/snippets/discrepancy-explanation.mdx';
+
+## Snapchat Ads FAQ
+
+
+### 1. How do I connect an extra account or remove an account?
+
+Reference our step-by-step guide below:
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/31cd15c479ba42079c7822d99ee85c52?sid=844eded7-4fc3-4493-baf0-5a88b151de3c" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+### 2. Why do I see a data discrepancy?
+
+**Discrepancies in Revenue and Orders are expected.** The reason for this lies in the differences between Northbeam's attribution model and the corresponding platform's attribution model. Each attribution model has a unique method of allocating credit.
+
+For example, Northbeam's Clicks-Only model divides credit across all touchpoints and tries to push credit to your upper funnel channels. Let's say your in-platform model uses Last Click, which gives credit to the last touchpoint in the journey. This is going to cause a discrepancy.
+
+<DiscrepancyExplanation />
+
+#### Attribution Models and Windows
+
+**Snapchat:**
+
+* Attribution Model: Last Click
+* Attribution Window: 28-Day Click/1-Day View
+  * [Source: Snapchat Attribution Settings](https://businesshelp.snapchat.com/s/article/pixel-measurement-faqs?language=en_US)
+
+**Northbeam:**
+
+* Attribution Model: Varies (default is Clicks-Only)
+* Attribution Window: 1-Day (default, can extend to an infinite lifetime value)
+
+### 3. Suspect a Tracking Issue?
+
+Please reference our [Troubleshooting Tracking Issues FAQ](/docs/troubleshooting-tracking-issues).
+
+<TrackingChecklist />

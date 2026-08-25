@@ -1,0 +1,51 @@
+---
+title: "Snapchat Ads: Insert the UTMs"
+sidebarTitle: "2. Insert the UTMs"
+icon: "link"
+---
+
+## Step 2: Insert Northbeam UTM Parameters
+
+
+There are two ways to insert UTMs. Either way works just fine:
+
+1. Appending them in the URL
+2. Using the Custom Parameter field
+
+### Method 1: Appending in the URL
+
+Insert the following UTM at the end of your URL:
+
+```
+?nbt=nb:snapchat:{{site_source_name}}:{{campaign.id}}:{{adSet.id}}:{{ad.id}}
+```
+
+##### Have existing UTM parameters?
+
+If have existing UTMs, add ours to the end and use an ampersand (&) to connect your existing parameters to our parameters.
+
+Example: utm\_source=paid\&utm\_mediun=snapchat\*\*\&nbt=nb:snapchat:\{\{site\_source\_name}}:\{\{campaign.id}}:\{\{adSet.id}}:\{\{ad.id}}\*\*
+
+### Method 2: Using the Custom Parameter field
+
+Please create a **custom parameter** with the following name and value:
+
+**Parameter Name:** nbt
+
+**Parameter Value:** nb:snapchat:\{\{site\_source\_name}}:\{\{campaign.id}}:\{\{adSet.id}}:\{\{ad.id}}
+
+### Step by Step Guide
+
+<Frame>
+  <iframe src="https://www.youtube.com/embed/bnjQpwazReA?si=wy08-3TNWhc7sERP" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+<br />
+
+<Note>
+  UTM Auto-Appending
+
+  If you would like Northbeam to automatically append UTM parameters to newly created Snapchat ads from ad accounts connected to your dashboard, please [reach out to our Support team](https://www.northbeam.io/submit-a-support-ticket) to enable this feature.
+</Note>
+
+***

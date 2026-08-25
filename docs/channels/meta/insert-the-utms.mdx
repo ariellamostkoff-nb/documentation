@@ -1,0 +1,146 @@
+---
+title: "Meta Ads: Insert the UTMs"
+sidebarTitle: "2. Insert the UTMs"
+icon: "link"
+---
+
+## Step 2: Insert Northbeam UTM Parameters
+
+
+Please add **two custom UTM parameters** in the **Build a URL** menu for all new and existing Meta Ads:
+
+| Parameter Name | Value                                                                       |
+| :------------- | :-------------------------------------------------------------------------- |
+| nbt            | nb:fb:\{\{site\_source\_name}}:\{\{campaign.id}}:\{\{adset.id}}:\{\{ad.id}} |
+| nb\_placement  | \{\{placement}}                                                             |
+
+<Frame caption="Build a URL Parameter > Custom Parameters">
+  <img src="https://files.readme.io/4ba9e6130da9526ec3796715af8c06b9e3fa6c38140400e203f04254117472f1-Screenshot_2025-05-13_at_9.33.31_AM.png" alt="Build a URL Parameter > Custom Parameters" />
+</Frame>
+
+### Step-By-Step Guide
+
+For a visual walkthrough of setting up UTM parameters, reference the video below.
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/dfd6bbb850b2426eaaf8b74315986575?sid=5eede71e-445c-4490-8f4c-6aed047b5eb6" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+<br />
+
+1. In your Ad settings, click **Build a URL parameter**
+2. Click **Add parameter** twice and all the two custom parameters listed above.
+3. Click **Apply**.
+
+<Warning>
+  How To Verify
+
+  In the **Parameter preview**, you should see:
+
+  `nbt=nb%3Afb%3A{{site_source_name}}%3A{{campaign.id}}%3A{{adset.id}}%3A{{ad.id}}&nb_placement={{placement}}`
+
+  * This is expected — Meta automatically encodes colons (:) into %3A.
+  * **Do not encode colons yourself** — entering `%3A` directly in the Value will result in double encoding (%253A) and break tracking.
+  * It’s fine if other parameters appear — Northbeam UTMs can coexist with others.
+</Warning>
+
+<br />
+
+<Note>
+  UTM Auto-Appending
+
+  If you would like Northbeam to automatically append UTM parameters to newly created Meta ads from ad accounts connected to your dashboard, please [reach out to our Support team](https://www.northbeam.io/submit-a-support-ticket) to enable this feature.
+</Note>
+
+<br />
+
+***
+
+<br />
+
+### ✅ How to Confirm Your Meta Ads Are Tracking Properly
+
+To be confident that your Meta ads are tracking correctly in Northbeam, two things need to happen:
+
+1. **Northbeam UTMs must be captured**
+2. **The Northbeam pixel must fire on the landing page**
+
+The easiest way to test both is by using a **Live Preview Link** from Meta Ads Manager and verifying in your browser.
+
+### 🔍 Step-by-Step: Verify UTMs + Pixel with a Live Ad Preview
+
+#### 1. **Get a Live Preview Link**
+
+* Log into **Meta Ads Manager**
+* Find your ad and click **Preview**
+* Click **Share** → **Share a link**
+* You’ll get a short link like: `https://fb.me/1TSaf6EzTjEfn8K`
+
+<Frame>
+  <img src="https://files.readme.io/a82db463d2e802757067a1eb1dae6e8f36f98f4a5b51da35c80d99bd17dc3716-Screenshot_2025-04-10_at_11.01.14_PM.png" alt="" />
+</Frame>
+
+#### 2. **Test the Link**
+
+* Paste the link into your browser (it’ll load your Newsfeed)
+* Find the ad in your feed and **click on it**
+
+<Info>
+  ### Don't see the ad?
+
+  Sometimes it doesn't appear right at the top of the feed, so be sure to scroll down a bit.
+</Info>
+
+#### 3. **Verify UTMs and Pixel via Developer Tools**
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/a155e0324835438e87965ef143e94953?sid=111298c7-0567-45c5-9e2b-51ac50ef4581" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+#### UTM Validation
+
+Once you're on the landing page...
+
+* **Accept any cookie banners** *(scripts won't fire until cookies are accepted)*
+* **Go to Developer Tools --> Network:**
+  * *Chrome / Edge / Brave / Opera*
+    * Right-click → **Inspect**
+    * Or press `Cmd+Option+I` (Mac) / `Ctrl+Shift+I` (Windows)
+    * Go to the **Network** tab
+  * *Firefox*
+    * Right-click → **Inspect**
+    * Or press `Cmd+Option+E` / `Ctrl+Shift+E`
+    * Go to the **Network** tab
+  * *Safari (Mac)*
+    * Enable Dev Tools: Safari → Settings → Advanced → check "Show Develop menu"
+    * Then go to **Develop → Show Web Inspector**
+    * Click the **Network** tab
+* **Refresh the page**
+* **Click the first request** (should be labeled as a UTM string (ex. '`?nbt=nbnbt=nb%3Afb%3A...`')
+* Click on the **Payload** tab
+* You should see UTMs listed — look for something like:
+  * `nbt: nb:fb:fb:XXXXXXXXX:XXXXXXXXXX:XXXXXXXXXXX`
+
+<Frame caption="Click the first 'Network' request, then look in the 'Payload'">
+  <img src="https://files.readme.io/2e13d764e7417b80d2754bc84d3b9de81a88ffadee0bbab37a2d13a57d433983-Screenshot_2025-04-10_at_11.06.31_PM.png" alt="Click the first 'Network' request, then look in the 'Payload'" />
+</Frame>
+
+✅ If those are populated → **UTMs are confirmed**
+
+#### Pixel Validation
+
+* Still in the **Network** tab
+* Search for a request called **`nb-collector`** or **`tp2`**
+* Look for the one with `pv` in the Payload
+
+<Frame caption="Note: It's completely normal to see multiple requests. Look for the one with 'pv' in the Payload.">
+  <img src="https://files.readme.io/12aa2af09b819686b7450d75aad5498f53adb4f734cfd39e63e7e879b3ff67b4-Screenshot_2025-04-11_at_11.44.04_AM.png" alt="Note: It's completely normal to see multiple requests" />
+</Frame>
+
+✅ If you see `PV` in a `nb-collector` request → **Pixel is confirmed**
+
+### 🎯 What This Means
+
+Once **both UTMs and the pixel are confirmed**, Northbeam has successfully recognized the session ("**Visit**"). This means any conversions (like purchases) that happen during the session will be tied back to the correct ad in Northbeam.
+
+***

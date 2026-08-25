@@ -144,67 +144,319 @@
       },
       {
         "tab": "Channels",
-        "groups": [
+        "anchors": [
           {
-            "group": "Overview",
-            "pages": [
-              "docs/integrations-and-utms",
-              "docs/facebook-utms-for-legacy-platforms",
-              "docs/non-integrated-channel-setup-spend-api-utms",
-              "docs/integration-matrix",
-              "docs/channels/changelog"
+            "anchor": "Quickstart",
+            "icon": "rocket",
+            "groups": [
+              {
+                "group": "Quickstart",
+                "pages": [
+                  "docs/channels/quickstart"
+                ]
+              }
             ]
           },
           {
-            "group": "Core paid media",
-            "pages": [
-              "docs/setting-up-facebook-ads-tracking",
-              "docs/setting-up-google-ads-for-northbeam",
-              "docs/setting-up-tiktok-ads-for-northbeam",
-              "docs/tracking-for-microsoft",
-              "docs/tracking-for-pinterest-ads",
-              "docs/tracking-for-snapchat-ads",
-              "docs/tracking-for-x-ads",
-              "docs/tracking-for-amazon"
+            "anchor": "Core concepts",
+            "icon": "book",
+            "groups": [
+              {
+                "group": "Core concepts",
+                "pages": [
+                  "docs/integrations-and-utms",
+                  "docs/facebook-utms-for-legacy-platforms",
+                  "docs/non-integrated-channel-setup-spend-api-utms"
+                ]
+              }
             ]
           },
           {
-            "group": "Lifecycle & commerce",
-            "pages": [
-              "docs/setting-up-klaviyo-for-northbeam",
-              "docs/working-tracking-for-attentive",
-              "docs/tracking-for-shops",
-              "docs/tracking-for-impact",
-              "docs/tracking-for-keynes"
+            "anchor": "Integrations",
+            "icon": "table",
+            "groups": [
+              {
+                "group": "Integrations",
+                "pages": [
+                  "docs/integration-matrix"
+                ]
+              }
             ]
           },
           {
-            "group": "Programmatic & CTV",
-            "pages": [
-              "docs/tracking-for-tradedesk",
-              "docs/tracking-for-mntn",
-              "docs/tracking-for-tatari",
-              "docs/tracking-for-rokt",
-              "docs/tracking-for-vibe-co",
-              "docs/tracking-for-bliss-point-by-tinuiti",
-              "docs/applovin",
-              "docs/tracking-for-liveintent",
-              "docs/tracking-for-rakuten"
+            "anchor": "Changelog",
+            "icon": "clock-rotate-left",
+            "groups": [
+              {
+                "group": "Changelog",
+                "pages": [
+                  "docs/channels/changelog"
+                ]
+              }
             ]
           },
           {
-            "group": "Other channels",
-            "pages": [
-              "docs/tracking-for-universal",
-              "docs/tracking-for-off-domain-sites",
-              "docs/tracking-for-other-platforms"
-            ]
-          },
-          {
-            "group": "Multiple stores & regions",
-            "pages": [
-              "docs/adding-a-store-or-dashboard",
-              "docs/multi-dashboard-setup-with-configurators"
+            "anchor": "All channels",
+            "icon": "grip",
+            "dropdowns": [
+              {
+                "dropdown": "Meta Ads",
+                "icon": "meta",
+                "pages": [
+                  "docs/channels/meta/overview",
+                  "docs/channels/meta/connect-the-account",
+                  "docs/channels/meta/insert-the-utms",
+                  "docs/channels/meta/confirm-tracking",
+                  "docs/channels/meta/faq"
+                ]
+              },
+              {
+                "dropdown": "Google + YouTube Ads",
+                "icon": "google",
+                "pages": [
+                  "docs/channels/google/overview",
+                  "docs/channels/google/connect-the-account",
+                  "docs/channels/google/insert-the-utms",
+                  "docs/channels/google/confirm-tracking",
+                  "docs/channels/google/faq"
+                ]
+              },
+              {
+                "dropdown": "TikTok Ads",
+                "icon": "tiktok",
+                "pages": [
+                  "docs/channels/tiktok/overview",
+                  "docs/channels/tiktok/connect-the-account",
+                  "docs/channels/tiktok/insert-the-utms",
+                  "docs/channels/tiktok/confirm-tracking",
+                  "docs/channels/tiktok/faq"
+                ]
+              },
+              {
+                "dropdown": "Microsoft Ads",
+                "icon": "microsoft",
+                "pages": [
+                  "docs/channels/microsoft/overview",
+                  "docs/channels/microsoft/connect-the-account",
+                  "docs/channels/microsoft/confirm-tracking",
+                  "docs/channels/microsoft/faq"
+                ]
+              },
+              {
+                "dropdown": "Pinterest Ads",
+                "icon": "pinterest",
+                "pages": [
+                  "docs/channels/pinterest/overview",
+                  "docs/channels/pinterest/connect-the-account",
+                  "docs/channels/pinterest/insert-the-utms",
+                  "docs/channels/pinterest/confirm-tracking",
+                  "docs/channels/pinterest/faq"
+                ]
+              },
+              {
+                "dropdown": "Snapchat Ads",
+                "icon": "snapchat",
+                "pages": [
+                  "docs/channels/snapchat/overview",
+                  "docs/channels/snapchat/connect-the-account",
+                  "docs/channels/snapchat/insert-the-utms",
+                  "docs/channels/snapchat/confirm-tracking",
+                  "docs/channels/snapchat/faq"
+                ]
+              },
+              {
+                "dropdown": "X Ads",
+                "icon": "x-twitter",
+                "pages": [
+                  "docs/channels/x/overview",
+                  "docs/channels/x/connect-the-account",
+                  "docs/channels/x/insert-the-utms",
+                  "docs/channels/x/confirm-tracking",
+                  "docs/channels/x/faq"
+                ]
+              },
+              {
+                "dropdown": "Amazon",
+                "icon": "amazon",
+                "pages": [
+                  "docs/channels/amazon/overview",
+                  "docs/channels/amazon/connect-the-account",
+                  "docs/channels/amazon/confirm-tracking",
+                  "docs/channels/amazon/faq"
+                ]
+              },
+              {
+                "dropdown": "Klaviyo",
+                "icon": "envelope",
+                "pages": [
+                  "docs/channels/klaviyo/overview",
+                  "docs/channels/klaviyo/connect-the-account",
+                  "docs/channels/klaviyo/insert-the-utms",
+                  "docs/channels/klaviyo/confirm-tracking",
+                  "docs/channels/klaviyo/faq"
+                ]
+              },
+              {
+                "dropdown": "Attentive",
+                "icon": "comment-sms",
+                "pages": [
+                  "docs/channels/attentive/overview",
+                  "docs/channels/attentive/connect-the-account",
+                  "docs/channels/attentive/confirm-tracking",
+                  "docs/channels/attentive/faq"
+                ]
+              },
+              {
+                "dropdown": "Meta & TikTok Shops",
+                "icon": "bag-shopping",
+                "pages": [
+                  "docs/channels/shops/overview",
+                  "docs/channels/shops/connect-the-account",
+                  "docs/channels/shops/confirm-tracking",
+                  "docs/channels/shops/faq"
+                ]
+              },
+              {
+                "dropdown": "Impact",
+                "icon": "handshake",
+                "pages": [
+                  "docs/channels/impact/overview",
+                  "docs/channels/impact/connect-the-account",
+                  "docs/channels/impact/insert-the-utms",
+                  "docs/channels/impact/confirm-tracking",
+                  "docs/channels/impact/faq"
+                ]
+              },
+              {
+                "dropdown": "Keynes",
+                "icon": "chart-line",
+                "pages": [
+                  "docs/channels/keynes/overview",
+                  "docs/channels/keynes/connect-the-account",
+                  "docs/channels/keynes/confirm-tracking",
+                  "docs/channels/keynes/faq"
+                ]
+              },
+              {
+                "dropdown": "TradeDesk",
+                "icon": "desktop",
+                "pages": [
+                  "docs/channels/tradedesk/overview",
+                  "docs/channels/tradedesk/connect-the-account",
+                  "docs/channels/tradedesk/insert-the-utms",
+                  "docs/channels/tradedesk/confirm-tracking"
+                ]
+              },
+              {
+                "dropdown": "MNTN",
+                "icon": "tv",
+                "pages": [
+                  "docs/channels/mntn/overview",
+                  "docs/channels/mntn/connect-the-account",
+                  "docs/channels/mntn/confirm-tracking",
+                  "docs/channels/mntn/faq"
+                ]
+              },
+              {
+                "dropdown": "Tatari",
+                "icon": "tv",
+                "pages": [
+                  "docs/channels/tatari/overview",
+                  "docs/channels/tatari/connect-the-account",
+                  "docs/channels/tatari/confirm-tracking",
+                  "docs/channels/tatari/faq"
+                ]
+              },
+              {
+                "dropdown": "ROKT",
+                "icon": "cart-shopping",
+                "pages": [
+                  "docs/channels/rokt/overview",
+                  "docs/channels/rokt/connect-the-account",
+                  "docs/channels/rokt/insert-the-utms",
+                  "docs/channels/rokt/confirm-tracking"
+                ]
+              },
+              {
+                "dropdown": "Vibe.co",
+                "icon": "tv",
+                "pages": [
+                  "docs/channels/vibe/overview",
+                  "docs/channels/vibe/connect-the-account",
+                  "docs/channels/vibe/confirm-tracking"
+                ]
+              },
+              {
+                "dropdown": "Bliss Point",
+                "icon": "bullhorn",
+                "pages": [
+                  "docs/tracking-for-bliss-point-by-tinuiti"
+                ]
+              },
+              {
+                "dropdown": "AppLovin",
+                "icon": "mobile",
+                "pages": [
+                  "docs/channels/applovin/overview",
+                  "docs/channels/applovin/connect-the-account",
+                  "docs/channels/applovin/insert-the-utms",
+                  "docs/channels/applovin/confirm-tracking",
+                  "docs/channels/applovin/faq"
+                ]
+              },
+              {
+                "dropdown": "LiveIntent",
+                "icon": "envelope-open",
+                "pages": [
+                  "docs/channels/liveintent/overview",
+                  "docs/channels/liveintent/connect-the-account",
+                  "docs/channels/liveintent/insert-the-utms",
+                  "docs/channels/liveintent/confirm-tracking",
+                  "docs/channels/liveintent/faq"
+                ]
+              },
+              {
+                "dropdown": "Rakuten",
+                "icon": "percent",
+                "pages": [
+                  "docs/channels/rakuten/overview",
+                  "docs/channels/rakuten/connect-the-account",
+                  "docs/channels/rakuten/insert-the-utms",
+                  "docs/channels/rakuten/confirm-tracking"
+                ]
+              },
+              {
+                "dropdown": "Universal Ads",
+                "icon": "globe",
+                "pages": [
+                  "docs/channels/universal/overview",
+                  "docs/channels/universal/connect-the-account",
+                  "docs/channels/universal/confirm-tracking",
+                  "docs/channels/universal/faq"
+                ]
+              },
+              {
+                "dropdown": "Off-domain sites",
+                "icon": "arrow-up-right-from-square",
+                "pages": [
+                  "docs/tracking-for-off-domain-sites"
+                ]
+              },
+              {
+                "dropdown": "Non-integrated",
+                "icon": "wrench",
+                "pages": [
+                  "docs/tracking-for-other-platforms"
+                ]
+              },
+              {
+                "dropdown": "Multiple stores & regions",
+                "icon": "shop",
+                "pages": [
+                  "docs/adding-a-store-or-dashboard",
+                  "docs/multi-dashboard-setup-with-configurators"
+                ]
+              }
             ]
           }
         ]
@@ -681,6 +933,94 @@
     {
       "source": "/docs/order-tags-1",
       "destination": "/docs/order-tags"
+    },
+    {
+      "source": "/docs/setting-up-facebook-ads-tracking",
+      "destination": "/docs/channels/meta/overview"
+    },
+    {
+      "source": "/docs/setting-up-google-ads-for-northbeam",
+      "destination": "/docs/channels/google/overview"
+    },
+    {
+      "source": "/docs/setting-up-tiktok-ads-for-northbeam",
+      "destination": "/docs/channels/tiktok/overview"
+    },
+    {
+      "source": "/docs/tracking-for-microsoft",
+      "destination": "/docs/channels/microsoft/overview"
+    },
+    {
+      "source": "/docs/tracking-for-pinterest-ads",
+      "destination": "/docs/channels/pinterest/overview"
+    },
+    {
+      "source": "/docs/tracking-for-snapchat-ads",
+      "destination": "/docs/channels/snapchat/overview"
+    },
+    {
+      "source": "/docs/tracking-for-x-ads",
+      "destination": "/docs/channels/x/overview"
+    },
+    {
+      "source": "/docs/tracking-for-amazon",
+      "destination": "/docs/channels/amazon/overview"
+    },
+    {
+      "source": "/docs/setting-up-klaviyo-for-northbeam",
+      "destination": "/docs/channels/klaviyo/overview"
+    },
+    {
+      "source": "/docs/working-tracking-for-attentive",
+      "destination": "/docs/channels/attentive/overview"
+    },
+    {
+      "source": "/docs/tracking-for-shops",
+      "destination": "/docs/channels/shops/overview"
+    },
+    {
+      "source": "/docs/tracking-for-impact",
+      "destination": "/docs/channels/impact/overview"
+    },
+    {
+      "source": "/docs/tracking-for-keynes",
+      "destination": "/docs/channels/keynes/overview"
+    },
+    {
+      "source": "/docs/tracking-for-tradedesk",
+      "destination": "/docs/channels/tradedesk/overview"
+    },
+    {
+      "source": "/docs/tracking-for-mntn",
+      "destination": "/docs/channels/mntn/overview"
+    },
+    {
+      "source": "/docs/tracking-for-tatari",
+      "destination": "/docs/channels/tatari/overview"
+    },
+    {
+      "source": "/docs/tracking-for-rokt",
+      "destination": "/docs/channels/rokt/overview"
+    },
+    {
+      "source": "/docs/tracking-for-vibe-co",
+      "destination": "/docs/channels/vibe/overview"
+    },
+    {
+      "source": "/docs/applovin",
+      "destination": "/docs/channels/applovin/overview"
+    },
+    {
+      "source": "/docs/tracking-for-liveintent",
+      "destination": "/docs/channels/liveintent/overview"
+    },
+    {
+      "source": "/docs/tracking-for-rakuten",
+      "destination": "/docs/channels/rakuten/overview"
+    },
+    {
+      "source": "/docs/tracking-for-universal",
+      "destination": "/docs/channels/universal/overview"
     }
   ]
 }

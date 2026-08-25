@@ -1,0 +1,51 @@
+---
+title: "MNTN FAQ"
+sidebarTitle: "FAQ"
+icon: "circle-question"
+---
+
+## FAQs
+
+
+### **1. Why am I not seeing MNTN data after enabling CDV?**
+
+If you’ve connected your account and turned on CDV but no data is visible:
+
+* Ensure order IDs are aligned between MNTN and Northbeam.
+* Confirm CDV consent was enabled in Northbeam (Account Settings → Attribution Models).
+* Allow up to **48 hours** post-consent for impression data to appear.
+* Verify that the advertiser is actively running campaigns in MNTN.
+* Check “Last retrieved” and “Last processed” timestamps in the dashboard.
+
+If all checks pass and data is still missing, contact Support for further investigation.
+
+<br />
+
+### 2. Why do MNTN conversions and revenue differ between Northbeam and GA4?
+
+Northbeam and GA4 attribute MNTN CTV performance in fundamentally different ways, so conversion and revenue numbers will not match — and this is expected.
+
+#### How GA4 attributes MNTN conversions
+
+* MNTN’s Verified Visits create direct sessions in GA4 when a user visits your site after viewing a CTV ad.
+* GA4 then attributes conversions based on its session-level model (such as DDA or last non-direct click).
+* These conversions are not tied to UTMs, since CTV impressions do not pass them.
+
+#### How Northbeam attributes MNTN conversions
+
+* Northbeam uses deterministic impression matching under Clicks + Deterministic Views (C+DV).
+* If a user converts after being exposed to a valid MNTN impression within the attribution window, Northbeam attributes that conversion to MNTN.
+* This does not rely on sessions or UTMs.
+
+#### Why they differ
+
+* GA4 attributes conversions to direct sessions triggered after a CTV impression.
+* Northbeam attributes conversions to deterministically matched impressions, independent of session source.
+* Because the attribution logic is different, conversion and revenue totals will not align between the two platforms.
+
+<br />
+
+### **3. How long does the initial sync take?**
+
+The initial sync from MNTN can take up to **72 hours**, depending on historical data volume.\
+After that, updates occur **3× per day**.
