@@ -68,134 +68,138 @@
             "pages": [
               "index",
               "docs/quickstart",
-              "docs/what-is-northbeam"
+              "docs/what-is-northbeam",
+              "docs/what-to-expect-during-implementation"
+            ]
+          },
+          {
+            "group": "Core concepts",
+            "pages": [
+              "docs/attribution-models",
+              "docs/attribution-windows",
+              "docs/lookback-windows",
+              "docs/accounting-modes",
+              "docs/credit-allocation-examples",
+              "docs/northbeam-metrics-101"
             ]
           }
         ]
       },
       {
         "tab": "Onboarding",
-        "anchors": [
+        "groups": [
           {
-            "anchor": "Set up",
-            "icon": "list-check",
-            "groups": [
-              {
-                "group": "Start here",
-                "pages": [
-                  "docs/navigating-northbeam",
-                  "docs/what-to-expect-during-implementation",
-                  "docs/confirm-setup-requirements",
-                  "docs/onboarding-faqs"
-                ]
-              },
-              {
-                "group": "Set up your account",
-                "pages": [
-                  "docs/invite-team",
-                  "docs/business-information",
-                  "docs/currency",
-                  "docs/link-dns"
-                ]
-              },
-              {
-                "group": "Install tracking",
-                "pages": [
-                  "docs/add-pixel",
-                  "docs/page-view-events",
-                  "docs/optional-additional-methods",
-                  "docs/setting-up-custom-goals",
-                  "docs/shopify-installation",
-                  "docs/non-shopify-installation",
-                  "docs/third-party-checkouts"
-                ]
-              },
-              {
-                "group": "Add orders",
-                "pages": [
-                  "docs/add-orders",
-                  "docs/shopify-order-sync",
-                  "docs/shopify-migration-preserving-customer-stages",
-                  "docs/sftp-orders-upload",
-                  "docs/order-tags",
-                  "docs/8c-add-order-tags-in-shopify",
-                  "docs/8d-configure-northbeam-order-exclusions-optional"
-                ]
-              },
-              {
-                "group": "Add spend",
-                "pages": [
-                  "docs/add-spend",
-                  "docs/all-other-platforms-overview"
-                ]
-              }
+            "group": "Overview",
+            "pages": [
+              "docs/navigating-northbeam",
+              "docs/confirm-setup-requirements",
+              "docs/onboarding-faqs"
             ]
           },
           {
-            "anchor": "Channels & stores",
-            "icon": "plug",
-            "groups": [
-              {
-                "group": "Connect your channels",
-                "pages": [
-                  "docs/integrations-and-utms",
-                  "docs/facebook-utms-for-legacy-platforms",
-                  "docs/non-integrated-channel-setup-spend-api-utms",
-                  "docs/integration-matrix",
-                  {
-                    "group": "Core paid media",
-                    "pages": [
-                      "docs/setting-up-facebook-ads-tracking",
-                      "docs/setting-up-google-ads-for-northbeam",
-                      "docs/setting-up-tiktok-ads-for-northbeam",
-                      "docs/tracking-for-microsoft",
-                      "docs/tracking-for-pinterest-ads",
-                      "docs/tracking-for-snapchat-ads",
-                      "docs/tracking-for-x-ads",
-                      "docs/tracking-for-amazon"
-                    ]
-                  },
-                  {
-                    "group": "Lifecycle & commerce",
-                    "pages": [
-                      "docs/setting-up-klaviyo-for-northbeam",
-                      "docs/working-tracking-for-attentive",
-                      "docs/tracking-for-shops",
-                      "docs/tracking-for-impact",
-                      "docs/tracking-for-keynes"
-                    ]
-                  },
-                  {
-                    "group": "Programmatic & CTV",
-                    "pages": [
-                      "docs/tracking-for-tradedesk",
-                      "docs/tracking-for-mntn",
-                      "docs/tracking-for-tatari",
-                      "docs/tracking-for-rokt",
-                      "docs/tracking-for-vibe-co",
-                      "docs/tracking-for-bliss-point-by-tinuiti",
-                      "docs/applovin",
-                      "docs/tracking-for-liveintent",
-                      "docs/tracking-for-rakuten"
-                    ]
-                  },
-                  {
-                    "group": "Other channels",
-                    "pages": [
-                      "docs/tracking-for-universal",
-                      "docs/tracking-for-off-domain-sites",
-                      "docs/tracking-for-other-platforms"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Multiple stores & regions",
-                "pages": [
-                  "docs/adding-a-store-or-dashboard",
-                  "docs/multi-dashboard-setup-with-configurators"
-                ]
-              }
+            "group": "Set up your account",
+            "pages": [
+              "docs/invite-team",
+              "docs/business-information",
+              "docs/currency",
+              "docs/link-dns"
+            ]
+          },
+          {
+            "group": "Install tracking",
+            "pages": [
+              "docs/add-pixel",
+              "docs/page-view-events",
+              "docs/optional-additional-methods",
+              "docs/setting-up-custom-goals",
+              "docs/shopify-installation",
+              "docs/non-shopify-installation",
+              "docs/third-party-checkouts"
+            ]
+          },
+          {
+            "group": "Add orders",
+            "pages": [
+              "docs/add-orders",
+              "docs/shopify-order-sync",
+              "docs/shopify-migration-preserving-customer-stages",
+              "docs/sftp-orders-upload",
+              "docs/order-tags",
+              "docs/8c-add-order-tags-in-shopify",
+              "docs/8d-configure-northbeam-order-exclusions-optional"
+            ]
+          },
+          {
+            "group": "Add spend",
+            "pages": [
+              "docs/add-spend",
+              "docs/all-other-platforms-overview"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Channels & stores",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "docs/integrations-and-utms",
+              "docs/facebook-utms-for-legacy-platforms",
+              "docs/non-integrated-channel-setup-spend-api-utms",
+              "docs/integration-matrix"
+            ]
+          },
+          {
+            "group": "Core paid media",
+            "pages": [
+              "docs/setting-up-facebook-ads-tracking",
+              "docs/setting-up-google-ads-for-northbeam",
+              "docs/setting-up-tiktok-ads-for-northbeam",
+              "docs/tracking-for-microsoft",
+              "docs/tracking-for-pinterest-ads",
+              "docs/tracking-for-snapchat-ads",
+              "docs/tracking-for-x-ads",
+              "docs/tracking-for-amazon"
+            ]
+          },
+          {
+            "group": "Lifecycle & commerce",
+            "pages": [
+              "docs/setting-up-klaviyo-for-northbeam",
+              "docs/working-tracking-for-attentive",
+              "docs/tracking-for-shops",
+              "docs/tracking-for-impact",
+              "docs/tracking-for-keynes"
+            ]
+          },
+          {
+            "group": "Programmatic & CTV",
+            "pages": [
+              "docs/tracking-for-tradedesk",
+              "docs/tracking-for-mntn",
+              "docs/tracking-for-tatari",
+              "docs/tracking-for-rokt",
+              "docs/tracking-for-vibe-co",
+              "docs/tracking-for-bliss-point-by-tinuiti",
+              "docs/applovin",
+              "docs/tracking-for-liveintent",
+              "docs/tracking-for-rakuten"
+            ]
+          },
+          {
+            "group": "Other channels",
+            "pages": [
+              "docs/tracking-for-universal",
+              "docs/tracking-for-off-domain-sites",
+              "docs/tracking-for-other-platforms"
+            ]
+          },
+          {
+            "group": "Multiple stores & regions",
+            "pages": [
+              "docs/adding-a-store-or-dashboard",
+              "docs/multi-dashboard-setup-with-configurators"
             ]
           }
         ]
@@ -204,19 +208,8 @@
         "tab": "Data & terminology",
         "groups": [
           {
-            "group": "Attribution fundamentals",
-            "pages": [
-              "docs/attribution-models",
-              "docs/attribution-windows",
-              "docs/lookback-windows",
-              "docs/accounting-modes",
-              "docs/credit-allocation-examples"
-            ]
-          },
-          {
             "group": "Metrics & data",
             "pages": [
-              "docs/northbeam-metrics-101",
               "docs/subscription-metrics",
               "docs/northbeam-data-sources",
               "docs/how-does-northbeam-track-orders-and-ads"
