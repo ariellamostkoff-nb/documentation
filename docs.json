@@ -73,6 +73,19 @@
             ]
           },
           {
+            "group": "Your journey",
+            "pages": [
+              "docs/journey/get-started",
+              "docs/journey/understand-your-platform",
+              "docs/journey/integrations",
+              "docs/journey/watch-the-competition",
+              "docs/journey/design-your-dashboard",
+              "docs/journey/northbeam-ai",
+              "docs/journey/set-up-and-track-alerts",
+              "docs/journey/utilize-advanced-features"
+            ]
+          },
+          {
             "group": "Core concepts",
             "pages": [
               "docs/attribution-models",
