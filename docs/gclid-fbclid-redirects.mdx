@@ -16,19 +16,19 @@ icon: "shuffle"
 
 ***
 
-# fbclid (Facebook’s Click Identifier)
+## fbclid (Facebook’s Click Identifier)
 
-## What is “fbclid”?
+### What is “fbclid”?
 
 The "fbclid" parameter is added to the URL whenever a user clicks on a link from a **paid ad** or **organic post** from Facebook. This parameter allows Facebook to track ad performance and user behavior after they leave the platform.
 
 Example: `https://example.com?fbclid=IwAR3GH5ksVhoRLwxyz…`
 
-## Why do I see “fbclid” in my Northbeam dashboard?
+### Why do I see “fbclid” in my Northbeam dashboard?
 
 In Northbeam, **"fbclid" represents users who visited your site with only the "fbclid" parameter and no additional UTM parameters.** By default, this traffic is classified as "Facebook Organic" in your Sales Page. It typically includes visits from organic sources such as links shared in posts by users, pages, groups, or reposted ads. It could also represent visits from ads missing tracking parameters.
 
-## fbclid from Ad Comments and Profile Clicks
+### fbclid from Ad Comments and Profile Clicks
 
 fbclid traffic can also appear due to direct links shared in ad comments or users navigating through your Facebook profile. Here’s how:
 
@@ -36,7 +36,7 @@ fbclid traffic can also appear due to direct links shared in ad comments or user
 * **Profile-to-Store Clicks:** If someone clicks on your business profile from a comment, then navigates to your store link on the profile, this action also leads to fbclid traffic in Northbeam.\
   If you notice a high volume of fbclid traffic and your team frequently shares links in comments, this activity is likely a significant contributor.
 
-## Troubleshooting “fbclid”
+### Troubleshooting “fbclid”
 
 Most dashboards will have some visits, transactions, or revenue attributed to “fbclid.” However, a high amount *could* indicate an issue with your ad tracking setup.
 
@@ -56,19 +56,19 @@ Diagnosing fbclid issues can be challenging, especially for businesses with a st
 
 ***
 
-# gclid (Google Click Identifier)
+## gclid (Google Click Identifier)
 
-## What is “gclid”?
+### What is “gclid”?
 
 The "gclid" parameter is added to the URL whenever a user clicks on a link from a Google Ad. This parameter allows Google to track ad performance and user behavior after they leave the platform.
 
 Example: `https://example.com?gclid=EAIaIQobChMI3...`
 
-## Why do I see “gclid” in my Northbeam dashboard?
+### Why do I see “gclid” in my Northbeam dashboard?
 
 In Northbeam, **"gclid" represents users who visited your site with only the "gclid" parameter and no additional UTM parameters**. By default, this traffic is classified under “Google Ads” in your Sales Page.
 
-## Troubleshooting “gclid”
+### Troubleshooting “gclid”
 
 Most dashboards have some visits, transactions, or revenue attributed to “gclid.” However, a high amount might indicate a potential issue with your ad tracking.
 
@@ -87,9 +87,9 @@ Diagnosing "gclid" issues can be tricky since it’s difficult to pinpoint the e
 
 ***
 
-# Common URL Redirects That Strip UTM Parameters
+## Common URL Redirects That Strip UTM Parameters
 
-## 1. Regional Domain Redirects
+### 1. Regional Domain Redirects
 
 **What Happens:** Some websites redirect users to regional versions of the domain based on their location (e.g., from example.com to example.co.uk for UK users).
 
@@ -105,7 +105,7 @@ Diagnosing "gclid" issues can be tricky since it’s difficult to pinpoint the e
 * **Minimize Redirects:** Where possible, send country-specific traffic directly to the relevant regional domains. For example, ensure UK traffic is directed to your UK-specific domain to reduce unnecessary redirection. This is most applicable to paid traffic.
 * **Implement UTM Preservation on Redirects:** This may require assistance from your development team, as custom JavaScript is often needed to retain UTM parameters during URL updates or redirects.
 
-## 2. URLs to Shopify Product Pages
+### 2. URLs to Shopify Product Pages
 
 **What happens:** Shopify product pages with variants often append a query string for the selected variant to the URL.
 
@@ -121,7 +121,7 @@ Diagnosing "gclid" issues can be tricky since it’s difficult to pinpoint the e
 * **Minimize Redirects:** Ensure that your ad links include the variant query string to avoid unnecessary redirects. For example, use “https://example.com/products/product?variant=123456789” instead of “https://example.com/products/product”.
 * **Implement UTM Preservation:** In rare cases, even with the variant query string included, redirects may still occur. If this happens, engage your development team to troubleshoot. Custom JavaScript or third-party Shopify apps can help ensure UTM parameters are preserved during redirects.
 
-## 3. HTTP to HTTPS
+### 3. HTTP to HTTPS
 
 **What happens:** When a site redirects from an unsecured http\:// to a secured https\:// URL.
 
@@ -139,7 +139,7 @@ Diagnosing "gclid" issues can be tricky since it’s difficult to pinpoint the e
 
 ***
 
-# Tips to identify Google or Facebook Ad URLs That May Be Resulting in gclid or fbclid:
+## Tips to identify Google or Facebook Ad URLs That May Be Resulting in gclid or fbclid
 
 **Google Ads:**
 
@@ -150,6 +150,6 @@ Diagnosing "gclid" issues can be tricky since it’s difficult to pinpoint the e
 * **Redirect Links:** Create a [custom report](https://www.facebook.com/business/help/924647297736315) to pull full destination URLs (including UTMs) for testing. Open these links in your browser to verify that UTMs remain intact on page load.
 * **Facebook Organic Links:** If your team frequently replies to comments with links, check if these links include specific UTMs. Without UTMs, "fbclid" will likely be the only parameter, meaning all visits and purchases from those links will be attributed solely to "fbclid" in Northbeam (and Google Analytics).
 
-# Need additional help?
+## Need additional help?
 
 If you need further assistance, reach out to [Support](https://www.northbeam.io/submit-a-support-ticket)!

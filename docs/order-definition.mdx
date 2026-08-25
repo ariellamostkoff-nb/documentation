@@ -4,17 +4,17 @@ description: "This page describes Northbeam's semantic definition of an order an
 icon: "file-lines"
 ---
 
-# Northbeam's Definition of an Order
+## Northbeam's Definition of an Order
 
 Different Order Management Systems(OMS) consider the notion of an order differently. For best results, we recommend submitting orders that have been shipped, where the costs associated with the order (and/or other metadata subject to alteration after initial creation) is considered more or less settled.
 
 Because an unfavorable amount of time usually passes between when the order is placed and lands in a customer's OMS also support an initial order submission with 'estimated' costs (i.e. shipping that is quoted at the time of order submission, but may be subject to change) to support timely order attribution (MTA).  At the time of shipment, a customer can make an API call to update the order.  An call made that includes an order with an `order_id` that matches a previously submitted `order_id` is updated with the most recent call's attributes.
 
-# Order Attributes
+## Order Attributes
 
 Each order has a set of **required** attributes as well as *optional* attributes that can be submitted for each order. These fields are also documented in the [API Reference](https://northbeam-orders-api.readme.io/reference), albeit in much more detail here.
 
-## Required Attributes
+### Required Attributes
 
 Certain metadata is required for an order to be submitted.  Without these fields, an API call will return an error as part of our validation check to make sure the Orders contained in an API call pass muster.  The following order attributes are required:
 
@@ -33,7 +33,7 @@ Certain metadata is required for an order to be submitted.  Without these fields
   * `variant_name` - (**optional**) The name of the product variant. Cannot be empty when specified.
 * `shipping_cost` - The amount that was paid for shipping for this order
 
-## Optional Attributes
+### Optional Attributes
 
 The following order attributes are optional
 
@@ -60,7 +60,7 @@ The following order attributes are optional
   * `zip` - The postal code or region-code (in outside US) of the customer's shipping address. If an entry is made in the optional `customer_shipping_address` object, this field is required.
   * `country code` - A three-letter ISO 3166 country code of a customer's shipping address. If an entry is made in the optional `customer_shipping_address` object, this field is required.
 
-# Roles of `order_tags` of an order
+## Roles of `order_tags` of an order
 
 Order tags play a wide variety of roles when it comes to an how ads that may have driven the order are attributed.  Order tags are used in determining if the order is
 
@@ -68,13 +68,13 @@ Order tags play a wide variety of roles when it comes to an how ads that may hav
 * from a first time or returning customer
 * whether the order is to be excluded from attribution altogether
 
-## Subscriptions
+### Subscriptions
 
 Northbeam's customers often want to be ad attribution or revenue as a function of whether the orders are part of a subscription initiation or part of a recurring order.  Order tags are used here so that we may identify order that are part of a first time subscription order or if they are a recurring order.
 
 Using the `Subscription Order Tags` page in the `Settings` Section of your Northbeam Dashboard, a customer can choose which order tags are associated with which stage of a subscription - thus enabling them to delineate between first time or recurring subscription order and revenue.  A category `Other` is also included to capture orders that could be either.
 
-## Customer Stage
+### Customer Stage
 
 Order tags can also play a role in determining if the order is from a first time or returning customer.  By default, the logic we apply to determine if an order is form a first-time or returning customer is by taking all orders from a particular `customer_id` and looking at the orders as a function of time.  The first order in the sequence is a first-time customer, and all subsequent orders are labeled returning customer.
 
@@ -82,6 +82,6 @@ If this logic is insufficient for your use case, please contact `success@northbe
 
 This delineation can be used to analyze orders (and revenue) as a function of both of these customer stages.
 
-## Order Exclusions
+### Order Exclusions
 
 There are certain cases where it is desire-able to exclude certain orders altogether.  This may be the case if you are looking to do ad attribution or analyze revenue as a function of web store orders but your OMS also includes orders that came from a brick and mortar store.  If these undesire-able orders are tagged with a specific tag, these can be added to the `Exclude Orders by Tag` section in the `Settings` page of your Northbeam dashboard.

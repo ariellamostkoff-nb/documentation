@@ -5,7 +5,7 @@ icon: "tv"
 
 ***
 
-# Introduction
+## Introduction
 
 **This guide will show you how to set up LiveIntent tracking in Northbeam.**
 
@@ -73,7 +73,7 @@ Support for deterministic impression and view-through attribution is planned for
 
 ***
 
-# How LiveIntent data maps to Northbeam
+## How LiveIntent data maps to Northbeam
 
 Once connected, LiveIntent data appears in Northbeam using the following hierarchy:
 
@@ -87,9 +87,9 @@ LiveIntent performance is reported at the Campaign and Ad levels. The Adset leve
 
 ***
 
-# Step 1: Connect Your LiveIntent Account
+## Step 1: Connect Your LiveIntent Account
 
-## 1A: Find your LiveIntent credentials
+### 1A: Find your LiveIntent credentials
 
 Northbeam connects to LiveIntent using your:
 
@@ -104,7 +104,7 @@ Use credentials that have access to the advertiser account you want to connect.
   Northbeam uses these credentials to authenticate with LiveIntent and retrieve an access token.
 </Note>
 
-## 1B: Connect in Northbeam
+### 1B: Connect in Northbeam
 
 * **During onboarding:** Go to **Integrations > LiveIntent**
 * **From your dashboard:** Go to **Settings > Connections > LiveIntent**
@@ -126,19 +126,19 @@ If authentication is successful:
 
 <br />
 
-# Step 2: Add Northbeam Tracking Parameters
+## Step 2: Add Northbeam Tracking Parameters
 
 Add the Northbeam tracking parameters to the click URL for every LiveIntent creative.
 
 For more instructions on configuring click URLs, see [Zeta Global’s Click-URL Macros and Accepted Characters documentation](https://knowledgebase.zetaglobal.com/liveintent/click-url-macros-and-accepted-characters).
 
-### **Append the following string to each click URL:**
+#### **Append the following string to each click URL:**
 
 `nbt=nb%3Aliveintent%3A%3A${CAMPAIGN_ID}%3A%3A${CREATIVE_ID}&decisionid=${DECISION_ID}`
 
 <br />
 
-### How to append the parameters:
+#### How to append the parameters
 
 Use `?` if the click URL does not already contain parameters
 
@@ -160,15 +160,15 @@ Use `&` if the click URL already contains parameters:
 
 <br />
 
-# LiveIntent FAQ
+## LiveIntent FAQ
 
-## 1.  Why is there no LiveIntent adset-level reporting?
+### 1.  Why is there no LiveIntent adset-level reporting?
 
 LiveIntent line items ("adsets") are primarily used as an internal optimization layer rather than a standard customer-facing reporting level. Accordingly, Northbeam supports LiveIntent attribution at the Campaign and Ad levels.
 
 A placeholder appears at the Adset level to preserve Northbeam’s reporting hierarchy, but performance should be evaluated using the Campaign and Ad views.
 
-## 2. Do I need to add the tracking parameters to every creative?
+### 2. Do I need to add the tracking parameters to every creative?
 
 Yes.
 
@@ -176,7 +176,7 @@ LiveIntent click URLs are configured at the creative level. Every existing and n
 
 Northbeam does not automatically add or update these URLs through the LiveIntent API.
 
-## 3. Can I use other UTM parameters alongside Northbeam's parameters?
+### 3. Can I use other UTM parameters alongside Northbeam's parameters?
 
 Yes.
 
@@ -189,7 +189,7 @@ The `nbt` and `decisionid` parameters can be used alongside standard parameters 
 
 Make sure each parameter is separated using `&`.
 
-## 4. Why do my Northbeam results differ from LiveIntent?
+### 4. Why do my Northbeam results differ from LiveIntent?
 
 Differences are expected because LiveIntent and Northbeam use different attribution methodologies.
 
@@ -197,7 +197,7 @@ LiveIntent reports conversions based on the attribution settings configured for 
 
 LiveIntent attribution settings may vary by advertiser. Contact your LiveIntent account team to confirm the windows and post-view credit settings applied to your account.
 
-## 5. Why do I see spend but no attributed revenue?
+### 5. Why do I see spend but no attributed revenue?
 
 The LiveIntent connection and Northbeam click tracking serve different purposes.
 
@@ -211,19 +211,19 @@ If spend appears without attributed revenue:
 * Confirm the URL parameters are not removed by a redirect.
 * Confirm purchase tracking is working.
 
-## 6. Why is hourly LiveIntent data different from the LiveIntent dashboard?
+### 6. Why is hourly LiveIntent data different from the LiveIntent dashboard?
 
 LiveIntent does not provide hourly reporting through the API used by Northbeam.
 
 LiveIntent reporting is imported daily, and any hourly breakdown displayed in Northbeam is derived downstream. Because of this, hourly bucketing may not match the LiveIntent interface exactly.
 
-## 7. How long does LiveIntent data take to populate?
+### 7. How long does LiveIntent data take to populate?
 
 Initial LiveIntent reporting may take several hours to appear after the account is connected.
 
 LiveIntent data may continue updating for up to 48 hours. Northbeam waits three days before considering the reporting stable.
 
-## 8. I think there's an issue with tracking. What should I check?
+### 8. I think there's an issue with tracking. What should I check?
 
 * **Connection:** Go to **Settings > Connections** and check the LiveIntent connection for errors.
 * **Advertiser:** Confirm the correct LiveIntent advertiser was selected.

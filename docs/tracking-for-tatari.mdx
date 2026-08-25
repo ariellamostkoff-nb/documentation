@@ -11,14 +11,14 @@ icon: "tv"
   If you need Linear support, please contact Northbeam support to have it enabled for your account.
 </Info>
 
-# Steps to Integrate Tatari with Northbeam
+## Steps to Integrate Tatari with Northbeam
 
 1. [Enable User Tracking](#step-1-enable-user-tracking)
 2. [Enable AWS Data Sharing](#step-2-enable-aws-data-sharing)
 3. [Insert Tatari ID and Source of Truth](#step-3-insert-tatari-id-and-source-of-truth)
 4. [Insert AWS Credentials in Tatari](#step-4-insert-aws-credentials-in-tatari)
 
-# Tatari FAQs
+## Tatari FAQs
 
 1. [Where Can I Find My Tatari Data in Northbeam?](#1-where-can-i-find-my-tatari-data-in-northbeam)
 2. [How Often Is Tatari Data Updated in Northbeam?](#2-how-often-is-tatari-data-updated-in-northbeam)
@@ -26,11 +26,11 @@ icon: "tv"
 
 ***
 
-# Step 1: Enable User Tracking
+## Step 1: Enable User Tracking
 
 Enabling user tracking in Tatari is essential for Northbeam to accurately attribute Tatari-driven orders. This process differs based on whether you're using Shopify or a custom platform.
 
-### 🛒 For Shopify
+#### 🛒 For Shopify
 
 1. **Install the Tatari Tag Manager App:**
    * Visit the [Tatari Tag Manager](https://apps.shopify.com/tatari-tv) on the Shopify App Store.
@@ -41,7 +41,7 @@ Enabling user tracking in Tatari is essential for Northbeam to accurately attrib
 
 For more details, refer to Tatari's official [User Tracking Guide](https://drive.google.com/file/d/1U-ETZyVeEMclKiCY63falhOSN4EtbIAq/view?usp=sharing).
 
-### 🌐 For Non-Shopify (Custom Platform)
+#### 🌐 For Non-Shopify (Custom Platform)
 
 1. **Implement the Tatari JavaScript Library:**
 
@@ -80,7 +80,7 @@ For more details, refer to Tatari's official [User Tracking Guide](https://drive
   Please reach out to your Tatari representative as Northbeam cannot assist here.
 </Warning>
 
-# Step 2: Enable AWS Data Sharing
+## Step 2: Enable AWS Data Sharing
 
 AWS Data Sharing allows Northbeam to access Tatari-attributed order data.
 
@@ -92,7 +92,7 @@ AWS Data Sharing allows Northbeam to access Tatari-attributed order data.
    * Select **Integrations**.
    * Ensure that **AWS Data Sharing** is enabled.
 
-# Step 3: Insert Tatari ID and Source of Truth
+## Step 3: Insert Tatari ID and Source of Truth
 
 Providing your Tatari ID and specifying the source of truth ensures accurate data synchronization between Tatari and Northbeam.
 
@@ -107,7 +107,7 @@ Providing your Tatari ID and specifying the source of truth ensures accurate dat
    * Enter your **Tatari ID** and select your **Orders Source of Truth**.
    * Click **Connect**.
 
-# Step 4: Allow 24 Hours for the Tatari Connection to Process
+## Step 4: Allow 24 Hours for the Tatari Connection to Process
 
 After entering your Tatari ID and selecting the source of truth in Northbeam, please allow up to 24 hours for the integration to fully process.
 
@@ -121,7 +121,7 @@ After entering your Tatari ID and selecting the source of truth in Northbeam, pl
   This is expected behavior if the connection has not yet completed. Simply wait and retry after the 24-hour window.
 </Warning>
 
-# Step 5: Insert AWS Credentials in Tatari
+## Step 5: Insert AWS Credentials in Tatari
 
 To complete the integration, input the AWS credentials from Northbeam into your Tatari account.
 
@@ -137,9 +137,9 @@ To complete the integration, input the AWS credentials from Northbeam into your 
 
 ***
 
-# Tatari FAQ
+## Tatari FAQ
 
-## 1. Where Can I Find My Tatari Data in Northbeam?
+### 1. Where Can I Find My Tatari Data in Northbeam?
 
 After completing the integration, your Tatari data will appear under the **Clicks & Matchbacks** attribution model in Northbeam. "Matchbacks" represent data provided by Tatari for attributed orders.
 
@@ -149,7 +149,7 @@ After completing the integration, your Tatari data will appear under the **Click
   It may take up to **7 days** for your Tatari data to fully populate in Northbeam. Data is processed from oldest to newest upon initial integration.
 </Warning>
 
-## 2. How Often Is Tatari Data Updated in Northbeam?
+### 2. How Often Is Tatari Data Updated in Northbeam?
 
 Tatari provides data reports once daily, typically with about a \~23-hour delay. Northbeam processes the file in the next scheduled run after it arrives. Because of that timing, Tatari data can sometimes appear 1–2 days behind in the dashboard depending on when the report was made available.
 
@@ -159,7 +159,7 @@ A report delivered by Tatari on May 13 may only contain data through May 12. If 
 
 This is expected behavior and does not necessarily indicate an issue with the integration.
 
-## 3. I See Clicks and Matchbacks, but No Revenue or Transactions. What Should I Check?
+### 3. I See Clicks and Matchbacks, but No Revenue or Transactions. What Should I Check?
 
 If you see clicks and matchbacks but no attributed orders, verify the following:
 

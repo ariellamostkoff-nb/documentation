@@ -4,7 +4,7 @@ sidebarTitle: "Non-integrated setup"
 icon: "wrench"
 ---
 
-## Overview
+### Overview
 
 For platforms with native integrations (e.g., Meta, Adwords, TikTok, Pinterest, Snapchat), Northbeam fetches all your Campaign, Adset, and Ad data through our Standard API integration and reports it in your dashboard. We ingest all your metadata (e.g., Campaign, Adset, Ad IDs) to tie those sessions back to the ad that drove it — along with any conversions that occurred in that session.
 
@@ -12,13 +12,13 @@ But if you're using channels without a native integration — like Affiliates, P
 
 ***
 
-## Expectation Setting
+### Expectation Setting
 
 * **No view-through conversions** — only click-based models will be available (First Touch, Last Touch, LNDT, Clicks-Only)
 
 ***
 
-## This is a 3-Step Process:
+### This is a 3-Step Process
 
 1. **Send us your spend data** using the **Spend API**
 2. **Attach UTM parameters** on your ad links that match the spend data
@@ -28,9 +28,9 @@ This guide walks you through each of those steps.
 
 ***
 
-# Step 1: Setting Up the Spend API
+## Step 1: Setting Up the Spend API
 
-### 1A: What is the Spend API?
+#### 1A: What is the Spend API?
 
 The **Spend API** is how you **automatically send daily ad spend** to Northbeam from platforms we don’t connect with directly.
 
@@ -50,7 +50,7 @@ It lets you **send your own ad spend data** from your internal database (or your
 
 ***
 
-### 1B: How Do I Set Up The Spend API?
+#### 1B: How Do I Set Up The Spend API?
 
 **Important Links:**
 
@@ -72,7 +72,7 @@ It lets you **send your own ad spend data** from your internal database (or your
 
 ***
 
-### 1C: Required Fields in Your Payload
+#### 1C: Required Fields in Your Payload
 
 Each spend record must include the following fields:
 
@@ -91,7 +91,7 @@ Each spend record must include the following fields:
 
 ***
 
-### 1D: Structuring `campaign_name`
+#### 1D: Structuring `campaign_name`
 
 If your goal is to measure performance beyond just the platform level — like **campaign-level**, **influencer-level**, or any custom grouping — then `campaign_name` is essential.
 
@@ -111,11 +111,11 @@ to
 
 ***
 
-### 1E: What Values Should I Use?
+#### 1E: What Values Should I Use?
 
 You can technically use any values for `campaign_name`, but we **strongly recommend using a clean numeric ID** like `12345`.
 
-#### Why Numeric Values Are Better Than Names
+##### Why Numeric Values Are Better Than Names
 
 Using human-readable names like `Spring_Sale_2025` might feel more intuitive, but they often include **special characters** like spaces, `%`, `$`, or `#`.
 
@@ -148,7 +148,7 @@ Our priority is clean, reliable data. While numeric IDs might not be the most us
 
 ***
 
-## 1F: Spend API Responses
+### 1F: Spend API Responses
 
 | Status Code | Meaning                                                                  |
 | ----------- | ------------------------------------------------------------------------ |
@@ -168,11 +168,11 @@ You can always test your payload in a tool like Postman or with `curl` before se
 
 ***
 
-# Step 2: Setting up UTM Parameters
+## Step 2: Setting up UTM Parameters
 
 In Northbeam, UTMs are captured in real-time at the moment a visitor lands on your site. This tracking is handled by our pixel and **cannot be changed after the fact**, so it’s important to get your UTM setup right from the start.
 
-### 2A: **Required UTM Parameters**
+#### 2A: **Required UTM Parameters**
 
 * `utm_source`
 * `utm_medium`
@@ -184,7 +184,7 @@ You can use any values for `utm_source` and `utm_medium`, but we recommend using
 
 That said, if you already follow a specific structure for tools like Google Analytics, it’s totally fine to keep using it — as long as **each platform’s traffic can be uniquely identified** (e.g. with a distinct source + medium combo), you’ll be in good shape.
 
-### 2B: Other Requirements:
+#### 2B: Other Requirements
 
 * Make sure the [Northbeam Pixel](/docs/add-pixel#-how-to-test-for-your-northbeam-pixel-on-any-web-page) is firing on your landing page
 * Your landing page must be on the **same top-level domain** as the domain connected to Northbeam (for first-party tracking).
@@ -193,7 +193,7 @@ That said, if you already follow a specific structure for tools like Google Anal
 
 ***
 
-### **UTM & Spend Field Mapping Example**
+#### **UTM & Spend Field Mapping Example**
 
 | **Source**    | **Field**       | **Example Value** | **Required?**                     | **Notes**                                                                              |
 | ------------- | --------------- | ----------------- | --------------------------------- | -------------------------------------------------------------------------------------- |
@@ -205,7 +205,7 @@ That said, if you already follow a specific structure for tools like Google Anal
 
 ***
 
-# Step 3: Creating Custom Labels
+## Step 3: Creating Custom Labels
 
 Once your spend and UTM data are both flowing into Northbeam, you’ll see them appear in the dashboard — but initially, they will show up as **separate rows** in the Sales table.
 
@@ -222,7 +222,7 @@ To consolidate spend and revenue into **one row**, you’ll need to create a **c
 
 ***
 
-### 3A: Creating a New Breakdown Label
+#### 3A: Creating a New Breakdown Label
 
 Follow these steps to build the label:
 
@@ -234,7 +234,7 @@ The rule logic depends on your data structure, but in most cases, you can use a 
 
 **Here’s an example to show how to set it up:**
 
-### **📊  Example Data Structure**
+#### **📊  Example Data Structure**
 
 | **Source**    | **Field**       | **Value**    | Breakdown Field  | Notes                                  |
 | ------------- | --------------- | ------------ | ---------------- | -------------------------------------- |
@@ -245,7 +245,7 @@ The rule logic depends on your data structure, but in most cases, you can use a 
 | **Spend API** | `platform_name` | `influencer` | `adKey.Platform` | Formatted as `custom-spend-influencer` |
 |               |                 |              |                  |                                        |
 
-### 3B: Breakdown Rule Logic
+#### 3B: Breakdown Rule Logic
 
 Use **OR logic** to group matching revenue and spend sources:
 
@@ -254,7 +254,7 @@ Use **OR logic** to group matching revenue and spend sources:
 | `utm_source`     | equals    | `influencer`              | Captures Influencer revenue |
 | `adKey.platform` | equals    | `custom-spend-influencer` | Captures Influencer spend   |
 
-### 3C: Output Label Logic
+#### 3C: Output Label Logic
 
 The Output Label Rule is **how** the matching criteria will be labeled.
 
@@ -268,7 +268,7 @@ The Output Label Rule is **how** the matching criteria will be labeled.
 | `{{data.adKey.campaign}}` | This pulls the value from the `adkey.campaign` field — which is matched from either:  • `utm_campaign` (revenue) • `campaign_name` (spend) |
 | `{{/functions.lower}}`    | Closes the `lowercase` function block                                                                                                      |
 
-### 🧾 Example Output (After Label Applied)
+#### 🧾 Example Output (After Label Applied)
 
 Based on the example logic above, once your label is applied, your data will be grouped like this in the **Sales** page:
 
@@ -288,7 +288,7 @@ Based on the example logic above, once your label is applied, your data will be 
 
 ***
 
-## Optional: Make Your Breakdown Rule Logic More Flexible
+### Optional: Make Your Breakdown Rule Logic More Flexible
 
 `equals` requires an exact match — including case and spacing — which can be too strict for UTMs.
 
@@ -309,7 +309,7 @@ Instead, feel free to use use:
 
 ***
 
-# Step 4: Viewing Your Merged Data
+## Step 4: Viewing Your Merged Data
 
 Once you've created and applied your custom breakdown, you can now view your unified spend and revenue data in the Sales dashboard.
 

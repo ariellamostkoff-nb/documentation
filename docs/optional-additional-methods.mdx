@@ -3,7 +3,7 @@ title: "Additional Events"
 icon: "circle-plus"
 ---
 
-# `fireCustomGoal`
+## `fireCustomGoal`
 
 Sends an event to Northbeam indicating that a custom goal has happened. This helps you track and analyze milestones unique to your customers' journeys.
 
@@ -24,7 +24,7 @@ window.Northbeam.fireCustomGoal("add_to_cart", {})
 | 1        | *required* | String | The name of the custom goal. Please email [success@northbeam.io](mailto:success@northbeam.io) with this name. |
 | 2        | *optional* | Object | The total amount collected for the purchase.                                     |
 
-# `fireEmailCaptureEvent`
+## `fireEmailCaptureEvent`
 
 Sends an event to Northbeam indicating that a user has signed up for something with their email address.
 
@@ -39,7 +39,7 @@ window.Northbeam.fireEmailCaptureEvent("john.smith@gmail.com", "klaviyo_footer")
 | 1        | *required* | String | The email address                                                |
 | 2        |            | String | The location identifier describing where the email was captured. |
 
-# `identify`
+## `identify`
 
 Identifies the current user with a particular real-world identifier. Better enables Northbeam to understand cross-device activity.
 
@@ -64,7 +64,7 @@ Before hashing, normalize the email by trimming whitespace and lowercasing. Foll
 
 Use plaintext "email" when possible — we handle normalization and hashing on our side. Use "hashed\_email" only if your privacy policy prohibits sending plaintext emails to third-party scripts.
 
-# `identifyCustomerId`
+## `identifyCustomerId`
 
 Identifies the current user with an ID from your Order Management System (OMS). This helps Northbeam track cross-device behavior more accurately, without sharing identifiable values (such as email addresses) to Northbeam.
 
@@ -74,7 +74,7 @@ window.Northbeam.identifyCustomerId("custom", "1234567890")
 
 The `namespace` argument acts like a label that tells Northbeam where the customer ID came from, ensuring we interpret it correctly across different systems.
 
-# `trackPageView`
+## `trackPageView`
 
 If your website uses JavaScript based routing, use this method to track transitions with pages.
 
@@ -82,7 +82,7 @@ If your website uses JavaScript based routing, use this method to track transiti
 window.Northbeam.trackPageView()
 ```
 
-## React Router Example
+### React Router Example
 
 If you're using React Router, call this method after a page transition to track the change to a new location. (https://reactrouter.com/en/main/hooks/use-location)
 
@@ -103,7 +103,7 @@ function App() {
 }
 ```
 
-# Add a onload callback function for the Northbeam Pixel (`onNorthbeamLoad`)
+## Add a onload callback function for the Northbeam Pixel (`onNorthbeamLoad`)
 
 If you want to perform a Northbeam action on your site before the pixel has been loaded (e.g. if you want to do something as soon as your page loads instead of waiting on user action to kick it off), you can use this method to make sure we do what you need done as soon as our pixel is loaded.
 

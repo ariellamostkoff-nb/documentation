@@ -20,7 +20,7 @@ Northbeam offers 7 different attribution models, which are divided into two cate
 
 ***
 
-# Simple Attribution Models
+## Simple Attribution Models
 
 In Simple Attribution Models, all credit is **given to a single touchpoint**. These are legacy models that you may be used to seeing.
 
@@ -36,7 +36,7 @@ Here are our simple models:
   **Last Non-Direct Touch** is the default model used by most in-platform reporting (Facebook Ads, Google Ads, TikTok Ads, Pinterest Ads, Klaviyo, Attentive, etc.) and Google Analytics.
 </Note>
 
-# Multi-Touch Attribution Models (MTAs)
+## Multi-Touch Attribution Models (MTAs)
 
 In Multi-Touch Attribution Models, credit is **divided across multiple touchpoints**.
 
@@ -53,7 +53,7 @@ Here are our multi-touch models:
   Clicks-Only, Clicks + Modeled Views, and Clicks + Deterministic Views are Northbeam's proprietary models. Learn more below.
 </Tip>
 
-# Summary of Northbeam's Attribution Models
+## Summary of Northbeam's Attribution Models
 
 | Attribution Model            | Data Source                                 | Credit Allocation                                                                       | High-Level Use Case                                                                                    |
 | :--------------------------- | :------------------------------------------ | :-------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
@@ -67,7 +67,7 @@ Here are our multi-touch models:
 
 ***
 
-## First Touch
+### First Touch
 
 <div style={{ textAlign: "center" }}>
   <img src="https://files.readme.io/512db98-unnamed_1.png" alt="Unnamed diagram" style={{ maxWidth: "100%" }} />
@@ -77,7 +77,7 @@ Here are our multi-touch models:
 
 ***
 
-## Last Touch and Last Non-Direct Touch
+### Last Touch and Last Non-Direct Touch
 
 <div style={{ textAlign: "center" }}>
   <img src="https://files.readme.io/d8de2cc-unnamed_2.png" alt="Unnamed diagram 2" style={{ maxWidth: "100%" }} />
@@ -101,7 +101,7 @@ This model is great to understand the impact of your lower funnel channels — B
 
 ***
 
-## Linear
+### Linear
 
 <div style={{ textAlign: "center" }}>
   <img src="https://files.readme.io/d19a86a-unnamed_3.png" alt="Unnamed diagram 3" style={{ maxWidth: "100%" }} />
@@ -113,7 +113,7 @@ Linear divides credit equally across all channels.
 
 ***
 
-## Clicks-Only
+### Clicks-Only
 
 <div style={{ textAlign: "center" }}>
   <img src="https://files.readme.io/82c5719-image.png" alt="Diagram" style={{ width: "790px", maxWidth: "100%" }} />
@@ -135,7 +135,7 @@ This proprietary model is **similar to linear,** where credit is divided equally
   In Clicks-Only, **credit is not given to Lower Funnel touchpoints if there are Upper Funnel touchpoints in the journey**. The only instance where Lower Funnel touchpoints receive credit is if there are no Upper Funnel touchpoints in the journey.
 </Warning>
 
-### You may be asking yourself:
+#### You may be asking yourself
 
 * "What's an Upper Funnel Touchpoint?"
 * "What's a Lower Funnel Touchpoint?"
@@ -148,14 +148,14 @@ Let's dive in to your questions:
   What are Upper Funnel and Lower Funnel channels?
 </Note>
 
-### Lower Funnel Channels
+#### Lower Funnel Channels
 
 * Direct Visits (Labeled as "Organic" in the dashboard)
 * Organic Search
 * Paid Branded Search
 * Email or SMS
 
-### Upper Funnel Channels
+#### Upper Funnel Channels
 
 * Any channel that is NOT a lower funnel channel (ex. Paid Social, Paid Search (excluding Brand), PMax, Organic Social, Affiliate, Influencer, Display, etc)
 
@@ -165,7 +165,7 @@ Let's dive in to your questions:
   We understand these "Upper Funnel" channels may not always be used to grow the top of the funnel in your particular media strategy.
 </Tip>
 
-### Clicks-Only: Example 1
+#### Clicks-Only: Example 1
 
 Let's take the following journey and assume we're on the Accrual accounting mode, where credit is given to the following touchpoints.
 
@@ -181,7 +181,7 @@ Let's take the following journey and assume we're on the Accrual accounting mode
 
 **Explanation:** Although the Branded Search pushed the conversion, Branded Search does not get credit with Clicks-Only because this is a Lower Funnel Channel. Therefore, credit is distributed equally to Facebook and TikTok.
 
-### Clicks-Only: Example 2
+#### Clicks-Only: Example 2
 
 Here's another example. Let's say the entire journey is made up of Lower Funnel Touchpoints:
 
@@ -215,7 +215,7 @@ Here's another example. Let's say the entire journey is made up of Lower Funnel 
 
 ***
 
-## Clicks + Modeled Views
+### Clicks + Modeled Views
 
 Our Northbeam attribution models leverage machine learning to ingest your data and stitch together customer journeys so you can start accounting for view-through data when analyzing attribution decisions.
 
@@ -223,7 +223,7 @@ Clicks + Modeled Views provides directionality on which ads within a channel are
 
 Utilizing the Clicks + Modeled Views model in conjunction with Northbeam’s Clicks-Only attribution model can help you fill in any “click-through” gaps, particularly for channels like Social and Video that are highly view-oriented.
 
-### What exactly is the Clicks + Modeled Views Attribution Model?
+#### What exactly is the Clicks + Modeled Views Attribution Model?
 
 Clicks + Modeled Views is Northbeam’s proprietary machine learning model that accounts for impression and ad engagement data when making attribution decisions. This model looks to split attribution credit on a multi-touch basis.
 
@@ -237,7 +237,7 @@ We built this model because unattributed traffic is not helpful for marketers wh
 
 We understand that many customers eventually convert via direct visits after watching a TikTok, YouTube, or Facebook ad. This is why our Clicks + Modeled Views model tries to assign proper credit to any ad views throughout a conversion path. This can help make your data actionable by giving you a more complete picture of what’s going on with your campaigns.
 
-### How does Clicks + Modeled Views work?
+#### How does Clicks + Modeled Views work?
 
 At a high level, our model tracks engagement metrics (impressions, video views, etc.) and looks for correlations between those metrics and any corresponding organic spikes. Our model then makes an educated guess using machine learning to assign organic traffic and conversions to the ad campaign that were mostly likely to prompt that behavior.
 
@@ -251,7 +251,7 @@ Please note the attribution window for Clicks + Modeled Views is 1 day view only
   <img src="https://files.readme.io/681a036-image.png" alt="" />
 </Frame>
 
-### When do you use Clicks + Modeled Views?
+#### When do you use Clicks + Modeled Views?
 
 Keep in mind, our Clicks + Modeled Views model takes 25-30 days to "learn" from the historical data collected by our tracking pixels.
 
@@ -267,7 +267,7 @@ Let’s say you notice that Clicks + Modeled Views captures a revenue attributed
 
 One way to do that is to conduct post-purchase surveys and track where incremental revenue is coming from. You could also slowly ramp up spend on YouTube while keeping an eye on blended revenue numbers to see if they’re highly correlated. If post-purchase surveys are also indicating YouTube as a leading channel, then you can be reasonably confident that YouTube ads are having a positive and additive impact on your business.
 
-### What is the benefit of looking at the Clicks + Modeled Views model?
+#### What is the benefit of looking at the Clicks + Modeled Views model?
 
 Ultimately, the Clicks + Modeled Views can help you better allocate your marketing dollars. You spend less on conversion ads if more people view them, don’t click, and then later purchase.
 
@@ -275,7 +275,7 @@ It is great for understanding the full impact of prospecting performance, and al
 
 ***
 
-## Clicks + Deterministic Views
+### Clicks + Deterministic Views
 
 Clicks + Deterministic Views (C+DV) is Northbeam’s most advanced multi-touch attribution model. It builds on the Clicks-Only framework and extends beyond Clicks + Modeled Views by incorporating platform-verified impression and view data from participating ad platforms.
 

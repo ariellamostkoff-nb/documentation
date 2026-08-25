@@ -5,7 +5,7 @@ icon: "envelope"
 
 ***
 
-# Introduction
+## Introduction
 
 **This guide will show you how to set up tracking for the following Impact metrics in Northbeam:**
 
@@ -66,7 +66,7 @@ icon: "envelope"
 
 ***
 
-# How Impact data maps to Northbeam
+## How Impact data maps to Northbeam
 
 Once connected, Impact data appears in your Northbeam dashboard across three levels:
 
@@ -80,9 +80,9 @@ Once connected, Impact data appears in your Northbeam dashboard across three lev
 
 ***
 
-# Step 1: Connect Your Impact Account
+## Step 1: Connect Your Impact Account
 
-## 1A: Find your Impact credentials
+### 1A: Find your Impact credentials
 
 Northbeam connects via Impact's **Legacy API Token**. You'll need your **Account SID** and **Auth Token**.
 
@@ -113,7 +113,7 @@ Northbeam connects via Impact's **Legacy API Token**. You'll need your **Account
 
 <br />
 
-## 1B: Connect in Northbeam
+### 1B: Connect in Northbeam
 
 * **Onboarding:** Go to **Integrations > Impact**
 * **Dashboard:** Go to **Settings > Connections > Impact**
@@ -128,7 +128,7 @@ If you see *"An error occurred: Invalid credentials,"* double-check both values 
 
 ***
 
-# Step 2: Insert Northbeam UTM Parameters
+## Step 2: Insert Northbeam UTM Parameters
 
 Add the following custom UTM parameter to the click URLs for all new and existing Impact ads:
 
@@ -136,7 +136,7 @@ Add the following custom UTM parameter to the click URLs for all new and existin
 | :------------- | :------------------------------------ |
 | `nbt`          | `nb:impact::{ircid}:{irpid}:{iradid}` |
 
-## Step-By-Step Guide
+### Step-By-Step Guide
 
 1. In Impact, go to **\[User profile] → Settings → Gateway**
 
@@ -156,7 +156,7 @@ Add the following custom UTM parameter to the click URLs for all new and existin
 
 ***
 
-# Step 3: Remove Impact Custom Spend (Optional)
+## Step 3: Remove Impact Custom Spend (Optional)
 
 Once connected, Northbeam pulls up to **3 years of historical spend** data from Impact. If you're currently sending Impact spend via a Spend Sheet or Spend API, you may want to remove overlapping spend to avoid duplicate reporting.
 
@@ -166,7 +166,7 @@ For example:
 
 If you have Impact spend data older than the integration lookback window and would like to preserve it, keep those older records in place.
 
-## Removing from Spend Sheet
+### Removing from Spend Sheet
 
 1. Go to Data Spreadsheets" target="_blank" href="https://dashboard.northbeam.io/settings/data-spreadsheets">Settings > Data Spreadsheets
 2. Locate the sheet tied to Impact
@@ -182,19 +182,19 @@ If you have Impact spend data older than the integration lookback window and wou
   Custom spend sheets can vary by setup. Some use formulas tied to raw data import tabs, while others use manually entered spend.
 </Note>
 
-## Removing from Spend API
+### Removing from Spend API
 
 Delete existing Impact spend records using the Delete Spend endpoint: [/reference/delete\\_spend](/reference/delete_spend)
 
-## Need Help?
+### Need Help?
 
 If you're unsure which values to remove, please [submit a support ticket](https://www.northbeam.io/submit-a-support-ticket) and we’d be happy to help.
 
 ***
 
-# Impact FAQ
+## Impact FAQ
 
-## 1. Can I connect multiple Impact accounts?
+### 1. Can I connect multiple Impact accounts?
 
 At this time, Northbeam supports connecting one Impact account per dashboard.
 
@@ -206,15 +206,15 @@ If you manage multiple Impact accounts, you can still track the others by:
 
 Any non-connected Impact accounts will work similarly to other [Non-Integrated Channels](/docs/tracking-for-other-platforms).
 
-## 2. Can I use other UTM parameters alongside Northbeam's?
+### 2. Can I use other UTM parameters alongside Northbeam's?
 
 Yes — Northbeam's `nbt` parameter is additive and will not interfere with any other parameters you're already using. Feel free to keep parameters like `utm_source`, `utm_medium`, `utm_campaign`, or any other tracking params for Google Analytics or other platforms. Northbeam only uses `nbt` for attribution.
 
-## 3. I was already using Northbeam's previous recommended UTMs for Impact. Do I need to switch?
+### 3. I was already using Northbeam's previous recommended UTMs for Impact. Do I need to switch?
 
 You can either swap them out for the new `nbt` parameter or simply add `nbt` alongside your existing params — there's no harm in leaving the old ones in place. Northbeam uses `nbt` to tie sessions back to the correct ad spend, so as long as `nbt` is present, attribution will work correctly.
 
-## 4. Why do I see a data discrepancy?
+### 4. Why do I see a data discrepancy?
 
 **Discrepancies in Revenue and Orders are expected.** The key reason is a difference in attribution methodology:
 
@@ -223,7 +223,7 @@ You can either swap them out for the new `nbt` parameter or simply add `nbt` alo
 
 For more details: [Why are my metrics different in Northbeam than in-platform reporting?](/docs/what-is-northbeam#one-of-the-most-common-questions-we-get-is)
 
-## 5. I think there's an issue with tracking. Please help!
+### 5. I think there's an issue with tracking. Please help!
 
 Please reference our [Troubleshooting Tracking Issues FAQ](/docs/troubleshooting-tracking-issues).
 

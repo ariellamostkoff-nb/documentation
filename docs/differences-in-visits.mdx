@@ -5,11 +5,11 @@ description: "Understand differences in visit counts between Northbeam and other
 icon: "users"
 ---
 
-# Understanding Customer Journeys
+## Understanding Customer Journeys
 
 We have a unique approach to tracking customer journeys, which consist of a **series of Visits** — each representing a meaningful touchpoint that helps map the path to a sale.
 
-## 1. What is a Visit?
+### 1. What is a Visit?
 
 * A **Visit** typically marks the beginning of a session, which is defined as a period of continuous activity on the site. A session generally ends after 30 minutes of inactivity. Customer journeys are composed of these Visits, which serve as the key touchpoints we recognize.
 
@@ -29,7 +29,7 @@ We have a unique approach to tracking customer journeys, which consist of a **se
 
   <br />
 
-### Example
+#### Example
 
 1. A user clicks a TikTok ad with UTMs and lands on the homepage – this creates **Visit #1**, credited to TikTok.
 2. The user browses the site for several minutes.
@@ -40,7 +40,7 @@ We have a unique approach to tracking customer journeys, which consist of a **se
 
 ***
 
-## 2. Why don’t we record every UTM as a Visit?
+### 2. Why don’t we record every UTM as a Visit?
 
 * Our system is intentionally designed to focus on **meaningful session entry points**, not every individual page view.
 
@@ -50,9 +50,9 @@ We have a unique approach to tracking customer journeys, which consist of a **se
 
 ***
 
-# FAQs
+## FAQs
 
-## 1. What's the difference between Google Analytics and Northbeam (Sessions vs. Visits)?
+### 1. What's the difference between Google Analytics and Northbeam (Sessions vs. Visits)?
 
 Google Analytics and Northbeam share nearly the same definition for a session or visit:
 
@@ -60,21 +60,21 @@ Google Analytics and Northbeam share nearly the same definition for a session or
 
 Visits in Northbeam are comparable to sessions in Google Analytics and should be closely aligned, but often differ for a number of reasons:
 
-### Mid-session ad clicks
+#### Mid-session ad clicks
 
 Google Analytics do not recognize mid-session ad clicks as new sessions like we do.
 
-### Install Location and Priority
+#### Install Location and Priority
 
 A common reason for differences in visits between Northbeam and Google Analytics is the install location and timing of loading the pixel. If the Northbeam pixel is loaded after GA, it's expected that Northbeam will track fewer visits due to bounced visits where the user ended their session after GA finished loading, but before Northbeam loaded.
 
 If tracking these visits is important for you to understand, make sure that Northbeam is loaded in the head element of your pages, and with a high priority, so that it loads as early as GA.
 
-### Bots & Scrapers
+#### Bots & Scrapers
 
 Visits tracked by Google Analytics are not always real humans visiting your site, but simply bots and scrapers. Northbeam filters bot traffic, search browser robots, and other scrapers by default, resulting in better signal, but fewer tracked visits than Google Analytics.
 
-## Large discrepancies
+### Large discrepancies
 
 Seeing a significant difference in data between GA and Northbeam? This could indicate that one tool is not installed to track all pages, or that a platform is double-installed and artificially counting sessions.
 
@@ -87,6 +87,6 @@ Seeing a significant difference in data between GA and Northbeam? This could ind
 
 Answering these questions can help determine if GA and Northbeam are looking at different sets of data, and need to be installed differently to track comparable sessions.
 
-# Need additional help?
+## Need additional help?
 
 If you need further assistance, reach out to [Support](https://www.northbeam.io/submit-a-support-ticket)!

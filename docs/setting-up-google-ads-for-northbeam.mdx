@@ -10,7 +10,7 @@ import DiscrepancyExplanation from '/snippets/discrepancy-explanation.mdx';
 
 ***
 
-# Introduction
+## Introduction
 
 **This guide will show you how to set up tracking for the following Google and YouTube metrics in Northbeam:**
 
@@ -71,7 +71,7 @@ import DiscrepancyExplanation from '/snippets/discrepancy-explanation.mdx';
 
 ***
 
-# Step 1: Insert Northbeam UTM Parameters
+## Step 1: Insert Northbeam UTM Parameters
 
 Please add the following UTM parameters in the **Final URL Suffix** at the **Account Level**.
 
@@ -79,7 +79,7 @@ Please add the following UTM parameters in the **Final URL Suffix** at the **Acc
 nbt=nb%3Aadwords%3A{network}%3A{campaignid}%3A{adgroupid}%3A{creative}
 ```
 
-## Step-By-Step Guide:
+### Step-By-Step Guide
 
 For a visual walkthrough of setting up UTM parameters, reference the video below.
 
@@ -113,7 +113,7 @@ For a visual walkthrough of setting up UTM parameters, reference the video below
   If UTMs exist at multiple levels, Google will always respect the lowest-level definition.
 </Note>
 
-## Have existing UTM parameters?
+### Have existing UTM parameters?
 
 If you have existing parameters, please add our parameters to the end (or beginning) and we'll all set. Be sure to use an ampersand (&) to connect your existing parameters to our parameters.
 
@@ -131,9 +131,9 @@ utm\_source=paid\&utm\_medium=google&**nbt=nb%3Aadwords%3A\{network}%3A\{campaig
 
 ***
 
-# Step 2: Connect Your Google Ads Account
+## Step 2: Connect Your Google Ads Account
 
-## What does the connection do?
+### What does the connection do?
 
 Northbeam natively integrates with the Google Ads API. By doing so, we pull all your current and historical Campaigns, Adsets, and Ads from your account, along with a list of useful metrics.  Notably, we pull impressions, which fuel our view model and unlock our Clicks + Modeled Views attribution model. We also pull ad spend to help you with decision making.
 
@@ -157,7 +157,7 @@ Northbeam natively integrates with the Google Ads API. By doing so, we pull all 
 
 <br />
 
-## How to connect your Ad Account
+### How to connect your Ad Account
 
 * **Onboarding Flow** - If you're in our onboarding flow, please navigate to **Integrations**
 * **Activated Dashboard** - If your dashboard is activated, please go to **Settings > Connections**
@@ -170,9 +170,9 @@ For a visual walkthrough, reference the video below.
 
 ***
 
-# Google Ads FAQ
+## Google Ads FAQ
 
-## 1. How do I connect an extra account or remove an account?
+### 1. How do I connect an extra account or remove an account?
 
 Reference our step-by-step guide below:
 
@@ -180,7 +180,7 @@ Reference our step-by-step guide below:
   <iframe src="https://www.loom.com/embed/31cd15c479ba42079c7822d99ee85c52?sid=844eded7-4fc3-4493-baf0-5a88b151de3c" width="100%" height="450" allowfullscreen></iframe>
 </Frame>
 
-### Adding an Extra Google Ads Account
+#### Adding an Extra Google Ads Account
 
 Google Ads lets you manage multiple ad accounts under one **Manager Account (MCC)**. Before adding an extra account in Northbeam, you'll need your Manager Account ID handy.
 
@@ -197,7 +197,7 @@ Google Ads lets you manage multiple ad accounts under one **Manager Account (MCC
 
 ***
 
-### Step 1: Find your Manager Account ID
+#### Step 1: Find your Manager Account ID
 
 Log into Google Ads and go to **Accounts**. Your Manager Account ID is the number in the top header (e.g. `651-XXX-XXXX`).
 
@@ -207,7 +207,7 @@ Log into Google Ads and go to **Accounts**. Your Manager Account ID is the numbe
 
 ***
 
-### Step 2: Update the MCC ID in Northbeam
+#### Step 2: Update the MCC ID in Northbeam
 
 1. Go to **Settings > Connections > Google Ads**
 2. In the field labeled **"Update your login customer id (parent MCC account)"**, replace the existing value with your MCC Account ID.
@@ -230,11 +230,11 @@ Log into Google Ads and go to **Accounts**. Your Manager Account ID is the numbe
 
 <br />
 
-### Removing an Account
+#### Removing an Account
 
 To remove a connected account, click the **Delete** button next to the account name in the Connections panel.
 
-## 2. Why do I see a data discrepancy?
+### 2. Why do I see a data discrepancy?
 
 **Discrepancies in Revenue, Orders, and Visits are expected.** The reason for this lies in the differences between Northbeam's attribution model and the corresponding platform's attribution model. Each attribution model has a unique method of allocating credit.
 
@@ -242,7 +242,7 @@ For example, Northbeam's Clicks-Only model divides credit across all touchpoints
 
 <DiscrepancyExplanation />
 
-### Attribution Models and Windows
+#### Attribution Models and Windows
 
 **Google:**
 
@@ -255,7 +255,7 @@ For example, Northbeam's Clicks-Only model divides credit across all touchpoints
 * Attribution Model: Varies (default is Clicks-Only)
 * Attribution Window: 1-Day (default, can extend to an infinite lifetime value)
 
-## 3. I think there's an issue with tracking. Please help!
+### 3. I think there's an issue with tracking. Please help!
 
 Please reference our [Correct System Setup FAQ](/docs/confirm-setup-requirements).
 

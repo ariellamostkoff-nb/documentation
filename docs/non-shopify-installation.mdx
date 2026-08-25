@@ -5,7 +5,7 @@ description: "Add the Northbeam pixel to your storefront"
 icon: "store"
 ---
 
-# Northbeam Pixel Installation
+## Northbeam Pixel Installation
 
 There are two methods of installing the pixel:
 
@@ -43,7 +43,7 @@ You’ll need to install this script in the `<head>` section of every page on yo
 
 ***
 
-# `firePurchaseEvent` Installation
+## `firePurchaseEvent` Installation
 
 <br />
 
@@ -58,7 +58,7 @@ Use the `window.Northbeam.fireSlimPurchaseEvent` OR `window.Northbeam.firePurcha
 
 <br />
 
-## &#x20;Global Requirements  (both `fireSlimPurchaseEvent` and `firePurchaseEvent`)
+### &#x20;Global Requirements  (both `fireSlimPurchaseEvent` and `firePurchaseEvent`)
 
 **Your chosen function must:**
 
@@ -69,7 +69,7 @@ Use the `window.Northbeam.fireSlimPurchaseEvent` OR `window.Northbeam.firePurcha
 
 <br />
 
-## Critical: `id` = `order_id`
+### Critical: `id` = `order_id`
 
 We use the value from the `id` key (Please see function requirements below) to match the frontend purchase event (`fireSlimPurchaseEvent` AND/OR `firePurchaseEvent`) to your backend source of truth (orders sent via the [Northbeam Orders API](/reference/post_orders)).
 
@@ -79,9 +79,9 @@ If the value does not exactly match the corresponding server-side order (Case-se
 
 <br />
 
-## &#x20;*window\.Northbeam.fireSlimPurchaseEvent*
+### &#x20;*window\.Northbeam.fireSlimPurchaseEvent*
 
-### Definitions
+#### Definitions
 
 This lightweight function signals that the order/transaction number passed in the `id` field is a valid conversion that should be attributed. It only requires a single value for activation. This is our**primary recommended function for most\* implementations**.
 
@@ -91,7 +91,7 @@ This lightweight function signals that the order/transaction number passed in th
 
 <br />
 
-### fireSlimPurchaseEvent example
+#### fireSlimPurchaseEvent example
 
 ```javascript
 <script type="application/javascript">
@@ -102,15 +102,15 @@ This lightweight function signals that the order/transaction number passed in th
 * Note: The `id` key/field is an **implicit parameter** in `fireSlimPurchaseEvent` and does ***not*** need to be externally defined for the function to operate. It only needs a *value*, which is automatically mapped to the implicit `id` key.
 * In the above example: "A123" is a hard-coded string with your order\_id, but this should be a variable that ties to the value.
 
-### Considerations
+#### Considerations
 
 * `fireSlimPurchaseEvent` does *not* process monetary values and is therefore not recommended when operational actionability is a crucial consideration -AND- your corresponding backend Northbeam API upsert implementation is not synchronized to your Dashboard processing cycles. On such cases: `firePurchaseEvent` is best used instead of `fireSlimPurchaseEvent`.
 
 <br />
 
-## &#x20;*window\.Northbeam.firePurchaseEvent*
+### &#x20;*window\.Northbeam.firePurchaseEvent*
 
-### Definitions
+#### Definitions
 
 This full-fledged function not only signals that the order/transaction number passed in the `id` field is a valid conversion that should be attributed, but it also contains transactional information that is actionable for revenue, tax, and shipping calculations in your Northbeam Dashboard. This function **requires** a full transactional object `{}` with distinct keys rather than the `order_id` string alone, which increases complexity and should only be used when actionable data is a crucial concern -AND- your corresponding backend Northbeam API upsert implementation is not synchronized to your Dashboard processing cycles.
 
@@ -397,7 +397,7 @@ This full-fledged function not only signals that the order/transaction number pa
 
 <br />
 
-### firePurchaseEvent example
+#### firePurchaseEvent example
 
 ```javascript
 <script type="application/javascript">
@@ -427,7 +427,7 @@ This full-fledged function not only signals that the order/transaction number pa
 
 <br />
 
-### Considerations
+#### Considerations
 
 * Values from `totalPrice`, `shippingPrice` and `taxPrice` will directly power Northbeam Dashboard metrics tied to revenue, shipping, and taxes respectively.
 * The Northbeam Orders API is the ultimate source of truth. In case of a value conflict with the corresponding `order_id` payload: Values from `firePurchaseEvent` will be overwritten and replaced by the Northbeam API value.
@@ -435,7 +435,7 @@ This full-fledged function not only signals that the order/transaction number pa
 
 <br />
 
-## Validation and testing
+### Validation and testing
 
 A valid/fully-compliant event trigger for *either* `fireSlimPurchaseEvent` or `firePurchaseEvent` shows a network request (**nb-collector**) with a payload containing the data object **ue** (`data: [{e: "ue",…}]`) alongside second payload containing the data object **se** (`data: [{e: "se",…}]`). The **se\_la** key of the **se** object **contains the order number we received** .
 
@@ -445,7 +445,7 @@ These events can can only be reviewed if the network console is open *before* th
 
 <br />
 
-## Sequencing
+### Sequencing
 
 The [Northbeam base pixel](/docs/add-pixel) must fire **before** `firePurchaseEvent`.
 
@@ -455,7 +455,7 @@ Improper sequencing may prevent the purchase event from registering.
 
 <br />
 
-## Publishing
+### Publishing
 
 If deploying via Google Tag Manager:
 
@@ -466,7 +466,7 @@ Unpublished containers will prevent tracking.
 
 <br />
 
-## Final Checklist
+### Final Checklist
 
 Before going live, confirm:
 
@@ -480,14 +480,14 @@ If these conditions are met, purchase matching will function correctly.
 
 <br />
 
-## Best Practices
+### Best Practices
 
 * Wrap `fireSlimPurchaseEvent` or `firePurchaseEvent` in a function that logs if the script was successful or if it failed. This eases debugging and validation.
 * Wrap `fireSlimPurchaseEvent` or `firePurchaseEvent` in a function that checks if `window.Northbeam` is defined and ready to push the function, or retry if it isn't. This helps with scrip sequencing issues.
 
 <br />
 
-### fireSlimPurchaseEvent with debug function example
+#### fireSlimPurchaseEvent with debug function example
 
 ```javascript
 <script type="application/javascript">

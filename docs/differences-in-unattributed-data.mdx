@@ -11,7 +11,7 @@ icon: "circle-half-stroke"
 
 These are all valid questions! We'll unpack the answers in the guide below.
 
-# How Does Northbeam Attribute Data?
+## How Does Northbeam Attribute Data?
 
 Before getting into Unattributed data, it's important to understand how we **Attribute**.
 
@@ -39,7 +39,7 @@ If we have Server Data, but do not have Pixel Data, we'll pull the order/event i
   Exception: We exclusively use Pixel Data for [Custom Goals](/docs/setting-up-custom-goals)
 </Warning>
 
-# What Causes Unattributed Data?
+## What Causes Unattributed Data?
 
 With this in mind, **Unattributed data is caused by missing pixel data.** But, Unattributed data does not always indicate a tracking/setup issue.
 
@@ -60,17 +60,17 @@ Common examples:
   Any order that does not trigger our [Northbeam Pixel](/docs/add-pixel) or [Purchase Pixel](/docs/purchase-pixel) will be Unattributed.
 </Warning>
 
-# How To Find Your Unattributed Orders
+## How To Find Your Unattributed Orders
 
 Great! Now that you understand the definition and causes of Unattributed, here's how to find the specific Unattributed Orders in your dashboard. This should help you troubleshoot and determine if they're expected.
 
-## Step 1: Navigate to Orders Page
+### Step 1: Navigate to Orders Page
 
 **To find the Orders Page, click the Shopping Cart Icon on the left-side menu.**
 
 Our Orders Page is a great tool for troubleshooting orders. This is where we display all orders we received from your system -- whether they're from Shopify, WooCommerce, Magento, or a Custom Setup.
 
-## Step 2: Set Filters
+### Step 2: Set Filters
 
 Scroll down to the table and set the following filter:
 
@@ -80,17 +80,17 @@ Scroll down to the table and set the following filter:
   <img src="https://files.readme.io/bb9c689-Screen_Shot_2024-03-14_at_11.49.14_AM.png" alt="" />
 </Frame>
 
-## Step 3: Export Data
+### Step 3: Export Data
 
 Usually, the easiest way to look at the data is to export it -- especially, if there's high volume.
 
 Click **Export Data** and navigate to the **Documents** page to download.
 
-## Step 4: Analyze the Data
+### Step 4: Analyze the Data
 
 Once downloaded, you'll find lots of information for each order.
 
-### For Shopify Stores:
+#### For Shopify Stores
 
 If you're on Shopify, you're in luck. This process is usually somewhat straight forward.
 
@@ -116,7 +116,7 @@ This should help you determine if your Unattributed Orders are expected or not.
 
 For any orders from a Sales Channel where Pixel Tracking is unexpected, Unattributed is normal to see. **Please exclude these orders via Order Tag. Find directions in next step.**
 
-### For WooCommerce, Magento, Custom Stores
+#### For WooCommerce, Magento, Custom Stores
 
 Unfortunately, we do not pull sales channels details from these platforms like we do for Shopify Stores.
 
@@ -129,7 +129,7 @@ Here are a few ideas on what to look into and try to draw correlations from:
 * Orders from another marketplace
 * Orders from a unique sales channel
 
-# Addressing Unattributed Orders
+## Addressing Unattributed Orders
 
 Okay, great. Now that you've identified your Unattributed orders, we have two paths forward depending on whether the Unattributed is expected or not expected.
 
@@ -138,7 +138,7 @@ Okay, great. Now that you've identified your Unattributed orders, we have two pa
 | Expected                  | Place Order Tags and exclude.    |
 | Unexpected                | Troubleshoot the Purchase Pixel. |
 
-## Option 1: Placing Order Tags and Excluding
+### Option 1: Placing Order Tags and Excluding
 
 Any orders where unattributed is expected need to be excluded from your dashboard. This way, these orders won't interfere with the rest of your orders. In addition, this is very important for your data integrity and data validation -- an mandatory step of the onboarding process.
 
@@ -203,12 +203,12 @@ Once the orders are "Excluded", they'll be grouped into an "Excluded" Category a
   <img src="https://files.readme.io/ef7ff98-Screen_Shot_2024-03-18_at_4.49.18_PM.png" alt="" />
 </Frame>
 
-## Option 2: Troubleshooting the Purchase Pixel
+### Option 2: Troubleshooting the Purchase Pixel
 
 If your Unattributed data is not expected, it's very likely that your Purchase Pixel isn't firing correctly, if at all.
 
 Learn more about our [Purchase Pixel](/docs/purchase-pixel).
 
-# Need additional help?
+## Need additional help?
 
 If you need further assistance, reach out to [Support](https://www.northbeam.io/submit-a-support-ticket)!

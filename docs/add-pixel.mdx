@@ -4,7 +4,7 @@ description: "Complete Pixel Placement"
 icon: "code"
 ---
 
-# What is the Northbeam Pixel?
+## What is the Northbeam Pixel?
 
 <Note>
   The Northbeam Pixel is a required snippet of code that allows us to collect behavioral information about your website visitors – including their marketing touchpoints and pages they’ve visited.
@@ -25,7 +25,7 @@ This functionality is key for several reasons:
   With this said, it's very important that the pixel fires on ALL pages of your site at all times.
 </Warning>
 
-# Pixel Implementation Guides
+## Pixel Implementation Guides
 
 Please select your e-commerce platform to follow the appropriate guide:
 
@@ -34,7 +34,7 @@ Please select your e-commerce platform to follow the appropriate guide:
 * [Other e-commerce platform or custom solution (e.g Salesforce, Data Lakes)](/docs/non-shopify-installation)
   * **Only available on Pro and Enterprise Plans**
 
-# How do I add the Northbeam Pixel to my website?
+## How do I add the Northbeam Pixel to my website?
 
 <Frame>
   <iframe src="https://www.loom.com/embed/0292b52af8cd448282f9ebc255b8b294?sid=ffee21a4-c67e-4d39-8a9a-45ce041bb5ef" width="100%" height="450" allowfullscreen></iframe>
@@ -42,13 +42,13 @@ Please select your e-commerce platform to follow the appropriate guide:
 
 ***
 
-# Where can I find the script for the Northbeam Pixel?
+## Where can I find the script for the Northbeam Pixel?
 
-## In the Onboarding Flow
+### In the Onboarding Flow
 
 In the onboarding flow, find the script under the “Pixel Placement” step. After selecting and connecting your platform, find it under “Northbeam Pixel”.
 
-## In the Dashboard
+### In the Dashboard
 
 1. Navigate to **Settings**
 2. Click on **Tracking Script Tags**
@@ -56,7 +56,7 @@ In the onboarding flow, find the script under the “Pixel Placement” step. Af
 
 <br />
 
-# 🔍 How to Test for Your Northbeam Pixel on Any Web Page
+## 🔍 How to Test for Your Northbeam Pixel on Any Web Page
 
 <Frame>
   <iframe src="https://www.loom.com/embed/5af69887b65f4aa18b186be31efa0e66?sid=82fe4c47-4100-4da5-bce7-49dea856c900" width="100%" height="450" allowfullscreen></iframe>
@@ -64,11 +64,11 @@ In the onboarding flow, find the script under the “Pixel Placement” step. Af
 
 Use the steps below to confirm that the Northbeam pixel is correctly installed and firing on your website:
 
-### 1. Open Your Website
+#### 1. Open Your Website
 
 * Accept any cookie banners to ensure all scripts load.
 
-### 2. Open Developer Tools
+#### 2. Open Developer Tools
 
 * Right-click the page → **Inspect** → go to the **Network** tab.
 * Refresh the page.
@@ -77,14 +77,14 @@ Use the steps below to confirm that the Northbeam pixel is correctly installed a
   **Note:** These instructions are based on Google Chrome.
 </Tip>
 
-### Step 3: Search for the Northbeam Pixel Request
+#### Step 3: Search for the Northbeam Pixel Request
 
 * In the Network tab, use the search bar to look for the request called: `**nb-collector**`
 * Click on one of the results to inspect its details.
 * In the **Payload**, look for a `pv` field.
 * The presence of `"pv"` (short for *page view*) means that a page view event was successfully captured and sent to your Northbeam dashboard.
 
-### Step 4: Verify the Correct Client ID
+#### Step 4: Verify the Correct Client ID
 
 If you have multiple dashboards (e.g., for different regions or brands):
 
@@ -98,6 +98,6 @@ If you have multiple dashboards (e.g., for different regions or brands):
 
 ***
 
-### Need Help?
+#### Need Help?
 
 If you don’t see the `nb-collector` request or if you’re unsure about the Client ID, please [reach out to our team for support.](https://www.northbeam.io/submit-a-support-ticket)

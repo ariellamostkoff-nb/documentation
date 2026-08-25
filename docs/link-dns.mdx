@@ -4,13 +4,13 @@ description: "Configure DNS record for Northbeam"
 icon: "globe"
 ---
 
-# What is DNS Setup?
+## What is DNS Setup?
 
 DNS (Domain Name System) setup involves creating an **A Record** in your domain provider. For Northbeam, this means adding a subdomain—commonly named `i`—that points to an address provided in your dashboard.
 
 This simple step enables **first-party tracking** using your domain, unlocking advanced tracking capabilities while avoiding many of the limitations of third-party tracking.
 
-# Setting up your DNS
+## Setting up your DNS
 
 Having a dedicated DNS entry for Northbeam improves our ability to track your customers when they return to your website after their first visit.
 
@@ -29,7 +29,7 @@ If the subdomain `i` is already mapped to something, please get in touch with us
   in the connect-src of your CSP.
 </Warning>
 
-## Examples
+### Examples
 
 * `www.my-store.com`
   * Top-level domain: `my-store.com`
@@ -38,14 +38,14 @@ If the subdomain `i` is already mapped to something, please get in touch with us
   * Top-level domain: `my-product.com`
   * Create a DNS record for `i.my-product.com`
 
-## Instructions are available for multiple Domain providers
+### Instructions are available for multiple Domain providers
 
 * Generic
 * GoDaddy
 * CloudFlare
 * Google Domains
 
-# Following the onboarding flow here will lead you to success\*\*
+## Following the onboarding flow here will lead you to success\*\*
 
 :tada:
 
@@ -53,7 +53,7 @@ If the subdomain `i` is already mapped to something, please get in touch with us
   <iframe src="https://www.loom.com/embed/a1432a29b59f47448a936ddd3e5d4a59" width="100%" height="450" allowfullscreen></iframe>
 </Frame>
 
-## Instructions:
+### Instructions
 
 Follow these steps to enable first-party tracking with Northbeam:
 
@@ -73,11 +73,11 @@ Follow these steps to enable first-party tracking with Northbeam:
 
 ***
 
-## ⚠️ Additional Step for Domains Using DNSSEC
+### ⚠️ Additional Step for Domains Using DNSSEC
 
 If your domain has **DNSSEC (DNS Security Extensions)** enabled, you’ll need to add a **CAA record** to allow certificate issuance by Let's Encrypt. Without this step, your SSL certificate may fail to generate, resulting in issues like `404 not found` or certificate mismatch errors.
 
-### Add the following CAA record:
+#### Add the following CAA record
 
 | Field     | Value                            |
 | --------- | -------------------------------- |

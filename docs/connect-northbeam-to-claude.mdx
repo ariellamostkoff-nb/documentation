@@ -17,7 +17,7 @@ The setup steps differ between Claude connectors and Claude Code, but the overal
 2. Sign in with your Northbeam account.
 3. Verify that Claude can access your dashboards.
 
-# Before you start
+## Before you start
 
 You will need:
 
@@ -25,7 +25,7 @@ You will need:
 2. Access to Claude custom connectors or Claude Code. Custom connectors using remote MCP are available in **Claude** and **Claude Desktop** across **Free, Pro, Max, Team, and Enterprise** plans.
 3. The Northbeam MCP server URL: `https://mcp.northbeam.io`.
 
-# If you’re on Team or Enterprise
+## If you’re on Team or Enterprise
 
 If your Claude access is managed by your organization, an Owner or Primary Owner may need to add the Northbeam connector first. After that, each user enables the connector and signs in individually.
 
@@ -35,11 +35,11 @@ If you’re on an individual plan, you can set up Northbeam yourself.
 
 ***
 
-# Individual setup
+## Individual setup
 
 Use these steps if you are on an individual Claude plan and can add your own custom connectors.
 
-### Claude on the web (`claude.ai`) or Claude Desktop
+#### Claude on the web (`claude.ai`) or Claude Desktop
 
 1. Open **Claude** and go to **Customize → Connectors**.
 2. Click the **+** button next to **Connectors**.
@@ -56,7 +56,7 @@ Use these steps if you are on an individual Claude plan and can add your own cus
   <img src="https://files.readme.io/b2e4897b37a41069d8f69f52bc1cbbd8b9e27ed1f37a96f4008c5a68f3ffb825-org-admin-add-custom-connector.png" alt="" />
 </Frame>
 
-### Claude Code
+#### Claude Code
 
 1. Run this command in your terminal:
    ```text
@@ -70,7 +70,7 @@ Use these steps if you are on an individual Claude plan and can add your own cus
 
 If you see `Failed to connect` immediately after adding the server, that is expected. The connection becomes active after you complete authentication.
 
-## Verify the connection
+### Verify the connection
 
 Start a new chat and ask Claude:
 
@@ -80,14 +80,14 @@ If Claude returns your dashboards, the connection is working.
 
 ***
 
-# Team / Enterprise setup
+## Team / Enterprise setup
 
 If you are on a Claude Team or Enterprise plan, setup happens in **two parts**:
 
 1. A plan **Owner/Admin** adds the connector for the organization.
 2. Each user enables the connector and signs in with their own Northbeam account.
 
-## Part 1: Admin setup
+### Part 1: Admin setup
 
 An organization **Owner** or **Admin** should:
 
@@ -101,11 +101,11 @@ An organization **Owner** or **Admin** should:
 
 After that, the connector becomes available to members of the organization, but it is **not connected for them automatically**.
 
-## Part 2: Individual user setup
+### Part 2: Individual user setup
 
 Once your admin has added Northbeam for the organization, you can connect your Northbeam login to Claude.
 
-### Claude on the web (`claude.ai`) or Claude Desktop
+#### Claude on the web (`claude.ai`) or Claude Desktop
 
 1. Open **Claude** or **Claude Desktop**.
 2. Go to your **Connectors** settings.
@@ -119,7 +119,7 @@ Once your admin has added Northbeam for the organization, you can connect your N
 
 Each user must authenticate individually. Adding the connector at the org level only makes it available; it does not grant access by itself.
 
-### Claude Code
+#### Claude Code
 
 1. Open Claude Code.
 2. Run `/mcp`.
@@ -127,7 +127,7 @@ Each user must authenticate individually. Adding the connector at the org level 
 4. Choose Authenticate.
 5. Complete the browser sign-in flow with your normal Northbeam login.
 
-## Verify the connection
+### Verify the connection
 
 Start a new chat and ask Claude:
 
@@ -137,7 +137,7 @@ If Claude returns your dashboards, you are connected.
 
 ***
 
-# What you can ask Claude
+## What you can ask Claude
 
 Once connected, Claude can pull live data from your Northbeam dashboards. Example prompts:
 

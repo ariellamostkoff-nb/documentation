@@ -3,7 +3,7 @@ title: "Custom Goals"
 icon: "bullseye"
 ---
 
-# 🧠 Custom Goals Overview
+## 🧠 Custom Goals Overview
 
 * [What are Custom Goals?](#what-are-custom-goals)
 * [How Custom Goals Work](#how-custom-goals-work)
@@ -17,7 +17,7 @@ icon: "bullseye"
   <iframe src="https://www.loom.com/embed/081fbad7d37b41c389a7d86033ebb182?sid=8fea34db-7567-41f4-9896-eee348805b50" width="100%" height="450" allowfullscreen></iframe>
 </Frame>
 
-# What are Custom Goals?
+## What are Custom Goals?
 
 Custom Goals allow you to track actions that occur on your website..
 
@@ -41,7 +41,7 @@ Examples include:
 
 ***
 
-# How Custom Goals Work
+## How Custom Goals Work
 
 1. A visitor completes an action on your website
 2. `fireCustomGoal()` sends the event to Northbeam
@@ -58,7 +58,7 @@ Examples include:
   These events must occur on the same website domain where the Northbeam Base Pixel is installed.
 </Note>
 
-## Supported Examples
+### Supported Examples
 
 * Button clicks
 * Form submissions
@@ -68,7 +68,7 @@ Examples include:
 
 <br />
 
-## Unsupported Examples
+### Unsupported Examples
 
 * Backend webhook events
 * Server-side API calls
@@ -78,9 +78,9 @@ Examples include:
 
 ***
 
-# How to set up Custom Goals
+## How to set up Custom Goals
 
-## Step 1: Confirm the Northbeam Pixel is Installed
+### Step 1: Confirm the Northbeam Pixel is Installed
 
 Before implementing Custom Goals, confirm:
 
@@ -93,7 +93,7 @@ Before implementing Custom Goals, confirm:
 
 ***
 
-## Step 2: Implement the Script
+### Step 2: Implement the Script
 
 ```javascript
 <script>
@@ -130,7 +130,7 @@ The event can be deployed:
   4. Tracks event count only — no revenue or values can be passed
 </Note>
 
-## Recommended Naming Conventions
+### Recommended Naming Conventions
 
 Examples:
 
@@ -142,7 +142,7 @@ Examples:
 
 ***
 
-## Step 3: Add the Goal ID in the dashboard
+### Step 3: Add the Goal ID in the dashboard
 
 Go to [Settings → Custom Goals](https://dashboard.northbeam.io/settings/custom-goals) and add a new entry:
 
@@ -155,7 +155,7 @@ Go to [Settings → Custom Goals](https://dashboard.northbeam.io/settings/custom
 
 ***
 
-## Step 4: Add the goal to your Sales view
+### Step 4: Add the goal to your Sales view
 
 After at least one event fires successfully, the Custom Goal becomes available as a metric on the Sales page.
 
@@ -177,7 +177,7 @@ After at least one event fires successfully, the Custom Goal becomes available a
 
 ***
 
-# Common Mistakes
+## Common Mistakes
 
 * The Northbeam Base Pixel is not firing on the page
 * The Goal ID in the dashboard does not exactly match the script
@@ -186,7 +186,7 @@ After at least one event fires successfully, the Custom Goal becomes available a
 
 ***
 
-# Limitations
+## Limitations
 
 Custom Goals track **event count only**.
 

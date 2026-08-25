@@ -4,11 +4,11 @@ description: "This page describes the usage of our Spend API"
 icon: "money-bill"
 ---
 
-# What is the Spend API?
+## What is the Spend API?
 
 The Spend API enables our customers to programmatically upload daily spend, clicks, and impressions metrics at the ad level of their choice (Campaign, Adset, Ad) for Ad platform integrations that we do not natively support. A common example is an email marketing platform (e.g. Mailchimp, SendGrid).
 
-# Functionality
+## Functionality
 
 The Spend API allows for
 
@@ -19,15 +19,15 @@ The Spend API allows for
 
 With this flexibility, our customers can programmatically modify their spend data for platforms we do not yet natively support!
 
-# Spend Attributes
+## Spend Attributes
 
 Each spend entry has a set of **required** attributes as well as *optional* attributes that can be submitted for each spend entry. These fields are also documented in the [API Reference](/reference/post_spend), albeit in much more detail here.
 
-## Day by Day Data
+### Day by Day Data
 
 Most users will only need day-by-day data for their custom spend. This will spread out the data across the entire day linearly (For example, if you send $240 for a day, it will be attributed as 10 dollars for every hour of the day).
 
-## Required Attributes
+### Required Attributes
 
 Certain metadata is required for a spend entry to be submitted. Without these fields, an API call will return an error as part of our validation check to make sure the spend entries contained in an API call pass muster. The following attributes are required:
 
@@ -38,7 +38,7 @@ Certain metadata is required for a spend entry to be submitted. Without these fi
 * `spend` - This captures how much was spent on an ad object on a given day. If no spend was made on an ab object, consider not sending an entry for that ad object.
 * `spend_currency` - This field captures the currency that was used for the spend, per ISO-4217 standards (a 3 letter denomination)
 
-## Optional Attributes
+### Optional Attributes
 
 The following spend attributes are optional:
 
@@ -50,10 +50,10 @@ The following spend attributes are optional:
 * `impressions`- Along with Spend, the Spend API can track additional metrics that can be gathered from the ad platform, such as impressions; these will default to `0` if not specified
 * `clicks`- Along with Spend, the Spend API can track additional metrics that can be gathered from the ad platform, such as clicks; these will default to `0` if not specified.
 
-# Notes
+## Notes
 
 One of the motivations for the development of this API was to avoid using Spend sheets. Spend sheets exist at Northbeam to allow Northbeam to capture spend that we do not have native connections for. This can be rather cumbersome when there are either (i) a lot of ad platforms to support via Spend sheets, or (ii) a lot of campaigns (deeper levels) of hierarchy per platform. Consider using the Spend API if developer resources are available and the time spent using the sheets is burdensome and can be leveraged otherwise!
 
-# Further Help
+## Further Help
 
 If you have any questions, please submit a [Support](https://www.northbeam.io/submit-a-support-ticket) ticket.

@@ -27,19 +27,19 @@ icon: "plug"
 | [Amazon Seller Central](https://sellercentral.amazon.com/) | Fetches Total Revenue reported on Seller Central           |
 | [Amazon Ads](https://advertising.amazon.com/)              | Fetches Total Spend reported on Amazon Ads (ex. PPC costs) |
 
-# Setting up Amazon within Northbeam involves one simple step:
+## Setting up Amazon within Northbeam involves one simple step
 
-## [Step 1: Connect Your Amazon Accounts](doc:setting-up-tracking-for-tiktok-ads#Step-1:-Connect-Your-TikTok-Ad-Account)
+### [Step 1: Connect Your Amazon Accounts](doc:setting-up-tracking-for-tiktok-ads#Step-1:-Connect-Your-TikTok-Ad-Account)
 
 ***
 
-# Step 1: Connect Your Amazon Accounts
+## Step 1: Connect Your Amazon Accounts
 
-## What do the connections do?
+### What do the connections do?
 
 Northbeam natively integrates with the Amazon Seller and Amazon Ads API. By doing so, we pull all your PPC spend and revenue from your Amazon Marketplaces.
 
-## How to connect your Ad Account
+### How to connect your Ad Account
 
 Please be sure to connect your **Amazon Seller Account and Amazon Ads Account**. Amazon Seller fetches your store's revenue, while Amazon Ads fetches your store's spend.
 
@@ -64,9 +64,9 @@ For a visual walkthrough, reference the video below.
 
 ***
 
-# Amazon Integration FAQ
+## Amazon Integration FAQ
 
-## I've connected my Amazon Accounts, but don't see any data?
+### I've connected my Amazon Accounts, but don't see any data?
 
 After connecting, we begin importing your Amazon data, starting with the **oldest orders and moving to the newest.** The time required to backfill your orders varies based on order volume and may take up to 8–10 weeks.
 
@@ -75,7 +75,7 @@ After connecting, we begin importing your Amazon data, starting with the **oldes
 | Revenue | Amazon Seller Central | Up to 8-10 weeks                      | From January 1, 2000, to the present.                       | Populates oldest to newest. High order volumes and Amazon's API limitations on data retrieval slow the process compared to other platforms.     |
 | Spend   | Amazon Ads            | Typically 2-3 days                    | From 58 days prior to connecting your account to Northbeam. | Populates oldest to newest. Spend data is limited to the past 58 days by Amazon's API, which we retrieve shortly after connecting your account. |
 
-## How can I check the progress of the backfilling process?
+### How can I check the progress of the backfilling process?
 
 Revenue and Spend are both retrieved starting from the most historical data (Oldest to Newest). Revenue typically takes longer due to the larger volume of data.
 
@@ -87,7 +87,7 @@ You can track Revenue and Order progress anytime on the Orders Page (see graphic
 
 <br />
 
-## Can Northbeam distinguish between First-time and Returning Amazon Customers?
+### Can Northbeam distinguish between First-time and Returning Amazon Customers?
 
 As of February 10, 2026, Amazon no longer includes buyer email addresses in Seller API order data. Northbeam uses this identifier to classify customers as New or Returning, so affected orders are now labeled **Unknown**.
 
@@ -103,7 +103,7 @@ As of February 10, 2026, Amazon no longer includes buyer email addresses in Sell
 
 <br />
 
-## Is there any way to identify New vs Returning Amazon customers now?
+### Is there any way to identify New vs Returning Amazon customers now?
 
 There are two options:
 
@@ -119,7 +119,7 @@ You can find these metrics under **Amazon Ads reported** in your metrics selecto
 
 <br />
 
-## Why are my Amazon orders showing as Unknown?
+### Why are my Amazon orders showing as Unknown?
 
 Amazon orders retrieved on or after February 10, 2026 no longer include buyer email addresses — this applies to new orders going forward and any historical orders re-fetched after that date. Without a buyer identifier, Northbeam has no reliable way to determine if a purchase is New or Returning, so it's marked as Unknown.
 
@@ -129,7 +129,7 @@ Amazon orders retrieved on or after February 10, 2026 no longer include buyer em
 
 <br />
 
-## Why don't my New + Returning totals match my Amazon totals?
+### Why don't my New + Returning totals match my Amazon totals?
 
 Unknown orders are excluded from New and Returning breakdowns but are still counted in blended/total metrics (Revenue, Orders). This means:
 
@@ -141,7 +141,7 @@ For full coverage, use total Amazon metrics without a customer type filter rathe
   <img src="https://files.readme.io/28b2bf94c1fa358e945020a94d54d15916149ffe7258b0166fc315887eac6963-CleanShot_2026-05-05_at_16.46.33.png" alt="" />
 </Frame>
 
-## How do I connect an extra account or remove an account?
+### How do I connect an extra account or remove an account?
 
 Reference our step-by-step guide below:
 
@@ -153,25 +153,25 @@ When your Amazon connections are removed, your historical data will still be sto
 
 <br />
 
-## Is there an integration with Amazon DSP or Vendor Central?
+### Is there an integration with Amazon DSP or Vendor Central?
 
 We're afraid we do not support Amazon DSP or Vendor Central at this time. If you'd like to upload costs from Amazon DSP, feel free to use a Custom Spendsheet.
 
 <br />
 
-## Why can’t I see Amazon data on hourly view?
+### Why can’t I see Amazon data on hourly view?
 
 Amazon Ads does not provide access to hourly data, thus the data you will see will not be reflective of what is going on hour by hour. However, Amazon Seller does provide reporting accurate to the hour.
 
 <br />
 
-## How do I integrate with Amazon?
+### How do I integrate with Amazon?
 
 On the connections page, connect “Amazon Seller” and “Amazon Ads”. Follow the steps for each that Amazon provides until you’re redirected back to Northbeam. You should see the account become connected.
 
 <br />
 
-## How do I connect multiple Amazon accounts?
+### How do I connect multiple Amazon accounts?
 
 Northbeam supports multiple Amazon account connections.
 
@@ -187,7 +187,7 @@ If you're operating across multiple regions or businesses, you can connect as ma
 
 <br />
 
-## What is the difference between the Amazon and Amazon Seller connections?
+### What is the difference between the Amazon and Amazon Seller connections?
 
 Our Amazon Ads connection gives Northbeam access to your Amazon advertising channel. This includes impression data and spend data broken down by country.
 
@@ -195,37 +195,37 @@ The Amazon Seller connection gives us access to your Amazon Seller account data 
 
 <br />
 
-## How often is Amazon data updated within Northbeam?
+### How often is Amazon data updated within Northbeam?
 
 We will update hourly. However, due to limitations in the Amazon APIs, you should treat any data from the last 24 hours as "preliminary results".
 
 <br />
 
-## How far back does Amazon Ads data go?
+### How far back does Amazon Ads data go?
 
 For Amazon Ads, we retrieve spend data for the past 58 days from the date the account was linked. For Amazon Seller, we gather orders data starting from January 1, 2000, up to the present.
 
 <br />
 
-## How should I review Amazon data? (By day / week)
+### How should I review Amazon data? (By day / week)
 
 We recommend reviewing Amazon data on 3 and 7 day look backs vs day of data.
 
 <br />
 
-## Is this Amazon integration able to see attribution from Facebook / TikTok ads or influencers?
+### Is this Amazon integration able to see attribution from Facebook / TikTok ads or influencers?
 
 Not currently, though this is something we’re planning to work on in the future.
 
 <br />
 
-## Why are there discrepancies between my daily Amazon Ads spend on Northbeam when compared to looking at the Amazon Ads dashboard?
+### Why are there discrepancies between my daily Amazon Ads spend on Northbeam when compared to looking at the Amazon Ads dashboard?
 
 If there is a difference between the time zone you've configured in Amazon Ads and the time zone you've configured in Northbeam, you may see a minor discrepancy in your daily spend totals for Amazon Ads.
 
 <br />
 
-## Why is the data seen in Northbeam's dashboard different from what I see in Amazon's Seller Central (e.g. Business Report - Sales & Traffic)?
+### Why is the data seen in Northbeam's dashboard different from what I see in Amazon's Seller Central (e.g. Business Report - Sales & Traffic)?
 
 The data can differ due to a variety of reasons:
 
@@ -237,13 +237,13 @@ The data can differ due to a variety of reasons:
 
 <br />
 
-## Where does Northbeam fetch my sales data?
+### Where does Northbeam fetch my sales data?
 
 Currently, Northbeam fetches data from three different sources: All Orders Report, Product Fees API, and Order Returns Report.
 
 <br />
 
-## How an order revenue is calculated?
+### How an order revenue is calculated?
 
 The order total is calculated using this formula:
 
@@ -255,13 +255,13 @@ The order total is calculated using this formula:
 
 <br />
 
-## Why do I see a data discrepancy?
+### Why do I see a data discrepancy?
 
-#### Spend Discrepancies
+##### Spend Discrepancies
 
 If there is a difference between the time zone you've configured in Amazon Ads and the time zone you've configured in Northbeam, you may see a minor discrepancy in your daily spend totals for Amazon Ads.
 
-#### Order Discrepancies
+##### Order Discrepancies
 
 Our orders and revenue should match the following report in Amazon Seller Central: *Business Report - Sales & Traffic*
 
@@ -274,6 +274,6 @@ However, the data can differ due to a variety of reasons:
 
 Some discrepancies are expected across Amazon's reports. This is due to how the data is pivoted and the data source. Go to the following link for more information: https://sellercentral.amazon.com/help/hub/reference/200633570
 
-### If you suspect a tracking issue, please review the following:
+#### If you suspect a tracking issue, please review the following
 
 * **Connection**: Make sure your Accounts are still connected. Go to Settings > Connections and check for any errors. Connections could break for a variety of reasons, but most commonly, the User losing access to the Ad Account.

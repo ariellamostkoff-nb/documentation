@@ -20,7 +20,7 @@ icon: "receipt"
 
 <br />
 
-## Step 1. Get API Credentials
+### Step 1. Get API Credentials
 
 * In your Northbeam dashboard go to **Settings → API Keys**
 * Click **Create new API key** to generate:
@@ -68,7 +68,7 @@ curl --request POST \
 
 <br />
 
-## Step 2. Build Your Payload (All Required Fields)
+### Step 2. Build Your Payload (All Required Fields)
 
 All these fields are required for full functionality in Northbeam.
 
@@ -341,7 +341,7 @@ All these fields are required for full functionality in Northbeam.
 
 <br />
 
-## Example Payload
+### Example Payload
 
 ```json
 [
@@ -398,7 +398,7 @@ All these fields are required for full functionality in Northbeam.
 
 <br />
 
-## Step 3. Verify Your Payload
+### Step 3. Verify Your Payload
 
 Before sending the orders, confirm your payload structure and values are valid. Most issues come from malformed payloads or missing fields.
 
@@ -427,7 +427,7 @@ Before sending the orders, confirm your payload structure and values are valid. 
 
 ***
 
-### 🚧 Common Mistakes to Avoid
+#### 🚧 Common Mistakes to Avoid
 
 * ❌ Using inconsistent `customer_id`s (e.g., switching between Shopify and internal IDs)
 * ❌ `time_of_purchase` set **BEFORE** the frontend pixel fire
@@ -442,7 +442,7 @@ Before sending the orders, confirm your payload structure and values are valid. 
 
 <br />
 
-## Step 4. Backfill Historical Orders
+### Step 4. Backfill Historical Orders
 
 Backfilling your historical data is extremely important. This ensures your Customer LTV is complete. This is also key for accurate New and Returning Data.
 
@@ -458,13 +458,13 @@ Backfilling your historical data is extremely important. This ensures your Custo
   **Backfilling ensures repeat customers are recognized correctly.**
 </Note>
 
-### What to Send
+#### What to Send
 
 * Send all historical orders you want in Northbeam (recommended: up to 5 years).
 * Use the same payload format from Step 2.
 * Keep `order_id` stable; resending the same `order_id` overwrites the prior record.
 
-### How to Send
+#### How to Send
 
 * Batch up to **1000 orders per request**.
 * Backfill in time windows (for example, month by month).
@@ -481,23 +481,23 @@ Backfilling your historical data is extremely important. This ensures your Custo
 
 <br />
 
-## Step 5. Set Up Ongoing Batches
+### Step 5. Set Up Ongoing Batches
 
 After history is loaded, keep Northbeam up to date with regular batches.
 
-### Cadence
+#### Cadence
 
 * Northbeam processes on your plan frequency, not in real time.
 * Send **at least 2× more frequently** than your plan’s processing cadence.
   * Example: on a 4× per day plan, send **8× per day**.
 
-### Batching
+#### Batching
 
 * Up to **1000 orders per request**.
 * Include new and changed orders since the last run.
 * Resend modified orders using the same `order_id`.
 
-### Operational Notes
+#### Operational Notes
 
 * **Retries**: if a request fails, retry the same batch; using the same `order_id`s is safe.
 * **Idempotency**: the latest record for an `order_id` takes priority.
@@ -514,7 +514,7 @@ After history is loaded, keep Northbeam up to date with regular batches.
 
 <br />
 
-## Step 6. Test in Sandbox (Optional)
+### Step 6. Test in Sandbox (Optional)
 
 Use the UAT endpoint to validate payloads before sending real data to production.
 
@@ -541,7 +541,7 @@ Use the UAT endpoint to validate payloads before sending real data to production
 
 <br />
 
-## Step 7. Data Diagnostics
+### Step 7. Data Diagnostics
 
 Northbeam provides a diagnostics tool to help you monitor Orders API activity in production.
 
@@ -550,7 +550,7 @@ Common causes include **malformed payloads** or **missing required fields**.
 
 ***
 
-### Where to Find the Diagnostics Tools:
+#### Where to Find the Diagnostics Tools
 
 In the Northbeam dashboard:
 
@@ -559,7 +559,7 @@ In the Northbeam dashboard:
 
 ***
 
-### Error Table
+#### Error Table
 
 Each error entry includes:
 
@@ -582,7 +582,7 @@ Each error entry includes:
 
 ***
 
-### Error Trends
+#### Error Trends
 
 * A chart shows API error counts over time (1–30 day ranges available).
   * Errors typically appear within **1–3 minutes** after they occur.
@@ -603,13 +603,13 @@ Each error entry includes:
 
 ***
 
-## API reference details
+### API reference details
 
 *The sections below were consolidated from the legacy API - Orders pages.*
 
-### Background
+#### Background
 
-# Background
+## Background
 
 For Northbeam's Multi-Touch Attribution(MTA) and Mixed Media Modeling(MMM) offerings we use our customer's Orders as the ground truth for Revenue.  This enables Northbeam to perform Ad Attribution on Purchases that took place (MTA) and to assist in predicting what will take place (MMM).
 
@@ -622,7 +622,7 @@ It is sometimes the case that Shopify or Amazon are not the customer's go-to for
 
 In either of these above cases (or others), we support the Orders API so that Northbeam can obtain the order information needed to support operations for MMM and MTA. The Orders API is a standard solution that accepts HTTP API calls where the payload contains a list of orders and associated metadata for the orders.
 
-### Authentication
+#### Authentication
 
 The Northbeam API uses API keys to authenticate requests. If you don't have an API key or need to create a new one, you can easily generate it from the Settings page on our Dashboard. Simply go to `Settings -> API Keys -> Create new API Key`.
 
@@ -639,7 +639,7 @@ Both will be used in making the API calls to Submit/Correct/Get Orders from our 
 
 > If you have any questions or encounter any difficulties while creating an API key, please don't hesitate to reach out to us at [success@northbeam.io](mailto:success@northbeam.io). We're here to help.
 
-# Testing
+## Testing
 
 When testing, you can use the following values without the need for production keys. In the testing environment, no orders are saved and we only return the results of validation.
 
@@ -651,6 +651,6 @@ When testing, you can use the following values without the need for production k
 
 Testing with your user keys is also supported, though the development database is purged from time to time to limit storage bloat so it should only be treated as a testing environment and not a stable one.
 
-### Limits
+#### Limits
 
 The Orders API upsert function allows for uploads of order batches.  While the API has a hard limit of 1000 orders per call, we recommend using the order size per call that best suits your needs. There are no concurrency or daily/hourly limits otherwise.

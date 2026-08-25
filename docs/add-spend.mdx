@@ -27,7 +27,7 @@ This will allow you to:
 
 ***
 
-## When to Use the Spend API Instead of a Spend Sheet
+### When to Use the Spend API Instead of a Spend Sheet
 
 Spend Sheets let you share spend data for ad platforms we don’t natively support by using a Google Sheet. However, they can become challenging to manage when you have:
 
@@ -39,7 +39,7 @@ The Spend API was developed to simplify these cases. Consider using the Spend AP
 * You have developer resources to assist with setup
 * Your spend data is complex enough that manually updating a sheet would be burdensome.
 
-### Comparison: Spend API vs. Spend Sheet
+#### Comparison: Spend API vs. Spend Sheet
 
 |                                        | Spend Sheet | Spend API |
 | -------------------------------------- | ----------- | --------- |
@@ -48,15 +48,15 @@ The Spend API was developed to simplify these cases. Consider using the Spend AP
 | Minimal ongoing overhead to support    | ❌           | ✅         |
 | Supports Hourly data                   | ❌           | ✅         |
 
-# Option 1: Spend API
+## Option 1: Spend API
 
-## What is the Spend API?
+### What is the Spend API?
 
 The Spend API enables our customers to programmatically upload daily spend, clicks, and impressions metrics at the ad level of their choice (Campaign, Adset, Ad) for Ad platform integrations that we do not natively support. A common example is an email marketing platform (e.g. Mailchimp, SendGrid).
 
 Read more about the Spend API [here](/docs/spend-api) and the API reference [here](/reference/post_spend).
 
-## When should I use the Spend API?
+### When should I use the Spend API?
 
 If you want to associate spend with campaigns that Northbeam is tracking from platforms that we don't natively integrate with, upload spend data associated with those campaigns using the Spend API. To correctly associate spend with campaigns, you need to provide:
 
@@ -65,31 +65,31 @@ If you want to associate spend with campaigns that Northbeam is tracking from pl
 * The campaign ID and name that the spend is for
 * The currency and amount spent on the campaign
 
-## How do I set up the Spend API?
+### How do I set up the Spend API?
 
 Read more about the Spend API [here](/docs/spend-api) and the API reference [here](/reference/post_spend).
 
 ***
 
-# Option 2: Spend Sheet
+## Option 2: Spend Sheet
 
-## What is a Spend Sheet?
+### What is a Spend Sheet?
 
 A Spend Sheet is a Google Sheet where you can manually enter your spend data, which is then uploaded to your dashboard to reflect this data in the backend.  This method provides an efficient way to track cost metrics like ROAS and CAC even for platforms or channels that don’t have direct integrations with Northbeam.
 
-## When should I use a Spend Sheet?
+### When should I use a Spend Sheet?
 
 If you don’t have development resources to set up an automated API POST request to send spend data on a regular cadence to your dashboard, the Spend Sheet is an effective alternative. While it requires more manual setup, there are ways to streamline and partially automate the process.
 
-## How do I set up a Spendsheet?
+### How do I set up a Spendsheet?
 
-### Step 1: Request a Spend Sheet
+#### Step 1: Request a Spend Sheet
 
 First, check if you already have a Spend Sheet in your dashboard by going to Settings > Data Spreadsheets.
 
 If not, [reach out our team](https://info.northbeam.io/knowledge/help) to request one. We’ll create it, share it with you, and connect it to your backend.
 
-### Step 2: Fill out the Custom Spendsheet
+#### Step 2: Fill out the Custom Spendsheet
 
 For detailed step-by-step instructions:
 
@@ -133,7 +133,7 @@ For detailed step-by-step instructions:
 
 <br />
 
-## Step 3: Re-Categorize Custom Spend
+### Step 3: Re-Categorize Custom Spend
 
 When your spend data is uploaded, it might initially appear under the “**Other**” platform group in your dashboard. You can use the **Breakdowns Manager** to customize spend categories. This tool allows you to reassign spend to the appropriate platform, making it easier to analyze spend metrics by platform.
 
@@ -143,9 +143,9 @@ When your spend data is uploaded, it might initially appear under the “**Other
 
 ***
 
-# FAQ:
+## FAQ
 
-## **Why can't I find my spend?**
+### **Why can't I find my spend?**
 
 If you can't locate your spend data, try the following troubleshooting steps in order of priority:
 

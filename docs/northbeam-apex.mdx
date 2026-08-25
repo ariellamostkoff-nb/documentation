@@ -9,7 +9,7 @@ icon: "rocket"
   <img src="https://files.readme.io/57065145cc5a9ea3fba9539a343b8399734638eea841e09c7e83d4f011bb8681-Group_52099.png" alt="" />
 </Frame>
 
-# What is Northbeam Apex?
+## What is Northbeam Apex?
 
 **Northbeam Apex is a direct integration between Northbeam and our advertising platform partners that lets the partner fold Northbeam's first-party, multi-touch attribution signal directly into how they optimize ad delivery.**
 
@@ -25,7 +25,7 @@ These are the results of our most recent A/B testing of Apex-empowered campaigns
 
 ***
 
-# How does Apex work?
+## How does Apex work?
 
 Apex flips the standard model: instead of sending the platform more raw events for it to attribute itself, **Northbeam does the attribution first** and sends the platform the result.
 
@@ -44,15 +44,15 @@ The result is the platform's auction aligning to how *you* measure success — n
 
 ***
 
-# Apex: two pieces to understand
+## Apex: two pieces to understand
 
 There are two distinct components to Apex, and it's important to understand them separately:
 
-### 1. The data connection
+#### 1. The data connection
 
 This is what you set up in Northbeam. Turning this on starts sending Northbeam's order-level MTA data to the platform. It trains the platform's model. It does not turn on live optimization.
 
-### 2. The optimization layer
+#### 2. The optimization layer
 
 This is how the platform actually uses Apex data to optimize your campaigns.&#x20;
 
@@ -60,7 +60,7 @@ On Meta, this is called **Custom Attribution** and is configured at the ad-set l
 
 ***
 
-# Supported platforms
+## Supported platforms
 
 | **Platform**  | **Status**                                                                                                                                                                   |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -72,9 +72,9 @@ On Meta, this is called **Custom Attribution** and is configured at the ad-set l
 
 ***
 
-# Setting up Apex
+## Setting up Apex
 
-## Before you start
+### Before you start
 
 Regardless of platform, setup begins in the same place: **Settings → Apex** in your Northbeam dashboard. You'll define your **North Star metric** — the signal Apex sends to the platform to optimize toward:
 
@@ -97,11 +97,11 @@ Once your North Star is set, enable Apex consent for your desired platform(s) in
 
 ***
 
-## Meta
+### Meta
 
 Meta is the most fully featured Apex integration today and the most common starting point. The setup below is specific to Meta.
 
-### Legacy vs. current version
+#### Legacy vs. current version
 
 The current version of Apex sends order-level data to Meta via CAPI and is the foundation for active Meta-side optimization.&#x20;
 
@@ -122,11 +122,11 @@ The current version of Apex sends order-level data to Meta via CAPI and is the f
 
 ***
 
-# How to enable Apex for Meta
+## How to enable Apex for Meta
 
 Everything happens inside the Northbeam dashboard. You do not need to configure anything in Meta Business Manager — Northbeam handles the Meta-side setup (Custom Attribution Source, CAPI dataset, passback pixel) automatically on your behalf.
 
-## Before you start
+### Before you start
 
 Before setting up Apex for Meta, make sure you have the following ready:
 
@@ -135,7 +135,7 @@ Before setting up Apex for Meta, make sure you have the following ready:
 * **An active Meta pixel** — at least one pixel must have been receiving Purchase events in the last 28 days. This is Meta's eligibility check and cannot be bypassed.
 * **Your North Star metric** — have a decision made (or be ready to decide) on your revenue type, attribution model, attribution window, and accounting mode before starting setup.
 
-## Step 1 — Configure your North Star and enable Meta consent
+### Step 1 — Configure your North Star and enable Meta consent
 
 In [**Settings → Apex**](https://dashboard.northbeam.io/settings/apex):
 
@@ -160,7 +160,7 @@ Any user on your Northbeam account can complete this step — it does not requir
   Choose carefully —**&#x20;your North Star tells Meta what to optimize toward based on Northbeam's attribution data**, not Meta's. For example, if you set it to 1st time revenue, Meta trains against Northbeam's revenue from new customers — not Meta's own definition of a new customer.
 </Tip>
 
-## Step 2 — Connect, Configure, and Validate
+### Step 2 — Connect, Configure, and Validate
 
 Toggling on consent launches a three-step in-app wizard. You can return to it from the Apex page if you don't finish in one session.
 
@@ -174,7 +174,7 @@ Toggling on consent launches a three-step in-app wizard. You can return to it fr
   <img src="https://files.readme.io/4a5b22c0879cb73936fb478ee929a70810d0533dccff8046f5e454559fca554f-Screenshot_2026-05-28_at_1.13.28_PM_1.png" alt="" />
 </Frame>
 
-### 1. Connect your Ad Account(s)
+#### 1. Connect your Ad Account(s)
 
 Northbeam lists every Meta ad account connected to your dashboard and flags whether the active connection has `business_management` permission for the owning business. Accounts with the correct permission are ready to proceed; accounts without it show a reconnect prompt.
 
@@ -182,7 +182,7 @@ Northbeam lists every Meta ad account connected to your dashboard and flags whet
   <img src="https://files.readme.io/3a50ad4be90a7e5a167546936c94b3c72bac0b91737f630e56eacdab6bc7672a-Screenshot_2026-05-28_at_3.10.19_PM.png" alt="" />
 </Frame>
 
-### 2. Configure Pixel(s)
+#### 2. Configure Pixel(s)
 
 For each account with the right permission, Northbeam displays the pixels available in that business. Pixels currently in use by active ad sets are pre-selected. Choose which pixels to enable for Apex.
 
@@ -190,7 +190,7 @@ For each account with the right permission, Northbeam displays the pixels availa
   <img src="https://files.readme.io/efac0e5de61825ab0f32a43e72ff1c225c21a89bc5a1b89384a2fcad1338d8fc-Screenshot_2026-05-28_at_3.10.26_PM.png" alt="" />
 </Frame>
 
-### 3. Validate Events
+#### 3. Validate Events
 
 Northbeam runs the per-pixel setup with Meta and surfaces any errors inline. The most common issue: a pixel with no Purchase events in the last 28 days will fail Meta's eligibility check. You can de-select failing pixels and proceed with the ones that pass.
 
@@ -213,11 +213,11 @@ Northbeam runs the per-pixel setup with Meta and surfaces any errors inline. The
 
 <br />
 
-## Step 3 — Verify
+### Step 3 — Verify
 
 After setup, verify your Enhanced Apex configuration using the following three checks:
 
-### 1. Northbeam UI verification
+#### 1. Northbeam UI verification
 
 You'll see a badge on the Northbeam Apex page and Connections page confirming how many pixels are configured.&#x20;
 
@@ -235,7 +235,7 @@ You'll see a badge on the Northbeam Apex page and Connections page confirming ho
 
 <br />
 
-### 2. Meta connection verification
+#### 2. Meta connection verification
 
 Within **48 hours**, a new Custom Attribution experience will appear in Meta Events Manager on your dataset.
 
@@ -243,7 +243,7 @@ You'll see a test event called **NorthbeamApexConnectionTest** (or **NorthbeamTe
 
 <br />
 
-### 3. Meta readiness verification
+#### 3. Meta readiness verification
 
 A readiness indicator on the Custom Attribution quality page will climb toward **High** over approximately **14 days**. The campaign creation option in Ads Manager is grayed out until this training period completes. During that time, you can prepare your test campaign, but you cannot launch it yet.
 

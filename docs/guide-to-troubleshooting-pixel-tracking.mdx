@@ -6,7 +6,7 @@ icon: "bug"
 
 ***
 
-# **Introduction**
+## **Introduction**
 
 Accurate order attribution relies on two key data sources:
 
@@ -19,7 +19,7 @@ This tool helps identify missing **server data** or **pixel data** for any given
 
 ***
 
-# **Step 1: Check Pixel Tracked Percentages**
+## **Step 1: Check Pixel Tracked Percentages**
 
 1. Review the **% Pixel Confirmed Count** at the top of the dashboard.
 2. A healthy percentage is **above 85%**.
@@ -27,7 +27,7 @@ This tool helps identify missing **server data** or **pixel data** for any given
    * **Below 85%** → Investigate missing tracking data in the order table (Step 2).
 3. Use the graph to identify trends over time.
 
-## Examples below:
+### Examples below
 
 <Frame caption="Over 85% -- No action needed!">
   <img src="https://files.readme.io/63ff90926bcaafdae736659ecc4566b44bec4de5f5d18927c866fea9c47ace36-Screen_Shot_2025-01-28_at_3.27.51_PM.png" alt="Over 85% -- No action needed!" />
@@ -39,9 +39,9 @@ This tool helps identify missing **server data** or **pixel data** for any given
 
 ***
 
-# **Step 2: Check Order Tracking Status**
+## **Step 2: Check Order Tracking Status**
 
-## **How to Identify Issues:**
+### **How to Identify Issues:**
 
 * **Use the UI**: Work directly in the tool to filter and analyze data.
 * **Export Data via CSV**: Easier to review larger datasets.
@@ -50,7 +50,7 @@ This tool helps identify missing **server data** or **pixel data** for any given
   * 🟡 **Yellow**: Pixel data missing (may indicate tracking issues).
   * 🟢 **Green**: Fully tracked (no action needed).\ <br />
 
-## Understanding  Tracking Indicators:
+### Understanding  Tracking Indicators
 
 * **Pixel Confirmed:** Indicates if our pixel fired when this order was placed.
 * **Server Confirmed:** Indicates if we received the order via the Orders API or Shopify Integration.
@@ -60,9 +60,9 @@ This tool helps identify missing **server data** or **pixel data** for any given
   <img src="https://files.readme.io/9a974ea83b075eb1f402be9778010136f2ea3fa3caafde0f654eaea0654a2b87-Screen_Shot_2025-01-28_at_4.41.11_PM.png" alt="" />
 </Frame>
 
-## **Troubleshooting Tracking Statuses:**
+### **Troubleshooting Tracking Statuses:**
 
-### 🔴 **Server Data Missing (Shopify Orders)**
+#### 🔴 **Server Data Missing (Shopify Orders)**
 
 * **Reason 1: Backfill in Progress**
   * If you recently connected Shopify to Northbeam, order data may still be backfilling.
@@ -76,7 +76,7 @@ This tool helps identify missing **server data** or **pixel data** for any given
   * The wrong Shopify store might be linked.
   * **Action**: Verify that the correct Shopify store is connected.
 
-### 🔴 **Server Data Missing (Non-Shopify Orders)**
+#### 🔴 **Server Data Missing (Non-Shopify Orders)**
 
 * **Reason 1: Order Not Received**
   * The backend order has not yet synced with Northbeam.
@@ -87,7 +87,7 @@ This tool helps identify missing **server data** or **pixel data** for any given
   * **Action**: Verify that the purchase pixel order ID matches the API order ID.
   * **Action**: Check the Orders API Validation Table for recent errors.
 
-### 🟡 **Pixel Data Missing**
+#### 🟡 **Pixel Data Missing**
 
 * **Reason 1: Pixel Event Not Fired**
   * The client-side order event didn’t reach Northbeam.
@@ -97,7 +97,7 @@ This tool helps identify missing **server data** or **pixel data** for any given
   * The client-side pixel order ID and the API order ID don’t match.
   * **Action**: Ensure IDs align across both tracking sources.
 
-### 🟡 **Not Trackable**
+#### 🟡 **Not Trackable**
 
 * **Definition**: Orders that **cannot** fire client-side pixels.
 * **Common Cases:**
@@ -111,14 +111,14 @@ This tool helps identify missing **server data** or **pixel data** for any given
   * **Check for Order Tags:** Verify if the order falls into one of the specified cases. If it does, ensure that there are appropriate order tags assigned to identify the order type in your orders data.
   * **Add Missing Tags:** If no order tags exist for the relevant cases, update your orders data to include the necessary tags.
 
-### 🟢 **Fully Tracked**
+#### 🟢 **Fully Tracked**
 
 * **Definition**: Both **server and pixel data** are confirmed.
 * **Action**: No action required—you're all set!
 
 ***
 
-# **Final Thoughts**
+## **Final Thoughts**
 
 Using this tool correctly ensures accurate attribution and maximizes tracked orders.
 

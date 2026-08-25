@@ -5,7 +5,7 @@ description: "Understanding Northbeam's most innovative attribution model."
 icon: "dna"
 ---
 
-# What is Clicks + Deterministic Views?
+## What is Clicks + Deterministic Views?
 
 <Info>
   ### Northbeam’s C+DV model is a transformative shift in attribution.
@@ -23,20 +23,20 @@ Today’s marketing landscape is more fragmented than ever, and we know that dif
 
 However, research shows that users have high brand recall from ads they’ve seen on these platforms—and we know that brand recall ultimately helps drive conversions. So how do we connect the two?
 
-## The solution: Clicks + Deterministic Views
+### The solution: Clicks + Deterministic Views
 
 Clicks + Deterministic Views is Northbeam’s next-generation multi-touch attribution (MTA) model. It builds on our Clicks-Only model by layering in verified impression & view data directly from participating ad platforms.
 
 These platform events are combined with Northbeam’s industry-leading, first-party pixel and order data to provide a **complete and accurate view** of how marketing actually drives conversions. Unlike traditional “view-through” attribution, Northbeam links views deterministically, meaning every impression tied to a conversion is **verified, not inferred.**
 
-## Deterministic? What's that?
+### Deterministic? What's that?
 
 Attribution models differ in how they connect ads to conversions:
 
 * **Deterministic attribution:** Matches conversions to ads using exact identifiers (like order ID, hashed email, or phone). Every link is **verified** and **certain.**
 * **Probabilistic attribution:** Uses models and assumptions (like device type, IP, or behavior patterns) to **guess** which ad drove a conversion.
 
-# How does Clicks + Deterministic Views work?
+## How does Clicks + Deterministic Views work?
 
 Northbeam integrates directly with each participating ad platform to match verified impression and view events to real orders. This is not modeled or inferred — every view tied to a conversion is proven via exact identifiers like order ID or hashed email.
 
@@ -46,7 +46,7 @@ Northbeam integrates directly with each participating ad platform to match verif
 
 [Jump to the "How CDV Attributes Credit" section to see the logic. ](/docs/clicks-deterministic-views#how-does-clicks--deterministic-views-attribute-credit)
 
-# Why is Clicks + Deterministic Views useful?
+## Why is Clicks + Deterministic Views useful?
 
 * **See beyond clicks.** Capture both verified views and clicks to understand the full impact of your ads.
 * **True upper-funnel visibility.** Quantify how awareness and prospecting campaigns actually influence downstream purchases.
@@ -56,7 +56,7 @@ Northbeam integrates directly with each participating ad platform to match verif
 * **Privacy-preserving measurement.** Data is processed in Northbeam’s clean room, ensuring compliance and security.
 * **Reduce wasted spend.** Eliminate over-crediting of last clicks and avoid underspending on top-of-funnel channels.
 
-# How does Clicks + Deterministic Views attribute credit?
+## How does Clicks + Deterministic Views attribute credit?
 
 C+DV unifies click and view data across platforms to give the most complete measurement of marketing performance.
 
@@ -75,9 +75,9 @@ C+DV unifies click and view data across platforms to give the most complete meas
       * We do not weight views from different platforms differently; the amount of credit assigned to each platform is dependent on how many views are in that platform’s “pool.”
       * Credit is not assigned based on where each touchpoint falls in the funnel; for example, if a customer views an ad on Snap, and later views an ad on Pinterest, the Pinterest ad does not earn less credit.
 
-## Worked Examples
+### Worked Examples
 
-### Example 1: Clicks and Views Across Two Publishers
+#### Example 1: Clicks and Views Across Two Publishers
 
 **Journey:** A customer is exposed to ads across two platforms before making a $100 purchase.
 
@@ -110,7 +110,7 @@ The $100 is divided between the two publisher pools — Publisher 1 (1 view + 1 
 
 ***
 
-### Example 2: View-Only Journey Across Three Platforms
+#### Example 2: View-Only Journey Across Three Platforms
 
 **Journey:** A customer sees ads on three platforms but never clicks before making a $100 purchase. No paid clicks exist in the journey.
 
@@ -143,7 +143,7 @@ This protects against one platform dominating credit simply by serving more impr
 
 ***
 
-# C+DV Demo
+## C+DV Demo
 
 Watch below for a full demo of Clicks + Deterministic Views, including how to enable it and how to interpret the data.
 
@@ -151,7 +151,7 @@ Watch below for a full demo of Clicks + Deterministic Views, including how to en
   <iframe src="https://www.loom.com/embed/6c53f76d7e984eb394757c4dae85ea03?sid=650dcb01-c186-4ca1-969e-32425a8caef7" width="100%" height="450" allowfullscreen></iframe>
 </Frame>
 
-# Enabling Clicks + Deterministic Views in your account
+## Enabling Clicks + Deterministic Views in your account
 
 ![](https://files.readme.io/ea9692673d51d744ec134f19da891e6226973239c9c901b5d6ebb51810ae731f-image.png)
 
@@ -162,7 +162,7 @@ Watch below for a full demo of Clicks + Deterministic Views, including how to en
    1. *Note: By selecting a platform, you are consenting to share impression data from the platform to Northbeam. For this reason, only admins are able to change these settings.*
 3. Wait 24-48 hours until we have processed your data. It could be shorter, so stay tuned to your dashboard.
 
-### ⚠️ Pinterest opt-in instructions
+#### ⚠️ Pinterest opt-in instructions
 
 **Step 1:**
 
@@ -181,62 +181,62 @@ Watch below for a full demo of Clicks + Deterministic Views, including how to en
 
 * Please disconnect and reconnect your Pinterest account in Northbeam.
 
-### ⚠️ MNTN opt-in instructions
+#### ⚠️ MNTN opt-in instructions
 
 * MNTN customers will need to follow additional steps to properly opt in to C+DV.
 * [Instructions here](https://help.mountain.com/en/articles/11644276-integrate-northbeam)
 
 ***
 
-# FAQs
+## FAQs
 
-## 1. Why does Clicks + Deterministic Views data not match up to my Clicks + Modeled Views data?
+### 1. Why does Clicks + Deterministic Views data not match up to my Clicks + Modeled Views data?
 
 C+MV is probabilistic and does not observe the ad platform events directly. C+DV is deterministic the same way that CO is deterministic. It is a model based on events that we or the ad platform KNOWS have happened.
 
-## 2. Why are certain ad channels not getting C+DV credit for conversions?
+### 2. Why are certain ad channels not getting C+DV credit for conversions?
 
 Clicks + Deterministic Views is deterministic, so if an ad platform is not participating in the program they will not receive any additional view credit.
 
-## 3. Are all views weighted equally?
+### 3. Are all views weighted equally?
 
 Views are grouped by platform and credit is divided within each platform "pool." We do not weight views from different platforms differently; the amount of credit assigned to each platform is dependent on how many views are in that platform's pool. Currently, we do not specifically use the platform of the view, or the type of ad that displayed the view, as factors in determining credit. This is consistent with the behavior of our current Clicks-Only attribution model.
 
-## 4. Why can't I see in-app views on the order details page?
+### 4. Why can't I see in-app views on the order details page?
 
 This level of tracking is not permitted under privacy law.
 
-## 5. How often is C+DV data refreshed?
+### 5. How often is C+DV data refreshed?
 
 Currently, 3x per day.
 
-## 6. How should I compare C+DV performance to Clicks + Modeled Views or Clicks-Only?
+### 6. How should I compare C+DV performance to Clicks + Modeled Views or Clicks-Only?
 
 Look for directional differences between C+DV vs. Platform reporting, C+DV vs. Clicks-Only data. These differences will show you where C+DV is unlocking value, and new insights.
 
-## 7. How should I use C+DV?
+### 7. How should I use C+DV?
 
 Use it to make better optimization decisions within each channel. For example, when gauging "what campaigns/audience/ads are impactful?" it should give you a more precise signal than Modeled Views or Clicks-Only. You can also use it to get directional data points for cross-channel investment — for example, is this channel having an impact beyond what we see on a last-click basis?
 
-## 8. Since clicks are always preceded by views, how do you de-dupe between clicks and views?
+### 8. Since clicks are always preceded by views, how do you de-dupe between clicks and views?
 
 Views + click pairs that happen within 30 seconds of each other are deduplicated.
 
-## 9. Why don't I have access to C+DV?
+### 9. Why don't I have access to C+DV?
 
 Most likely, we do not have enough order IDs to match with impression data. This is often the case for advertisers who fall into 'sensitive' categories, such as health & wellness. For questions around this, please reach out to your Media Strategist, Customer Success Manager, or contact [Support](https://www.northbeam.io/submit-a-support-ticket).
 
-## 10. Does C+DV support international traffic?
+### 10. Does C+DV support international traffic?
 
 Yes. C+DV supports international traffic across all participating integrated partners. For eligible customers, this is enabled automatically and no additional setup is required.
 
 Northbeam has backfilled available historical data where applicable, but C+DV models are incremental and will apply moving forward once data is available in the model.
 
-## 11. I've turned on C+DV, but I'm not seeing any data. Why?
+### 11. I've turned on C+DV, but I'm not seeing any data. Why?
 
 It can take up to 48 hours after providing consent to see C+DV data in the dashboard. If you are still not seeing data after 48 hours, reach out to your Northbeam rep or contact [Support](https://www.northbeam.io/submit-a-support-ticket).
 
-## 12. Why do I see “withheld” in C+DV reporting?
+### 12. Why do I see “withheld” in C+DV reporting?
 
 “Withheld” means Northbeam is hiding certain low-volume C+DV rows for privacy reasons.&#x20;
 
@@ -244,13 +244,13 @@ For Meta C+DV, this typically happens when the slice you’re looking at does no
 
 In practice, that means an ad, ad set, campaign, or daily row can be withheld if that specific row has fewer than 1,000 impressions. Because the threshold is applied at the level of the report, detailed rows may appear lower than aggregate totals, even though the aggregate can still include that underlying value once there is enough volume to safely show it.
 
-## 13. Does C+DV support custom events?
+### 13. Does C+DV support custom events?
 
 No. C+DV does not support custom events or custom conversion events as a replacement for the standard Meta `Purchase` event.
 
 Meta C+DV requires the standard `Purchase` event to fire with an `order_id` that matches the corresponding order ID in Northbeam. If purchases are tracked through a custom event instead of the standard `Purchase` event, C+DV may not work as expected, even if that custom event is visible in Meta Events Manager.
 
-## 14. I'm not seeing C+DV data for Meta specifically.
+### 14. I'm not seeing C+DV data for Meta specifically.
 
 Meta CDV works by matching the `order_id` in your Meta Purchase events to the `order_id` tied to orders in Northbeam.
 
@@ -268,11 +268,11 @@ Low or missing Meta C+DV data is almost always caused by **one** of three things
 
 ***
 
-### Step 1 — Check what `order_id` Meta is actually receiving
+#### Step 1 — Check what `order_id` Meta is actually receiving
 
 Before changing anything, confirm what Meta is getting today. There are two ways to check.
 
-#### Option A: Test Events
+##### Option A: Test Events
 
 *Place a test purchase on your store and inspect the order\_id coming through.*
 
@@ -288,7 +288,7 @@ Before changing anything, confirm what Meta is getting today. There are two ways
 
 ***
 
-#### Option B: Sampled Activities
+##### Option B: Sampled Activities
 
 *Inspect the order\_id of your past Purchase Events.*
 
@@ -308,7 +308,7 @@ Once you know what Meta is receiving, compare it to a recent order in Northbeam 
 
 ***
 
-### Step 2A — Fix: `order_id` missing or wrong in Meta CAPI (server-side or GTM Server)
+#### Step 2A — Fix: `order_id` missing or wrong in Meta CAPI (server-side or GTM Server)
 
 > **This step is for CAPI only** — the server-side connection between your store and Meta. If you're only using the Meta Pixel (browser-side tracking), skip to Step 2B or 2C.
 
@@ -370,7 +370,7 @@ Your developer needs to update the Purchase event payload in your backend code t
 
 ***
 
-### Step 2B — Fix: `order_id` missing in Meta Pixel (Shopify)
+#### Step 2B — Fix: `order_id` missing in Meta Pixel (Shopify)
 
 > **This step is for the browser-side Meta Pixel only** — not CAPI. If you're also running CAPI alongside your pixel, make sure you've completed Step 2A first.
 
@@ -383,7 +383,7 @@ The exception is if you've added custom Purchase tracking scripts that fire thei
 
 ***
 
-### Step 2C — Fix: `order_id` missing in Meta Pixel (non-Shopify custom pixel)
+#### Step 2C — Fix: `order_id` missing in Meta Pixel (non-Shopify custom pixel)
 
 > **This step is for non-Shopify stores manually firing the browser-side Meta Pixel** — not CAPI. If you're running CAPI, see Step 2A instead.
 
@@ -401,7 +401,7 @@ The `order_id` value must come from the same source your backend uses for the fi
 
 ***
 
-### Step 3 — Confirm the fix worked
+#### Step 3 — Confirm the fix worked
 
 After making changes, trigger a test purchase and check **Events Manager → Test Events** to confirm `event_name = Purchase` and `order_id` exactly matches the corresponding order in Northbeam. Over the next 24–48 hours, Meta CDV order coverage should improve in your Northbeam dashboard.
 
@@ -409,11 +409,11 @@ Once you've waited 24–48 hours, check your Northbeam dashboard to confirm the 
 
 ***
 
-## Still seeing low coverage after fixing?
+### Still seeing low coverage after fixing?
 
 If your setup looks correct, `order_id` values are matching, and the banner is still showing, your store may be in a restricted or sensitive category where Meta limits the order-level identifiers they expose. In those cases, CDV coverage may remain limited even with a correct implementation — this is a Meta policy constraint, not a fixable configuration issue.
 
-### Restricted health category in Meta
+#### Restricted health category in Meta
 
 If your store falls into a restricted health or wellness category, Meta may limit the impression-level data they share with third parties, including Northbeam. When this restriction is active, Meta cannot send Northbeam the view data required for C+DV, so Meta will not receive view credit regardless of your pixel or CAPI setup.
 

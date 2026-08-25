@@ -6,7 +6,7 @@ icon: "database"
 
 Here is a breakdown of our data sources as well as how they work together to capture the full customer journey.
 
-# Frontend Data Source
+## Frontend Data Source
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -84,27 +84,27 @@ Here is a breakdown of our data sources as well as how they work together to cap
   </tbody>
 </Table>
 
-## How Northbeam tracks using First-Party Cookies
+### How Northbeam tracks using First-Party Cookies
 
 * Northbeam sets up first-party tracking using a subdomain (e.g., i.store.com).
 * This subdomain is owned by your domain, making tracking first-party and not blocked by browsers.
 * First-party cookies store user data, and pixel events are sent securely to your Northbeam dashboard
 * This ensures accurate attribution and privacy-compliant tracking without relying on third-party cookies.
 
-# Backend Data Source
+## Backend Data Source
 
 | Shopify Integration                                                                                                                    |
 | :------------------------------------------------------------------------------------------------------------------------------------- |
 | Northbeam natively integrates with Shopify, allowing us to fetch all your order data and establish a reliable revenue source of truth. |
 
-## We rely on server-side data as the source of truth to ensure we capture all order information—including orders that don’t fire web pixels. This includes:
+### We rely on server-side data as the source of truth to ensure we capture all order information—including orders that don’t fire web pixels. This includes
 
 * Offline Orders
 * Draft Orders
 * Recurring Subscriptions
 * Other cases where client-side tracking misses
 
-# Connecting Frontend and Backend
+## Connecting Frontend and Backend
 
 <Frame>
   <img src="https://files.readme.io/ca27b5fdb1580ed910e1cf799c1160c46137751fe27c95ea24ba1ca6a1619ab1-Screenshot_2025-04-16_at_6.32.44_PM.png" alt="" />

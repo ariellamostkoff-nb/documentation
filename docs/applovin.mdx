@@ -5,13 +5,13 @@ icon: "tv"
 
 ***
 
-## Overview
+### Overview
 
 We’re excited to announce that Northbeam has recently partnered with AppLovin to bring you a seamless integration! This partnership allows you to easily connect your AppLovin account to Northbeam, enabling AppLovin attribution.
 
 ***
 
-# Step 1. Report API Key
+## Step 1. Report API Key
 
 1. Log in to **AppLovin** using your **master user account** (sub-user accounts won’t work).
 2. Open the top-right menu → **Keys**.
@@ -28,7 +28,7 @@ We’re excited to announce that Northbeam has recently partnered with AppLovin 
 
 ***
 
-# Step 2: Find Your Account ID
+## Step 2: Find Your Account ID
 
 1. Log in to **AppLovin** using your **master user account** (sub-user accounts won’t work).
 2. Open the top-right menu → **Other Settings**.
@@ -45,7 +45,7 @@ We’re excited to announce that Northbeam has recently partnered with AppLovin 
 
 ***
 
-# Step 3: Add Your Credentials in Northbeam
+## Step 3: Add Your Credentials in Northbeam
 
 1. Go to **Settings > Connections** in your Northbeam dashboard.
 2. Find the **AppLovin** section.
@@ -55,9 +55,9 @@ We’re excited to announce that Northbeam has recently partnered with AppLovin 
 
 ***
 
-# Step 4: Add Northbeam UTMs
+## Step 4: Add Northbeam UTMs
 
-## Campaign-Level UTMs
+### Campaign-Level UTMs
 
 AppLovin campaigns require Northbeam UTM parameters for proper attribution.
 
@@ -72,7 +72,7 @@ AppLovin campaigns require Northbeam UTM parameters for proper attribution.
   <img src="https://files.readme.io/37fe8317e788a4c9e581ebb1c9cbcb42ef559f4f686bb5716af41493ea454a1e-Screenshot_2025-09-30_at_11.37.37_AM.png" alt="" />
 </Frame>
 
-## Creative-Level UTMs
+### Creative-Level UTMs
 
 <Warning>
 
@@ -93,11 +93,11 @@ With this toggle, the creative will have its own URL and UTMs independent of the
 
 ***
 
-# Step 5: Remove Custom Spend (Optional)
+## Step 5: Remove Custom Spend (Optional)
 
 If you were previously uploading AppLovin spend into Northbeam using a custom spend sheet or API, you may need to adjust or remove these entries to avoid duplication after the integration is complete.
 
-### Determine Whether to Adjust or Remove Spend
+#### Determine Whether to Adjust or Remove Spend
 
 1. **Identify the Source of Custom Spend**:
    * Refer to [Step 1: Add Spend](/docs/add-spend) to review your custom spend sheet or API configuration.
@@ -115,23 +115,23 @@ If you were previously uploading AppLovin spend into Northbeam using a custom sp
 
 ***
 
-# AppLovin FAQ
+## AppLovin FAQ
 
-## 1. Where is my data?
+### 1. Where is my data?
 
 Your data should populate in Northbeam after the next data refresh. Typically, this occurs within 24 hours of completing the integration. If data is still missing, double-check that the Report API Key and Account ID were entered correctly.
 
-## 2. What attribution models does the AppLovin integration support?
+### 2. What attribution models does the AppLovin integration support?
 
 The AppLovin integration supports all attribution models available in Northbeam.
 
-## 3. What should I do if my AppLovin data isn't appearing?
+### 3. What should I do if my AppLovin data isn't appearing?
 
 1. Verify that your AppLovin Report API Key and Account ID are correctly configured in **Settings > Connections**.
 2. Ensure Northbeam UTM parameters have been added to your creatives — including any creatives using **"Use another URL"**, which require UTMs to be set at the creative level separately.
 3. Check if your spend source was previously uploaded via a custom spend sheet or API. If so, make sure there is no duplication causing discrepancies. Refer to [Step 5: Remove Custom Spend](#step-5-remove-custom-spend-optional).
 
-## 4. Why isn't my ad spend lining up?
+### 4. Why isn't my ad spend lining up?
 
 Discrepancies in ad spend can often arise due to differences in **timezones** between Northbeam and AppLovin. By default, AppLovin reports data using **UTC**, whereas your Northbeam timezone is likely set to a different time zone, which you configured during onboarding.
 
