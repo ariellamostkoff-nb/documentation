@@ -100,6 +100,17 @@
             "icon": "list-check",
             "groups": [
               {
+                "group": "Start here",
+                "pages": [
+                  "docs/quickstart",
+                  "docs/what-is-northbeam",
+                  "docs/navigating-northbeam",
+                  "docs/what-to-expect-during-implementation",
+                  "docs/confirm-setup-requirements",
+                  "docs/onboarding-faqs"
+                ]
+              },
+              {
                 "group": "Set up your account",
                 "pages": [
                   "docs/invite-team",
