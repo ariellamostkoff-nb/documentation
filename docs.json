@@ -70,25 +70,6 @@
               "docs/quickstart",
               "docs/what-is-northbeam"
             ]
-          },
-          {
-            "group": "Your journey",
-            "pages": [
-              "docs/navigating-northbeam",
-              "docs/what-to-expect-during-implementation",
-              "docs/confirm-setup-requirements",
-              "docs/onboarding-faqs"
-            ]
-          },
-          {
-            "group": "Core concepts",
-            "pages": [
-              "docs/attribution-models",
-              "docs/attribution-windows",
-              "docs/lookback-windows",
-              "docs/accounting-modes",
-              "docs/northbeam-metrics-101"
-            ]
           }
         ]
       },
@@ -102,8 +83,6 @@
               {
                 "group": "Start here",
                 "pages": [
-                  "docs/quickstart",
-                  "docs/what-is-northbeam",
                   "docs/navigating-northbeam",
                   "docs/what-to-expect-during-implementation",
                   "docs/confirm-setup-requirements",
