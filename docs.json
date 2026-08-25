@@ -66,9 +66,9 @@
           {
             "group": "Overview",
             "pages": [
-              "docs/quickstart",
               "docs/what-is-northbeam",
-              "docs/what-to-expect-during-implementation"
+              "docs/get-started/capabilities",
+              "docs/get-started/use-cases"
             ]
           },
           {
@@ -104,7 +104,9 @@
             "group": "Overview",
             "pages": [
               "docs/overviews/onboarding",
+              "docs/quickstart",
               "docs/navigating-northbeam",
+              "docs/what-to-expect-during-implementation",
               "docs/confirm-setup-requirements",
               "docs/onboarding-faqs"
             ]
