@@ -333,13 +333,38 @@
             ]
           },
           {
-            "group": "Dashboards",
+            "group": "Overview Home Page",
             "pages": [
-              "docs/overview-page",
-              "docs/sales",
-              "docs/attribution-page",
-              "docs/creative-analytics",
-              "docs/product-analytics",
+              "docs/overview-page"
+            ]
+          },
+          {
+            "group": "Sales",
+            "pages": [
+              "docs/sales"
+            ]
+          },
+          {
+            "group": "Attribution",
+            "pages": [
+              "docs/attribution-page"
+            ]
+          },
+          {
+            "group": "Creative Analytics",
+            "pages": [
+              "docs/creative-analytics"
+            ]
+          },
+          {
+            "group": "Product Analytics",
+            "pages": [
+              "docs/product-analytics"
+            ]
+          },
+          {
+            "group": "Orders",
+            "pages": [
               "docs/orders-tracking"
             ]
           },
