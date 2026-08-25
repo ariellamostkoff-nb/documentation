@@ -66,7 +66,6 @@
           {
             "group": "Overview",
             "pages": [
-              "index",
               "docs/quickstart",
               "docs/what-is-northbeam",
               "docs/what-to-expect-during-implementation"
@@ -104,6 +103,7 @@
           {
             "group": "Overview",
             "pages": [
+              "docs/overviews/onboarding",
               "docs/navigating-northbeam",
               "docs/confirm-setup-requirements",
               "docs/onboarding-faqs"
@@ -221,6 +221,12 @@
         "tab": "Data & terminology",
         "groups": [
           {
+            "group": "Overview",
+            "pages": [
+              "docs/overviews/data-terminology"
+            ]
+          },
+          {
             "group": "Metrics & data",
             "pages": [
               "docs/subscription-metrics",
@@ -247,6 +253,12 @@
             "anchor": "Features",
             "icon": "sliders",
             "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "docs/overviews/features"
+                ]
+              },
               {
                 "group": "Features",
                 "pages": [
@@ -313,6 +325,12 @@
         "tab": "Platform",
         "groups": [
           {
+            "group": "Overview",
+            "pages": [
+              "docs/overviews/platform"
+            ]
+          },
+          {
             "group": "Dashboards",
             "pages": [
               "docs/overview-page",
@@ -344,6 +362,12 @@
       {
         "tab": "Products",
         "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "docs/overviews/products"
+            ]
+          },
           {
             "group": "Multi-Touch Attribution (MTA)",
             "pages": [
@@ -383,6 +407,12 @@
       {
         "tab": "Use cases",
         "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "docs/overviews/use-cases"
+            ]
+          },
           {
             "group": "Diagnose & reconcile",
             "pages": [
