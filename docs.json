@@ -83,17 +83,6 @@
               "docs/journey/set-up-and-track-alerts",
               "docs/journey/utilize-advanced-features"
             ]
-          },
-          {
-            "group": "Core concepts",
-            "pages": [
-              "docs/attribution-models",
-              "docs/attribution-windows",
-              "docs/lookback-windows",
-              "docs/accounting-modes",
-              "docs/credit-allocation-examples",
-              "docs/northbeam-metrics-101"
-            ]
           }
         ]
       },
@@ -229,8 +218,19 @@
             ]
           },
           {
+            "group": "Attribution fundamentals",
+            "pages": [
+              "docs/attribution-models",
+              "docs/attribution-windows",
+              "docs/lookback-windows",
+              "docs/accounting-modes",
+              "docs/credit-allocation-examples"
+            ]
+          },
+          {
             "group": "Metrics & data",
             "pages": [
+              "docs/northbeam-metrics-101",
               "docs/subscription-metrics",
               "docs/northbeam-data-sources",
               "docs/how-does-northbeam-track-orders-and-ads"
