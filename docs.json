@@ -144,63 +144,199 @@
       },
       {
         "tab": "Channels",
-        "groups": [
+        "dropdowns": [
           {
-            "group": "Overview",
+            "dropdown": "All channels",
+            "icon": "grip",
             "pages": [
               "docs/integrations-and-utms",
-              "docs/facebook-utms-for-legacy-platforms",
               "docs/non-integrated-channel-setup-spend-api-utms",
               "docs/integration-matrix"
             ]
           },
           {
-            "group": "Core paid media",
+            "dropdown": "Meta Ads",
+            "icon": "meta",
             "pages": [
-              "docs/setting-up-facebook-ads-tracking",
-              "docs/setting-up-google-ads-for-northbeam",
-              "docs/setting-up-tiktok-ads-for-northbeam",
-              "docs/tracking-for-microsoft",
-              "docs/tracking-for-pinterest-ads",
-              "docs/tracking-for-snapchat-ads",
-              "docs/tracking-for-x-ads",
+              "docs/channels/meta/overview",
+              "docs/channels/meta/connect-your-ad-account",
+              "docs/channels/meta/insert-utm-parameters",
+              "docs/channels/meta/confirm-tracking",
+              "docs/channels/meta/meta-ads-faq",
+              "docs/facebook-utms-for-legacy-platforms"
+            ]
+          },
+          {
+            "dropdown": "Google + YouTube",
+            "icon": "google",
+            "pages": [
+              "docs/setting-up-google-ads-for-northbeam"
+            ]
+          },
+          {
+            "dropdown": "TikTok",
+            "icon": "tiktok",
+            "pages": [
+              "docs/setting-up-tiktok-ads-for-northbeam"
+            ]
+          },
+          {
+            "dropdown": "Microsoft Ads",
+            "icon": "microsoft",
+            "pages": [
+              "docs/tracking-for-microsoft"
+            ]
+          },
+          {
+            "dropdown": "Pinterest",
+            "icon": "pinterest",
+            "pages": [
+              "docs/tracking-for-pinterest-ads"
+            ]
+          },
+          {
+            "dropdown": "Snapchat",
+            "icon": "snapchat",
+            "pages": [
+              "docs/tracking-for-snapchat-ads"
+            ]
+          },
+          {
+            "dropdown": "X Ads",
+            "icon": "x-twitter",
+            "pages": [
+              "docs/tracking-for-x-ads"
+            ]
+          },
+          {
+            "dropdown": "Amazon",
+            "icon": "amazon",
+            "pages": [
               "docs/tracking-for-amazon"
             ]
           },
           {
-            "group": "Lifecycle & commerce",
+            "dropdown": "Klaviyo",
+            "icon": "envelope",
             "pages": [
-              "docs/setting-up-klaviyo-for-northbeam",
-              "docs/working-tracking-for-attentive",
-              "docs/tracking-for-shops",
-              "docs/tracking-for-impact",
+              "docs/setting-up-klaviyo-for-northbeam"
+            ]
+          },
+          {
+            "dropdown": "Attentive",
+            "icon": "comment-sms",
+            "pages": [
+              "docs/working-tracking-for-attentive"
+            ]
+          },
+          {
+            "dropdown": "Meta & TikTok Shops",
+            "icon": "bag-shopping",
+            "pages": [
+              "docs/tracking-for-shops"
+            ]
+          },
+          {
+            "dropdown": "Impact",
+            "icon": "handshake",
+            "pages": [
+              "docs/tracking-for-impact"
+            ]
+          },
+          {
+            "dropdown": "Keynes",
+            "icon": "chart-line",
+            "pages": [
               "docs/tracking-for-keynes"
             ]
           },
           {
-            "group": "Programmatic & CTV",
+            "dropdown": "TradeDesk",
+            "icon": "desktop",
             "pages": [
-              "docs/tracking-for-tradedesk",
-              "docs/tracking-for-mntn",
-              "docs/tracking-for-tatari",
-              "docs/tracking-for-rokt",
-              "docs/tracking-for-vibe-co",
-              "docs/tracking-for-bliss-point-by-tinuiti",
-              "docs/applovin",
-              "docs/tracking-for-liveintent",
+              "docs/tracking-for-tradedesk"
+            ]
+          },
+          {
+            "dropdown": "MNTN",
+            "icon": "tv",
+            "pages": [
+              "docs/tracking-for-mntn"
+            ]
+          },
+          {
+            "dropdown": "Tatari",
+            "icon": "tv",
+            "pages": [
+              "docs/tracking-for-tatari"
+            ]
+          },
+          {
+            "dropdown": "ROKT",
+            "icon": "cart-shopping",
+            "pages": [
+              "docs/tracking-for-rokt"
+            ]
+          },
+          {
+            "dropdown": "Vibe.co",
+            "icon": "tv",
+            "pages": [
+              "docs/tracking-for-vibe-co"
+            ]
+          },
+          {
+            "dropdown": "Bliss Point",
+            "icon": "bullhorn",
+            "pages": [
+              "docs/tracking-for-bliss-point-by-tinuiti"
+            ]
+          },
+          {
+            "dropdown": "AppLovin",
+            "icon": "mobile",
+            "pages": [
+              "docs/applovin"
+            ]
+          },
+          {
+            "dropdown": "LiveIntent",
+            "icon": "envelope-open",
+            "pages": [
+              "docs/tracking-for-liveintent"
+            ]
+          },
+          {
+            "dropdown": "Rakuten",
+            "icon": "percent",
+            "pages": [
               "docs/tracking-for-rakuten"
             ]
           },
           {
-            "group": "Other channels",
+            "dropdown": "Universal",
+            "icon": "globe",
             "pages": [
-              "docs/tracking-for-universal",
-              "docs/tracking-for-off-domain-sites",
+              "docs/tracking-for-universal"
+            ]
+          },
+          {
+            "dropdown": "Off-domain sites",
+            "icon": "arrow-up-right-from-square",
+            "pages": [
+              "docs/tracking-for-off-domain-sites"
+            ]
+          },
+          {
+            "dropdown": "Non-integrated",
+            "icon": "wrench",
+            "pages": [
               "docs/tracking-for-other-platforms"
             ]
           },
           {
-            "group": "Multiple stores & regions",
+            "dropdown": "Multiple stores & regions",
+            "icon": "shop",
             "pages": [
               "docs/adding-a-store-or-dashboard",
               "docs/multi-dashboard-setup-with-configurators"
@@ -352,12 +488,6 @@
                   "docs/setting-up-apex",
                   "docs/setting-up-a-meta-custom-attribution-campaign"
                 ]
-              },
-              {
-                "group": "AI",
-                "pages": [
-                  "docs/connect-northbeam-to-claude"
-                ]
               }
             ]
           },
@@ -380,6 +510,12 @@
                   "docs/exporting-data",
                   "docs/touchpoints-export",
                   "docs/subscription-analytics"
+                ]
+              },
+              {
+                "group": "Northbeam AI",
+                "pages": [
+                  "docs/connect-northbeam-to-claude"
                 ]
               }
             ]
@@ -680,6 +816,10 @@
     {
       "source": "/docs/order-tags-1",
       "destination": "/docs/order-tags"
+    },
+    {
+      "source": "/docs/setting-up-facebook-ads-tracking",
+      "destination": "/docs/channels/meta/overview"
     }
   ]
 }
