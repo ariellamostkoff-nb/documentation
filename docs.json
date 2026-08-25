@@ -249,8 +249,118 @@
         ]
       },
       {
-        "tab": "Features",
+        "tab": "Platform",
         "anchors": [
+          {
+            "anchor": "Platform",
+            "icon": "table-columns",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "docs/overviews/platform"
+                ]
+              },
+              {
+                "group": "Overview Home Page",
+                "pages": [
+                  "docs/overview-page"
+                ]
+              },
+              {
+                "group": "Sales",
+                "pages": [
+                  "docs/sales"
+                ]
+              },
+              {
+                "group": "Attribution",
+                "pages": [
+                  "docs/attribution-page"
+                ]
+              },
+              {
+                "group": "Creative Analytics",
+                "pages": [
+                  "docs/creative-analytics"
+                ]
+              },
+              {
+                "group": "Product Analytics",
+                "pages": [
+                  "docs/product-analytics"
+                ]
+              },
+              {
+                "group": "Orders",
+                "pages": [
+                  "docs/orders-tracking"
+                ]
+              },
+              {
+                "group": "Metrics Explorer",
+                "pages": [
+                  "docs/metrics-explorer",
+                  "docs/metrics-explorer-quickstart-guide",
+                  "docs/metrics-explorer-best-practices-7-tips"
+                ]
+              },
+              {
+                "group": "Account & admin",
+                "pages": [
+                  "docs/adding-or-removing-users-copy",
+                  "docs/ad-accounts",
+                  "docs/adding-or-removing-users-copy-1"
+                ]
+              }
+            ]
+          },
+          {
+            "anchor": "Products",
+            "icon": "cubes",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "docs/overviews/products"
+                ]
+              },
+              {
+                "group": "Multi-Touch Attribution (MTA)",
+                "pages": [
+                  "docs/what-is-northbeam-mta-methodology",
+                  "docs/clicks-deterministic-views"
+                ]
+              },
+              {
+                "group": "Incrementality",
+                "pages": [
+                  "docs/incrementality"
+                ]
+              },
+              {
+                "group": "Mixed Media Modeling (MMM)",
+                "pages": [
+                  "docs/mixed-media-modeling"
+                ]
+              },
+              {
+                "group": "Apex",
+                "pages": [
+                  "docs/northbeam-apex",
+                  "docs/apex-faqs",
+                  "docs/setting-up-apex",
+                  "docs/setting-up-a-meta-custom-attribution-campaign"
+                ]
+              },
+              {
+                "group": "AI",
+                "pages": [
+                  "docs/connect-northbeam-to-claude"
+                ]
+              }
+            ]
+          },
           {
             "anchor": "Features",
             "icon": "sliders",
@@ -319,114 +429,6 @@
                   "docs/difference-between-blotout-and-northbeam-do-i-need-both"
                 ]
               }
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Platform",
-        "groups": [
-          {
-            "group": "Overview",
-            "pages": [
-              "docs/overviews/platform"
-            ]
-          },
-          {
-            "group": "Overview Home Page",
-            "pages": [
-              "docs/overview-page"
-            ]
-          },
-          {
-            "group": "Sales",
-            "pages": [
-              "docs/sales"
-            ]
-          },
-          {
-            "group": "Attribution",
-            "pages": [
-              "docs/attribution-page"
-            ]
-          },
-          {
-            "group": "Creative Analytics",
-            "pages": [
-              "docs/creative-analytics"
-            ]
-          },
-          {
-            "group": "Product Analytics",
-            "pages": [
-              "docs/product-analytics"
-            ]
-          },
-          {
-            "group": "Orders",
-            "pages": [
-              "docs/orders-tracking"
-            ]
-          },
-          {
-            "group": "Metrics Explorer",
-            "pages": [
-              "docs/metrics-explorer",
-              "docs/metrics-explorer-quickstart-guide",
-              "docs/metrics-explorer-best-practices-7-tips"
-            ]
-          },
-          {
-            "group": "Account & admin",
-            "pages": [
-              "docs/adding-or-removing-users-copy",
-              "docs/ad-accounts",
-              "docs/adding-or-removing-users-copy-1"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Products",
-        "groups": [
-          {
-            "group": "Overview",
-            "pages": [
-              "docs/overviews/products"
-            ]
-          },
-          {
-            "group": "Multi-Touch Attribution (MTA)",
-            "pages": [
-              "docs/what-is-northbeam-mta-methodology",
-              "docs/clicks-deterministic-views"
-            ]
-          },
-          {
-            "group": "Incrementality",
-            "pages": [
-              "docs/incrementality"
-            ]
-          },
-          {
-            "group": "Mixed Media Modeling (MMM)",
-            "pages": [
-              "docs/mixed-media-modeling"
-            ]
-          },
-          {
-            "group": "Apex",
-            "pages": [
-              "docs/northbeam-apex",
-              "docs/apex-faqs",
-              "docs/setting-up-apex",
-              "docs/setting-up-a-meta-custom-attribution-campaign"
-            ]
-          },
-          {
-            "group": "AI",
-            "pages": [
-              "docs/connect-northbeam-to-claude"
             ]
           }
         ]
