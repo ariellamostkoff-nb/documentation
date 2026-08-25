@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "luma",
+  "theme": "aspen",
   "name": "Northbeam",
   "description": "User guides, technical info, and documentation about Northbeam.",
   "appearance": {
@@ -74,26 +74,41 @@
             ]
           },
           {
-            "group": "Set up & implement",
+            "group": "Set up your account",
             "pages": [
               "docs/invite-team",
               "docs/business-information",
               "docs/currency",
-              "docs/link-dns",
+              "docs/link-dns"
+            ]
+          },
+          {
+            "group": "Install tracking",
+            "pages": [
               "docs/add-pixel",
               "docs/page-view-events",
               "docs/optional-additional-methods",
               "docs/setting-up-custom-goals",
               "docs/shopify-installation",
               "docs/non-shopify-installation",
-              "docs/third-party-checkouts",
+              "docs/third-party-checkouts"
+            ]
+          },
+          {
+            "group": "Add orders",
+            "pages": [
               "docs/add-orders",
               "docs/shopify-order-sync",
               "docs/shopify-migration-preserving-customer-stages",
               "docs/sftp-orders-upload",
               "docs/order-tags",
               "docs/8c-add-order-tags-in-shopify",
-              "docs/8d-configure-northbeam-order-exclusions-optional",
+              "docs/8d-configure-northbeam-order-exclusions-optional"
+            ]
+          },
+          {
+            "group": "Add spend",
+            "pages": [
               "docs/add-spend",
               "docs/all-other-platforms-overview"
             ]
@@ -162,6 +177,88 @@
         ]
       },
       {
+        "tab": "Data & terminology",
+        "groups": [
+          {
+            "group": "Attribution fundamentals",
+            "pages": [
+              "docs/attribution-models",
+              "docs/attribution-windows",
+              "docs/lookback-windows",
+              "docs/accounting-modes",
+              "docs/credit-allocation-examples"
+            ]
+          },
+          {
+            "group": "Metrics & data",
+            "pages": [
+              "docs/northbeam-metrics-101",
+              "docs/subscription-metrics",
+              "docs/northbeam-data-sources",
+              "docs/how-does-northbeam-track-orders-and-ads"
+            ]
+          },
+          {
+            "group": "Reading the numbers",
+            "pages": [
+              "docs/what-is-a-good-bad-number-in-northbeam",
+              "docs/how-do-i-correctly-confidently-interpret-non-click-channels",
+              "docs/whats-the-difference-between-organic-vs-unattributed",
+              "docs/case-scenario-cash-vs-accrual",
+              "docs/case-scenario-clicks-views-vs-clicks-only"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Features",
+        "groups": [
+          {
+            "group": "Features",
+            "pages": [
+              "docs/manage-breakdowns",
+              "docs/profitability-benchmarks",
+              "docs/what-is-northbeam-model-comparison-tool",
+              "docs/exporting-data",
+              "docs/touchpoints-export",
+              "docs/subscription-analytics"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Platform",
+        "groups": [
+          {
+            "group": "Dashboards",
+            "pages": [
+              "docs/overview-page",
+              "docs/sales",
+              "docs/attribution-page",
+              "docs/creative-analytics",
+              "docs/product-analytics",
+              "docs/orders-tracking"
+            ]
+          },
+          {
+            "group": "Metrics Explorer",
+            "pages": [
+              "docs/metrics-explorer",
+              "docs/metrics-explorer-quickstart-guide",
+              "docs/metrics-explorer-best-practices-7-tips"
+            ]
+          },
+          {
+            "group": "Account & admin",
+            "pages": [
+              "docs/adding-or-removing-users-copy",
+              "docs/ad-accounts",
+              "docs/adding-or-removing-users-copy-1"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Products",
         "groups": [
           {
@@ -201,120 +298,21 @@
         ]
       },
       {
-        "tab": "Guides",
-        "menu": [
-          {
-            "item": "Data & terminology",
-            "icon": "book",
-            "description": "The meaning behind every number and term",
-            "groups": [
-              {
-                "group": "Attribution fundamentals",
-                "pages": [
-                  "docs/attribution-models",
-                  "docs/attribution-windows",
-                  "docs/lookback-windows",
-                  "docs/accounting-modes",
-                  "docs/credit-allocation-examples"
-                ]
-              },
-              {
-                "group": "Metrics & data",
-                "pages": [
-                  "docs/northbeam-metrics-101",
-                  "docs/subscription-metrics",
-                  "docs/northbeam-data-sources",
-                  "docs/how-does-northbeam-track-orders-and-ads"
-                ]
-              },
-              {
-                "group": "Reading the numbers",
-                "pages": [
-                  "docs/what-is-a-good-bad-number-in-northbeam",
-                  "docs/how-do-i-correctly-confidently-interpret-non-click-channels",
-                  "docs/whats-the-difference-between-organic-vs-unattributed",
-                  "docs/case-scenario-cash-vs-accrual",
-                  "docs/case-scenario-clicks-views-vs-clicks-only"
-                ]
-              }
-            ]
-          },
-          {
-            "item": "Features",
-            "icon": "sliders",
-            "description": "Cross-cutting tools you invoke in the app",
-            "groups": [
-              {
-                "group": "Features",
-                "pages": [
-                  "docs/manage-breakdowns",
-                  "docs/profitability-benchmarks",
-                  "docs/what-is-northbeam-model-comparison-tool",
-                  "docs/exporting-data",
-                  "docs/touchpoints-export",
-                  "docs/subscription-analytics"
-                ]
-              }
-            ]
-          },
-          {
-            "item": "Platform",
-            "icon": "table-columns",
-            "description": "A guide to each screen in Northbeam",
-            "groups": [
-              {
-                "group": "Dashboards",
-                "pages": [
-                  "docs/overview-page",
-                  "docs/sales",
-                  "docs/attribution-page",
-                  "docs/creative-analytics",
-                  "docs/product-analytics",
-                  "docs/orders-tracking"
-                ]
-              },
-              {
-                "group": "Metrics Explorer",
-                "pages": [
-                  "docs/metrics-explorer",
-                  "docs/metrics-explorer-quickstart-guide",
-                  "docs/metrics-explorer-best-practices-7-tips"
-                ]
-              },
-              {
-                "group": "Account & admin",
-                "pages": [
-                  "docs/adding-or-removing-users-copy",
-                  "docs/ad-accounts",
-                  "docs/adding-or-removing-users-copy-1"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
         "tab": "Developers & API",
         "groups": [
           {
-            "group": "Guides",
+            "group": "Using the API",
             "pages": [
               "docs/using-the-api",
-              "docs/orders-api",
-              "docs/order-definition",
-              "docs/hashing-customer-data",
-              "docs/errors",
-              "docs/spend-api",
-              "docs/spend-api-best-practices-and-limits",
-              "docs/northbeam-api-data-export-1",
-              "docs/northbeam-api-data-export-gcs-export-1",
-              "docs/northbeam-api-data-export-s3-export-1",
-              "docs/northbeam-api-data-export-rate-limits-1"
+              "docs/errors"
             ]
           },
           {
             "group": "Orders API",
             "pages": [
+              "docs/orders-api",
+              "docs/order-definition",
+              "docs/hashing-customer-data",
               "reference/post_orders-1",
               "reference/get_orders-1",
               "reference/patchorders",
@@ -326,6 +324,8 @@
           {
             "group": "Spend API",
             "pages": [
+              "docs/spend-api",
+              "docs/spend-api-best-practices-and-limits",
               "reference/get_spend",
               "reference/post_spend",
               "reference/delete_spend",
@@ -337,6 +337,10 @@
           {
             "group": "Data Export API",
             "pages": [
+              "docs/northbeam-api-data-export-1",
+              "docs/northbeam-api-data-export-gcs-export-1",
+              "docs/northbeam-api-data-export-s3-export-1",
+              "docs/northbeam-api-data-export-rate-limits-1",
               "reference/post_data-export-1",
               "reference/get_data-export-result-export-id-1",
               "reference/get_metrics-1",
@@ -347,43 +351,41 @@
         ]
       },
       {
-        "tab": "Resources",
-        "menu": [
+        "tab": "Troubleshoot",
+        "groups": [
           {
-            "item": "Troubleshoot",
-            "icon": "flag",
-            "description": "Fix tracking issues and reconcile numbers that don't match",
-            "groups": [
-              {
-                "group": "Numbers don't match",
-                "pages": [
-                  "docs/differences-ad-performance",
-                  "docs/differences-in-ad-data",
-                  "docs/differences-in-unattributed-data",
-                  "docs/differences-in-visits",
-                  "docs/why-doesnt-northbeam-match-my-shopify-reporting",
-                  "docs/why-is-my-fb-roas-so-much-lower-in-northbeam"
-                ]
-              },
-              {
-                "group": "Tracking & pixel",
-                "pages": [
-                  "docs/checking-api-connections",
-                  "docs/checking-utm-tracking",
-                  "docs/troubleshooting-tracking-issues",
-                  "docs/guide-to-troubleshooting-pixel-tracking",
-                  "docs/gclid-fbclid-redirects"
-                ]
-              },
-              {
-                "group": "FAQ & comparisons",
-                "pages": [
-                  "docs/frequently-asked-questions",
-                  "docs/difference-between-blotout-and-northbeam-do-i-need-both"
-                ]
-              }
+            "group": "Numbers don't match",
+            "pages": [
+              "docs/differences-ad-performance",
+              "docs/differences-in-ad-data",
+              "docs/differences-in-unattributed-data",
+              "docs/differences-in-visits",
+              "docs/why-doesnt-northbeam-match-my-shopify-reporting",
+              "docs/why-is-my-fb-roas-so-much-lower-in-northbeam"
             ]
           },
+          {
+            "group": "Tracking & pixel",
+            "pages": [
+              "docs/checking-api-connections",
+              "docs/checking-utm-tracking",
+              "docs/troubleshooting-tracking-issues",
+              "docs/guide-to-troubleshooting-pixel-tracking",
+              "docs/gclid-fbclid-redirects"
+            ]
+          },
+          {
+            "group": "FAQ & comparisons",
+            "pages": [
+              "docs/frequently-asked-questions",
+              "docs/difference-between-blotout-and-northbeam-do-i-need-both"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "menu": [
           {
             "item": "Release notes",
             "icon": "sparkles",
@@ -400,33 +402,37 @@
             "href": "/docs/frequently-asked-questions"
           },
           {
+            "item": "Troubleshooting",
+            "icon": "flag",
+            "description": "Fix tracking issues and reconcile numbers",
+            "href": "/docs/troubleshooting-tracking-issues"
+          },
+          {
             "item": "Contact support",
             "icon": "envelope",
             "description": "Reach the Northbeam team directly",
             "href": "https://www.northbeam.io/submit-a-support-ticket"
+          }
+        ]
+      },
+      {
+        "tab": "Northbeam Internal",
+        "groups": [
+          {
+            "group": "Playbooks by team",
+            "pages": [
+              "docs/best-practices-by-teams-and-departments",
+              "docs/paid-social-team",
+              "docs/paid-search-team",
+              "docs/executive-team",
+              "docs/email-sms-retention",
+              "docs/offline-channel"
+            ]
           },
           {
-            "item": "Northbeam Internal",
-            "icon": "lock",
-            "description": "Team playbooks and internal resources",
-            "groups": [
-              {
-                "group": "Playbooks by team",
-                "pages": [
-                  "docs/best-practices-by-teams-and-departments",
-                  "docs/paid-social-team",
-                  "docs/paid-search-team",
-                  "docs/executive-team",
-                  "docs/email-sms-retention",
-                  "docs/offline-channel"
-                ]
-              },
-              {
-                "group": "Resources",
-                "pages": [
-                  "docs/the-media-buyer-newsletter"
-                ]
-              }
+            "group": "Resources",
+            "pages": [
+              "docs/the-media-buyer-newsletter"
             ]
           }
         ]
