@@ -1,0 +1,175 @@
+---
+title: "Tracking for Tatari"
+icon: "tv"
+---
+
+<Info>
+  ### Important Notice
+
+  By default, this integration supports only **Streaming** inventory. **Linear** inventory is not enabled automatically.
+
+  If you need Linear support, please contact Northbeam support to have it enabled for your account.
+</Info>
+
+# Steps to Integrate Tatari with Northbeam
+
+1. [Enable User Tracking](#step-1-enable-user-tracking)
+2. [Enable AWS Data Sharing](#step-2-enable-aws-data-sharing)
+3. [Insert Tatari ID and Source of Truth](#step-3-insert-tatari-id-and-source-of-truth)
+4. [Insert AWS Credentials in Tatari](#step-4-insert-aws-credentials-in-tatari)
+
+# Tatari FAQs
+
+1. [Where Can I Find My Tatari Data in Northbeam?](#1-where-can-i-find-my-tatari-data-in-northbeam)
+2. [How Often Is Tatari Data Updated in Northbeam?](#2-how-often-is-tatari-data-updated-in-northbeam)
+3. [I See Clicks and Matchbacks, but No Revenue or Transactions. What Should I Check?](#3-i-see-clicks-and-matchbacks-but-no-revenue-or-transactions-what-should-i-check)
+
+***
+
+# Step 1: Enable User Tracking
+
+Enabling user tracking in Tatari is essential for Northbeam to accurately attribute Tatari-driven orders. This process differs based on whether you're using Shopify or a custom platform.
+
+### 🛒 For Shopify
+
+1. **Install the Tatari Tag Manager App:**
+   * Visit the [Tatari Tag Manager](https://apps.shopify.com/tatari-tv) on the Shopify App Store.
+   * Click **Add app** and follow the installation prompts.
+
+2. **Verify Installation:**
+   * Once installed, the app will automatically manage the necessary pixels on your website to track funnel events related to your TV advertising campaigns.
+
+For more details, refer to Tatari's official [User Tracking Guide](https://drive.google.com/file/d/1U-ETZyVeEMclKiCY63falhOSN4EtbIAq/view?usp=sharing).
+
+### 🌐 For Non-Shopify (Custom Platform)
+
+1. **Implement the Tatari JavaScript Library:**
+
+   * Access your website's `<head>` section in the HTML code.
+   * Insert the following script, replacing YOUR\_TOKEN with the token provided by Tatari:
+
+```python html
+ <script>  
+     !function(){try{!function(t,i){if(!i.version){window.tatari=i,i  
+     .init=function(t,n){var e=function(t,n){i[n]=function(){t.push([  
+     n].concat(Array.prototype.slice.call(arguments,0)))}};"track  
+     pageview identify".split(" ")  
+     .forEach(function(t){e(i,t)}),i.\_i=t,i.config=n,i.pageview()}  
+     ,i.version="1.2.1"; var  
+     n=t.createElement("script");n.type="text/javascript",n.async=!0  
+     ,n.src="https://d2hrivdxn8ekm8.cloudfront.net/tag-manager/YOUR_TOKEN-latest.js";var e=t.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)}}(document,window.tatari||[])}catch(t){console.log(t)}}();  
+     tatari.init('YOUR_TOKEN');  
+ </script>
+```
+
+2. **Enable User Identification:**
+   * When a user logs in, call the tatari.identify(`{user_id}`); function, replacing `{user_id}` with your internal user identifier.
+   * Ensure that the same user IDs are used as customer IDs in Northbeam to maintain consistent attribution.
+
+For more details, refer to Tatari's official [User Tracking Guide](https://drive.google.com/file/d/1U-ETZyVeEMclKiCY63falhOSN4EtbIAq/view?usp=sharing).
+
+<Tip>
+  **Important:**
+
+  **It's crucial to use consistent customer IDs across both Tatari and Northbeam.** Since custom implementations can vary, ensure that your user identification aligns with Northbeam's requirements.
+</Tip>
+
+<Warning>
+  Need help with User Tracking setup?
+
+  Please reach out to your Tatari representative as Northbeam cannot assist here.
+</Warning>
+
+# Step 2: Enable AWS Data Sharing
+
+AWS Data Sharing allows Northbeam to access Tatari-attributed order data.
+
+1. **Log into Tatari:**
+   * Navigate to your [Tatari Dashboard](https://www.tatari.tv/).
+
+2. **Enable AWS Data Sharing:**
+   * Go to **Account Settings**.
+   * Select **Integrations**.
+   * Ensure that **AWS Data Sharing** is enabled.
+
+# Step 3: Insert Tatari ID and Source of Truth
+
+Providing your Tatari ID and specifying the source of truth ensures accurate data synchronization between Tatari and Northbeam.
+
+1. **Retrieve Your Tatari ID:**
+   * Log into your Tatari account.
+   * Your Tatari ID is visible in your account URL.
+
+2. **Configure Northbeam:**
+   * Log into your [Northbeam Dashboard](https://dashboard.northbeam.io/).
+   * Navigate to **Settings** > **Connections**.
+   * Find the **Tatari** section.
+   * Enter your **Tatari ID** and select your **Orders Source of Truth**.
+   * Click **Connect**.
+
+# Step 4: Allow 24 Hours for the Tatari Connection to Process
+
+After entering your Tatari ID and selecting the source of truth in Northbeam, please allow up to 24 hours for the integration to fully process.
+
+<Warning>
+  Attempting to connect your AWS Credentials too early can result in an error:
+
+  ![API Error 400: Invalid ARNs](https://files.readme.io/46aed383f3101466cd1f92dbd0a607d134ea0e757cd1db907911e9e2de54185b-image_117.png)
+
+  "API Error 400: Invalid ARNs"
+
+  This is expected behavior if the connection has not yet completed. Simply wait and retry after the 24-hour window.
+</Warning>
+
+# Step 5: Insert AWS Credentials in Tatari
+
+To complete the integration, input the AWS credentials from Northbeam into your Tatari account.
+
+1. **Obtain AWS Credentials from Northbeam:**
+   * In Northbeam, after connecting your Tatari ID, AWS credentials will be generated.
+
+2. **Input Credentials into Tatari:**
+   * Log into your Tatari account.
+   * Navigate to **Account Settings** > **Integrations**.
+   * Select **AWS Data Sharing**.
+   * Enter the AWS credentials provided by Northbeam.
+   * Click **Add** to finalize the setup.
+
+***
+
+# Tatari FAQ
+
+## 1. Where Can I Find My Tatari Data in Northbeam?
+
+After completing the integration, your Tatari data will appear under the **Clicks & Matchbacks** attribution model in Northbeam. "Matchbacks" represent data provided by Tatari for attributed orders.
+
+<Warning>
+  Data Notice
+
+  It may take up to **7 days** for your Tatari data to fully populate in Northbeam. Data is processed from oldest to newest upon initial integration.
+</Warning>
+
+## 2. How Often Is Tatari Data Updated in Northbeam?
+
+Tatari provides data reports once daily, typically with about a \~23-hour delay. Northbeam processes the file in the next scheduled run after it arrives. Because of that timing, Tatari data can sometimes appear 1–2 days behind in the dashboard depending on when the report was made available.
+
+**Example:**
+
+A report delivered by Tatari on May 13 may only contain data through May 12. If you check Northbeam on the morning of May 14 before the next processing run completes, the latest Tatari data available may still only reflect data through May 12.
+
+This is expected behavior and does not necessarily indicate an issue with the integration.
+
+## 3. I See Clicks and Matchbacks, but No Revenue or Transactions. What Should I Check?
+
+If you see clicks and matchbacks but no attributed orders, verify the following:
+
+* **Ensure all integration steps are completed:**
+  * User tracking is set up correctly.
+  * AWS credentials are configured properly.
+  * Tatari ID is accurate.
+
+* **Check that the customer IDs in your Tatari user tracking match the customer IDs in your Northbeam orders:**
+  * For Shopify users, this is typically a match since Shopify has a direct integration.
+  * For custom implementations, mismatches are more common and can result in missing data.
+
+If everything appears correct but data is still missing, please contact Northbeam support for further assistance.

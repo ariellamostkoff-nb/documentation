@@ -1,0 +1,165 @@
+---
+title: "Tracking for X Ads"
+description: "This guide will show you how to set up tracking for the following X metrics in Northbeam:"
+icon: "plug"
+---
+
+import TrackingChecklist from '/snippets/tracking-issue-checklist.mdx';
+
+import DiscrepancyExplanation from '/snippets/discrepancy-explanation.mdx';
+
+* Spend,
+* Impressions,
+* Visits, and
+* All conversion-based metrics attributed to X Ads
+
+# This involves 2 simple steps:
+
+Step 1: Connect Your X Ad Account (required)
+
+Step 2: Insert Northbeam UTM Parameters (required)
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Input
+      </th>
+
+      <th>
+        Output
+      </th>
+
+      <th>
+        If Input is missing...
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        X Integration (required)
+      </td>
+
+      <td>
+        The following data is pulled into your dashboard:  
+
+        * Campaign, Adset, Ad Names
+        * Ad Spend
+        * Impressions
+        * X-reported metrics
+      </td>
+
+      <td>
+        Campaign, Adset, Ad Names will be missing, along with Spend and Impressions.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Northbeam UTM Parameters (required)
+      </td>
+
+      <td>
+        Revenue, Transactions, and Visit attribution to your Campaigns, Adsets, and Ads.
+      </td>
+
+      <td>
+        Northbeam UTM Parameters create the linkage between your Ads and the conversions they drive. If missing, your ad spend and your revenue will be reported on different line-items, making it very difficult to draw insights.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+***
+
+# Step 1: Connect Your X Ad Account
+
+## What does the connection do?
+
+Northbeam natively integrates with the X Ads API. By doing so, we pull all your current and historical Campaigns, Adsets, and Ads from your account, along with a list of useful metrics.  Notably, we pull impressions, which fuel our view model and unlock our Clicks + Modeled Views attribution model. We also pull ad spend and list of in-platform conversion & creative metrics to help you with decision making.
+
+## How to connect your Ad Account?
+
+How to connect:
+
+* **Onboarding Flow** - If you're in our onboarding flow, please navigate to **Integrations**
+* **Activated Dashboard** - If your dashboard is activated, please go to **Settings > Connections**
+
+<Warning>
+  Note: The credentials used must have admin access to the Ad Account.
+</Warning>
+
+For a visual walkthrough, reference the video below.
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/d1d83910b47b48eeba950e9b46a38aaa?sid=549b5b43-b6a8-4cb4-8485-2da14cc057dd" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+# Step 2: Insert Northbeam UTM Parameters
+
+<Warning>
+  Hardcoded UTM Values
+
+  X doesn't support dynamic UTM values. Your campaign/adset/ad names need to be **hardcoded** into utm\_campaign, utm\_term, and utm\_content within your URLs.
+
+  For your convenience, use our X UTM Builder below.
+</Warning>
+
+Make a copy of our [Twitter UTM Builder](https://docs.google.com/spreadsheets/d/1ffIP4w0wMRI2Kh0DykrTRryTXsubz4v2Tan5H83ZOeM/edit) and video instructions.
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/022e19e3cb3946efb21cab0aef89a968?sid=68a70d7a-7e43-4059-a0e0-88f669cb20c2" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+Please add the following UTMs to the end of your **Destination URLs for all new ads.**
+
+*(Note: Published ads cannot be edited. Our UTMs can only be placed on new, unpublished ads. Please duplicate your ads to insert our UTMs.)*
+
+* utm\_source=twitter
+* utm\_medium=paid
+* utm\_campaign=\[campaign\_name]\*\*
+* utm\_term=\[adgroup\_name]\*\*
+* utm\_content=\[ad\_name]\*\*
+
+\***\*placeholders**
+
+***
+
+# X Ads FAQ
+
+## 1. How do I connect an extra account or remove an account?
+
+Reference our step-by-step guide below:
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/31cd15c479ba42079c7822d99ee85c52?sid=844eded7-4fc3-4493-baf0-5a88b151de3c" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+## 2. Why do I see a data discrepancy?
+
+**Discrepancies in Revenue and Orders are expected.** The reason for this lies in the differences between Northbeam's attribution model and the corresponding platform's attribution model. Each attribution model has a unique method of allocating credit.
+
+For example, Northbeam's Clicks-Only model divides credit across all touchpoints and tries to push credit to your upper funnel channels. Let's say your in-platform model uses Last Click, which gives credit to the last touchpoint in the journey. This is going to cause a discrepancy.
+
+<DiscrepancyExplanation />
+
+### Attribution Models and Windows
+
+**X:**
+
+* Attribution Model: Last Click
+* Attribution Window: 1-Day View/14-Day Engagement
+  * [Source: Twitter / X Attribution Settings](https://developer.x.com/en/docs/twitter-ads-api/measurement/web-conversions/overview)
+
+**Northbeam:**
+
+* Attribution Model: Varies (default is Clicks-Only)
+* Attribution Window: 1-Day (default, can extend to an infinite lifetime value)
+
+## 3. Suspect a Tracking Issue?
+
+Please reference our [Troubleshooting Tracking Issues](/docs/troubleshooting-tracking-issues).
+
+<TrackingChecklist />

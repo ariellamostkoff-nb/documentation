@@ -1,0 +1,244 @@
+---
+title: "Tracking for Impact"
+icon: "envelope"
+---
+
+# Table of Contents
+
+* [Introduction](#introduction)
+* [How Impact data maps to Northbeam](#how-impact-data-maps-to-northbeam)
+* [Step 1: Connect Your Impact Account](#step-1-connect-your-impact-account)
+* [Step 2: Insert Northbeam UTM Parameters](#step-2-insert-northbeam-utm-parameters)
+* [Step 3: Remove Impact Custom Spend (Optional)](#step-3-remove-impact-custom-spend-optional)
+* [Impact FAQ](#impact-faq)
+
+***
+
+# Introduction
+
+**This guide will show you how to set up tracking for the following Impact metrics in Northbeam:**
+
+* Spend, visits, and all conversion-based metrics attributed to Impact campaigns
+* Partner and campaign data imported from Impact's reporting
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Input
+      </th>
+
+      <th>
+        Output
+      </th>
+
+      <th>
+        If Input is missing...
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Impact Integration
+      </td>
+
+      <td>
+        The following data is pulled into your dashboard:
+
+        - Campaign Names
+        - Partner Names
+        - Ad Names
+      </td>
+
+      <td>
+        Campaign, Partner, and Ad names will be missing, along with spend metrics.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Northbeam UTM Parameters
+      </td>
+
+      <td>
+        Revenue, Transactions, and Visit attribution to your Campaigns and Partners
+      </td>
+
+      <td>
+        Northbeam UTM parameters create the linkage between your Impact ads and the conversions they drive. If missing, your ad spend and revenue will be reported on different line items, making it very difficult to draw insights.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+***
+
+# How Impact data maps to Northbeam
+
+Once connected, Impact data appears in your Northbeam dashboard across three levels:
+
+| Impact Level       | Northbeam Level |
+| :----------------- | :-------------- |
+| Program (Campaign) | Campaign Level  |
+| Partner            | Adset Level     |
+| Ad                 | Ad Level        |
+
+*This mirrors Impact’s native hierarchy — Programs (campaigns) contain partners, and partners use individual ads/creatives*.
+
+***
+
+# Step 1: Connect Your Impact Account
+
+## 1A: Find your Impact credentials
+
+Northbeam connects via Impact's **Legacy API Token**. You'll need your **Account SID** and **Auth Token**.
+
+<Warning>
+  Required Role
+
+  Only users with the **Account Administrator** or **Implementation Specialist** role in Impact can access API credentials.
+
+  *If you don't see the API section in Settings, ask your Impact account admin to either grant you one of these roles or retrieve the credentials on your behalf.*
+</Warning>
+
+1. In Impact, go to **\[User profile] → Settings → Technical → API**
+2. Click **Create Access Token** — refer to [Impact's guide](https://help.impact.com/brand/what-would-you-like-to-learn-about/account-administration/account-settings/api-tokens/create-an-api-access-token-as-a-brand) for detailed steps
+3. Complete the **Setup** and **Contact Information** steps
+4. On the **API Scopes** step, select the following (all GET):
+   * `/Advertisers/<AccountSID>/Campaigns`
+   * `/Advertisers/<AccountSID>/Actions`
+   * `/Advertisers/<AccountSID>/Ads`
+   * `/Advertisers/<AccountSID>/MediaPartners`
+   * `/Advertisers/<AccountSID>/ReportExport/{ReportId_or_Handle}`
+   * `/Advertisers/<AccountSID>/Reports`
+   * `/Advertisers/<AccountSID>/Reports/{ReportId}`
+5. Click **Create**
+
+<Frame>
+  <img src="https://files.readme.io/28dec18a2b8968f46f63bada289d432b0db4f49a1d9acac4142fcbf8196290f1-CleanShot_2026-05-05_at_13.52.27.png" alt="" />
+</Frame>
+
+<br />
+
+## 1B: Connect in Northbeam
+
+* **Onboarding:** Go to **Integrations > Impact**
+* **Dashboard:** Go to **Settings > Connections > Impact**
+
+Paste your **Account SID** and **Auth Token**, then click **Connect**.
+
+If you see *"An error occurred: Invalid credentials,"* double-check both values and try again.
+
+<Frame>
+  <img src="https://files.readme.io/315f71e099a4b13cc338d3a384b3cff8ee34b6acb8ae3ac6b81b5bcfd19646cc-CleanShot_2026-05-05_at_16.03.14.png" alt="" />
+</Frame>
+
+***
+
+# Step 2: Insert Northbeam UTM Parameters
+
+Add the following custom UTM parameter to the click URLs for all new and existing Impact ads:
+
+| Parameter Name | Value                                 |
+| :------------- | :------------------------------------ |
+| `nbt`          | `nb:impact::{ircid}:{irpid}:{iradid}` |
+
+## Step-By-Step Guide
+
+1. In Impact, go to **\[User profile] → Settings → Gateway**
+
+<Frame>
+  <img src="https://files.readme.io/870aeeb366f2c80f2525ba729985349eea31eacd5cd672b384c52e6c0512121c-CleanShot_2026-05-04_at_16.33.10.png" alt="" />
+</Frame>
+
+2. Under **Program Tracking Template**, add a new parameter row:
+   1. **Name:** `nbt`
+   2. **Value:** `nb:impact::{ircid}:{irpid}:{iradid}`
+
+<Frame>
+  <img src="https://files.readme.io/2f25738228dbafdf77fe6e05aef9b6de200452c30c900a56418d2d2db2de3259-CleanShot_2026-05-04_at_16.38.10.png" alt="" />
+</Frame>
+
+3. Click **Save**
+
+***
+
+# Step 3: Remove Impact Custom Spend (Optional)
+
+Once connected, Northbeam pulls up to **3 years of historical spend** data from Impact. If you're currently sending Impact spend via a Spend Sheet or Spend API, you may want to remove overlapping spend to avoid duplicate reporting.
+
+For example:
+
+* If the integration is connected on `5/10/26`, Northbeam will backfill Impact spend data to `5/10/23`
+
+If you have Impact spend data older than the integration lookback window and would like to preserve it, keep those older records in place.
+
+## Removing from Spend Sheet
+
+1. Go to Data Spreadsheets" target="_blank" href="https://dashboard.northbeam.io/settings/data-spreadsheets">Settings > Data Spreadsheets
+2. Locate the sheet tied to Impact
+3. **Zero out** the Impact spend that overlaps with the integration backfill period
+
+   * Example: if connecting on `5/10/26`, zero out Impact spend from `5/10/23` onward
+
+<Note>
+  Important: Do Not Delete Rows, Columns, or Cells
+
+  Do not delete any columns, rows, or cells from the Spend Sheet. Instead, replace the overlapping Impact spend values with `0`.
+
+  Custom spend sheets can vary by setup. Some use formulas tied to raw data import tabs, while others use manually entered spend.
+</Note>
+
+## Removing from Spend API
+
+Delete existing Impact spend records using the Delete Spend endpoint: [/reference/delete\\_spend](/reference/delete_spend)
+
+## Need Help?
+
+If you're unsure which values to remove, please [submit a support ticket](https://www.northbeam.io/submit-a-support-ticket) and we’d be happy to help.
+
+***
+
+# Impact FAQ
+
+## 1. Can I connect multiple Impact accounts?
+
+At this time, Northbeam supports connecting one Impact account per dashboard.
+
+If you manage multiple Impact accounts, you can still track the others by:
+
+* Connecting one account through the native Impact integration
+* Sending spend for additional accounts via a Spend Sheet or Spend API
+* Using standard UTMs for tracking on those additional accounts
+
+Any non-connected Impact accounts will work similarly to other [Non-Integrated Channels](/docs/tracking-for-other-platforms).
+
+## 2. Can I use other UTM parameters alongside Northbeam's?
+
+Yes — Northbeam's `nbt` parameter is additive and will not interfere with any other parameters you're already using. Feel free to keep parameters like `utm_source`, `utm_medium`, `utm_campaign`, or any other tracking params for Google Analytics or other platforms. Northbeam only uses `nbt` for attribution.
+
+## 3. I was already using Northbeam's previous recommended UTMs for Impact. Do I need to switch?
+
+You can either swap them out for the new `nbt` parameter or simply add `nbt` alongside your existing params — there's no harm in leaving the old ones in place. Northbeam uses `nbt` to tie sessions back to the correct ad spend, so as long as `nbt` is present, attribution will work correctly.
+
+## 4. Why do I see a data discrepancy?
+
+**Discrepancies in Revenue and Orders are expected.** The key reason is a difference in attribution methodology:
+
+* **Impact's attribution** credits 100% of each conversion to a single partner using Impact's own click-based rules
+* **Northbeam's attribution** treats Impact data as one input into cross-channel, multi-touch attribution — so conversions may be shared with or re-assigned to other channels
+
+For more details: [Why are my metrics different in Northbeam than in-platform reporting?](/docs/what-is-northbeam#one-of-the-most-common-questions-we-get-is)
+
+## 5. I think there's an issue with tracking. Please help!
+
+Please reference our [Troubleshooting Tracking Issues FAQ](/docs/troubleshooting-tracking-issues).
+
+* **Connection**: Go to **Settings > Connections** and check for any errors on the Impact connection
+* **UTMs**: Ensure all Impact click URLs include the Northbeam `nbt` parameter listed in Step 2
+* **Northbeam Pixel**: Confirm the Northbeam pixel is firing on your landing page
+* **Purchase Pixel**: Confirm the Purchase pixel is firing on your checkout page
+
+<br />

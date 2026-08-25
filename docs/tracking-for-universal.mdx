@@ -1,0 +1,142 @@
+---
+title: "Tracking for Universal"
+icon: "plug"
+---
+
+# Table of Contents
+
+* [Introduction](#introduction)
+* [Step 1: Connect Your Universal Ads Account](#step-1-connect-your-universal-ads-account)
+* [Universal Ads FAQ](#universal-ads-faq)
+
+***
+
+# Introduction
+
+**This guide will show you how to set up Universal Ads spend tracking in Northbeam.**
+
+Once connected, Northbeam will automatically pull:
+
+* Spend data from Universal Ads
+* Campaign-level reporting data from Universal Ads
+
+Because Universal Ads is a CTV platform, this integration is currently **spend-only** and does not support:
+
+* UTMs or NBT parameters
+* Revenue attribution
+* Conversion attribution
+* Click-based attribution
+* CDV (Customer Data Views)
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Input
+      </th>
+
+      <th>
+        Output
+      </th>
+
+      <th>
+        If Input is missing...
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Universal Ads Integration
+      </td>
+
+      <td>
+        The following data is pulled into your dashboard:
+
+        * Spend
+        * Campaign reporting data
+      </td>
+
+      <td>
+        Universal Ads spend and campaign reporting data will not appear in Northbeam.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+***
+
+# Step 1: Connect Your Universal Ads Account
+
+Northbeam connects to Universal Ads using a standard OAuth connection flow.
+
+* **Onboarding:** Go to **Integrations > Universal Ads**
+* **Dashboard:** Go to **Settings > Connections > Universal Ads**
+
+Click **Connect**, then follow the Universal Ads authentication flow to authorize your account.
+
+Once connected successfully, your Universal Ads account will appear in the Connections page.
+
+<Frame>
+  <img src="https://files.readme.io/ee1c5c8b008b0ff216fc39038144c9746ec8211a502c45b200d08a5493755301-CleanShot_2026-05-06_at_11.46.26.png" alt="" />
+</Frame>
+
+***
+
+# Universal Ads FAQ
+
+## 1. Does the Universal Ads integration support attribution or revenue tracking?
+
+No. Universal Ads is currently a spend-only integration.
+
+Because Universal Ads is a CTV platform, the integration currently imports spend and campaign reporting data only, and does not support:
+
+* UTMs or NBT parameters
+* Revenue attribution
+* Conversion attribution
+* Click-based attribution
+* CDV (Customer Data Views)
+
+## 2. Is CDV supported for Universal Ads?
+
+Not yet. CDV support for Universal Ads is currently not available, but may be added in a future release.
+
+## 3. Can I connect multiple Universal Ads accounts?
+
+At this time, Northbeam supports connecting one Universal Ads account per dashboard.
+
+If you manage multiple Universal Ads accounts, you can still track the others by:
+
+* Connecting one account through the native Universal Ads integration
+* Sending spend for additional accounts via a Spend Sheet or Spend API
+
+Any non-connected Universal Ads accounts will work similarly to other [non-integrated channels](/docs/tracking-for-other-platforms).
+
+## 4. Why don't I see revenue or ROAS metrics tied to Universal Ads?
+
+The Universal Ads integration currently imports spend data only.
+
+Because there are no UTMs, click identifiers, or deterministic conversion signals passed from Universal Ads into Northbeam, revenue and conversion metrics cannot currently be attributed directly to Universal Ads campaigns.
+
+## 5. Why might Universal Ads reporting differ from Northbeam?
+
+Universal Ads may use view-through attribution windows within their platform reporting.
+
+Universal Ads currently supports the following attribution windows:
+
+* 7-day
+* 14-day
+* 30-day
+
+Northbeam uses its own attribution methodology and reporting logic, so discrepancies between Northbeam and in-platform Universal Ads reporting are expected.
+
+## 6. I think there's an issue with my Universal Ads integration. Please help!
+
+Please reference our [Troubleshooting Tracking Issues FAQ](/docs/troubleshooting-tracking-issues).
+
+* **Connection**: Go to **Settings > Connections** and check for any errors on the Universal Ads connection
+* **Authentication**: Reconnect the integration if authorization has expired
+* **Data Sync Timing**: Spend data may take some time to appear after connecting, depending on Universal Ads data sync timing
+
+<br />

@@ -1,0 +1,396 @@
+---
+title: "Tracking for Meta Ads"
+icon: "plug"
+---
+
+import TrackingChecklist from '/snippets/tracking-issue-checklist.mdx';
+
+import DiscrepancyExplanation from '/snippets/discrepancy-explanation.mdx';
+
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Step 1: Connect Your Meta Ad Account](#step-1-connect-your-meta-ad-account)
+3. [Step 2: Insert Northbeam UTM Parameters](#step-2-insert-northbeam-utm-parameters)
+4. [How to Confirm Your Meta Ads Are Tracking Properly](#how-to-confirm-your-meta-ads-are-tracking-properly)
+5. [Meta Ads FAQ](#meta-ads-faq)
+   * [How do I connect an extra account or remove an account?](#1-how-do-i-connect-an-extra-account-or-remove-an-account)
+   * [Will my Meta Ads be reset to the learning phase?](#2-will-my-meta-ads-be-reset-to-the-learning-phase)
+   * [Can Northbeam ingest UTMs from other tracking platforms?](#3-can-northbeam-ingest-utms-from-other-tracking-platforms)
+   * [Can you track conversions from Meta Shops?](#4-can-you-track-conversions-from-meta-shops)
+   * [How can I see Meta Shops credit?](#5-how-can-i-see-meta-shops-credit)
+   * [Why do I see a data discrepancy?](#6-why-do-i-see-a-data-discrepancy)
+   * [Why doesn't Meta-reported Purchases in Northbeam match in-platform?](#7-why-doesnt-meta-reported-purchases-in-northbeam-match-in-platform)
+   * [I think there's an issue with tracking. Please help!](#8-i-think-theres-an-issue-with-tracking-please-help)
+
+***
+
+# Introduction
+
+**This guide will show you how to set up tracking for the following Meta metrics in Northbeam:**
+
+* Spend, impressions, visits and all conversion-based metrics attributed to Meta Ads
+* Creative metrics imported from Meta Ads’ in-platform reporting
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Input
+      </th>
+
+      <th>
+        Output
+      </th>
+
+      <th>
+        If Input is missing...
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Meta Integration
+      </td>
+
+      <td>
+        The following data is pulled into your dashboard:
+
+        * Campaign, Adset, Ad Names
+        * Ad Spend
+        * Impressions
+        * Meta-reported metrics
+      </td>
+
+      <td>
+        Campaign, Adset, Ad Names will be missing, along with Spend, Impressions, and Meta-reported metrics.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Northbeam UTM Parameters
+      </td>
+
+      <td>
+        Revenue, Transactions, and Visit attribution to your Campaigns, Adsets, and Ads.
+      </td>
+
+      <td>
+        Northbeam UTM Parameters create the linkage between your Ads and the conversions they drive. If missing, your ad spend and your revenue will be reported on different line-items, making it very difficult to draw insights.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+<Note>
+  Advertise on Meta Shop?
+
+  * **Shopify Stores** - Make sure your store is connected to [*Meta and Instagram by Meta*](https://help.shopify.com/en/manual/online-sales-channels/facebook-instagram-by-meta/setup)
+  * **Custom Stores** - Make sure to label your Meta Shop orders with an `order_tag` ([Server API](https://northbeam-orders-api.readme.io/reference/post_orders)) and[ reach out to our team ](https://www.northbeam.io/submit-a-support-ticket)with the name of the tag.
+
+  **For more information,[learn about Meta Shops (and TikTok Shops) here](/docs/tracking-for-shops).**
+</Note>
+
+***
+
+# Step 1: Connect Your Meta Ad Account
+
+## What does the connection do?
+
+Northbeam natively integrates with the Meta Ads API. By doing so, we pull all your current and historical Campaigns, Adsets, and Ads from your account, along with a list of useful metrics.  Notably, we pull impressions, which fuel our view model and unlock our Clicks + Modeled Views attribution model. We also pull ad spend and list of in-platform conversion & creative metrics to help you with decision making.
+
+## How to connect your Ad Account
+
+How to connect:
+
+* **Onboarding Flow** - If you're in our onboarding flow, please navigate to **Integrations**
+* **Activated Dashboard** - If your dashboard is activated, please go to **Settings > Connections**
+
+<br />
+
+<Warning>
+  Note: The credentials used must have admin access to the Ad Account.
+</Warning>
+
+<br />
+
+<Note>
+  Additional Meta Permission Requirements
+
+  The user connecting must have both **`ads_read`** and **`ads_management`** permissions enabled in their **Meta Business Manager**.
+
+  These permissions fall under **Advanced Access**, which is required for third-party integrations like Northbeam to read and manage ad data.
+
+  To verify or request these permissions, go to:\
+  **Meta Business Manager → App Dashboard → App Review → Permissions and Features**
+
+  For more information, visit Meta’s documentation:\ [https://developers.facebook.com/docs/marketing-api/get-started/authorization/#permissions-and-features](https://developers.facebook.com/docs/marketing-api/get-started/authorization/#permissions-and-features)
+</Note>
+
+For a visual walkthrough, reference the video below.
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/d1d83910b47b48eeba950e9b46a38aaa?sid=549b5b43-b6a8-4cb4-8485-2da14cc057dd" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+# Step 2: Insert Northbeam UTM Parameters
+
+Please add **two custom UTM parameters** in the **Build a URL** menu for all new and existing Meta Ads:
+
+| Parameter Name | Value                                                                       |
+| :------------- | :-------------------------------------------------------------------------- |
+| nbt            | nb:fb:\{\{site\_source\_name}}:\{\{campaign.id}}:\{\{adset.id}}:\{\{ad.id}} |
+| nb\_placement  | \{\{placement}}                                                             |
+
+<Frame caption="Build a URL Parameter > Custom Parameters">
+  <img src="https://files.readme.io/4ba9e6130da9526ec3796715af8c06b9e3fa6c38140400e203f04254117472f1-Screenshot_2025-05-13_at_9.33.31_AM.png" alt="Build a URL Parameter > Custom Parameters" />
+</Frame>
+
+## Step-By-Step Guide:
+
+For a visual walkthrough of setting up UTM parameters, reference the video below.
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/dfd6bbb850b2426eaaf8b74315986575?sid=5eede71e-445c-4490-8f4c-6aed047b5eb6" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+<br />
+
+1. In your Ad settings, click **Build a URL parameter**
+2. Click **Add parameter** twice and all the two custom parameters listed above.
+3. Click **Apply**.
+
+<Warning>
+  How To Verify
+
+  In the **Parameter preview**, you should see:
+
+  `nbt=nb%3Afb%3A{{site_source_name}}%3A{{campaign.id}}%3A{{adset.id}}%3A{{ad.id}}&nb_placement={{placement}}`
+
+  * This is expected — Meta automatically encodes colons (:) into %3A.
+  * **Do not encode colons yourself** — entering `%3A` directly in the Value will result in double encoding (%253A) and break tracking.
+  * It’s fine if other parameters appear — Northbeam UTMs can coexist with others.
+</Warning>
+
+<br />
+
+<Note>
+  UTM Auto-Appending
+
+  If you would like Northbeam to automatically append UTM parameters to newly created Meta ads from ad accounts connected to your dashboard, please [reach out to our Support team](https://www.northbeam.io/submit-a-support-ticket) to enable this feature.
+</Note>
+
+<br />
+
+***
+
+<br />
+
+## ✅ How to Confirm Your Meta Ads Are Tracking Properly
+
+To be confident that your Meta ads are tracking correctly in Northbeam, two things need to happen:
+
+1. **Northbeam UTMs must be captured**
+2. **The Northbeam pixel must fire on the landing page**
+
+The easiest way to test both is by using a **Live Preview Link** from Meta Ads Manager and verifying in your browser.
+
+## 🔍 Step-by-Step: Verify UTMs + Pixel with a Live Ad Preview
+
+### 1. **Get a Live Preview Link**
+
+* Log into **Meta Ads Manager**
+* Find your ad and click **Preview**
+* Click **Share** → **Share a link**
+* You’ll get a short link like: `https://fb.me/1TSaf6EzTjEfn8K`
+
+<Frame>
+  <img src="https://files.readme.io/a82db463d2e802757067a1eb1dae6e8f36f98f4a5b51da35c80d99bd17dc3716-Screenshot_2025-04-10_at_11.01.14_PM.png" alt="" />
+</Frame>
+
+### 2. **Test the Link**
+
+* Paste the link into your browser (it’ll load your Newsfeed)
+* Find the ad in your feed and **click on it**
+
+<Info>
+  ### Don't see the ad?
+
+  Sometimes it doesn't appear right at the top of the feed, so be sure to scroll down a bit.
+</Info>
+
+### 3. **Verify UTMs and Pixel via Developer Tools**
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/a155e0324835438e87965ef143e94953?sid=111298c7-0567-45c5-9e2b-51ac50ef4581" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+### UTM Validation:
+
+Once you're on the landing page...
+
+* **Accept any cookie banners** *(scripts won't fire until cookies are accepted)*
+* **Go to Developer Tools --> Network:**
+  * *Chrome / Edge / Brave / Opera*
+    * Right-click → **Inspect**
+    * Or press `Cmd+Option+I` (Mac) / `Ctrl+Shift+I` (Windows)
+    * Go to the **Network** tab
+  * *Firefox*
+    * Right-click → **Inspect**
+    * Or press `Cmd+Option+E` / `Ctrl+Shift+E`
+    * Go to the **Network** tab
+  * *Safari (Mac)*
+    * Enable Dev Tools: Safari → Settings → Advanced → check "Show Develop menu"
+    * Then go to **Develop → Show Web Inspector**
+    * Click the **Network** tab
+* **Refresh the page**
+* **Click the first request** (should be labeled as a UTM string (ex. '`?nbt=nbnbt=nb%3Afb%3A...`')
+* Click on the **Payload** tab
+* You should see UTMs listed — look for something like:
+  * `nbt: nb:fb:fb:XXXXXXXXX:XXXXXXXXXX:XXXXXXXXXXX`
+
+<Frame caption="Click the first 'Network' request, then look in the 'Payload'">
+  <img src="https://files.readme.io/2e13d764e7417b80d2754bc84d3b9de81a88ffadee0bbab37a2d13a57d433983-Screenshot_2025-04-10_at_11.06.31_PM.png" alt="Click the first 'Network' request, then look in the 'Payload'" />
+</Frame>
+
+✅ If those are populated → **UTMs are confirmed**
+
+### Pixel Validation:
+
+* Still in the **Network** tab
+* Search for a request called **`nb-collector`** or **`tp2`**
+* Look for the one with `pv` in the Payload
+
+<Frame caption="Note: It's completely normal to see multiple requests. Look for the one with 'pv' in the Payload.">
+  <img src="https://files.readme.io/12aa2af09b819686b7450d75aad5498f53adb4f734cfd39e63e7e879b3ff67b4-Screenshot_2025-04-11_at_11.44.04_AM.png" alt="Note: It's completely normal to see multiple requests" />
+</Frame>
+
+✅ If you see `PV` in a `nb-collector` request → **Pixel is confirmed**
+
+## 🎯 What This Means
+
+Once **both UTMs and the pixel are confirmed**, Northbeam has successfully recognized the session ("**Visit**"). This means any conversions (like purchases) that happen during the session will be tied back to the correct ad in Northbeam.
+
+***
+
+# Meta Ads FAQ
+
+## 1. How do I connect an extra account or remove an account?
+
+Reference our step-by-step guide below:
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/31cd15c479ba42079c7822d99ee85c52?sid=844eded7-4fc3-4493-baf0-5a88b151de3c" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+## 2. Will my Meta Ads be reset to the learning phase?
+
+Yes, editing UTMs on active ads resets the ad to the learning phase, which may temporarily affect performance.
+
+**Our recommendation:**
+
+* Update all your Meta Ads at once to minimize disruptions and start benefiting from Northbeam tracking immediately.
+* Alternatively, you can wait for a low-traffic period or your next creative refresh to make changes. *(Note: Ads without Northbeam UTMs won't be fully tracked.)*
+
+## 3. Can Northbeam ingest UTMs from other tracking platforms?
+
+Yes! Northbeam can ingest UTMs from other tracking platforms, including **Triple Whale, Hyros, Rockerbox, and Wicked Reports**. If your ads already use UTMs from these platforms, you **may not need to manually implement Northbeam's UTMs**, helping you avoid sending ads back into the learning phase.
+
+For details on supported UTM structures, check out our guide: 🔗 [Using Legacy Meta UTMs with Northbeam](/docs/facebook-utms-for-legacy-platforms)
+
+## 4. Can you track conversions from Meta Shops?
+
+### For Shopify:
+
+No action needed here!  We've got you covered when it comes to tracking conversions from Meta Shops. By utilizing Shopify's data, we meticulously identify and record all completed orders through Meta Shop.
+
+### For All Other Platforms:
+
+It's important for us to understand which order(s) were placed via Meta Shops.
+
+**Step 1:** Within the Orders API, please insert a unique Order Tag ("order\_tags" in [API Docs](/reference/post_orders)) and resend the orders.
+
+**Step 2:** Please [notify our team](https://www.northbeam.io/submit-a-support-ticket) and let us know the name of the tag associated with Meta Shops
+
+**Step 3:** Our team will notify you when we're good to go!
+
+## 5. How can I see Meta Shops credit?
+
+Your **Attributed Revenue** and **Transactions** will seamlessly incorporate this credit, whether you're using the Clicks Only attribution model or the Clicks + Modeled Views attribution model.
+
+<Note>
+  Note:
+
+  The Northbeam Pixel doesn't fire on Meta Shops, so we don't track Visits. Consequently, the Visits count won't be recorded, and CPCs (Cost Per Clicks) may appear inflated for any Campaigns, Ad Sets, or Ads running Meta Shops.
+</Note>
+
+## 6. Why do I see a data discrepancy?
+
+**Discrepancies in Revenue and Orders are expected.** Here’s why:
+
+* **Northbeam's attribution:** Divides credit across all touchpoints and channels, with an emphasis on upper-funnel contributions.
+* **Meta's attribution:** Typically relies on Last Click within a 7-Day Click/1-Day View window.
+
+Northbeam's Clicks-Only model divides credit across all touchpoints and tries to push credit to your upper funnel channels. Let's say your in-platform model uses Last Click, which gives credit to the last touchpoint in the journey. This is going to cause a discrepancy.
+
+<DiscrepancyExplanation />
+
+### Attribution Models and Windows
+
+**Meta:**
+
+* Attribution Model: Last Click
+* Attribution Window: 7-Day Click/1-Day View
+  * [Source: Meta Attribution Settings](https://www.facebook.com/business/help/460276478298895?id=561906377587030)
+
+**Northbeam:**
+
+* Attribution Model: Varies (default is Clicks-Only)
+* Attribution Window: 1-Day (default, can extend to an infinite lifetime value)
+
+### For more details on discrepancies, review the articles below:
+
+[Why are my metrics different in Northbeam than in-platform reporting?](/docs/what-is-northbeam#one-of-the-most-common-questions-we-get-is)
+
+## 7. Why doesn't Meta-reported Purchases in Northbeam match in-platform?
+
+Northbeam pulls purchase conversion volume and value by individual attribution models directly from your Meta Ads Manager (via API):
+
+* 1D Click
+* 1D View
+* 7D Click
+* 7D Click + 1D View
+
+The standard Purchase metric, in Meta Ad manager, reflects each ad set's conversion total based on its own attribution setting.
+
+If you're seeing a difference in value and/or volume, a few things could cause this:
+
+* **Mixed Attribution Settings** - Meta's default purchase total reflects each ad set's individual attribution setting. If ad sets are on different windows, the total won't match any single window.
+* **Incremental Model** - If any ad sets are on Meta's "Incremental" model (found under Attribution model in ad set settings), those conversions use a holdout-based methodology that Northbeam doesn't ingest — we only pull standard click and view windows.
+* **Attribution window columns aren't additive** - The breakdown columns overlap — 7-day click is inclusive of 1-day click, so adding them double counts. Meta deduplicates in the default metric, which is why the parts don't sum to the total.
+
+<Frame>
+  <img src="https://files.readme.io/76d76630ed5f256e3835dd107272305300fdca30136af5b266558254d29211e0-CleanShot_2026-03-06_at_10.45.26.png" alt="" />
+</Frame>
+
+<Warning>
+  If any ad sets are using Meta's **Incremental** attribution model, Northbeam will not be able to match in-platform purchase totals.
+
+  <Frame>
+  <img src="https://files.readme.io/abfff168cb3c2e93a3553895e39795765d21958e63f23ef7ec4090ed5455fe34-CleanShot_2026-03-06_at_10.38.07.png" alt="" />
+</Frame>
+</Warning>
+
+### What to do:
+
+* Compare Northbeam to Meta's **purchases by attribution setting**, not the default total — this ensures an apples-to-apples comparison.
+* Check for ad sets on Meta's **Incremental** model.
+
+## 8. I think there's an issue with tracking. Please help!
+
+Please reference our [Troubleshooting Tracking Issues FAQ](/docs/troubleshooting-tracking-issues).
+
+<TrackingChecklist />
