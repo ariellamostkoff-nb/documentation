@@ -1,0 +1,32 @@
+---
+title: "AppLovin FAQ"
+sidebarTitle: "AppLovin FAQ"
+icon: "circle-question"
+---
+
+## 1. Where is my data?
+
+Your data should populate in Northbeam after the next data refresh. Typically, this occurs within 24 hours of completing the integration. If data is still missing, double-check that the Report API Key and Account ID were entered correctly.
+
+## 2. What attribution models does the AppLovin integration support?
+
+The AppLovin integration supports all attribution models available in Northbeam.
+
+## 3. What should I do if my AppLovin data isn't appearing?
+
+1. Verify that your AppLovin Report API Key and Account ID are correctly configured in **Settings > Connections**.
+2. Ensure Northbeam UTM parameters have been added to your creatives — including any creatives using **"Use another URL"**, which require UTMs to be set at the creative level separately.
+3. Check if your spend source was previously uploaded via a custom spend sheet or API. If so, make sure there is no duplication causing discrepancies. Refer to [Step 5: Remove Custom Spend](#step-5-remove-custom-spend-optional).
+
+## 4. Why isn't my ad spend lining up?
+
+Discrepancies in ad spend can often arise due to differences in **timezones** between Northbeam and AppLovin. By default, AppLovin reports data using **UTC**, whereas your Northbeam timezone is likely set to a different time zone, which you configured during onboarding.
+
+To verify your Northbeam timezone:
+
+1. Navigate to Settings > Profile in your Northbeam account.
+2. Locate the Timezone field.
+
+For any additional questions, feel free to submit a [Support ticket](https://www.northbeam.io/submit-a-support-ticket).
+
+<br />

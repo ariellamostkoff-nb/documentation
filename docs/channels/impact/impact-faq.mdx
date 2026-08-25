@@ -1,0 +1,45 @@
+---
+title: "Impact FAQ"
+sidebarTitle: "Impact FAQ"
+icon: "circle-question"
+---
+
+## 1. Can I connect multiple Impact accounts?
+
+At this time, Northbeam supports connecting one Impact account per dashboard.
+
+If you manage multiple Impact accounts, you can still track the others by:
+
+* Connecting one account through the native Impact integration
+* Sending spend for additional accounts via a Spend Sheet or Spend API
+* Using standard UTMs for tracking on those additional accounts
+
+Any non-connected Impact accounts will work similarly to other [Non-Integrated Channels](/docs/tracking-for-other-platforms).
+
+## 2. Can I use other UTM parameters alongside Northbeam's?
+
+Yes — Northbeam's `nbt` parameter is additive and will not interfere with any other parameters you're already using. Feel free to keep parameters like `utm_source`, `utm_medium`, `utm_campaign`, or any other tracking params for Google Analytics or other platforms. Northbeam only uses `nbt` for attribution.
+
+## 3. I was already using Northbeam's previous recommended UTMs for Impact. Do I need to switch?
+
+You can either swap them out for the new `nbt` parameter or simply add `nbt` alongside your existing params — there's no harm in leaving the old ones in place. Northbeam uses `nbt` to tie sessions back to the correct ad spend, so as long as `nbt` is present, attribution will work correctly.
+
+## 4. Why do I see a data discrepancy?
+
+**Discrepancies in Revenue and Orders are expected.** The key reason is a difference in attribution methodology:
+
+* **Impact's attribution** credits 100% of each conversion to a single partner using Impact's own click-based rules
+* **Northbeam's attribution** treats Impact data as one input into cross-channel, multi-touch attribution — so conversions may be shared with or re-assigned to other channels
+
+For more details: [Why are my metrics different in Northbeam than in-platform reporting?](/docs/what-is-northbeam#one-of-the-most-common-questions-we-get-is)
+
+## 5. I think there's an issue with tracking. Please help!
+
+Please reference our [Troubleshooting Tracking Issues FAQ](/docs/troubleshooting-tracking-issues).
+
+* **Connection**: Go to **Settings > Connections** and check for any errors on the Impact connection
+* **UTMs**: Ensure all Impact click URLs include the Northbeam `nbt` parameter listed in Step 2
+* **Northbeam Pixel**: Confirm the Northbeam pixel is firing on your landing page
+* **Purchase Pixel**: Confirm the Purchase pixel is firing on your checkout page
+
+<br />

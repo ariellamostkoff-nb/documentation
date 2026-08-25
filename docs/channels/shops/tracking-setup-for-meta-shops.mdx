@@ -1,0 +1,36 @@
+---
+title: "Tracking Setup for Meta Shops"
+sidebarTitle: "Tracking Setup for Meta Shops"
+icon: "file-lines"
+---
+
+<br />
+
+## 1. Connect Your Meta Shop to Ads Manager
+
+1. Log into **Meta Ads Manager** with your advertiser account.
+2. Go to **Commerce Manager > Shops**.
+3. Confirm your Shop is connected directly to the advertiser account.
+
+## 2. Connect Meta Ads Account to Northbeam & Verify Permissions
+
+1. Make sure your Meta advertiser account is connected to **Northbeam**.
+2. Ensure the Meta Business user connecting to Northbeam is an **Admin** on both:
+   * The Meta Shop (via Commerce Manager)
+   * The Meta advertiser account (via Business Manager / Ads Manager)
+
+## 3. Store-Specific Setup
+
+### ✅ Shopify Stores
+
+* Connect your Shopify store to [Facebook and Instagram by Meta](https://help.shopify.com/en/manual/online-sales-channels/facebook-instagram-by-meta/setup).
+* Ensure your Meta Shop orders are synced to your Shopify dashboard.
+* Ensure your [Northbeam Pixel](/docs/add-pixel) and [Purchase Events](/docs/add-pixel) are properly set up (completed during onboarding).
+
+### ⚙️ Custom Stores
+
+* Use an **Order Tag** to identify Meta Shop orders.
+* Pass the tag in the `order_tags` field via the [Northbeam Server API](/reference/post_orders).
+* [Reach out to our team](https://www.northbeam.io/submit-a-support-ticket) with the name of the tag so we can finalize setup.
+
+<br />

@@ -1,0 +1,35 @@
+---
+title: "Step 2: Set up Northbeam UTM Parameters"
+sidebarTitle: "2. Set up Northbeam UTM Parameters"
+icon: "link"
+---
+
+### Step-By-Step Guide:
+
+For a visual walkthrough of setting up UTM parameters, reference the video below.
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/47532b9080ed46db8dcff6f58495cfe2?sid=e5c5f0e6-8e60-4661-a0d1-e7f4bf461fd7" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+### Setting Account-Wide UTMs
+
+We look for the following parameters: utm\_source, utm\_medium, utm\_campaign, nb\_klid.
+
+Please ensure nb\_klid = klaviyo profile id for Campaigns and Flows.
+
+| UTM Key       | Campaign Value     | Flow Value            |
+| :------------ | :----------------- | :-------------------- |
+| utm\_source   | Klaviyo\*\*        | Klaviyo\*\*           |
+| utm\_medium   | email\*\*          | email\*\*             |
+| utm\_campaign | Campaign Name\*\*  | Flow Message Name\*\* |
+| nb\_klid      | Klaivyo profile id | Klaviyo profile id    |
+
+\*\*These are *recommended* values. If you're using your own values, that's completely fine. But, please be aware about how these values impact Klaviyo reporting in your dashboard. See Step-By-Step video above for more details.
+
+#### **The only mandatory value is nb\_klid = klaviyo profile id.**
+
+For extra granularity, use utm\_term and utm\_content.
+
+* The **utm\_term** value pulls into the **Adset** **level** on the Sales Page
+* The **utm\_content** value pulls into the **Ad** **level** on the Sales page

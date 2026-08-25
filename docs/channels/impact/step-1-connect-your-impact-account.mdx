@@ -1,0 +1,50 @@
+---
+title: "Step 1: Connect Your Impact Account"
+sidebarTitle: "1. Connect Your Impact Account"
+icon: "plug-circle-check"
+---
+
+## 1A: Find your Impact credentials
+
+Northbeam connects via Impact's **Legacy API Token**. You'll need your **Account SID** and **Auth Token**.
+
+<Warning>
+  Required Role
+
+  Only users with the **Account Administrator** or **Implementation Specialist** role in Impact can access API credentials.
+
+  *If you don't see the API section in Settings, ask your Impact account admin to either grant you one of these roles or retrieve the credentials on your behalf.*
+</Warning>
+
+1. In Impact, go to **\[User profile] → Settings → Technical → API**
+2. Click **Create Access Token** — refer to [Impact's guide](https://help.impact.com/brand/what-would-you-like-to-learn-about/account-administration/account-settings/api-tokens/create-an-api-access-token-as-a-brand) for detailed steps
+3. Complete the **Setup** and **Contact Information** steps
+4. On the **API Scopes** step, select the following (all GET):
+   * `/Advertisers/<AccountSID>/Campaigns`
+   * `/Advertisers/<AccountSID>/Actions`
+   * `/Advertisers/<AccountSID>/Ads`
+   * `/Advertisers/<AccountSID>/MediaPartners`
+   * `/Advertisers/<AccountSID>/ReportExport/{ReportId_or_Handle}`
+   * `/Advertisers/<AccountSID>/Reports`
+   * `/Advertisers/<AccountSID>/Reports/{ReportId}`
+5. Click **Create**
+
+<Frame>
+  <img src="https://files.readme.io/28dec18a2b8968f46f63bada289d432b0db4f49a1d9acac4142fcbf8196290f1-CleanShot_2026-05-05_at_13.52.27.png" alt="" />
+</Frame>
+
+<br />
+
+## 1B: Connect in Northbeam
+
+* **Onboarding:** Go to **Integrations > Impact**
+* **Dashboard:** Go to **Settings > Connections > Impact**
+
+Paste your **Account SID** and **Auth Token**, then click **Connect**.
+
+If you see *"An error occurred: Invalid credentials,"* double-check both values and try again.
+
+<Frame>
+  <img src="https://files.readme.io/315f71e099a4b13cc338d3a384b3cff8ee34b6acb8ae3ac6b81b5bcfd19646cc-CleanShot_2026-05-05_at_16.03.14.png" alt="" />
+</Frame>
+

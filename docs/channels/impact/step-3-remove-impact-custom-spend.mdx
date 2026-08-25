@@ -1,0 +1,38 @@
+---
+title: "Step 3: Remove Impact Custom Spend (Optional)"
+sidebarTitle: "3. Remove Impact Custom Spend (Optional)"
+icon: "money-bill"
+---
+
+Once connected, Northbeam pulls up to **3 years of historical spend** data from Impact. If you're currently sending Impact spend via a Spend Sheet or Spend API, you may want to remove overlapping spend to avoid duplicate reporting.
+
+For example:
+
+* If the integration is connected on `5/10/26`, Northbeam will backfill Impact spend data to `5/10/23`
+
+If you have Impact spend data older than the integration lookback window and would like to preserve it, keep those older records in place.
+
+## Removing from Spend Sheet
+
+1. Go to Data Spreadsheets" target="_blank" href="https://dashboard.northbeam.io/settings/data-spreadsheets">Settings > Data Spreadsheets
+2. Locate the sheet tied to Impact
+3. **Zero out** the Impact spend that overlaps with the integration backfill period
+
+   * Example: if connecting on `5/10/26`, zero out Impact spend from `5/10/23` onward
+
+<Note>
+  Important: Do Not Delete Rows, Columns, or Cells
+
+  Do not delete any columns, rows, or cells from the Spend Sheet. Instead, replace the overlapping Impact spend values with `0`.
+
+  Custom spend sheets can vary by setup. Some use formulas tied to raw data import tabs, while others use manually entered spend.
+</Note>
+
+## Removing from Spend API
+
+Delete existing Impact spend records using the Delete Spend endpoint: [/reference/delete\\_spend](/reference/delete_spend)
+
+## Need Help?
+
+If you're unsure which values to remove, please [submit a support ticket](https://www.northbeam.io/submit-a-support-ticket) and we’d be happy to help.
+

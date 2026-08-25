@@ -1,0 +1,55 @@
+---
+title: "Step 1: Add UTMs to Track Visits, Revenue, and Transactions"
+sidebarTitle: "1. Add UTMs to Track Visits, Revenue, and Transactions"
+icon: "link"
+---
+
+UTMs are key important here. We can ingest any Google Analytics UTMs (source, medium, campaign, content, term) as a fallback in the event Northbeam UTMs unavailable. Think of UTMs like name tags. Without them, we'll see the traffic, but won't know what campaigns, adsets, or ads drove the session, along with anything that happens inside the session, like a conversion. UTMs enable the granularity that is important for decision making.
+
+### If your platform is in our UTM Guide, use the recommended parameters:
+
+To find the guide:
+
+1. Go to **Settings**
+2. Under **Onboarding Tasks**, click **UTM Guide**
+
+### If your platform is not listed, use Google Analytics UTM parameters:
+
+* utm\_source
+* utm\_medium
+* utm\_campaign
+* utm\_term (optional)
+* utm\_content (optional)
+
+<Info>
+  ### What Values Should I Use?
+
+  You can use any values for these parameters—just make sure they’re consistent with how you want to view the data in your dashboard.
+</Info>
+
+| UTM Parameter | Where it pulls in Northbeam |
+| :------------ | :-------------------------- |
+| utm\_source   | Campaign Level              |
+| utm\_medium   | Campaign Level              |
+| utm\_campaign | Campaign Level (line item)  |
+| utm\_term     | Adset Level (line item)     |
+| utm\_content  | Ad Level (line item)        |
+
+Below is a visual on how utm\_campaign is reported within your Sales page.
+
+<Frame>
+  <img src="https://files.readme.io/4b9bf94-Screen_Shot_2024-01-26_at_1.44.25_PM.png" alt="" />
+</Frame>
+
+<Info>
+  ### Influencer Example
+
+  Let’s say you're running influencer campaigns and want to track each influencer individually.
+
+  In this case, place the influencer’s name in utm\_campaign. This will segment campaign rows by influencer in the dashboard.
+
+  If you'd also like to track the offer used, you can place that value in utm\_term. This will segment the ad-level rows by the offer.
+
+  Example URL:\
+  [https://mystore.com?utm\_campaign=influencer-name\&utm\_term=offer](https://mystore.com?utm_campaign=influencer-name\&utm_term=offer)
+</Info>

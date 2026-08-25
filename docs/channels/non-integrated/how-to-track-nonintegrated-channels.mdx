@@ -1,0 +1,70 @@
+---
+title: "How to track Non-Integrated Channels"
+sidebarTitle: "How to track Non-Integrated Channels"
+icon: "file-lines"
+---
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Metrics
+      </th>
+
+      <th>
+        How does Northbeam track?
+      </th>
+
+      <th>
+        Notes
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Visits, Revenue, Transactions
+      </td>
+
+      <td>
+        Standard UTMs  
+
+        *(ex. utm\_source, medium, campaign)*
+      </td>
+
+      <td>
+        Our pixel captures standard UTM parameters (commonly used with Google Analytics) to track visit and conversion data from any platforms that are not directly integrated.  
+
+        The standard UTM parameters include:  
+
+        utm\_source\
+        utm\_medium\
+        utm\_campaign  
+
+        You have the flexibility to assign any values you prefer.  
+
+        For example, if you wanted to track performance on Criteo, you might use:  
+
+        utm\_source=paid\
+        utm\_medium=criteo\
+        utm\_campaign=prospecting\_campaign
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Spend
+      </td>
+
+      <td>
+        Spendsheet or Spend API
+      </td>
+
+      <td>
+        Costs are normally pulled through our native integrations. However, for any costs from platforms that don't natively integrate with Northbeam, you could use a Spendsheet or the Spend API.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+

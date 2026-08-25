@@ -1,0 +1,46 @@
+---
+title: "Klaviyo FAQ"
+sidebarTitle: "Klaviyo FAQ"
+icon: "circle-question"
+---
+
+import TrackingChecklist from '/snippets/tracking-issue-checklist.mdx';
+import DiscrepancyExplanation from '/snippets/discrepancy-explanation.mdx';
+
+## 1. I can't find my Klaviyo data
+
+Your Klaviyo data may be categorized in another platform group called "Other" or "Other Email". Learn how to recategorize them using [Breakdowns.](/docs/manage-breakdowns)
+
+## 2. Can I connect multiple ad accounts?
+
+We currently do not support multiple Klaviyo accounts at this time, but as long as the extra account is utilizing UTM parameters, we'll track your campaigns and flows.
+
+## 3. Why do I see a data discrepancy?
+
+**Discrepancies in Revenue and Orders are expected.** The reason for this lies in the differences between Northbeam's attribution model and the corresponding platform's attribution model. Each attribution model has a unique method of allocating credit.
+
+For example, Northbeam's Clicks-Only model divides credit across all touchpoints and tries to push credit to your upper funnel channels. Let's say your in-platform model uses Last Click, which gives credit to the last touchpoint in the journey. This is going to cause a discrepancy.
+
+<DiscrepancyExplanation />
+
+### Attribution Models and Windows
+
+**Klaviyo:**
+
+* Attribution Model: Last Click
+* Attribution Window:  5-day Opened or Click (default)
+
+**Northbeam:**
+
+* Attribution Model: Varies (default is Clicks-Only)
+* Attribution Window: 1-Day (default, can extend to an infinite lifetime value)
+
+### For more details on discrepancies, review the articles below:
+
+[How to change your email and SMS attribution settings in Klaviyo](https://help.klaviyo.com/hc/en-us/articles/11118357030555)
+
+## 4. Suspect a Tracking Issue?
+
+Please reference our [Troubleingshooting Tracking Issues FAQ](/docs/troubleshooting-tracking-issues).
+
+<TrackingChecklist />
