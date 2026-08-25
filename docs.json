@@ -64,8 +64,9 @@
         "tab": "Onboarding",
         "groups": [
           {
-            "group": "Start here",
+            "group": "Get started",
             "pages": [
+              "docs/quickstart",
               "docs/what-is-northbeam",
               "docs/navigating-northbeam",
               "docs/what-to-expect-during-implementation",
@@ -223,6 +224,41 @@
               "docs/touchpoints-export",
               "docs/subscription-analytics"
             ]
+          },
+          {
+            "group": "Numbers don't match",
+            "pages": [
+              "docs/differences-ad-performance",
+              "docs/differences-in-ad-data",
+              "docs/differences-in-unattributed-data",
+              "docs/differences-in-visits",
+              "docs/why-doesnt-northbeam-match-my-shopify-reporting",
+              "docs/why-is-my-fb-roas-so-much-lower-in-northbeam"
+            ]
+          },
+          {
+            "group": "Tracking & pixel",
+            "pages": [
+              "docs/checking-api-connections",
+              "docs/checking-utm-tracking",
+              "docs/troubleshooting-tracking-issues",
+              "docs/guide-to-troubleshooting-pixel-tracking",
+              "docs/gclid-fbclid-redirects"
+            ]
+          },
+          {
+            "group": "FAQ & comparisons",
+            "pages": [
+              "docs/frequently-asked-questions",
+              "docs/difference-between-blotout-and-northbeam-do-i-need-both"
+            ]
+          },
+          {
+            "group": "Release notes",
+            "pages": [
+              "docs/changelog",
+              "docs/northbeam-30"
+            ]
           }
         ]
       },
@@ -351,49 +387,13 @@
         ]
       },
       {
-        "tab": "Troubleshoot",
-        "groups": [
-          {
-            "group": "Numbers don't match",
-            "pages": [
-              "docs/differences-ad-performance",
-              "docs/differences-in-ad-data",
-              "docs/differences-in-unattributed-data",
-              "docs/differences-in-visits",
-              "docs/why-doesnt-northbeam-match-my-shopify-reporting",
-              "docs/why-is-my-fb-roas-so-much-lower-in-northbeam"
-            ]
-          },
-          {
-            "group": "Tracking & pixel",
-            "pages": [
-              "docs/checking-api-connections",
-              "docs/checking-utm-tracking",
-              "docs/troubleshooting-tracking-issues",
-              "docs/guide-to-troubleshooting-pixel-tracking",
-              "docs/gclid-fbclid-redirects"
-            ]
-          },
-          {
-            "group": "FAQ & comparisons",
-            "pages": [
-              "docs/frequently-asked-questions",
-              "docs/difference-between-blotout-and-northbeam-do-i-need-both"
-            ]
-          }
-        ]
-      },
-      {
         "tab": "Resources",
         "menu": [
           {
             "item": "Release notes",
             "icon": "sparkles",
             "description": "What's new and what's changed in Northbeam",
-            "pages": [
-              "docs/changelog",
-              "docs/northbeam-30"
-            ]
+            "href": "/docs/changelog"
           },
           {
             "item": "FAQs",
