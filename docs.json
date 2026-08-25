@@ -385,6 +385,38 @@
         ]
       },
       {
+        "tab": "Use cases",
+        "groups": [
+          {
+            "group": "Diagnose & reconcile",
+            "pages": [
+              "docs/use-cases/diagnose-a-roas-drop",
+              "docs/use-cases/reconcile-northbeam-vs-shopify",
+              "docs/use-cases/audit-tracking-before-a-big-sale"
+            ]
+          },
+          {
+            "group": "Decide & optimize",
+            "pages": [
+              "docs/use-cases/choose-an-attribution-model",
+              "docs/use-cases/compare-channels-fairly",
+              "docs/use-cases/validate-with-incrementality",
+              "docs/use-cases/evaluate-creative"
+            ]
+          },
+          {
+            "group": "Operate & report",
+            "pages": [
+              "docs/use-cases/build-a-weekly-report",
+              "docs/use-cases/report-across-stores",
+              "docs/use-cases/pull-data-into-your-warehouse",
+              "docs/use-cases/send-attribution-to-meta",
+              "docs/use-cases/ask-your-data-from-claude"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Developers & API",
         "groups": [
           {

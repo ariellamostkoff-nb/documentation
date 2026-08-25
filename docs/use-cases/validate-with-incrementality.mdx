@@ -1,0 +1,35 @@
+---
+title: "Validate a channel with an incrementality test"
+description: "Measure causal lift, not just credited revenue"
+icon: "flask"
+---
+
+**Best for:** confirming whether a channel actually causes revenue before scaling or cutting it.
+
+## Before you start
+
+Attribution measures correlation. If the question is "would these customers have bought anyway?", you need an experiment.
+
+## The steps
+
+<Steps>
+  <Step title="Understand what a test measures">
+    Test group vs. holdout, and what incremental lift means.
+    [Incrementality →](/docs/incrementality)
+  </Step>
+  <Step title="Pick the channel to test">
+    High-spend channels with uncertain attribution (retargeting is the classic case) benefit most.
+  </Step>
+  <Step title="Read results against your other tools">
+    Use lift results to calibrate how you read MTA and MMM for that channel.
+    [Mixed Media Modeling →](/docs/mixed-media-modeling)
+  </Step>
+</Steps>
+
+## What to expect
+
+Tests run for a bounded period and produce a lift estimate you can act on — feeding back into how much you trust each channel's attributed numbers.
+
+## Related
+
+[MTA methodology](/docs/what-is-northbeam-mta-methodology) · [Attribution models](/docs/attribution-models)

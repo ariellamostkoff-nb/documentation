@@ -1,0 +1,36 @@
+---
+title: "Pull Northbeam data into your warehouse"
+description: "Data Export API to GCS or S3"
+icon: "database"
+---
+
+**Best for:** data teams joining Northbeam metrics with internal data.
+
+## Before you start
+
+You'll need API credentials from **Settings → API keys**. See [Authentication](/docs/authentication) and [Environments](/docs/environments).
+
+## The steps
+
+<Steps>
+  <Step title="Understand the Data Export API">
+    What you can export and how the flow works.
+    [Data Export API →](/docs/northbeam-api-data-export-1)
+  </Step>
+  <Step title="Choose your destination">
+    Export to Google Cloud Storage or Amazon S3.
+    [GCS export →](/docs/northbeam-api-data-export-gcs-export-1) · [S3 export →](/docs/northbeam-api-data-export-s3-export-1)
+  </Step>
+  <Step title="Respect the rate limits">
+    Schedule exports within the documented limits.
+    [Rate limits →](/docs/northbeam-api-data-export-rate-limits-1)
+  </Step>
+</Steps>
+
+## What to expect
+
+Exports land as files in your bucket on your schedule — from there, loading into your warehouse is standard ELT.
+
+## Related
+
+[Using the API](/docs/using-the-api) · [Errors](/docs/errors)
