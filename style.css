@@ -14,3 +14,27 @@
   text-overflow: ellipsis;
   max-width: 100%;
 }
+
+/* ------------------------------------------------------------------ *
+ * Lightspark-style layout: left-anchored shell, 700px article column,
+ * 16/24 body type. (Reference: docs.lightspark.com terminology page —
+ * sidebar 280 flush-left, article 700, TOC 280, body 16/24.)
+ * ------------------------------------------------------------------ */
+
+/* Anchor the whole shell (header row, tab row, body) to the left edge
+   instead of centering it. #body-content carries its max-width via a
+   Tailwind peer-variant class, so it needs a direct override. */
+.max-w-8xl,
+#body-content {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Article column: 700px like Lightspark, body copy at 16/24. */
+#content-area .prose {
+  max-width: 700px;
+}
+#content-area .prose :where(p, li, td) {
+  font-size: 16px;
+  line-height: 24px;
+}
