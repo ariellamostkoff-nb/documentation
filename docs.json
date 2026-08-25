@@ -385,19 +385,6 @@
             ]
           },
           {
-            "anchor": "Changelog",
-            "icon": "sparkles",
-            "groups": [
-              {
-                "group": "Release notes",
-                "pages": [
-                  "docs/changelog",
-                  "docs/northbeam-30"
-                ]
-              }
-            ]
-          },
-          {
             "anchor": "Troubleshoot",
             "icon": "wrench",
             "groups": [
@@ -467,6 +454,18 @@
               "docs/use-cases/pull-data-into-your-warehouse",
               "docs/use-cases/send-attribution-to-meta",
               "docs/use-cases/ask-your-data-from-claude"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "groups": [
+          {
+            "group": "Release notes",
+            "pages": [
+              "docs/changelog",
+              "docs/northbeam-30"
             ]
           }
         ]
