@@ -603,7 +603,8 @@
                   "docs/northbeam-apex",
                   "docs/apex-faqs",
                   "docs/setting-up-apex",
-                  "docs/setting-up-a-meta-custom-attribution-campaign"
+                  "docs/setting-up-a-meta-custom-attribution-campaign",
+                  "test-page"
                 ]
               }
             ]

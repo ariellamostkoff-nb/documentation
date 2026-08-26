@@ -1,0 +1,27 @@
+---
+title: "Test page"
+---
+
+### How to check Custom Attribution eligibility with Retool
+
+**🚦 TL;DR: If `CAS Status` is ✓Ready, the advertiser is ready to set up custom attribution campaigns on the Meta side.**
+
+Retool columns:
+
+1. `Company name`
+2. `Client ID` - dashboard ID
+3. `CSM`
+4. `MS`
+5. `CAS Status` - is the customer ready to test? (this must show ready for us to track tests post-launch)
+6. `Action responsible` - who is responsible for next steps?
+7. `Next step` - what are the next steps?
+8. `Apex consent` - have they opted into Apex within Northbeam settings?
+9. `North Star` - must be `Accrual` and `1 day` or `7 day`
+10. `Estimated daily attributed transactions` - minimum is 15 total transactions per day (including fractional credit, total volume must add up to 15)
+11. `Pixel configuration` - whether the customer is on single or multi-pixel.
+12. `Configured CAS` - name of the Custom Attribution Source tied to the pixel
+13. Has correct pixel permissions - has the customer successfully reconnected their Meta accounts?
+14. `First event sent at` - when data started being sent to the configured pixel (does not always mean the day apex was configured)
+15. `Expected date for model readiness` - 15 days after "first event sent at"
+16. `Data quality diagnostics` - Lets you know if a customer is seeing an error in their Meta UI.
+17. `Is model ready for optimization` - for multi-pixel clients, this is the source of truth, check = customer is fully configured, data is trained and good, and Custom Attribution should be available in the customers Meta UI.
