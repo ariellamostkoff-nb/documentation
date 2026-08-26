@@ -63,3 +63,26 @@
 #navigation-items .text-sm.relative:has(> div.pl-2 > *) > ul.list-none > li:last-child {
   display: none;
 }
+
+/* On static Channels views (empty dropdown shell), dress the
+   "All channels" anchor as the channel-select control so the dropdown
+   visually persists; clicking it enters the channels where the real
+   control takes over. */
+#navigation-items .text-sm.relative:has(> div.pl-2:empty) > ul.list-none > li:last-child {
+  margin-top: 14px;
+}
+#navigation-items .text-sm.relative:has(> div.pl-2:empty) > ul.list-none > li:last-child > a,
+#navigation-items .text-sm.relative:has(> div.pl-2:empty) > ul.list-none > li:last-child > div {
+  border: 1px solid rgb(128 128 128 / 0.3);
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+}
+#navigation-items .text-sm.relative:has(> div.pl-2:empty) > ul.list-none > li:last-child a::after {
+  content: "⌄";
+  margin-left: auto;
+  opacity: 0.55;
+  font-size: 15px;
+  line-height: 1;
+}
