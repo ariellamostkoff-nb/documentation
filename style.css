@@ -42,24 +42,24 @@
 /* ------------------------------------------------------------------ *
  * Channels tab: render the anchor items (Quickstart, Core concepts,
  * Integrations, Changelog) ABOVE the channel dropdown, and hide the
- * redundant "All channels" anchor. Scoped via :has(> div.pl-2) so only
+ * redundant "All channels" anchor. Scoped via :has(> div.pl-2 > *) so only
  * sidebars containing a dropdown control are affected.
  * ------------------------------------------------------------------ */
-#navigation-items .text-sm.relative:has(> div.pl-2) {
+#navigation-items .text-sm.relative:has(> div.pl-2 > *) {
   display: flex;
   flex-direction: column;
 }
-#navigation-items .text-sm.relative:has(> div.pl-2) > ul.list-none {
+#navigation-items .text-sm.relative:has(> div.pl-2 > *) > ul.list-none {
   order: 1;
 }
-#navigation-items .text-sm.relative:has(> div.pl-2) > div.pl-2 {
+#navigation-items .text-sm.relative:has(> div.pl-2 > *) > div.pl-2 {
   order: 2;
   margin-top: 1.25rem;
 }
-#navigation-items .text-sm.relative:has(> div.pl-2) > ul.sidebar-group,
-#navigation-items .text-sm.relative:has(> div.pl-2) > *:not(ul.list-none):not(div.pl-2) {
+#navigation-items .text-sm.relative:has(> div.pl-2 > *) > ul.sidebar-group,
+#navigation-items .text-sm.relative:has(> div.pl-2 > *) > *:not(ul.list-none):not(div.pl-2) {
   order: 3;
 }
-#navigation-items .text-sm.relative:has(> div.pl-2) > ul.list-none > li:last-child {
+#navigation-items .text-sm.relative:has(> div.pl-2 > *) > ul.list-none > li:last-child {
   display: none;
 }
