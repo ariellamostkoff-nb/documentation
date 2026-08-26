@@ -4,12 +4,12 @@
   "name": "Northbeam",
   "description": "User guides, technical info, and documentation about Northbeam.",
   "appearance": {
-    "default": "dark"
+    "default": "light"
   },
   "colors": {
-    "primary": "#5868D6",
-    "light": "#7081FF",
-    "dark": "#4D5CC0"
+    "primary": "#4454ff",
+    "light": "#8d99ff",
+    "dark": "#3a48d6"
   },
   "favicon": "/logo/northbeam-mark.svg",
   "logo": {

@@ -5,6 +5,148 @@
  * sidebar width/padding hacks were removed with the theme switch.
  * ------------------------------------------------------------------ */
 
+/* ------------------------------------------------------------------ *
+ * Design language (from Figma "Northbeam Docs Topic Wireframes",
+ * curated Home/Onboarding frames): ink #021330, muted #808997,
+ * accent #4454ff, lavender wash #eaecff→#fff, 1px ink hairlines,
+ * TT Commons display type, mono-caps metadata.
+ * TT Commons 400/700-900 webfonts are declared in custom.css.
+ * ------------------------------------------------------------------ */
+
+/* Headings site-wide in the brand face. */
+#content-area h1,
+#content-area h2,
+#content-area h3,
+#content-area h4 {
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+#content-area h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* ------------------------------------------------------------------ *
+ * Home page — editorial index (custom mode).
+ * ------------------------------------------------------------------ */
+.nb-home {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #eaecff 0%, #ffffff 480px);
+}
+:is([data-theme="dark"], .dark) .nb-home {
+  background: linear-gradient(180deg, rgb(68 84 255 / 0.10) 0%, transparent 480px);
+}
+.nb-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 72px 48px 120px;
+}
+.nb-title {
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(56px, 8vw, 104px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: #021330;
+  margin: 0;
+}
+:is([data-theme="dark"], .dark) .nb-title { color: #e6e9f5; }
+
+.nb-meta,
+.nb-num,
+.nb-row-meta {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  text-transform: uppercase;
+}
+.nb-meta {
+  margin-top: 22px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #808997;
+}
+
+.nb-index {
+  margin-top: 64px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #eaecff 0%, rgb(255 255 255 / 0) 55%);
+  padding: 0 32px;
+}
+:is([data-theme="dark"], .dark) .nb-index {
+  background: linear-gradient(180deg, rgb(68 84 255 / 0.10) 0%, transparent 55%);
+}
+
+.nb-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 30px 8px;
+  border-bottom: 1px solid #021330;
+  text-decoration: none;
+}
+.nb-row:first-child { border-top: 1px solid #021330; }
+:is([data-theme="dark"], .dark) .nb-row,
+:is([data-theme="dark"], .dark) .nb-row:first-child {
+  border-color: rgb(230 233 245 / 0.28);
+}
+
+.nb-num {
+  font-size: 15px;
+  color: #4454ff;
+  align-self: flex-start;
+  padding-top: 6px;
+  min-width: 34px;
+}
+:is([data-theme="dark"], .dark) .nb-num { color: #8d99ff; }
+
+.nb-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.nb-row-title {
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #021330;
+}
+:is([data-theme="dark"], .dark) .nb-row-title { color: #e6e9f5; }
+.nb-row-desc {
+  margin-top: 8px;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  line-height: 20px;
+  color: #808997;
+}
+.nb-row-meta {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #808997;
+  white-space: nowrap;
+}
+.nb-arrow {
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1;
+  color: #808997;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+.nb-row:hover .nb-arrow {
+  color: #021330;
+  transform: translateX(5px);
+}
+:is([data-theme="dark"], .dark) .nb-row:hover .nb-arrow { color: #e6e9f5; }
+
+@media (max-width: 640px) {
+  .nb-wrap { padding: 48px 20px 80px; }
+  .nb-index { padding: 0 12px; }
+  .nb-row { gap: 16px; padding: 22px 4px; }
+  .nb-row-meta { display: none; }
+}
+
 /* Keep every sidebar label on a single line; truncate overflow with an
    ellipsis instead of wrapping to two lines (easier to scan). */
 #sidebar-content a span,

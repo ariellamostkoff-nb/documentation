@@ -4,190 +4,107 @@ description: "Learn how to measure, understand, and improve profitable growth wi
 mode: "custom"
 ---
 
-<div className="northbeam-home bg-[#fcfcfb] dark:bg-transparent">
+<div className="nb-home">
+  <div className="nb-wrap">
 
-  {/* ---------- HERO ---------- */}
-  <div className="mx-auto max-w-6xl px-6 pt-14 pb-16 lg:pt-16">
-    <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1fr]">
-      <div>
-        <div className="text-[0.8125rem] font-medium text-[#6b7280] dark:text-[#8a93a3]">Northbeam Platform</div>
-        <h1 className="mt-3 text-[2.5rem] font-light leading-[1.05] tracking-[-0.03em] text-[#0b0b0b] dark:text-white sm:text-[3.25rem]">
-          Numbers you<br />can act on.
-        </h1>
-        <p className="mt-4 max-w-md text-[0.95rem] leading-7 text-[#5b6472] dark:text-[#9aa1ad]">
-          Everything you need to implement Northbeam and understand your marketing data — from first pixel to profitable decisions.
-        </p>
-        <div className="mt-6 flex flex-wrap items-center gap-2.5">
-          <a href="/docs/quickstart" className="inline-flex items-center gap-2 rounded-[8px] bg-[#50ba58] px-4 py-2.5 text-sm font-semibold text-white no-underline transition hover:bg-[#5fca67]"><Icon icon="play" size={13} color="#ffffff" /> Quickstart</a>
-          <a href="/docs/integrations-and-utms" className="inline-flex items-center gap-2 rounded-[8px] border border-[#0b0b0b]/15 px-4 py-2.5 text-sm font-medium text-[#0b0b0b] no-underline transition hover:border-[#0b0b0b]/35 dark:border-white/15 dark:text-white dark:hover:border-white/35"><Icon icon="link" size={13} /> Connect a channel</a>
-          <a href="/reference/post_orders-1" className="inline-flex items-center gap-2 rounded-[8px] border border-[#0b0b0b]/15 px-4 py-2.5 text-sm font-medium text-[#0b0b0b] no-underline transition hover:border-[#0b0b0b]/35 dark:border-white/15 dark:text-white dark:hover:border-white/35"><Icon icon="code" size={13} /> API reference</a>
-        </div>
-      </div>
-      <div className="overflow-hidden rounded-[14px] border border-[#0b0b0b]/[0.08] bg-[#01082b] p-6 dark:border-white/10">
-        <img src="/images/northbeam/hero-dashboard.avif" alt="Northbeam unifies multi-touch attribution, incrementality, and media mix modeling" className="mx-auto h-auto w-full object-contain mix-blend-screen" style={{maxWidth: "440px"}} noZoom />
-      </div>
+    <div className="nb-hero">
+      <div className="nb-title">Documentation</div>
+      <div className="nb-meta">255 articles&nbsp;&nbsp;·&nbsp;&nbsp;9 sections&nbsp;&nbsp;·&nbsp;&nbsp;⌘K to search</div>
     </div>
-  </div>
 
-  {/* ---------- PRODUCTS ---------- */}
-  <div className="mx-auto max-w-6xl px-6 pt-8">
-    <div className="text-[0.8125rem] font-medium text-[#6b7280] dark:text-[#8a93a3]">Products</div>
-    <h2 className="mt-1 text-[1.375rem] font-medium tracking-[-0.02em] text-[#0b0b0b] dark:text-white">The Northbeam measurement stack</h2>
-    <p className="mt-1.5 max-w-2xl text-[0.9375rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Three complementary methods answer three different questions. Read together, they tell you what to trust and where to spend.</p>
+    <div className="nb-index">
 
-    <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      <a href="/docs/what-is-northbeam-mta-methodology" className="group flex flex-col rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="inline-block w-fit rounded-full bg-[#0b0b0b]/[0.05] px-2.5 py-0.5 text-[0.7rem] font-medium text-[#5b6472] dark:bg-white/[0.06] dark:text-[#9aa1ad]">Attribution</span>
-        <h3 className="mt-3 text-[0.95rem] font-medium text-[#0b0b0b] dark:text-white">Multi-Touch Attribution</h3>
-        <p className="mt-1.5 flex-1 text-[0.85rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Event-log attribution across every channel and touchpoint — the read you optimize on day to day.</p>
-        <span className="mt-3 text-[0.8rem] font-medium text-[#0b0b0b] dark:text-white">Learn the methodology →</span>
+      <a className="nb-row" href="/docs/what-is-northbeam">
+        <span className="nb-num">01</span>
+        <span className="nb-main">
+          <span className="nb-row-title">Get started</span>
+          <span className="nb-row-desc">what Northbeam is · capabilities · your journey</span>
+        </span>
+        <span className="nb-row-meta">11 articles</span>
+        <span className="nb-arrow">→</span>
       </a>
-      <a href="/docs/incrementality" className="group flex flex-col rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="inline-block w-fit rounded-full bg-[#0b0b0b]/[0.05] px-2.5 py-0.5 text-[0.7rem] font-medium text-[#5b6472] dark:bg-white/[0.06] dark:text-[#9aa1ad]">Causal</span>
-        <h3 className="mt-3 text-[0.95rem] font-medium text-[#0b0b0b] dark:text-white">Incrementality</h3>
-        <p className="mt-1.5 flex-1 text-[0.85rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Controlled tests that isolate the revenue your marketing actually caused. The causal ground truth.</p>
-        <span className="mt-3 text-[0.8rem] font-medium text-[#0b0b0b] dark:text-white">How testing works →</span>
+
+      <a className="nb-row" href="/docs/overviews/onboarding">
+        <span className="nb-num">02</span>
+        <span className="nb-main">
+          <span className="nb-row-title">Onboarding</span>
+          <span className="nb-row-desc">implementation · pixel, orders &amp; spend</span>
+        </span>
+        <span className="nb-row-meta">26 articles</span>
+        <span className="nb-arrow">→</span>
       </a>
-      <a href="/docs/mixed-media-modeling" className="group flex flex-col rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="inline-block w-fit rounded-full bg-[#0b0b0b]/[0.05] px-2.5 py-0.5 text-[0.7rem] font-medium text-[#5b6472] dark:bg-white/[0.06] dark:text-[#9aa1ad]">Planning</span>
-        <h3 className="mt-3 text-[0.95rem] font-medium text-[#0b0b0b] dark:text-white">Mixed Media Modeling</h3>
-        <p className="mt-1.5 flex-1 text-[0.85rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Time-series modeling of channel contribution, independent of pixels. The read you plan budgets on.</p>
-        <span className="mt-3 text-[0.8rem] font-medium text-[#0b0b0b] dark:text-white">How MMM works →</span>
+
+      <a className="nb-row" href="/docs/channels/quickstart">
+        <span className="nb-num">03</span>
+        <span className="nb-main">
+          <span className="nb-row-title">Channels</span>
+          <span className="nb-row-desc">connect the account · insert the UTMs · confirm tracking</span>
+        </span>
+        <span className="nb-row-meta">108 articles</span>
+        <span className="nb-arrow">→</span>
       </a>
-      <a href="/docs/northbeam-apex" className="group flex flex-col rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="inline-block w-fit rounded-full bg-[#0b0b0b]/[0.05] px-2.5 py-0.5 text-[0.7rem] font-medium text-[#5b6472] dark:bg-white/[0.06] dark:text-[#9aa1ad]">Activation</span>
-        <h3 className="mt-3 text-[0.95rem] font-medium text-[#0b0b0b] dark:text-white">Northbeam Apex</h3>
-        <p className="mt-1.5 flex-1 text-[0.85rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Send first-party performance data back to ad platforms to improve targeting and bidding.</p>
-        <span className="mt-3 text-[0.8rem] font-medium text-[#0b0b0b] dark:text-white">Set up Apex →</span>
+
+      <a className="nb-row" href="/docs/overviews/data-terminology">
+        <span className="nb-num">04</span>
+        <span className="nb-main">
+          <span className="nb-row-title">Data &amp; terminology</span>
+          <span className="nb-row-desc">models · modes · metric definitions</span>
+        </span>
+        <span className="nb-row-meta">15 articles</span>
+        <span className="nb-arrow">→</span>
       </a>
-      <a href="/docs/clicks-deterministic-views" className="group flex flex-col rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="inline-block w-fit rounded-full bg-[#0b0b0b]/[0.05] px-2.5 py-0.5 text-[0.7rem] font-medium text-[#5b6472] dark:bg-white/[0.06] dark:text-[#9aa1ad]">View-through</span>
-        <h3 className="mt-3 text-[0.95rem] font-medium text-[#0b0b0b] dark:text-white">Clicks + Deterministic Views</h3>
-        <p className="mt-1.5 flex-1 text-[0.85rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Measure revenue from awareness and video campaigns that happens beyond the click.</p>
-        <span className="mt-3 text-[0.8rem] font-medium text-[#0b0b0b] dark:text-white">Read the guide →</span>
+
+      <a className="nb-row" href="/docs/overviews/platform">
+        <span className="nb-num">05</span>
+        <span className="nb-main">
+          <span className="nb-row-title">Platform</span>
+          <span className="nb-row-desc">dashboards · sales · creative analytics · orders</span>
+        </span>
+        <span className="nb-row-meta">43 articles</span>
+        <span className="nb-arrow">→</span>
       </a>
-      <a href="/docs/connect-northbeam-to-claude" className="group flex flex-col rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="inline-block w-fit rounded-full bg-[#0b0b0b]/[0.05] px-2.5 py-0.5 text-[0.7rem] font-medium text-[#5b6472] dark:bg-white/[0.06] dark:text-[#9aa1ad]">AI</span>
-        <h3 className="mt-3 text-[0.95rem] font-medium text-[#0b0b0b] dark:text-white">Connect Northbeam to Claude</h3>
-        <p className="mt-1.5 flex-1 text-[0.85rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Query your Northbeam data in natural language through the Model Context Protocol.</p>
-        <span className="mt-3 text-[0.8rem] font-medium text-[#0b0b0b] dark:text-white">Set up the MCP server →</span>
+
+      <a className="nb-row" href="/docs/overviews/use-cases">
+        <span className="nb-num">06</span>
+        <span className="nb-main">
+          <span className="nb-row-title">Use cases</span>
+          <span className="nb-row-desc">recipes for common questions</span>
+        </span>
+        <span className="nb-row-meta">13 articles</span>
+        <span className="nb-arrow">→</span>
       </a>
+
+      <a className="nb-row" href="/docs/changelog">
+        <span className="nb-num">07</span>
+        <span className="nb-main">
+          <span className="nb-row-title">Changelog</span>
+          <span className="nb-row-desc">product &amp; channel updates</span>
+        </span>
+        <span className="nb-row-meta">running log</span>
+        <span className="nb-arrow">→</span>
+      </a>
+
+      <a className="nb-row" href="/docs/using-the-api">
+        <span className="nb-num">08</span>
+        <span className="nb-main">
+          <span className="nb-row-title">Developers &amp; API</span>
+          <span className="nb-row-desc">orders · spend · exports · MCP</span>
+        </span>
+        <span className="nb-row-meta">30 articles</span>
+        <span className="nb-arrow">→</span>
+      </a>
+
+      <a className="nb-row" href="/docs/best-practices-by-teams-and-departments">
+        <span className="nb-num">09</span>
+        <span className="nb-main">
+          <span className="nb-row-title">Northbeam Internal</span>
+          <span className="nb-row-desc">for the Northbeam team</span>
+        </span>
+        <span className="nb-row-meta">7 articles</span>
+        <span className="nb-arrow">→</span>
+      </a>
+
     </div>
-  </div>
 
-  {/* ---------- JOURNEY ---------- */}
-  <div className="mx-auto max-w-6xl px-6 pt-16">
-    <div className="text-[0.8125rem] font-medium text-[#6b7280] dark:text-[#8a93a3]">Get started</div>
-    <h2 className="mt-1 text-[1.375rem] font-medium tracking-[-0.02em] text-[#0b0b0b] dark:text-white">From setup to numbers you trust</h2>
-    <p className="mt-1.5 max-w-2xl text-[0.9375rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Follow the four stages in order, or jump to what you need.</p>
-
-    <div className="mt-8 space-y-8">
-      {/* Stage 1 */}
-      <div>
-        <div className="flex items-center gap-2.5">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#0b0b0b]/15 text-[0.72rem] font-semibold text-[#5b6472] dark:border-white/20 dark:text-[#9aa1ad]">1</span>
-          <h3 className="text-[0.95rem] font-medium text-[#0b0b0b] dark:text-white">Set up your dashboard</h3>
-        </div>
-        <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
-          <a href="/docs/what-to-expect-during-implementation" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="map" size={14} /></span> What to expect</a>
-          <a href="/docs/business-information" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="building" size={14} /></span> Business information</a>
-          <a href="/docs/add-pixel" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="code" size={14} /></span> Install the pixel</a>
-          <a href="/docs/add-orders" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="receipt" size={14} /></span> Add orders</a>
-          <a href="/docs/add-spend" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="dollar-sign" size={14} /></span> Add spend</a>
-        </div>
-      </div>
-      {/* Stage 2 */}
-      <div>
-        <div className="flex items-center gap-2.5">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#0b0b0b]/15 text-[0.72rem] font-semibold text-[#5b6472] dark:border-white/20 dark:text-[#9aa1ad]">2</span>
-          <h3 className="text-[0.95rem] font-medium text-[#0b0b0b] dark:text-white">Connect your channels</h3>
-        </div>
-        <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
-          <a href="/docs/integrations-and-utms" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="link" size={14} /></span> Integrations and UTMs</a>
-          <a href="/docs/setting-up-facebook-ads-tracking" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="rectangle-ad" size={14} /></span> Facebook Ads</a>
-          <a href="/docs/setting-up-google-ads-for-northbeam" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="magnifying-glass" size={14} /></span> Google Ads</a>
-          <a href="/docs/setting-up-tiktok-ads-for-northbeam" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="music" size={14} /></span> TikTok Ads</a>
-          <a href="/docs/integration-matrix" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="grip" size={14} /></span> See all integrations</a>
-        </div>
-      </div>
-      {/* Stage 3 */}
-      <div>
-        <div className="flex items-center gap-2.5">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#0b0b0b]/15 text-[0.72rem] font-semibold text-[#5b6472] dark:border-white/20 dark:text-[#9aa1ad]">3</span>
-          <h3 className="text-[0.95rem] font-medium text-[#0b0b0b] dark:text-white">Understand your data</h3>
-        </div>
-        <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
-          <a href="/docs/attribution-models" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="diagram-project" size={14} /></span> Attribution models</a>
-          <a href="/docs/attribution-windows" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="clock" size={14} /></span> Attribution windows</a>
-          <a href="/docs/accounting-modes" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="scale-balanced" size={14} /></span> Accounting modes</a>
-          <a href="/docs/northbeam-metrics-101" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="chart-simple" size={14} /></span> Northbeam Metrics 101</a>
-          <a href="/docs/what-is-a-good-bad-number-in-northbeam" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="circle-question" size={14} /></span> Good or bad number?</a>
-        </div>
-      </div>
-      {/* Stage 4 */}
-      <div>
-        <div className="flex items-center gap-2.5">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#0b0b0b]/15 text-[0.72rem] font-semibold text-[#5b6472] dark:border-white/20 dark:text-[#9aa1ad]">4</span>
-          <h3 className="text-[0.95rem] font-medium text-[#0b0b0b] dark:text-white">Use the platform</h3>
-        </div>
-        <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
-          <a href="/docs/overview-page" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="gauge" size={14} /></span> Overview page</a>
-          <a href="/docs/attribution-page" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="diagram-project" size={14} /></span> Attribution page</a>
-          <a href="/docs/creative-analytics" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="image" size={14} /></span> Creative Analytics</a>
-          <a href="/docs/metrics-explorer" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="magnifying-glass-chart" size={14} /></span> Metrics Explorer</a>
-          <a href="/docs/manage-breakdowns" className="flex items-center gap-2.5 rounded-[8px] border border-[#0b0b0b]/[0.08] bg-white px-3.5 py-2.5 text-[0.85rem] text-[#28303f] no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:text-[#c7ccd4] dark:hover:border-white/25"><span className="text-[#8a93a3]"><Icon icon="table" size={14} /></span> Manage breakdowns</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* ---------- API + RESOURCES ---------- */}
-  <div className="mx-auto max-w-6xl px-6 pb-24 pt-16">
-    <div className="text-[0.8125rem] font-medium text-[#6b7280] dark:text-[#8a93a3]">Keep building</div>
-    <h2 className="mt-1 text-[1.375rem] font-medium tracking-[-0.02em] text-[#0b0b0b] dark:text-white">Developer tools &amp; resources</h2>
-    <p className="mt-1.5 max-w-2xl text-[0.9375rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Integrate Northbeam data with your own systems, or get unstuck.</p>
-
-    <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      <a href="/docs/orders-api" className="group rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="text-[#8a93a3]"><Icon icon="cart-shopping" size={17} /></span>
-        <h3 className="mt-3 text-[0.9rem] font-medium text-[#0b0b0b] dark:text-white">Orders API <span className="text-[#8a93a3]">↗</span></h3>
-        <p className="mt-1 text-[0.83rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Create, fetch, update, and alias orders.</p>
-      </a>
-      <a href="/docs/spend-api" className="group rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="text-[#8a93a3]"><Icon icon="dollar-sign" size={17} /></span>
-        <h3 className="mt-3 text-[0.9rem] font-medium text-[#0b0b0b] dark:text-white">Spend API <span className="text-[#8a93a3]">↗</span></h3>
-        <p className="mt-1 text-[0.83rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Upload daily or hourly marketing spend.</p>
-      </a>
-      <a href="/docs/northbeam-api-data-export-1" className="group rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="text-[#8a93a3]"><Icon icon="cloud-arrow-down" size={17} /></span>
-        <h3 className="mt-3 text-[0.9rem] font-medium text-[#0b0b0b] dark:text-white">Data Export API <span className="text-[#8a93a3]">↗</span></h3>
-        <p className="mt-1 text-[0.83rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Export attribution data, metrics, and breakdowns.</p>
-      </a>
-      <a href="/reference/post_orders-1" className="group rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="text-[#8a93a3]"><Icon icon="code" size={17} /></span>
-        <h3 className="mt-3 text-[0.9rem] font-medium text-[#0b0b0b] dark:text-white">API reference <span className="text-[#8a93a3]">↗</span></h3>
-        <p className="mt-1 text-[0.83rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Every endpoint, with an interactive playground.</p>
-      </a>
-      <a href="/docs/troubleshooting-tracking-issues" className="group rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="text-[#8a93a3]"><Icon icon="wrench" size={17} /></span>
-        <h3 className="mt-3 text-[0.9rem] font-medium text-[#0b0b0b] dark:text-white">Troubleshoot <span className="text-[#8a93a3]">↗</span></h3>
-        <p className="mt-1 text-[0.83rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Fix tracking issues and reconcile numbers.</p>
-      </a>
-      <a href="/docs/frequently-asked-questions" className="group rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="text-[#8a93a3]"><Icon icon="circle-question" size={17} /></span>
-        <h3 className="mt-3 text-[0.9rem] font-medium text-[#0b0b0b] dark:text-white">FAQs <span className="text-[#8a93a3]">↗</span></h3>
-        <p className="mt-1 text-[0.83rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Quick answers to the questions we hear most.</p>
-      </a>
-      <a href="/docs/changelog" className="group rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="text-[#8a93a3]"><Icon icon="sparkles" size={17} /></span>
-        <h3 className="mt-3 text-[0.9rem] font-medium text-[#0b0b0b] dark:text-white">Release notes <span className="text-[#8a93a3]">↗</span></h3>
-        <p className="mt-1 text-[0.83rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">What's new and what's changed in Northbeam.</p>
-      </a>
-      <a href="https://www.northbeam.io/submit-a-support-ticket" className="group rounded-[10px] border border-[#0b0b0b]/[0.08] bg-white p-5 no-underline transition hover:border-[#0b0b0b]/25 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/25">
-        <span className="text-[#8a93a3]"><Icon icon="life-ring" size={17} /></span>
-        <h3 className="mt-3 text-[0.9rem] font-medium text-[#0b0b0b] dark:text-white">Contact support <span className="text-[#8a93a3]">↗</span></h3>
-        <p className="mt-1 text-[0.83rem] leading-6 text-[#5b6472] dark:text-[#9aa1ad]">Reach the Northbeam team directly.</p>
-      </a>
-    </div>
   </div>
 </div>
