@@ -344,22 +344,12 @@
   border-bottom-color: rgb(230 233 245 / 0.35);
 }
 
-/* Text wordmark instead of the logo image */
-#navbar a[href="/"] img.nav-logo { display: none !important; }
+/* Logo image + mono DOCUMENTATION tag */
 #navbar a[href="/"] {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 12px;
   text-decoration: none;
-}
-#navbar a[href="/"]::before {
-  content: "NORTHBEAM";
-  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: 0.5px;
-  line-height: 1;
-  color: #021330;
 }
 #navbar a[href="/"]::after {
   content: "DOCUMENTATION";
@@ -369,8 +359,6 @@
   line-height: 1;
   color: #808997;
 }
-:is([data-theme="dark"], .dark) #navbar a[href="/"]::before { color: #e6e9f5; }
-
 /* Tabs: mono caps, ink underline on the active tab */
 #navbar .nav-tabs-item {
   font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
