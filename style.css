@@ -8,7 +8,7 @@
 /* ------------------------------------------------------------------ *
  * Design language (from Figma "Northbeam Docs Topic Wireframes",
  * curated Home/Onboarding frames): ink #021330, muted #808997,
- * accent #4454ff, lavender wash #eaecff→#fff, 1px ink hairlines,
+ * accent #4454ff, flat white ground, 1px ink hairlines,
  * TT Commons display type, mono-caps metadata.
  * TT Commons 400/700-900 webfonts are declared in custom.css.
  * ------------------------------------------------------------------ */
@@ -31,10 +31,10 @@
  * ------------------------------------------------------------------ */
 .nb-home {
   min-height: 100vh;
-  background: linear-gradient(180deg, #eaecff 0%, #ffffff 480px);
+  background: #ffffff;
 }
 :is([data-theme="dark"], .dark) .nb-home {
-  background: linear-gradient(180deg, rgb(68 84 255 / 0.10) 0%, transparent 480px);
+  background: transparent;
 }
 .nb-wrap {
   max-width: 1280px;
@@ -67,12 +67,6 @@
 
 .nb-index {
   margin-top: 64px;
-  border-radius: 8px;
-  background: linear-gradient(180deg, #eaecff 0%, rgb(255 255 255 / 0) 55%);
-  padding: 0 32px;
-}
-:is([data-theme="dark"], .dark) .nb-index {
-  background: linear-gradient(180deg, rgb(68 84 255 / 0.10) 0%, transparent 55%);
 }
 
 .nb-row {
@@ -142,7 +136,6 @@
 
 @media (max-width: 640px) {
   .nb-wrap { padding: 48px 20px 80px; }
-  .nb-index { padding: 0 12px; }
   .nb-row { gap: 16px; padding: 22px 4px; }
   .nb-row-meta { display: none; }
 }
@@ -201,18 +194,8 @@
 }
 :is([data-theme="dark"], .dark) .nbc-heromenta a { color: #8d99ff; }
 
-.nbc-panel {
-  border-radius: 8px;
-  background: linear-gradient(180deg, #eaecff 0%, rgb(255 255 255 / 0) 70%);
-  padding: 4px 28px 12px;
-  margin: 0 -28px;
-}
-:is([data-theme="dark"], .dark) .nbc-panel {
-  background: linear-gradient(180deg, rgb(68 84 255 / 0.10) 0%, transparent 70%);
-}
 
 .nbc-chap { margin-top: 56px; }
-.nbc-panel .nbc-chap { margin-top: 20px; }
 .nbc-chaphead {
   display: flex;
   align-items: baseline;
@@ -344,7 +327,6 @@
   .nbc-grid { grid-template-columns: 1fr; }
   .nbc-hero { flex-wrap: wrap; gap: 24px; }
   .nbc-heromenta { text-align: left; }
-  .nbc-panel { margin: 0; padding: 4px 16px 12px; }
 }
 
 /* Keep every sidebar label on a single line; truncate overflow with an
