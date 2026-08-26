@@ -66,6 +66,7 @@
           {
             "group": "Overview",
             "pages": [
+              "docs/landings/get-started",
               "docs/what-is-northbeam",
               "docs/get-started/capabilities",
               "docs/get-started/use-cases"
@@ -145,6 +146,18 @@
       {
         "tab": "Channels",
         "anchors": [
+          {
+            "anchor": "Overview",
+            "icon": "compass",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "docs/landings/channels"
+                ]
+              }
+            ]
+          },
           {
             "anchor": "Quickstart",
             "icon": "rocket",
@@ -717,6 +730,7 @@
           {
             "group": "Release notes",
             "pages": [
+              "docs/landings/changelog",
               "docs/changelog",
               "docs/northbeam-30"
             ]
@@ -729,6 +743,7 @@
           {
             "group": "Using the API",
             "pages": [
+              "docs/landings/developers-api",
               "docs/using-the-api",
               "docs/authentication",
               "docs/environments",
@@ -784,6 +799,7 @@
           {
             "group": "Playbooks by team",
             "pages": [
+              "docs/landings/internal",
               "docs/best-practices-by-teams-and-departments",
               "docs/paid-social-team",
               "docs/paid-search-team",
