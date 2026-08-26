@@ -65,6 +65,31 @@
   color: #808997;
 }
 
+/* Underline search field (opens the real search) */
+.nb-search {
+  margin-top: 48px;
+  max-width: 460px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #021330;
+  cursor: pointer;
+}
+.nb-search-hint {
+  font-size: 16px;
+  color: #808997;
+}
+.nb-search-k {
+  margin-left: auto;
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12px;
+  color: #021330;
+}
+.nb-search:hover .nb-search-hint { color: #021330; }
+:is([data-theme="dark"], .dark) .nb-search { border-color: rgb(230 233 245 / 0.4); }
+:is([data-theme="dark"], .dark) .nb-search-k { color: #e6e9f5; }
+:is([data-theme="dark"], .dark) .nb-search:hover .nb-search-hint { color: #e6e9f5; }
+
 .nb-index {
   margin-top: 64px;
 }
