@@ -329,6 +329,92 @@
   .nbc-heromenta { text-align: left; }
 }
 
+/* ------------------------------------------------------------------ *
+ * Top nav — editorial header (from Figma Home frame 356:459):
+ * text wordmark NORTHBEAM + mono DOCUMENTATION, heavy ink rule under
+ * the header, mono-caps tabs with ink underline, quiet utilities.
+ * ------------------------------------------------------------------ */
+
+/* Heavy rule under the whole header */
+#navbar > div.border-b {
+  border-bottom: 2px solid #021330;
+}
+:is([data-theme="dark"], .dark) #navbar > div.border-b,
+#navbar > div.border-b:is(.dark *) {
+  border-bottom-color: rgb(230 233 245 / 0.35);
+}
+
+/* Text wordmark instead of the logo image */
+#navbar a[href="/"] img.nav-logo { display: none !important; }
+#navbar a[href="/"] {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  text-decoration: none;
+}
+#navbar a[href="/"]::before {
+  content: "NORTHBEAM";
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  color: #021330;
+}
+#navbar a[href="/"]::after {
+  content: "DOCUMENTATION";
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  line-height: 1;
+  color: #808997;
+}
+:is([data-theme="dark"], .dark) #navbar a[href="/"]::before { color: #e6e9f5; }
+
+/* Tabs: mono caps, ink underline on the active tab */
+#navbar .nav-tabs-item {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-shadow: none !important;
+  color: #808997;
+}
+#navbar .nav-tabs-item:hover { color: #021330; }
+#navbar .nav-tabs-item[data-active="true"] { color: #021330; }
+#navbar .nav-tabs-item > div.absolute {
+  background: #021330 !important;
+  height: 2px;
+}
+:is([data-theme="dark"], .dark) #navbar .nav-tabs-item:hover,
+:is([data-theme="dark"], .dark) #navbar .nav-tabs-item[data-active="true"] {
+  color: #e6e9f5;
+}
+:is([data-theme="dark"], .dark) #navbar .nav-tabs-item > div.absolute {
+  background: #e6e9f5 !important;
+}
+
+/* Quiet utilities: hairline outlines, no fill */
+#navbar #search-bar-entry,
+#navbar button[class*="group/ai"] {
+  background: transparent !important;
+  box-shadow: inset 0 0 0 1px rgb(2 19 48 / 0.25) !important;
+  border-radius: 6px;
+}
+#navbar #search-bar-entry:hover,
+#navbar button[class*="group/ai"]:hover {
+  box-shadow: inset 0 0 0 1px rgb(2 19 48 / 0.55) !important;
+}
+:is([data-theme="dark"], .dark) #navbar #search-bar-entry,
+:is([data-theme="dark"], .dark) #navbar button[class*="group/ai"] {
+  box-shadow: inset 0 0 0 1px rgb(230 233 245 / 0.25) !important;
+}
+:is([data-theme="dark"], .dark) #navbar #search-bar-entry:hover,
+:is([data-theme="dark"], .dark) #navbar button[class*="group/ai"]:hover {
+  box-shadow: inset 0 0 0 1px rgb(230 233 245 / 0.5) !important;
+}
+
 /* Keep every sidebar label on a single line; truncate overflow with an
    ellipsis instead of wrapping to two lines (easier to scan). */
 #sidebar-content a span,
