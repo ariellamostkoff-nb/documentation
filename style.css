@@ -28,7 +28,34 @@
 
 /* ------------------------------------------------------------------ *
  * Home page — editorial index (custom mode).
+ * The home page carries its own top bar (logo + DOCUMENTATION + heavy
+ * rule), so the site header is hidden there.
  * ------------------------------------------------------------------ */
+body:has(.nb-homepage) #navbar { display: none; }
+
+.nb-topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 22px;
+  border-bottom: 2px solid #021330;
+}
+:is([data-theme="dark"], .dark) .nb-topbar { border-color: rgb(230 233 245 / 0.35); }
+.nb-topbar img { height: 26px; width: auto; }
+.nb-logo-dark { display: none; }
+:is([data-theme="dark"], .dark) .nb-logo-light { display: none; }
+:is([data-theme="dark"], .dark) .nb-logo-dark { display: block; }
+.nb-topbar-tag,
+.nb-topbar-meta {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #808997;
+}
+.nb-topbar-meta { margin-left: auto; letter-spacing: 1px; }
+@media (max-width: 640px) { .nb-topbar-meta { display: none; } }
+
 .nb-home {
   min-height: 100vh;
   background: #ffffff;
@@ -39,7 +66,7 @@
 .nb-wrap {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 72px 48px 120px;
+  padding: 44px 48px 120px;
 }
 .nb-title {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
