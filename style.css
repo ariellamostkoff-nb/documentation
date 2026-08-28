@@ -78,8 +78,7 @@ body:has(.nb-homepage) #navbar { display: none; }
   color: #021330;
   margin: 0;
 }
-:is([data-theme="dark"], .dark) .nb-hero { padding-top: 40px; }
-.nb-title { color: #e6e9f5; }
+:is([data-theme="dark"], .dark) .nb-title { color: #e6e9f5; }
 
 .nb-meta,
 .nb-num,
