@@ -4,59 +4,50 @@ description: "We offer a variety of Attribution Windows to help inform your deci
 icon: "calendar-days"
 ---
 
-## What is an Attribution Window?
+<div className="nbt-defline">The length of time in which a touchpoint receives credit for a purchase.</div>
+
+<div className="nbt-chip"><span className="nbt-chip-label">Accrual only</span><span>Attribution windows are only available using the Accrual accounting mode.</span></div>
 
 <Frame>
   <iframe src="https://www.loom.com/embed/b866d7271dfb4833ab3a44cb34222d7e?sid=96bf4624-250f-4754-b2b9-0dfc09a57a92" width="100%" height="450" allowfullscreen></iframe>
 </Frame>
 
-An Attribution Window refers to the length of time in which a touchpoint receives credit for a purchase.
+## Which attribution windows are available?
 
-<Warning>
-  Note: Attribution Windows are only available using the **Accrual Accounting Mode**
-</Warning>
+<div className="nbt-cols">
+  <div className="nbt-col">
+    <div className="nbt-col-label">Click-based models</div>
+    <div className="nbt-col-desc">All click-based models except Clicks + Modeled Views</div>
+    <div className="nbt-def"><span className="nbt-def-num">01</span><span className="nbt-def-term">1-Day Click</span></div>
+    <div className="nbt-def"><span className="nbt-def-num">02</span><span className="nbt-def-term">3-Day Click</span></div>
+    <div className="nbt-def"><span className="nbt-def-num">03</span><span className="nbt-def-term">7-Day Click</span></div>
+    <div className="nbt-def"><span className="nbt-def-num">04</span><span className="nbt-def-term">14-Day Click</span></div>
+    <div className="nbt-def"><span className="nbt-def-num">05</span><span className="nbt-def-term">30-Day Click</span></div>
+    <div className="nbt-def"><span className="nbt-def-num">06</span><span className="nbt-def-term">90-Day Click</span></div>
+    <div className="nbt-def"><span className="nbt-def-num">07</span><span className="nbt-def-term">LTV</span></div>
+  </div>
+  <div className="nbt-col">
+    <div className="nbt-col-label">Clicks + Modeled Views</div>
+    <div className="nbt-col-desc">Each click window pairs with a 1-day view</div>
+    <div className="nbt-def"><span className="nbt-def-num">01</span><span className="nbt-def-term">1-Day Click / 1-Day View</span></div>
+    <div className="nbt-def"><span className="nbt-def-num">02</span><span className="nbt-def-term">3-Day Click / 1-Day View</span></div>
+    <div className="nbt-def"><span className="nbt-def-num">03</span><span className="nbt-def-term">7-Day Click / 1-Day View</span></div>
+    <div className="nbt-def"><span className="nbt-def-num">04</span><span className="nbt-def-term">14-Day Click / 1-Day View</span></div>
+    <div className="nbt-def"><span className="nbt-def-num">05</span><span className="nbt-def-term">30-Day Click / 1-Day View</span></div>
+    <div className="nbt-def"><span className="nbt-def-num">06</span><span className="nbt-def-term">90-Day Click / 1-Day View</span></div>
+  </div>
+</div>
 
-***
+## Attribution windows in Northbeam
 
-## Which Attribution Windows are available?
+<div className="nbt-applies">
+  <div className="nbt-applies-label">Applies to every conversion-based metric</div>
+  <div className="nbt-applies-list">Revenue · Transactions · Email Sign-Ups · Subscription Orders · any Custom Event</div>
+</div>
 
-Here are the following attribution windows available for our Click-Based models (except for Clicks + Modeled Views):
+Windows are also offered for any formulaic metric that contains a conversion metric, such as ROAS and CAC.
 
-* 1-Day Click
-* 3-Day Click
-* 7-Day Click
-* 14-Day Click
-* 30-Day Click
-* 90-Day Click
-* LTV
-
-Here our Attribution Windows for Clicks + Modeled Views:
-
-* 1-Day Click / 1-Day View
-* 3-Day Click / 1-Day View
-* 7-Day Click / 1-Day View
-* 14-Day Click / 1-Day View
-* 30-Day Click / 1-Day View
-* 90-Day Click / 1-Day View
-
-***
-
-## Attribution Windows in Northbeam
-
-We offer Attribution Windows for every conversion-based metric including: Revenue, Transactions, Email Sign Ups, Subscription Orders, and any Custom Event.
-
-Windows are also offered for any formulaic metric that contain a conversion metric, such as ROAS and CAC.
-
-Within the dashboard, every metric with an Attribution Window has either a "(d)" or "LTV."
-
-For example:
-
-* Attributed Rev (1d)
-* LTV Attributed Revenue
-* ROAS (7d)
-* LTV ROAS
-* CAC (3d)
-* LTV CAC
+Within the dashboard, every metric with an Attribution Window has either a "(d)" or "LTV." For example: Attributed Rev (1d), LTV Attributed Revenue, ROAS (7d), LTV ROAS, CAC (3d), LTV CAC.
 
 | Attribution Window | Meaning         | Definition                                                                          |
 | :----------------- | :-------------- | :---------------------------------------------------------------------------------- |
@@ -69,17 +60,19 @@ For example:
 | (90d)              | 90-day window   | Credit is given from conversions that occurred within 90 days after the touchpoint. |
 | LTV                | Infinite Window | Credit is given from conversions that occurred any time after the touchpoint.       |
 
-## Attribution Window Examples
+## Attribution window examples
 
 To understand the credit allocation based on the different attribution windows, let's take an example.
 
-1. Jan 1 - Facebook Ad click
-2. Jan 3 - Google Ad click
-3. Jan 5 - Direct visit resulting in a purchase for $90
+<div className="nbt-subs">
+  <div className="nbt-sub"><span className="nbt-sub-num">01</span><span className="nbt-sub-text">Jan 1 — Facebook Ad click</span></div>
+  <div className="nbt-sub"><span className="nbt-sub-num">02</span><span className="nbt-sub-text">Jan 3 — Google Ad click</span></div>
+  <div className="nbt-sub"><span className="nbt-sub-num">03</span><span className="nbt-sub-text">Jan 5 — Direct visit resulting in a purchase for $90</span></div>
+</div>
 
 For simplicity, let's say we're using an equal weighting model (Linear) in the Accrual Accounting Mode.
 
-#### Jan 1 Performance
+### Jan 1 performance
 
 | Platform | Attributed Rev (1d) | Attributed Rev (3d) | Attributed Rev (7d) | LTV Attributed Rev |
 | :------- | :------------------ | :------------------ | :------------------ | :----------------- |
@@ -89,9 +82,9 @@ For simplicity, let's say we're using an equal weighting model (Linear) in the A
 
 Remember, we're using the Accrual mode, so credit is only given to touchpoints that occurred on Jan 1st, which in this case is Facebook.
 
-The purchase happened 4 days after the Facebook touchpoint. As a result, the 1-day and 3-day windows do not get credit.  But, the 7-day and LTV windows do since 4 days falls within both of these windows.
+The purchase happened 4 days after the Facebook touchpoint. As a result, the 1-day and 3-day windows do not get credit. But, the 7-day and LTV windows do since 4 days falls within both of these windows.
 
-#### Jan 3 Performance
+### Jan 3 performance
 
 | Platform | Attributed Rev (1d) | Attributed Rev (3d) | Attributed Rev (7d) | LTV Attributed Rev |
 | :------- | :------------------ | :------------------ | :------------------ | :----------------- |
@@ -103,7 +96,7 @@ We're using the Accrual mode so only the touchpoints that occurred on Jan 3 rece
 
 The purchase happened 2 days after the Google touchpoint. Therefore, 1-day window does not get credit. But, 3-day, 7-day and LTV do since 2 days falls within all of these windows.
 
-#### Jan 5 Performance
+### Jan 5 performance
 
 | Platform | Attributed Rev (1d) | Attributed Rev (3d) | Attributed Rev (7d) | LTV Attributed Rev |
 | :------- | :------------------ | :------------------ | :------------------ | :----------------- |
@@ -115,13 +108,15 @@ Again, we're using the Accrual mode so only the touchpoints that occurred on Jan
 
 The purchase happened the same day as the Direct touchpoint. Because this was less than 24 hours, this falls within all of the attribution windows.
 
-#### Jan 1-5 Performance
+### Jan 1–5 performance
 
 Let's put it all together. As a reminder, this is our journey:
 
-1. Jan 1 - Facebook Ad click
-2. Jan 3 - Google Ad click
-3. Jan 5 - Direct visit resulting in a purchase for $90
+<div className="nbt-subs">
+  <div className="nbt-sub"><span className="nbt-sub-num">01</span><span className="nbt-sub-text">Jan 1 — Facebook Ad click</span></div>
+  <div className="nbt-sub"><span className="nbt-sub-num">02</span><span className="nbt-sub-text">Jan 3 — Google Ad click</span></div>
+  <div className="nbt-sub"><span className="nbt-sub-num">03</span><span className="nbt-sub-text">Jan 5 — Direct visit resulting in a purchase for $90</span></div>
+</div>
 
 | Platform | Attributed Rev (1d) | Attributed Rev (3d) | Attributed Rev (7d) | LTV Attributed Rev |
 | :------- | :------------------ | :------------------ | :------------------ | :----------------- |

@@ -873,3 +873,25 @@ body:has(.nb-homepage) #navbar { display: none; }
 }
 :is([data-theme="dark"], .dark) .nbt-qa-q { color: #e6e9f5; }
 .nbt-qa-a { margin-top: 7px; padding-left: 32px; font-size: 14px; line-height: 21px; color: #808997; }
+
+/* ------------------------------------------------------------------ *
+ * Template design inside NORMAL article layout (sidebar + TOC kept).
+ * Section h2s get mono accent numbers via CSS counters; the nbt-*
+ * blocks work inside the prose column.
+ * ------------------------------------------------------------------ */
+#content-area .prose { counter-reset: nbsec; }
+#content-area .prose > h2 { counter-increment: nbsec; }
+#content-area .prose > h2::before {
+  content: counter(nbsec, decimal-leading-zero);
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.55em;
+  font-weight: 400;
+  color: #4454ff;
+  margin-right: 16px;
+  position: relative;
+  top: -0.15em;
+}
+:is([data-theme="dark"], .dark) #content-area .prose > h2::before { color: #8d99ff; }
+#content-area .prose .nbt-def:last-of-type { border-bottom: 1px solid rgb(2 19 48 / 0.35); }
+#content-area .prose .nbt-cols { padding-top: 8px; }
+#content-area .prose .nbt-chip { margin-top: 16px; margin-bottom: 4px; }
