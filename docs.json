@@ -601,7 +601,8 @@
               {
                 "group": "Incrementality",
                 "pages": [
-                  "docs/incrementality"
+                  "docs/incrementality",
+                  "docs/announcements/incrementality"
                 ]
               },
               {
@@ -733,8 +734,7 @@
             "pages": [
               "docs/landings/changelog",
               "docs/changelog",
-              "docs/northbeam-30",
-              "docs/announcements/incrementality"
+              "docs/northbeam-30"
             ]
           }
         ]
