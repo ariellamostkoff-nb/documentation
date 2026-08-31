@@ -733,7 +733,8 @@
             "pages": [
               "docs/landings/changelog",
               "docs/changelog",
-              "docs/northbeam-30"
+              "docs/northbeam-30",
+              "docs/announcements/incrementality"
             ]
           }
         ]

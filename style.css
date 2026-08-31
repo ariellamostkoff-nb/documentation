@@ -895,3 +895,23 @@ body:has(.nb-homepage) #navbar { display: none; }
 #content-area .prose .nbt-def:last-of-type { border-bottom: 1px solid rgb(2 19 48 / 0.35); }
 #content-area .prose .nbt-cols { padding-top: 8px; }
 #content-area .prose .nbt-chip { margin-top: 16px; margin-bottom: 4px; }
+
+/* Feature announcement header: NEW pill + mono date */
+.nba-head { display: flex; align-items: center; gap: 14px; margin: 6px 0 4px; }
+.nba-new {
+  background: #4454ff;
+  color: #ffffff;
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 4px 9px 3px;
+  border-radius: 3px;
+}
+.nba-date {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #808997;
+}
