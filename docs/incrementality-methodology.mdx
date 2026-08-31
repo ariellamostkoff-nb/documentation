@@ -1,0 +1,75 @@
+---
+title: "How Northbeam Runs Incrementality Tests"
+sidebarTitle: "Methodology"
+description: "Learn how Northbeam designs and runs incrementality tests, from geo splits and holdouts to lift measurement and statistical confidence."
+---
+
+Northbeam runs incrementality tests to isolate the causal impact of a channel or campaign: the revenue it drove above and beyond what would have happened without it. This page walks through how a test is designed, executed, and read.
+
+## Test design
+
+Every incrementality test compares outcomes between two comparable groups:
+
+- **Test group** sees your ads as normal.
+- **Control group (holdout)** is withheld from seeing your ads for the test window.
+
+The difference in conversions or revenue between the two groups, adjusted for group size, is your **incremental lift**. Northbeam supports two designs depending on the channel and platform capabilities.
+
+### Randomized user-level holdouts
+
+When a platform supports it (for example, Meta's conversion lift studies), users are randomly assigned to test or control at the individual level. This is the gold standard: randomization guarantees the groups are statistically comparable before the test starts.
+
+### Geo testing
+
+When user-level randomization isn't possible, Northbeam splits by geography. Regions are matched into comparable pairs based on historical revenue trends, then one region in each pair is assigned to test and the other to control.
+
+<Note>
+  Geo tests require enough regional volume and history to build reliable matched pairs. Northbeam handles the pairing and power calculations as part of test setup.
+</Note>
+
+## Running the test
+
+<Steps>
+  <Step title="Define the hypothesis">
+    Pick the channel, campaign, or spend change you want to measure, and the metric you'll evaluate (revenue, new customers, orders).
+  </Step>
+  <Step title="Size the test">
+    Northbeam calculates the minimum detectable lift given your traffic and the test window. Smaller tests can only detect large effects.
+  </Step>
+  <Step title="Assign groups">
+    Users or geos are split into test and control. Control regions are excluded from the campaign for the duration of the test.
+  </Step>
+  <Step title="Run for the full window">
+    Tests must run long enough to capture the channel's full conversion lag. Cutting short introduces bias.
+  </Step>
+  <Step title="Measure lift">
+    Northbeam compares outcomes between groups and reports the incremental lift with a confidence interval.
+  </Step>
+</Steps>
+
+## Reading the results
+
+Each test reports:
+
+- **Incremental lift** — the difference in revenue (or your chosen metric) between test and control, expressed as an absolute number and a percentage.
+- **Incremental ROAS (iROAS)** — incremental revenue divided by spend on the tested channel or campaign.
+- **Confidence interval** — the statistical range the true lift is likely to fall within. Wider intervals mean less certainty.
+- **Statistical significance** — whether the observed lift is unlikely to be due to chance.
+
+<Warning>
+  A test that reports "no significant lift" is not the same as "the channel doesn't work." It often means the test wasn't powered to detect the true effect. Check the confidence interval before drawing conclusions.
+</Warning>
+
+## Applying the results
+
+Incrementality results are most valuable when fed back into your day-to-day measurement:
+
+- **Calibrate MTA.** If a channel's incremental ROAS is systematically lower than its MTA ROAS, that channel is being over-credited. Northbeam can use test results to adjust MTA weights.
+- **Ground-truth MMM.** Replace correlation-based channel contributions in your MMM with causal estimates from tests.
+- **Inform budget decisions.** Scale channels with proven incremental lift, and cut or restructure spend on channels that don't clear their iROAS threshold.
+
+## Related
+
+- [Incrementality overview](/docs/incrementality)
+- [Multi-Touch Attribution (MTA) methodology](/docs/what-is-northbeam-mta-methodology)
+- [Mixed Media Modeling (MMM)](/docs/mixed-media-modeling)

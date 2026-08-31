@@ -601,7 +601,8 @@
               {
                 "group": "Incrementality",
                 "pages": [
-                  "docs/incrementality"
+                  "docs/incrementality",
+                  "docs/incrementality-methodology"
                 ]
               },
               {
