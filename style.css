@@ -537,3 +537,339 @@ body:has(.nb-homepage) #navbar { display: none; }
   font-size: 15px;
   line-height: 1;
 }
+
+/* ------------------------------------------------------------------ *
+ * Article templates (custom mode): task/how-to + reference.
+ * From Figma frames "Stepper" 355:2087 and "Detail" 217:9.
+ * ------------------------------------------------------------------ */
+.nbt-crumb {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 40px 0 30px;
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #808997;
+}
+.nbt-crumb a { color: #4454ff; text-decoration: none; }
+:is([data-theme="dark"], .dark) .nbt-crumb a { color: #8d99ff; }
+.nbt-crumb .nbt-sep { opacity: 0.5; }
+
+.nbt-hero {
+  display: flex;
+  align-items: flex-end;
+  gap: 44px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid #021330;
+}
+:is([data-theme="dark"], .dark) .nbt-hero { border-color: rgb(230 233 245 / 0.28); }
+.nbt-headgroup { flex: 1; min-width: 0; }
+.nbt-title {
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: #021330;
+}
+:is([data-theme="dark"], .dark) .nbt-title { color: #e6e9f5; }
+.nbt-lede {
+  margin-top: 18px;
+  max-width: 58ch;
+  font-size: 15px;
+  line-height: 22px;
+  color: #808997;
+}
+.nbt-defline {
+  margin-top: 20px;
+  max-width: 46ch;
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.25;
+  color: #021330;
+}
+:is([data-theme="dark"], .dark) .nbt-defline { color: #e6e9f5; }
+.nbt-meta {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #808997;
+  text-align: right;
+  white-space: nowrap;
+  padding-bottom: 4px;
+}
+
+/* Small labeled callout (reference) and warning row (task) */
+.nbt-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 24px;
+  border: 1px solid rgb(68 84 255 / 0.55);
+  border-radius: 4px;
+  padding: 9px 14px;
+  font-size: 13px;
+  color: #808997;
+}
+.nbt-chip-label {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #4454ff;
+  white-space: nowrap;
+}
+:is([data-theme="dark"], .dark) .nbt-chip-label { color: #8d99ff; }
+
+/* Task layout: progress rail + steps */
+.nbt-body {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 64px;
+  padding-top: 40px;
+}
+.nbt-rail { position: sticky; top: 32px; align-self: start; }
+.nbt-rail-label,
+.nbt-rail-stuck {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #808997;
+}
+.nbt-rail-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 0 0;
+  text-decoration: none;
+}
+.nbt-rail-num {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  color: #4454ff;
+  padding-top: 2px;
+}
+:is([data-theme="dark"], .dark) .nbt-rail-num { color: #8d99ff; }
+.nbt-rail-title {
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.25;
+  color: #021330;
+  display: block;
+}
+:is([data-theme="dark"], .dark) .nbt-rail-title { color: #e6e9f5; }
+.nbt-rail-sub {
+  display: block;
+  margin-top: 3px;
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #808997;
+}
+.nbt-rail-rule {
+  margin: 22px 0 14px;
+  border: 0;
+  border-top: 1px solid rgb(2 19 48 / 0.35);
+  width: 140px;
+}
+:is([data-theme="dark"], .dark) .nbt-rail-rule { border-color: rgb(230 233 245 / 0.25); }
+.nbt-rail-stuck { line-height: 18px; }
+.nbt-rail-stuck a { color: #4454ff; text-decoration: none; }
+:is([data-theme="dark"], .dark) .nbt-rail-stuck a { color: #8d99ff; }
+
+.nbt-step { padding: 36px 0 32px; border-bottom: 1px solid rgb(2 19 48 / 0.35); }
+.nbt-step:first-child { padding-top: 0; }
+:is([data-theme="dark"], .dark) .nbt-step { border-color: rgb(230 233 245 / 0.22); }
+.nbt-step-head { display: flex; align-items: baseline; gap: 16px; }
+.nbt-step-num {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 13px;
+  color: #4454ff;
+}
+:is([data-theme="dark"], .dark) .nbt-step-num { color: #8d99ff; }
+.nbt-step-title {
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 27px;
+  letter-spacing: -0.01em;
+  color: #021330;
+}
+:is([data-theme="dark"], .dark) .nbt-step-title { color: #e6e9f5; }
+.nbt-step-label {
+  margin-left: auto;
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #808997;
+  white-space: nowrap;
+}
+.nbt-step-desc { margin-top: 10px; font-size: 14px; line-height: 21px; color: #808997; max-width: 62ch; }
+.nbt-subs { margin-top: 18px; }
+.nbt-sub { display: flex; gap: 16px; padding: 8px 0; }
+.nbt-sub-num {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  color: #4454ff;
+  padding-top: 3px;
+  min-width: 18px;
+}
+:is([data-theme="dark"], .dark) .nbt-sub-num { color: #8d99ff; }
+.nbt-sub-text { font-size: 15px; line-height: 22px; color: #021330; }
+:is([data-theme="dark"], .dark) .nbt-sub-text { color: #d7dbe8; }
+.nbt-warn {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 18px;
+  border: 1px solid rgb(68 84 255 / 0.55);
+  border-radius: 3px;
+  padding: 9px 14px;
+  font-size: 12.5px;
+  line-height: 19px;
+  color: #808997;
+}
+.nbt-warn-mark {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  color: #4454ff;
+}
+:is([data-theme="dark"], .dark) .nbt-warn-mark { color: #8d99ff; }
+
+/* Reference: two-column definition lists */
+.nbt-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0;
+  padding-top: 44px;
+}
+.nbt-col { padding-right: 48px; }
+.nbt-col + .nbt-col { border-left: 1px solid rgb(2 19 48 / 0.35); padding-left: 48px; padding-right: 0; }
+:is([data-theme="dark"], .dark) .nbt-col + .nbt-col { border-color: rgb(230 233 245 / 0.22); }
+.nbt-col-label {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #021330;
+}
+:is([data-theme="dark"], .dark) .nbt-col-label { color: #e6e9f5; }
+.nbt-col-desc { margin-top: 5px; font-size: 12.5px; color: #808997; padding-bottom: 16px; }
+.nbt-def {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 15px 2px;
+  border-top: 1px solid #021330;
+}
+:is([data-theme="dark"], .dark) .nbt-def { border-color: rgb(230 233 245 / 0.28); }
+.nbt-def-num {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  color: #4454ff;
+  min-width: 18px;
+}
+:is([data-theme="dark"], .dark) .nbt-def-num { color: #8d99ff; }
+.nbt-def-term {
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: #021330;
+}
+:is([data-theme="dark"], .dark) .nbt-def-term { color: #e6e9f5; }
+.nbt-def-hint {
+  margin-left: auto;
+  font-size: 12px;
+  color: #808997;
+  text-align: right;
+  max-width: 24ch;
+}
+
+/* "Applies to" strip */
+.nbt-applies { margin-top: 64px; border-top: 1px solid #021330; padding-top: 20px; }
+:is([data-theme="dark"], .dark) .nbt-applies { border-color: rgb(230 233 245 / 0.28); }
+.nbt-applies-label {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #808997;
+}
+.nbt-applies-list {
+  margin-top: 10px;
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 21px;
+  color: #021330;
+}
+:is([data-theme="dark"], .dark) .nbt-applies-list { color: #e6e9f5; }
+
+/* Prev / next footer */
+.nbt-prevnext {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 72px;
+  border-top: 1px solid #021330;
+  padding: 20px 0 8px;
+}
+:is([data-theme="dark"], .dark) .nbt-prevnext { border-color: rgb(230 233 245 / 0.28); }
+.nbt-pn { text-decoration: none; }
+.nbt-pn-label {
+  display: block;
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #808997;
+}
+.nbt-pn-title {
+  display: block;
+  margin-top: 6px;
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #021330;
+}
+:is([data-theme="dark"], .dark) .nbt-pn-title { color: #e6e9f5; }
+.nbt-pn:last-child { text-align: right; }
+
+@media (max-width: 900px) {
+  .nbt-body { grid-template-columns: 1fr; gap: 32px; }
+  .nbt-rail { position: static; }
+  .nbt-cols { grid-template-columns: 1fr; }
+  .nbt-col + .nbt-col { border-left: 0; padding-left: 0; margin-top: 32px; }
+  .nbt-hero { flex-wrap: wrap; }
+}
+
+/* Small-task variant: single column, Q&A rows */
+.nbt-narrow { max-width: 800px; padding-top: 40px; }
+.nbt-section-label {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #808997;
+  margin-top: 48px;
+  padding-bottom: 12px;
+}
+.nbt-narrow > .nbt-section-label:first-child { margin-top: 0; }
+.nbt-qa { padding: 16px 2px 18px; border-top: 1px solid rgb(2 19 48 / 0.35); }
+:is([data-theme="dark"], .dark) .nbt-qa { border-color: rgb(230 233 245 / 0.22); }
+.nbt-qa-q {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: #021330;
+}
+:is([data-theme="dark"], .dark) .nbt-qa-q { color: #e6e9f5; }
+.nbt-qa-a { margin-top: 7px; padding-left: 32px; font-size: 14px; line-height: 21px; color: #808997; }
