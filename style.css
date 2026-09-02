@@ -1214,3 +1214,22 @@ body:has(.nb-homepage) #navbar { display: none; }
 @media (max-width: 960px) {
   .nbh-hero-visual { padding: 0; background: none; }
 }
+
+/* Landing read-in: intro paragraph + what-you'll-do list */
+.nbc-intro {
+  max-width: 760px;
+  padding: 4px 0 14px;
+  font-size: 15.5px;
+  line-height: 24px;
+  color: #4a5265;
+}
+:is([data-theme="dark"], .dark) .nbc-intro { color: #aab1c4; }
+.nbc-uses { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.nbc-use { display: flex; gap: 11px; font-size: 14.5px; line-height: 21px; color: #0a1130; }
+:is([data-theme="dark"], .dark) .nbc-use { color: #d7dbe8; }
+.nbc-use-arrow {
+  color: #5e6bf2;
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+}
+:is([data-theme="dark"], .dark) .nbc-use-arrow { color: #8d99ff; }
