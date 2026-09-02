@@ -20,9 +20,10 @@
 #content-area h4 {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
   letter-spacing: -0.01em;
+  font-weight: 600;
 }
 #content-area h1 {
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
@@ -71,7 +72,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 .nb-hero { padding-top: 40px; }
 .nb-title {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   font-size: clamp(56px, 8vw, 104px);
   line-height: 0.98;
   letter-spacing: -0.02em;
@@ -153,7 +154,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 }
 .nb-row-title {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   font-size: clamp(28px, 3.2vw, 40px);
   line-height: 1.05;
   letter-spacing: -0.01em;
@@ -175,7 +176,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 }
 .nb-arrow {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 26px;
   line-height: 1;
   color: #808997;
@@ -206,7 +207,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 }
 .nbc-bignum {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   font-size: clamp(96px, 11vw, 150px);
   line-height: 0.8;
   letter-spacing: -0.02em;
@@ -216,7 +217,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 .nbc-headgroup { flex: 1; min-width: 0; padding-top: 6px; }
 .nbc-title {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   font-size: clamp(44px, 5vw, 64px);
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -263,7 +264,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 :is([data-theme="dark"], .dark) .nbc-chapnum { color: #8d99ff; }
 .nbc-chaptitle {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   font-size: clamp(28px, 3vw, 38px);
   line-height: 1;
   letter-spacing: -0.01em;
@@ -301,7 +302,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 :is([data-theme="dark"], .dark) .nbc-row-num { color: #8d99ff; }
 .nbc-row-title {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 19px;
   line-height: 1.2;
   color: #021330;
@@ -357,7 +358,7 @@ body:has(.nb-homepage) #navbar { display: none; }
   background: #4454ff;
   color: #ffffff;
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
   padding: 9px 16px;
   border-radius: 6px;
@@ -571,7 +572,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 .nbt-headgroup { flex: 1; min-width: 0; }
 .nbt-title {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   font-size: clamp(28px, 3.2vw, 40px);
   line-height: 1.0;
   letter-spacing: -0.02em;
@@ -589,7 +590,7 @@ body:has(.nb-homepage) #navbar { display: none; }
   margin-top: 20px;
   max-width: 46ch;
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 24px;
   line-height: 1.25;
   color: #021330;
@@ -659,7 +660,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 :is([data-theme="dark"], .dark) .nbt-rail-num { color: #8d99ff; }
 .nbt-rail-title {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 15px;
   line-height: 1.25;
   color: #021330;
@@ -698,7 +699,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 :is([data-theme="dark"], .dark) .nbt-step-num { color: #8d99ff; }
 .nbt-step-title {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 27px;
   letter-spacing: -0.01em;
   color: #021330;
@@ -781,7 +782,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 :is([data-theme="dark"], .dark) .nbt-def-num { color: #8d99ff; }
 .nbt-def-term {
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 19px;
   color: #021330;
 }
@@ -807,7 +808,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 .nbt-applies-list {
   margin-top: 10px;
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 21px;
   color: #021330;
 }
@@ -836,7 +837,7 @@ body:has(.nb-homepage) #navbar { display: none; }
   display: block;
   margin-top: 6px;
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 18px;
   color: #021330;
 }
@@ -870,7 +871,7 @@ body:has(.nb-homepage) #navbar { display: none; }
   align-items: baseline;
   gap: 14px;
   font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 17px;
   color: #021330;
 }

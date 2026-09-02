@@ -61,3 +61,19 @@
   background: transparent !important;
   box-shadow: none !important;
 }
+
+@font-face {
+  font-family: "TT Commons";
+  src: url("https://cdn.prod.website-files.com/63ce823acf939e1e64f927c4/6961b7fc85a8895f1b4ecc6b_TypeType%20-%20TT%20Commons%20Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Commons";
+  src: url("https://cdn.prod.website-files.com/63ce823acf939e1e64f927c4/6961b7fc1c09589b3c936f49_TypeType%20-%20TT%20Commons%20DemiBold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
