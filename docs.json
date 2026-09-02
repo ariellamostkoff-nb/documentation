@@ -75,7 +75,12 @@
           {
             "group": "Your journey",
             "pages": [
-              "docs/journey/get-started",
+              {
+                "group": "Get started",
+                "pages": [
+                  "docs/journey/get-started"
+                ]
+              },
               "docs/journey/understand-your-platform",
               "docs/journey/integrations",
               "docs/journey/watch-the-competition",
