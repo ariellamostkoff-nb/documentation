@@ -8,20 +8,23 @@ mode: "custom"
 
 <div className="nb-home">
   <div className="nb-wrap">
-    <div className="nbc-hero">
-      <div className="nbc-bignum">04</div>
-      <div className="nbc-headgroup">
-        <div className="nbc-title">Data &amp; terminology.</div>
-        <div className="nbc-desc">Models, modes, and the honest metric definitions</div>
+    <div className="nbc-herocard">
+      <div className="nbc-hero-left">
+        <div className="nbc-bignum">04</div>
+        <div className="nbc-headgroup">
+          <div className="nbc-title">Data &amp; terminology.</div>
+          <div className="nbc-introtext">The language of your data. These articles define how Northbeam assigns credit, what each metric means, and how to read the numbers honestly — the reference you'll come back to whenever a number needs interpreting.</div>
+          <div className="nbc-ctarow">
+            <a className="nbc-startbtn" href="/docs/attribution-models">Start at 04.1 →</a>
+            <span className="nbc-ctameta">14 articles · 3 chapters</span>
+          </div>
+        </div>
       </div>
-      <div className="nbc-heromenta">14 articles · 3 chapters<br/><a href="/docs/attribution-models">Start at 04.1 →</a></div>
-    </div>
-    <div className="nbc-intro">
-      The language of your data. These articles define how Northbeam assigns credit, what each metric means, and how to read the numbers honestly — the reference you'll come back to whenever a number needs interpreting.
-      <div className="nbc-uses">
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Learn the attribution models, windows, and accounting modes</span>
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Look up metric definitions and data sources</span>
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Interpret numbers — good, bad, and hard-to-track</span>
+      <div className="nbc-usepanel">
+        <div className="nbc-usepanel-label">What you'll do</div>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Learn the attribution models, windows, and accounting modes</span>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Look up metric definitions and data sources</span>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Interpret numbers — good, bad, and hard-to-track</span>
       </div>
     </div>
     <div className="nbc-chap">
@@ -53,8 +56,7 @@ mode: "custom"
         <a className="nbg-card" href="/docs/case-scenario-clicks-views-vs-clicks-only"><span className="nbg-icon"><Icon icon="arrow-pointer" size={18} /></span><span className="nbg-num">05</span><span className="nbg-title">Case scenario: Clicks + Modeled Views vs Clicks-Only</span><span className="nbg-foot"><span className="nb-arrow">→</span></span></a>
       </div>
     </div>
-    <div className="nbc-foot">
-      <a className="nbc-startbtn" href="/docs/attribution-models">04.1 → Attribution Models</a>
+    <div className="nbc-foot nbc-foot--right">
       <a className="nbc-next" href="/docs/overviews/platform">Done here? 05 → Platform</a>
     </div>
   </div>

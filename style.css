@@ -1233,3 +1233,80 @@ body:has(.nb-homepage) #navbar { display: none; }
   font-weight: 600;
 }
 :is([data-theme="dark"], .dark) .nbc-use-arrow { color: #8d99ff; }
+
+/* Landing hero card: copy left, checklist panel right */
+.nbc-herocard {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  background: linear-gradient(135deg, #ffffff 0%, #eef0fe 100%);
+  border: 1px solid rgb(10 17 48 / 0.06);
+  border-radius: 24px;
+  box-shadow: 0 1px 3px rgb(10 17 48 / 0.04);
+  padding: 44px 48px;
+  margin-top: 28px;
+}
+:is([data-theme="dark"], .dark) .nbc-herocard {
+  background: rgb(255 255 255 / 0.03);
+  border-color: rgb(230 233 245 / 0.10);
+  box-shadow: none;
+}
+.nbc-hero-left { flex: 1; min-width: 0; display: flex; gap: 36px; align-items: flex-start; }
+.nbc-herocard .nbc-bignum { font-size: clamp(72px, 8vw, 110px); line-height: 0.82; }
+.nbc-introtext {
+  margin-top: 16px;
+  max-width: 56ch;
+  font-size: 15px;
+  line-height: 23px;
+  color: #4a5265;
+}
+:is([data-theme="dark"], .dark) .nbc-introtext { color: #aab1c4; }
+.nbc-ctarow { display: flex; align-items: center; gap: 18px; margin-top: 24px; flex-wrap: wrap; }
+.nbc-ctameta {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #7a8399;
+}
+.nbc-usepanel {
+  flex: 0 0 34%;
+  background: #f4f5fb;
+  border-radius: 14px;
+  padding: 20px 24px 10px;
+}
+:is([data-theme="dark"], .dark) .nbc-usepanel { background: rgb(255 255 255 / 0.04); }
+.nbc-usepanel-label {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #7a8399;
+  padding-bottom: 6px;
+}
+.nbc-usepanel .nbc-use {
+  padding: 12px 0;
+  border-bottom: 1px solid rgb(10 17 48 / 0.06);
+  font-size: 14px;
+  line-height: 20px;
+}
+.nbc-usepanel .nbc-use:last-child { border-bottom: none; }
+.nbc-check {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #5e6bf2;
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.nbc-foot--right { justify-content: flex-end; }
+@media (max-width: 1024px) {
+  .nbc-herocard { flex-direction: column; align-items: stretch; padding: 32px; }
+  .nbc-usepanel { flex-basis: auto; }
+}

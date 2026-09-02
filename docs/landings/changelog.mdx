@@ -8,19 +8,22 @@ mode: "custom"
 
 <div className="nb-home">
   <div className="nb-wrap">
-    <div className="nbc-hero">
-      <div className="nbc-bignum">07</div>
-      <div className="nbc-headgroup">
-        <div className="nbc-title">Changelog.</div>
-        <div className="nbc-desc">Product and channel updates.</div>
+    <div className="nbc-herocard">
+      <div className="nbc-hero-left">
+        <div className="nbc-bignum">07</div>
+        <div className="nbc-headgroup">
+          <div className="nbc-title">Changelog.</div>
+          <div className="nbc-introtext">The running log of what changed — product updates and channel-side changes that can affect your data. Check here first when numbers shift unexpectedly.</div>
+          <div className="nbc-ctarow">
+            <a className="nbc-startbtn" href="/docs/changelog">Start at 07.1 →</a>
+            <span className="nbc-ctameta">2 articles · 1 chapters</span>
+          </div>
+        </div>
       </div>
-      <div className="nbc-heromenta">2 articles · 1 chapters<br/><a href="/docs/changelog">Start at 07.1 →</a></div>
-    </div>
-    <div className="nbc-intro">
-      The running log of what changed — product updates and channel-side changes that can affect your data. Check here first when numbers shift unexpectedly.
-      <div className="nbc-uses">
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>See what changed in the product</span>
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Track channel changes that affect your data</span>
+      <div className="nbc-usepanel">
+        <div className="nbc-usepanel-label">What you'll do</div>
+        <span className="nbc-use"><span className="nbc-check">✓</span>See what changed in the product</span>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Track channel changes that affect your data</span>
       </div>
     </div>
     <div className="nbc-chap">
@@ -30,8 +33,7 @@ mode: "custom"
         <a className="nbg-card" href="/docs/northbeam-30"><span className="nbg-icon"><Icon icon="file-lines" size={18} /></span><span className="nbg-num">02</span><span className="nbg-title">⚡ Northbeam 3.0</span><span className="nbg-foot"><span className="nb-arrow">→</span></span></a>
       </div>
     </div>
-    <div className="nbc-foot">
-      <a className="nbc-startbtn" href="/docs/changelog">07.1 → Release Notes</a>
+    <div className="nbc-foot nbc-foot--right">
       <a className="nbc-next" href="/docs/landings/developers-api">Done here? 08 → Developers &amp; API</a>
     </div>
   </div>

@@ -8,20 +8,23 @@ mode: "custom"
 
 <div className="nb-home">
   <div className="nb-wrap">
-    <div className="nbc-hero">
-      <div className="nbc-bignum">08</div>
-      <div className="nbc-headgroup">
-        <div className="nbc-title">Developers &amp; API.</div>
-        <div className="nbc-desc">Guidance for Using the Northbeam Orders API</div>
+    <div className="nbc-herocard">
+      <div className="nbc-hero-left">
+        <div className="nbc-bignum">08</div>
+        <div className="nbc-headgroup">
+          <div className="nbc-title">Developers &amp; API.</div>
+          <div className="nbc-introtext">Northbeam's APIs for sending data in and getting data out — orders, spend, and exports — plus the MCP server for querying your data in natural language. Start with Using the API for authentication and environments, then jump to the API your task needs.</div>
+          <div className="nbc-ctarow">
+            <a className="nbc-startbtn" href="/docs/using-the-api">Start at 08.1 →</a>
+            <span className="nbc-ctameta">30 articles · 4 chapters</span>
+          </div>
+        </div>
       </div>
-      <div className="nbc-heromenta">30 articles · 4 chapters<br/><a href="/docs/using-the-api">Start at 08.1 →</a></div>
-    </div>
-    <div className="nbc-intro">
-      Northbeam's APIs for sending data in and getting data out — orders, spend, and exports — plus the MCP server for querying your data in natural language. Start with Using the API for authentication and environments, then jump to the API your task needs.
-      <div className="nbc-uses">
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Send orders and spend programmatically</span>
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Export attribution data, metrics, and breakdowns to your own systems</span>
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Authenticate and test in UAT before touching production</span>
+      <div className="nbc-usepanel">
+        <div className="nbc-usepanel-label">What you'll do</div>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Send orders and spend programmatically</span>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Export attribution data, metrics, and breakdowns to your own systems</span>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Authenticate and test in UAT before touching production</span>
       </div>
     </div>
     <div className="nbc-chap">
@@ -74,8 +77,7 @@ mode: "custom"
         <a className="nbc-cell" href="/reference/get_attribution-models-1"><span className="nbc-cell-num">09</span><span className="nbc-cell-title">Fetch all available attribution models</span></a>
       </div>
     </div>
-    <div className="nbc-foot">
-      <a className="nbc-startbtn" href="/docs/using-the-api">08.1 → Using the API</a>
+    <div className="nbc-foot nbc-foot--right">
       <a className="nbc-next" href="/docs/landings/internal">Done here? 09 → Northbeam Internal</a>
     </div>
   </div>

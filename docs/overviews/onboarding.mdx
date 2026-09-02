@@ -8,20 +8,23 @@ mode: "custom"
 
 <div className="nb-home">
   <div className="nb-wrap">
-    <div className="nbc-hero">
-      <div className="nbc-bignum">02</div>
-      <div className="nbc-headgroup">
-        <div className="nbc-title">Onboarding.</div>
-        <div className="nbc-desc">What this section covers, and where to start</div>
+    <div className="nbc-herocard">
+      <div className="nbc-hero-left">
+        <div className="nbc-bignum">02</div>
+        <div className="nbc-headgroup">
+          <div className="nbc-title">Onboarding.</div>
+          <div className="nbc-introtext">Everything required to take a new account from empty to reporting real data. Work through it roughly in order — account setup first, then tracking, then orders and spend. Each chapter builds on the one before.</div>
+          <div className="nbc-ctarow">
+            <a className="nbc-startbtn" href="/docs/quickstart">Start at 02.1 →</a>
+            <span className="nbc-ctameta">25 articles · 5 chapters</span>
+          </div>
+        </div>
       </div>
-      <div className="nbc-heromenta">25 articles · 5 chapters<br/><a href="/docs/quickstart">Start at 02.1 →</a></div>
-    </div>
-    <div className="nbc-intro">
-      Everything required to take a new account from empty to reporting real data. Work through it roughly in order — account setup first, then tracking, then orders and spend. Each chapter builds on the one before.
-      <div className="nbc-uses">
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Set up your account and invite your team</span>
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Install the pixel and event tracking on your store</span>
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Bring in orders and marketing spend so attribution has data to work with</span>
+      <div className="nbc-usepanel">
+        <div className="nbc-usepanel-label">What you'll do</div>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Set up your account and invite your team</span>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Install the pixel and event tracking on your store</span>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Bring in orders and marketing spend so attribution has data to work with</span>
       </div>
     </div>
     <div className="nbc-chap">
@@ -74,8 +77,7 @@ mode: "custom"
         <a className="nbg-card" href="/docs/all-other-platforms-overview"><span className="nbg-icon"><Icon icon="layer-group" size={18} /></span><span className="nbg-num">02</span><span className="nbg-title">All Other Platforms Overview</span><span className="nbg-foot"><span className="nb-arrow">→</span></span></a>
       </div>
     </div>
-    <div className="nbc-foot">
-      <a className="nbc-startbtn" href="/docs/quickstart">02.1 → Quickstart</a>
+    <div className="nbc-foot nbc-foot--right">
       <a className="nbc-next" href="/docs/landings/channels">Done here? 03 → Channels</a>
     </div>
   </div>

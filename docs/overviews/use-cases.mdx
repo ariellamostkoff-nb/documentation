@@ -8,20 +8,23 @@ mode: "custom"
 
 <div className="nb-home">
   <div className="nb-wrap">
-    <div className="nbc-hero">
-      <div className="nbc-bignum">06</div>
-      <div className="nbc-headgroup">
-        <div className="nbc-title">Use cases.</div>
-        <div className="nbc-desc">Outcome-first guides that cut across the docs</div>
+    <div className="nbc-herocard">
+      <div className="nbc-hero-left">
+        <div className="nbc-bignum">06</div>
+        <div className="nbc-headgroup">
+          <div className="nbc-title">Use cases.</div>
+          <div className="nbc-introtext">Recipes for the questions you actually bring to Northbeam — diagnosing discrepancies, deciding budget moves, running reports. Each article walks one question end to end using tools from the rest of the docs.</div>
+          <div className="nbc-ctarow">
+            <a className="nbc-startbtn" href="/docs/use-cases/diagnose-a-roas-drop">Start at 06.1 →</a>
+            <span className="nbc-ctameta">12 articles · 3 chapters</span>
+          </div>
+        </div>
       </div>
-      <div className="nbc-heromenta">12 articles · 3 chapters<br/><a href="/docs/use-cases/diagnose-a-roas-drop">Start at 06.1 →</a></div>
-    </div>
-    <div className="nbc-intro">
-      Recipes for the questions you actually bring to Northbeam — diagnosing discrepancies, deciding budget moves, running reports. Each article walks one question end to end using tools from the rest of the docs.
-      <div className="nbc-uses">
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Diagnose and reconcile numbers you don't trust yet</span>
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Decide and optimize where spend goes</span>
-        <span className="nbc-use"><span className="nbc-use-arrow">→</span>Operate and report, week to week</span>
+      <div className="nbc-usepanel">
+        <div className="nbc-usepanel-label">What you'll do</div>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Diagnose and reconcile numbers you don't trust yet</span>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Decide and optimize where spend goes</span>
+        <span className="nbc-use"><span className="nbc-check">✓</span>Operate and report, week to week</span>
       </div>
     </div>
     <div className="nbc-chap">
@@ -51,8 +54,7 @@ mode: "custom"
         <a className="nbg-card" href="/docs/use-cases/ask-your-data-from-claude"><span className="nbg-icon"><Icon icon="sparkles" size={18} /></span><span className="nbg-num">05</span><span className="nbg-title">Ask your data questions from Claude</span><span className="nbg-foot"><span className="nb-arrow">→</span></span></a>
       </div>
     </div>
-    <div className="nbc-foot">
-      <a className="nbc-startbtn" href="/docs/use-cases/diagnose-a-roas-drop">06.1 → Diagnose a ROAS drop</a>
+    <div className="nbc-foot nbc-foot--right">
       <a className="nbc-next" href="/docs/landings/changelog">Done here? 07 → Changelog</a>
     </div>
   </div>
