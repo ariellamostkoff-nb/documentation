@@ -1,0 +1,45 @@
+---
+title: "Task template"
+description: "[The outcome, as a verb phrase — what the reader will have done]"
+icon: "list-check"
+---
+
+<div className="nbt-chip"><span className="nbt-chip-label">Template</span><span>Use for how-to articles — the reader is here to do something, not learn something. Live exemplar: <a href="/docs/invite-team">Invite Team</a>. Delete this block when you copy the template.</span></div>
+
+[Optional one-paragraph setup: what this task accomplishes and any precondition. Skip it if the description already says everything.]
+
+## [Do the thing — imperative verb phrase]
+
+<div className="nbt-subs">
+  <div className="nbt-sub"><span className="nbt-sub-num">01</span><span className="nbt-sub-text">[One action per row — where to click, what to enter]</span></div>
+  <div className="nbt-sub"><span className="nbt-sub-num">02</span><span className="nbt-sub-text">[Navigation paths in arrows: Settings → Connections → ...]</span></div>
+  <div className="nbt-sub"><span className="nbt-sub-num">03</span><span className="nbt-sub-text">[End on the confirming action: Save / Connect]</span></div>
+</div>
+
+<div className="nbt-chip"><span className="nbt-chip-label">[Note]</span><span>[Constraint, permission requirement, or reassurance the reader needs before or right after acting.]</span></div>
+
+<Frame>
+  <img src="[screenshot of the completed state]" alt="[what the screenshot shows]" />
+</Frame>
+
+## [Supporting decision — only if the task involves choices]
+
+[When the reader has to pick between options, lay them out as definition rows:]
+
+<div className="nbt-def"><span className="nbt-def-num">01</span><span className="nbt-def-term">[Option A]</span><span className="nbt-def-hint">[when to choose it]</span></div>
+<div className="nbt-def"><span className="nbt-def-num">02</span><span className="nbt-def-term">[Option B]</span><span className="nbt-def-hint">[when to choose it]</span></div>
+
+## Frequently asked questions
+
+<div className="nbt-qa">
+  <div className="nbt-qa-q"><span className="nbt-def-num">01</span>[Question the reader actually asks, phrased their way?]</div>
+  <div className="nbt-qa-a">[Direct answer first, context second. Two to four sentences.]</div>
+</div>
+<div className="nbt-qa">
+  <div className="nbt-qa-q"><span className="nbt-def-num">02</span>[What if it didn't work?]</div>
+  <div className="nbt-qa-a">[The recovery path, with a link to the troubleshooting page.]</div>
+</div>
+
+{/* Large tasks (3+ phases, e.g. Shopify Installation): one h2 per phase,
+    each with its own nbt-subs list and warning chip. Keep every phase's
+    steps to seven rows or fewer — split the phase if it grows past that. */}
