@@ -987,13 +987,7 @@ body:has(.nb-homepage) #navbar { display: none; }
 .nbh-btn:hover { background: #4a55d2; }
 .nbh-btn-ghost { background: #ffffff; color: #0a1130; border: 1px solid rgb(10 17 48 / 0.10); }
 .nbh-btn-ghost:hover { border-color: rgb(94 107 242 / 0.5); }
-.nbh-hero-visual {
-  flex: 0 0 42%;
-  background: linear-gradient(135deg, #0b1030 0%, #232d63 100%);
-  border-radius: 16px;
-  padding: 26px;
-}
-.nbh-hero-visual img { display: block; width: 100%; height: auto; mix-blend-mode: screen; }
+.nbh-hero-visual { flex: 0 0 46%; }
 
 /* Icon card grid (home sections + landing chapters) */
 .nbg-grid {
@@ -1082,13 +1076,7 @@ body:has(.nb-homepage) #navbar { display: none; }
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgb(10 17 48 / 0.07);
 }
-.nbh-prodimg {
-  display: block;
-  background: linear-gradient(135deg, #0b1030 0%, #232d63 100%);
-  border-radius: 10px;
-  padding: 16px;
-}
-.nbh-prodimg img { display: block; width: 100%; height: 96px; object-fit: contain; mix-blend-mode: screen; }
+
 .nbh-prodtitle {
   margin-top: 14px;
   padding: 0 6px;
@@ -1131,3 +1119,98 @@ body:has(.nb-homepage) #navbar { display: none; }
 :is([data-theme="dark"], .dark) .nbh-prodtitle { color: #e6e9f5; }
 :is([data-theme="dark"], .dark) .nbg-icon { background: rgb(94 107 242 / 0.15); color: #8d99ff; }
 :is([data-theme="dark"], .dark) .nbh-btn-ghost { background: transparent; color: #e6e9f5; border-color: rgb(230 233 245 / 0.2); }
+
+/* ------------------------------------------------------------------ *
+ * Product-UI motifs (point of view: the docs look like the product).
+ * Hero mini data panel + flat pastel chart tiles. No glow art.
+ * ------------------------------------------------------------------ */
+.nbd-panel {
+  display: block;
+  background: #ffffff;
+  border: 1px solid rgb(10 17 48 / 0.07);
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgb(10 17 48 / 0.08);
+  padding: 20px 22px 10px;
+}
+.nbd-title {
+  display: block;
+  font-family: "TT Commons", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #0a1130;
+  padding-bottom: 12px;
+}
+.nbd-cols, .nbd-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.1fr 0.7fr;
+  gap: 10px;
+  align-items: center;
+}
+.nbd-cols {
+  background: #f4f5fb;
+  border-radius: 7px;
+  padding: 7px 12px;
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 8.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #7a8399;
+}
+.nbd-cols span:not(:first-child), .nbd-row > span:not(:first-child) { text-align: right; }
+.nbd-row { padding: 11px 12px; border-bottom: 1px solid rgb(10 17 48 / 0.05); }
+.nbd-row:last-child { border-bottom: none; }
+.nbd-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0a1130;
+}
+.nbd-dot { width: 7px; height: 7px; border-radius: 50%; background: #22a06b; }
+.nbd-dot--warn { background: #f4832f; }
+.nbd-val {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12px;
+  color: #0a1130;
+  white-space: nowrap;
+}
+.nbd-delta {
+  font-family: "TT Commons Pro Mono Trl", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  margin-left: 6px;
+}
+.nbd-delta--up { color: #1d9760; }
+.nbd-delta--down { color: #e8552f; }
+
+/* Flat pastel motif tiles for the product cards */
+.nbm-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 116px;
+  background: #f2f4fd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* MTA: attribution rows — dot + weighted bar */
+.nbm-lines { display: flex; flex-direction: column; gap: 12px; width: 62%; }
+.nbm-line { display: flex; align-items: center; gap: 10px; }
+.nbm-line .nbm-i { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.nbm-line .nbm-b { height: 10px; border-radius: 5px; display: block; }
+/* MMM: rounded column bars */
+.nbm-bars { display: flex; align-items: flex-end; gap: 9px; height: 64%; }
+.nbm-bars .nbm-i { width: 16px; border-radius: 6px; display: block; }
+/* C+DV: stacked rounded blocks, two groups */
+.nbm-stacks { display: flex; align-items: flex-end; gap: 18px; height: 62%; }
+.nbm-stack { display: flex; flex-direction: column; gap: 4px; justify-content: flex-end; }
+.nbm-stack .nbm-i { width: 44px; border-radius: 8px; display: block; }
+/* Apex: two rings, dotted connection */
+.nbm-orbit { display: flex; align-items: center; gap: 14px; }
+.nbm-ring { width: 44px; height: 44px; border-radius: 50%; border: 3px solid #5e6bf2; }
+.nbm-ring--b { border-color: #22a06b; width: 36px; height: 36px; }
+.nbm-link { width: 34px; border-top: 2px dashed rgb(10 17 48 / 0.25); }
+
+@media (max-width: 960px) {
+  .nbh-hero-visual { padding: 0; background: none; }
+}
