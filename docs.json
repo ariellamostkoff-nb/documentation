@@ -7,9 +7,9 @@
     "default": "light"
   },
   "colors": {
-    "primary": "#4454ff",
+    "primary": "#5e6bf2",
     "light": "#8d99ff",
-    "dark": "#3a48d6"
+    "dark": "#4a55d2"
   },
   "favicon": "/logo/northbeam-mark.svg",
   "logo": {
@@ -1040,5 +1040,11 @@
       "source": "/docs/tracking-for-universal",
       "destination": "/docs/channels/universal/overview"
     }
-  ]
+  ],
+  "background": {
+    "color": {
+      "light": "#f4f5fb",
+      "dark": "#0d0f1a"
+    }
+  }
 }
