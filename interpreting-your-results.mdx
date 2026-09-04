@@ -1,0 +1,76 @@
+---
+title: "Interpreting your results"
+---
+
+Once a test finishes collecting data, the results page summarizes what happened in the holdout and what it implies about the true incremental value of the channel. This page walks through each section of that summary and how to read it.
+
+## **The headline result**
+
+At the top of the page you'll see a single verdict — **Significant lift**, **No detectable lift**, or **Inconclusive** — alongside the measured lift and the confidence interval around it.
+
+> Example: **+14.2% incremental lift** (95% CI: +6.1% to +22.3%), 2.9x iROAS
+
+The verdict is a statistical statement, not a business one. A significant result means the observed difference between the exposed and holdout groups is unlikely to be noise. It does not by itself mean the channel is profitable — compare the incremental return against your target efficiency before making a decision.
+
+## **Key metrics**
+
+| **Metric** | **What it means** | **How to use it** |
+| :-- | :-- | :-- |
+| Incremental conversions | Orders that would not have happened without the channel | The numerator for every efficiency calculation below |
+| Incremental revenue | Revenue attributable to those conversions | Compare against spend in the test window |
+| Lift % | Relative difference between exposed and holdout groups | Use for comparing across tests of different sizes |
+| iROAS | Incremental revenue divided by incremental spend | The number to hold against your ROAS target |
+| iCAC | Incremental spend divided by incremental conversions | Useful when your goal is new customer acquisition |
+| Confidence interval | The plausible range for true lift | Plan against the lower bound, not the point estimate |
+| p-value | Probability of seeing this result if there were no true lift | Below 0.05 is the conventional threshold |
+
+## **Reading the time series**
+
+The chart plots cumulative conversions for the exposed and holdout groups over the life of the test. Two things are worth checking:
+
+**The pre-period should be flat.** Before the test starts, the two lines should track each other closely. A visible gap before day zero means the groups were not balanced at assignment, and the result should be treated cautiously.
+
+**The gap should widen steadily.** Genuine incrementality accumulates. A gap that appears all at once on a single day usually reflects a promotion, a site outage, or a tracking change rather than media effect.
+
+## **Understanding confidence**
+
+Confidence widens as the test runs and narrows as more conversions accumulate. Early in a test, the interval will often span zero even when a real effect exists — this is expected and not a reason to stop.
+
+- **Interval entirely above zero** — positive lift, read the lower bound as your conservative planning number.
+- **Interval spanning zero** — the test cannot distinguish the effect from noise. Either the effect is small or the test needs more power.
+- **Interval entirely below zero** — the exposed group underperformed. Check for assignment or delivery issues before concluding the channel is harmful.
+
+## **When a result is inconclusive**
+
+An inconclusive result is information, not a failure. The most common causes:
+
+1. **Insufficient power.** The holdout was too small, or the test window too short, to detect an effect of the size you're looking for.
+2. **Holdout contamination.** Users in the holdout were reached anyway — through a different placement, a retargeting audience, or cross-device delivery.
+3. **Overlapping activity.** A promotion, seasonal spike, or another test running in the same window absorbed the signal.
+4. **Effect size below the detection floor.** The channel may be working, just at a magnitude smaller than the test was designed to see.
+
+Before rerunning, adjust the design rather than the duration alone. A larger holdout usually buys more power than extra weeks.
+
+## **Moving from result to decision**
+
+A finished test answers one question about one channel in one window. Translating it into a budget change typically means:
+
+- Comparing iROAS against your marginal efficiency target, not your blended average.
+- Applying the measured lift as a calibration factor to your ongoing attributed numbers.
+- Re-testing on a cadence, since incrementality shifts with saturation, creative, and seasonality.
+
+## **Common pitfalls**
+
+**Reading the point estimate as precise.** The point estimate is the middle of a range. Plan against the lower bound.
+
+**Comparing lift across differently designed tests.** Different holdout sizes, geographies, and windows produce results that are not directly comparable.
+
+**Stopping early on a promising trend.** Peeking at results and stopping when they look good inflates false positives. Let the test reach its planned end.
+
+**Treating one test as permanent truth.** Incrementality decays as a channel saturates. A result from six months ago describes six months ago.
+
+## **Next steps**
+
+- Apply your measured lift as a calibration input to ongoing reporting.
+- Schedule a follow-up test to confirm the result and track drift over time.
+- Share the summary with stakeholders using the export option at the top of the page.
