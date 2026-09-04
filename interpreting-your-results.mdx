@@ -1,20 +1,32 @@
 ---
 title: "Interpreting your results"
+description: "How to read an incrementality test result and turn it into a decision"
+icon: "lightbulb"
 ---
 
-Once a test finishes collecting data, the results page summarizes what happened in the holdout and what it implies about the true incremental value of the channel. This page walks through each section of that summary and how to read it.
+Once a test finishes collecting data, the results page summarizes what happened in the holdout and what it implies about the channel's real contribution. Reading it well means separating the statistical question (is the effect real?) from the business question (is the effect worth the spend?), and knowing which parts of the summary answer which.
 
-## **The headline result**
+## What it is
 
-At the top of the page you'll see a single verdict — **Significant lift**, **No detectable lift**, or **Inconclusive** — alongside the measured lift and the confidence interval around it.
+A results readout has three layers: a **headline verdict** that classifies the outcome, a set of **key metrics** that quantify it, and a **confidence interval** that bounds it. Together they describe the range of true lift consistent with what the test observed.
 
-> Example: **+14.2% incremental lift** (95% CI: +6.1% to +22.3%), 2.9x iROAS
+The verdict is one of **Significant lift**, **No detectable lift**, or **Inconclusive**. Each is a claim about signal versus noise, not about profitability. A significant result means the exposed and holdout groups differ by more than chance would explain; it does not, on its own, mean the channel clears your efficiency bar.
 
-The verdict is a statistical statement, not a business one. A significant result means the observed difference between the exposed and holdout groups is unlikely to be noise. It does not by itself mean the channel is profitable — compare the incremental return against your target efficiency before making a decision.
+<div className="nbt-chip"><span className="nbt-chip-label">Scope</span><span>Applies to a single channel, in a single test window, at the holdout size the test was designed around. Results do not generalize across channels, geographies, or seasons without re-testing.</span></div>
 
-## **Key metrics**
+## How it works
 
-| **Metric** | **What it means** | **How to use it** |
+<div className="nbt-subs">
+  <div className="nbt-sub"><span className="nbt-sub-num">01</span><span className="nbt-sub-text">The exposed and holdout groups accumulate conversions over the life of the test.</span></div>
+  <div className="nbt-sub"><span className="nbt-sub-num">02</span><span className="nbt-sub-text">The gap between them is measured as **incremental conversions** and **incremental revenue**, then expressed as **lift %**, **iROAS**, and **iCAC**.</span></div>
+  <div className="nbt-sub"><span className="nbt-sub-num">03</span><span className="nbt-sub-text">A **confidence interval** and **p-value** describe how precisely that gap is known, and the verdict follows from where the interval sits relative to zero.</span></div>
+</div>
+
+The time series chart plots cumulative conversions for both groups. Two properties matter: the pre-period should be flat (the lines tracking each other before day zero), and the gap should widen steadily rather than appear on a single day. A flat pre-period confirms balanced assignment; a gradual widening confirms the effect looks like media rather than a promotion, outage, or tracking change.
+
+### Key metrics
+
+| Metric | What it means | How to use it |
 | :-- | :-- | :-- |
 | Incremental conversions | Orders that would not have happened without the channel | The numerator for every efficiency calculation below |
 | Incremental revenue | Revenue attributable to those conversions | Compare against spend in the test window |
@@ -24,53 +36,47 @@ The verdict is a statistical statement, not a business one. A significant result
 | Confidence interval | The plausible range for true lift | Plan against the lower bound, not the point estimate |
 | p-value | Probability of seeing this result if there were no true lift | Below 0.05 is the conventional threshold |
 
-## **Reading the time series**
+## How it relates to the verdict
 
-The chart plots cumulative conversions for the exposed and holdout groups over the life of the test. Two things are worth checking:
+The three verdicts correspond to where the confidence interval sits relative to zero.
 
-**The pre-period should be flat.** Before the test starts, the two lines should track each other closely. A visible gap before day zero means the groups were not balanced at assignment, and the result should be treated cautiously.
+|  | Significant lift | No detectable lift | Inconclusive |
+| --- | --- | --- | --- |
+| **What the interval looks like** | Entirely above zero | Narrow and centered near zero | Wide, spanning zero |
+| **What it means** | The channel produced a measurable effect | The channel did not move conversions meaningfully | The test could not tell signal from noise |
+| **What to do next** | Compare iROAS against your marginal target | Reduce or reallocate spend | Redesign, usually with a larger holdout |
 
-**The gap should widen steadily.** Genuine incrementality accumulates. A gap that appears all at once on a single day usually reflects a promotion, a site outage, or a tracking change rather than media effect.
+An interval entirely below zero is a fourth case: the exposed group underperformed. Before treating that as evidence the channel is harmful, check for assignment or delivery issues.
 
-## **Understanding confidence**
+### When a result is inconclusive
 
-Confidence widens as the test runs and narrows as more conversions accumulate. Early in a test, the interval will often span zero even when a real effect exists — this is expected and not a reason to stop.
+Inconclusive is information, not failure. The usual causes:
 
-- **Interval entirely above zero** — positive lift, read the lower bound as your conservative planning number.
-- **Interval spanning zero** — the test cannot distinguish the effect from noise. Either the effect is small or the test needs more power.
-- **Interval entirely below zero** — the exposed group underperformed. Check for assignment or delivery issues before concluding the channel is harmful.
-
-## **When a result is inconclusive**
-
-An inconclusive result is information, not a failure. The most common causes:
-
-1. **Insufficient power.** The holdout was too small, or the test window too short, to detect an effect of the size you're looking for.
-2. **Holdout contamination.** Users in the holdout were reached anyway — through a different placement, a retargeting audience, or cross-device delivery.
+1. **Insufficient power.** The holdout was too small, or the window too short, to detect the effect size you care about.
+2. **Holdout contamination.** Users in the holdout were reached anyway, through a different placement, a retargeting audience, or cross-device delivery.
 3. **Overlapping activity.** A promotion, seasonal spike, or another test running in the same window absorbed the signal.
-4. **Effect size below the detection floor.** The channel may be working, just at a magnitude smaller than the test was designed to see.
+4. **Effect below the detection floor.** The channel may work, just at a magnitude smaller than the test was designed to see.
 
-Before rerunning, adjust the design rather than the duration alone. A larger holdout usually buys more power than extra weeks.
+Adjust the design before you extend the duration. A larger holdout usually buys more power than extra weeks.
 
-## **Moving from result to decision**
+## Why it matters
 
-A finished test answers one question about one channel in one window. Translating it into a budget change typically means:
+**A result is a range, not a number.** The point estimate sits in the middle of a confidence interval, and the honest planning number is the lower bound. Teams that treat the point estimate as precise systematically over-forecast the return on the channels they measure.
 
-- Comparing iROAS against your marginal efficiency target, not your blended average.
-- Applying the measured lift as a calibration factor to your ongoing attributed numbers.
-- Re-testing on a cadence, since incrementality shifts with saturation, creative, and seasonality.
+**One test describes one moment.** Incrementality shifts with saturation, creative, and seasonality. A result from six months ago describes six months ago; ongoing decisions need a re-test cadence, not a single verdict frozen in time.
 
-## **Common pitfalls**
+**Statistical significance is not a spend decision.** A significant lift still has to clear your marginal efficiency target, not your blended average. The results page tells you whether the channel worked; your target tells you whether it worked enough.
 
-**Reading the point estimate as precise.** The point estimate is the middle of a range. Plan against the lower bound.
+### Common pitfalls
 
-**Comparing lift across differently designed tests.** Different holdout sizes, geographies, and windows produce results that are not directly comparable.
+**Reading the point estimate as precise.** Plan against the lower bound of the interval.
 
-**Stopping early on a promising trend.** Peeking at results and stopping when they look good inflates false positives. Let the test reach its planned end.
+**Comparing lift across differently designed tests.** Different holdout sizes, geographies, and windows produce numbers that are not directly comparable.
 
-**Treating one test as permanent truth.** Incrementality decays as a channel saturates. A result from six months ago describes six months ago.
+**Stopping early on a promising trend.** Peeking and stopping when results look good inflates false positives. Let the test reach its planned end.
 
-## **Next steps**
+**Treating one test as permanent truth.** Re-test on a cadence to track drift.
 
-- Apply your measured lift as a calibration input to ongoing reporting.
-- Schedule a follow-up test to confirm the result and track drift over time.
-- Share the summary with stakeholders using the export option at the top of the page.
+## In one sentence
+
+A test result is the range of true lift consistent with what you observed; read the lower bound, compare it to your marginal target, and re-test on a cadence.

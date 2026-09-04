@@ -608,7 +608,8 @@
                 "group": "Incrementality",
                 "pages": [
                   "docs/incrementality",
-                  "docs/announcements/incrementality"
+                  "docs/announcements/incrementality",
+                  "interpreting-your-results"
                 ]
               },
               {
