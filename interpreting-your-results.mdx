@@ -4,13 +4,13 @@ description: "How to read an incrementality test result and turn it into a decis
 icon: "lightbulb"
 ---
 
-Once a test finishes collecting data, the results page summarizes what happened in the holdout and what it implies about the channel's real contribution. Reading it well means separating the statistical question (is the effect real?) from the business question (is the effect worth the spend?), and knowing which parts of the summary answer which.
+Once a test finishes collecting data, the results page summarizes what happened in the holdout and what it implies about the channel's real contribution. To read it well, separate the statistical question (is the effect real?) from the business question (is the effect worth the spend?). Then know which parts of the summary answer each one.
 
 ## What it is
 
 A results readout has three layers: a **headline verdict** that classifies the outcome, a set of **key metrics** that quantify it, and a **confidence interval** that bounds it. Together they describe the range of true lift consistent with what the test observed.
 
-The verdict is one of **Significant lift**, **No detectable lift**, or **Inconclusive**. Each is a claim about signal versus noise, not about profitability. A significant result means the exposed and holdout groups differ by more than chance would explain; it does not, on its own, mean the channel clears your efficiency bar.
+The verdict is one of **Significant lift**, **No detectable lift**, or **Inconclusive**. Each is a claim about signal versus noise, not about profitability. A significant result means the exposed and holdout groups differ by more than chance would explain. It does not, on its own, mean the channel clears your efficiency bar.
 
 <div className="nbt-chip"><span className="nbt-chip-label">Scope</span><span>Applies to a single channel, in a single test window, at the holdout size the test was designed around. Results do not generalize across channels, geographies, or seasons without re-testing.</span></div>
 
@@ -18,11 +18,11 @@ The verdict is one of **Significant lift**, **No detectable lift**, or **Inconcl
 
 <div className="nbt-subs">
   <div className="nbt-sub"><span className="nbt-sub-num">01</span><span className="nbt-sub-text">The exposed and holdout groups accumulate conversions over the life of the test.</span></div>
-  <div className="nbt-sub"><span className="nbt-sub-num">02</span><span className="nbt-sub-text">The gap between them is measured as **incremental conversions** and **incremental revenue**, then expressed as **lift %**, **iROAS**, and **iCAC**.</span></div>
+  <div className="nbt-sub"><span className="nbt-sub-num">02</span><span className="nbt-sub-text">Northbeam measures the gap between them as **incremental conversions** and **incremental revenue**, then expresses it as **lift %**, **iROAS**, and **iCAC**.</span></div>
   <div className="nbt-sub"><span className="nbt-sub-num">03</span><span className="nbt-sub-text">A **confidence interval** and **p-value** describe how precisely that gap is known, and the verdict follows from where the interval sits relative to zero.</span></div>
 </div>
 
-The time series chart plots cumulative conversions for both groups. Two properties matter: the pre-period should be flat (the lines tracking each other before day zero), and the gap should widen steadily rather than appear on a single day. A flat pre-period confirms balanced assignment; a gradual widening confirms the effect looks like media rather than a promotion, outage, or tracking change.
+The time series chart plots cumulative conversions for both groups. Two properties matter. The pre-period should be flat, with the lines tracking each other before day zero. The gap should widen steadily rather than appear on a single day. A flat pre-period confirms balanced assignment. A gradual widening confirms the effect looks like media rather than a promotion, outage, or tracking change.
 
 ### Key metrics
 
@@ -53,7 +53,7 @@ An interval entirely below zero is a fourth case: the exposed group underperform
 Inconclusive is information, not failure. The usual causes:
 
 1. **Insufficient power.** The holdout was too small, or the window too short, to detect the effect size you care about.
-2. **Holdout contamination.** Users in the holdout were reached anyway, through a different placement, a retargeting audience, or cross-device delivery.
+2. **Holdout contamination.** The channel reached holdout users anyway, through a different placement, a retargeting audience, or cross-device delivery.
 3. **Overlapping activity.** A promotion, seasonal spike, or another test running in the same window absorbed the signal.
 4. **Effect below the detection floor.** The channel may work, just at a magnitude smaller than the test was designed to see.
 
@@ -63,7 +63,7 @@ Adjust the design before you extend the duration. A larger holdout usually buys 
 
 **A result is a range, not a number.** The point estimate sits in the middle of a confidence interval, and the honest planning number is the lower bound. Teams that treat the point estimate as precise systematically over-forecast the return on the channels they measure.
 
-**One test describes one moment.** Incrementality shifts with saturation, creative, and seasonality. A result from six months ago describes six months ago; ongoing decisions need a re-test cadence, not a single verdict frozen in time.
+**One test describes one moment.** Incrementality shifts with saturation, creative, and seasonality. A result from six months ago describes six months ago. Ongoing decisions need a re-test cadence, not a single verdict frozen in time.
 
 **Statistical significance is not a spend decision.** A significant lift still has to clear your marginal efficiency target, not your blended average. The results page tells you whether the channel worked; your target tells you whether it worked enough.
 
