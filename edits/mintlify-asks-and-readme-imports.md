@@ -4,7 +4,7 @@ For Djibril and Marco. Grouped by when we need it. Repo is github.com/ariellamos
 This week (by Fri 19 Sep)
 1. Contract signed 16 Sep. Confirm any remaining security or legal paperwork is closed.
 2. Confirm the plan tier and exactly what it unlocks for us: custom domain, partial authentication, private authentication for employees, Slack agent, web editor seats, API playground, Intercom integration. Tell us which of these need Enterprise.
-3. Editor seats and dashboard access for Christine Anderson, Tyler, Scott and Dan, in addition to Ariella.
+3. Seats: done, everyone has access.
 4. Custom domain: add docs.northbeam.io in the Mintlify dashboard and send us the two TXT record values (_acme-challenge and _cf-custom-hostname). Our zone is Google Cloud DNS, not Cloudflare proxied. We will add the TXT records on 22 Sep and the CNAME on 29 Sep.
 5. A shared Slack channel between the two teams for the launch window, and a named contact for cutover day.
 

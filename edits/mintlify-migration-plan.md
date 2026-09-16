@@ -10,7 +10,7 @@ What has to be true on 23 Sep
 Milestones
 
 Tue 16 Sep : Kickoff : Ariella, Christine
-Plan agreed. Asks sent to Mintlify: seats for Tyler, Scott, Dan and Christine; permissions setup; Slack agent; domain setup.
+Plan agreed. Asks sent to Mintlify: permissions setup, Slack agent, domain setup, Intercom setup, governance for employees and enterprise customers. Seats are done.
 
 Wed 17 Sep : Content complete : Ariella
 The 19 articles Tyler added to ReadMe since July are brought into the new site. Redirects added for the 13 old links the app uses that no longer have a page. Dan's team starts the domain setup so Monday's switch is one step.
