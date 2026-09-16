@@ -4,20 +4,19 @@ sidebarTitle: "Meta Custom Attribution"
 description: "Get started with Meta's Custom Attribution using Northbeam Apex."
 icon: "bullhorn"
 ---
-
-Once Meta's readiness indicator shows **High** (approximately 14 days after setup), you can run a Custom Attribution campaign. This is the Meta-side optimization layer — the step that actually puts Apex data to work in your ad delivery.
+Once Meta's readiness indicator shows **High** (approximately 10 days after setup), you can run a Custom Attribution campaign. This is the Meta-side optimization layer — the step that actually puts Apex data to work in your ad delivery.
 
 <Warning>
-  ### Custom Attribution is currently in invite-only beta.
+  ### Custom Attribution is currently in beta.
 
-  Reach out to your Customer Success Manager or [Support Team](https://www.northbeam.io/submit-a-support-ticket) if you're not sure whether you're on the list or want to be added ahead of the broader rollout. {/* TODO(audit): confirm current rollout status with product; June 2026 has passed. */}
+  Reach out to your Customer Success Manager or [Support Team](https://www.northbeam.io/submit-a-support-ticket) if you're not sure whether you're on the list or want to be added ahead of the broader rollout planned for **August 2026**. {/* TODO(audit): date has passed; confirm current rollout status with product. */}
 
   If your Apex connection is set up, your data is already flowing and training Meta's model — you'll be ready to launch as soon as access opens up.
 </Warning>
 
 ### What you'll see in Events Manager
 
-After Apex setup completes, a new Custom Attribution signal will appear under your Purchase event in Events Manager within 48 hours.&#x20;
+After Apex setup completes, a new Custom Attribution signal will appear under your Purchase event in Events Manager within 48 hours. 
 
 <Frame>
   <img src="https://files.readme.io/82669a2d1a2289e252646d999bd3e9c74985c0f9ae78dd2b28cf702b51fa0ae2-CleanShot_2026-05-29_at_13.56.56.png" alt="" />
@@ -49,6 +48,10 @@ To use Custom Attribution in Ads Manager, your account must:
 <br />
 
 ### Campaign setup
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/faa0fe56eb424b4abad64966bf1182e6" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
 
 In Ads Manager, create a new (or duplicate an existing) Sales-objective campaign. At the ad-set level, you'll configure:
 
@@ -93,34 +96,44 @@ The Results column in Ads Manager for Custom Attribution campaigns reflects Nort
 <Warning>
   ### Set up the experiment before launching campaigns
 
-  Publish the Conversion Lift experiment **before** launching the BAU or Apex campaigns. Adding live campaigns later can create audience overlap and prevent a true holdout.
+  Create the A/B test in Experiments **before** launching the BAU or Apex campaigns. Adding live campaigns later can create audience overlap and weaken the test.
+
+  Use Meta's **Experiments** tool to compare your Custom Attribution campaign against your BAU campaign.
 </Warning>
 
-Set up a split test using the Experiments tool.
+<Frame>
+  <iframe src="https://www.loom.com/embed/717c74b4e2d242a1b2e27f6708138ea4" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
 
-* Advertiser is responsible for setting up the A/B test in Experiments by clicking ‘Create an A/B test’’
-* Add campaigns to test and control cells:
-  * Campaign A (Test): Name: “Meta PBA test – TEST \{campaign name\}”
-  * Campaign B (BAU): Name: “Meta PBA test – BAU \{campaign name\}”
-  * For more complex designs (e.g., 3-cell), add additional cells and campaigns as needed
-  * Set the schedule
-    * Start date: **one day BEFORE** the campaign start date
-    * End date: **one day AFTER** the campaign end date
-    * DISABLE ‘End test early if a winner is found’ to preserve statistical validity
-* Test Name
-  * Name your study clearly (e.g., Custom Attribution vs BAU - Q3 2026)
-* Determining the winner:
-  * Select ‘Cost per purchase’ as the key metric for winner declaration
-  * Advertisers may add metrics for additional business-specific KPIs
-  * Advertisers should use their own Source of Truth to determine campaign winner
+<br />
 
-### In-Flight Best Practices:
+### A/B test setup
 
-* Avoid making changes to creative, audiences, or budgets mid-test. If changes are unavoidable, apply them to **both cells simultaneously** to maintain test integrity.
-* Check for anomalies like duplicated events that could skew results.
-* Avoid competing ads — similar ads outside the test that reach the same audience will pollute results.
-* Keep campaigns in one cell only — the same campaign can't appear in multiple cells.
-* Aim for at least **$5K spend per cell** and a **10K+ holdout** for reliable results.
+* In **Experiments**, click **Create an A/B test**.
+* Select the campaigns you want to compare:
+  * **Campaign A:** Select your Custom Attribution campaign. This is the test campaign.
+  * **Campaign B:** Select your BAU campaign. This is the control campaign.
+  * For more complex tests, such as a 3-cell test, add additional campaigns as needed.
+* Set the test dates:
+  * **Start date:** One day before the campaign starts.
+  * **End date:** One day after the campaign ends.
+  * Turn off **End test early if a winner is found** so the test runs for the full scheduled period.
+* Give the test a clear name, such as `Custom Attribution vs BAU - Q3 2026`.
+* Select **Cost per purchase** as the key metric for determining the winner.
+* Add other business-specific KPIs if needed.
+* Click **Review test details** and confirm the campaigns, dates, and metrics are correct.
+* Click **Create a test** to start the experiment.
+* Use your own source of truth to determine the final campaign winner.
+
+<br />
+
+### In-Flight Best Practices
+
+* Avoid changing creative, audiences, or budgets during the test. If a change is required, make the same change in both cells.
+* Check for issues, such as duplicate events, that could affect results.
+* Avoid similar ads outside the test that target the same audience.
+* Keep each campaign in only one test cell.
+* Aim for at least **$5K in spend per cell** and a **10K+ holdout** for more reliable results.
 
 <br />
 

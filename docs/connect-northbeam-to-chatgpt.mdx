@@ -1,0 +1,123 @@
+---
+title: "Connect Northbeam to ChatGPT"
+description: "Connect Northbeam to ChatGPT so it can read your dashboards. Requires a paid ChatGPT plan."
+icon: "sparkles"
+---
+[← Connect Northbeam to Your AI Assistant](/docs/northbeam-mcp)
+
+<Note>
+  Northbeam MCP is available to Pro and Enterprise customers.
+</Note>
+
+## Before you start
+
+You will need:
+
+1. A Northbeam account you can sign in to.
+2. A ChatGPT paid subscription (**Pro, Team, Enterprise **&#x6F;r **EDU**). 
+3. The Northbeam MCP server URL: `https://mcp.northbeam.io`.
+
+## If you’re on Team or Enterprise
+
+If your ChatGPT access is managed by your organization, an Owner or Primary Owner may need to add the Northbeam connector first. After that, each user enables the connector and signs in individually.
+
+If you’re on an individual plan, you can set up Northbeam yourself.
+
+<br />
+
+***
+
+## Individual setup
+
+Use these steps if you are on an individual ChatGPT plan and can add your own custom connectors.
+
+1. Open **ChatGPT **&#x61;nd go to [`Settings>Plugins`](https://chatgpt.com/plugins#settings/Plugins).
+2. Click on **Developer Mode **&#x61;nd **Enable Developer Mode.**
+
+<Frame>
+  <img src="https://files.readme.io/0d8a4d9125a8b4301eb1760baa4ff85aecf0bfaed8139d155fb64d6602856d2f-Screenshot_2026-07-21_at_3.30.21_PM.png" alt="" />
+</Frame>
+
+3. Go back to your home page and in the left hand nav, select **Plugins.**
+4. In the top right hand corner, click the **+ **&#x62;utton to add a new plugin.
+
+<Frame>
+  <img src="https://files.readme.io/fc6cb57577953c338af762662bbaf265ab0e13a67f640eecd72093c7c9c9ec90-image.png" alt="" />
+</Frame>
+
+5. Enter:
+   1. **Name:** `Northbeam`
+   2. **URL:** `https://mcp.northbeam.io`
+   3. **Advanced settings**: leave blank
+   4. Check "**I understand and want to continue"**
+6. Click **Create**.
+7. When prompted, sign in with your normal Northbeam login.
+8. Finish the connection flow. Once complete, the connector should show as connected.
+9. (Optional) Choose your permissions to **Always ask, Allow read-only actions, Allow low-risk actions**, or **Allow all actions **.
+
+## Verify the connection
+
+Start a new chat and ask ChatGPT:
+
+> Use Northbeam to list my dashboards.
+
+If ChatGPT returns your dashboards, the connection is working.
+
+***
+
+## Team / Enterprise setup
+
+If you are on a ChatGPT Team or Enterprise plan, setup happens in **two parts**:
+
+1. A plan **Owner/Admin** adds the connector for the organization.
+2. Each user enables the connector and signs in with their own Northbeam account.
+
+## Part 1: Admin setup
+
+Before any team member can use a custom MCP connector, the **workspace administrator** must authorize it:
+
+1. Admin Controls: The workspace Owner or Admin must navigate to `Workspace Settings` > `Plugins`
+2. Developer Mode Permissions: Admins can use Role-Based Access Control (RBAC) to enable `Developer Mode` for specific team members, or open it up workspace-wide.
+3. Creating the Shared App: The admin (or authorized developer) clicks Create from the Workspace settings to build the app layout. 
+4. Enter:
+   * **Name:** `Northbeam`
+   * **URL:** `https://mcp.northbeam.io`
+   * Your organization's **OAuth** credentials
+5. Save the connector.
+
+After that, the connector becomes available to members of the organization, but it is **not connected for them automatically**.
+
+## Part 2: Individual user setup
+
+Once your admin has added Northbeam for the organization, you can connect your Northbeam login to ChatGPT.
+
+1. Go to [`Settings>Plugins`](https://chatgpt.com/plugins#settings/Plugins).
+2. Find **Northbeam** in the available connectors list.
+3. Click on the app and authenticate using your enterprise credentials (typically via OAuth or an internal single sign-on token)
+
+Each user must authenticate individually. Adding the connector at the org level only makes it available; it does not grant access by itself.
+
+## Activating inside Workspace Features
+
+On Team and Enterprise plans, you can utilize the connected MCP server beyond a standard chat window:
+
+* [Shared Projects](https://openai.com/index/more-ways-to-work-with-your-team/): You can pin an MCP connector to a specific team Project workspace so all invited participants automatically query that data stream.
+
+***
+
+## What you can ask ChatGPT
+
+Once connected, ChatGPT can pull live data from your Northbeam dashboards. Example prompts:
+
+1. `List my Northbeam dashboards.`
+2. `What was my Meta ROAS last week vs the prior week?`
+3. `Show me my top 10 orders by revenue this month.`
+4. `Break down spend and revenue by platform for the last 30 days.`
+
+If you have access to more than one dashboard, tell ChatGPT which one to use so it queries the right account.
+
+You can also click the **+ **&#x6F;n a new chat and select **Northbeam **&#x74;o specifically query Northbeam.
+
+![](https://files.readme.io/498a32970babad1b31ab93b035f505298888b73e1c96c5a8e6d7c42019a64f8c-Screenshot_2026-07-21_at_3.47.24_PM.png)
+
+<br />

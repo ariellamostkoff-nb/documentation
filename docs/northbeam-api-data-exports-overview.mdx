@@ -1,0 +1,104 @@
+---
+title: "Data Exports"
+description: "Export your Northbeam data to your own cloud storage. An overview of the report types, destinations, and the shared results endpoint."
+icon: "database"
+---
+## What are Data Exports?
+
+**Data Exports** let you export your Northbeam data to your own cloud storage (GCS or S3) via the API. Data Exports is the parent surface — the same as the **Data Exports** tab in the app — and it can run several different **report types**. Every report shares the same setup (authentication, destinations, and result polling); each report type then has its own creation endpoint and options.
+
+## Report types
+
+| Report                | What it exports                                                                                                   | Guide                                                         |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| **Sales Attribution** | Performance metrics (attributed revenue, transactions, CAC, …) by attribution model, window, and accounting mode. | [Sales Attribution Export](/docs/northbeam-api-data-export-1) |
+| **Orders**            | Your orders, one row per order, with product information.                                                         | [Orders Export](/docs/northbeam-api-orders-export)            |
+
+The rest of this page covers the setup that is common to **all** report types.
+
+***
+
+## Authentication
+
+Every request needs an API key and your client id, sent as headers. Generate a key by following the [Authentication](/docs/authentication) guide. The examples in each report's guide show how to pass the `Authorization` and `Data-Client-ID` headers.
+
+***
+
+## Destinations
+
+Exports are written to a cloud storage bucket you own. Provide the destination in the create request of whichever report you're running:
+
+* **GCS** — pass `bucket_name`. See [Exporting to GCS](/docs/northbeam-api-data-export-gcs-export-1) for how to grant Northbeam write access.
+* **S3** — pass `bucket_name` plus `aws_role` (an IAM role ARN with write access) and `region`. See [Exporting to S3](/docs/northbeam-api-data-export-s3-export-1).
+
+The destination fields are the same across report types.
+
+***
+
+## Fetching your export results
+
+Creating any export returns an `id`. Exports run asynchronously, so poll the shared **results** endpoint with that id until it finishes — this endpoint is the same for every report type.
+
+```curl
+curl --request GET \
+     --url https://api.northbeam.io/v1/exports/data-export/result/<export_id> \
+     --header 'Authorization: <api_key>' \
+     --header 'Data-Client-ID: <client_id>' \
+     --header 'accept: application/json'
+```
+
+```python
+import requests
+
+url = "https://api.northbeam.io/v1/exports/data-export/result/<export_id>"
+
+headers = {
+    "accept": "application/json",
+    "Authorization": "<api_key>",
+    "Data-Client-ID": "<client_id>"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+```
+
+The response `status` field has three possible values:
+
+| Status    | Description                                                                         |
+| --------- | ----------------------------------------------------------------------------------- |
+| `PENDING` | The export is still being processed. Keep polling until the status changes.         |
+| `SUCCESS` | The export is complete. The `result` field contains a link to the exported file(s). |
+| `ERROR`   | The export failed. Submit a new export request.                                     |
+
+**While processing (`PENDING`):**
+
+```json
+{
+  "data_export_id": "<export_id>",
+  "status": "PENDING",
+  "result": [],
+  "created_at": "2023-05-03T19:12:53.933Z",
+  "finished_at": null
+}
+```
+
+**When complete (`SUCCESS`):**
+
+```json
+{
+  "data_export_id": "<export_id>",
+  "status": "SUCCESS",
+  "result": ["<link_to_file>"],
+  "created_at": "2023-05-03T19:12:53.933Z",
+  "finished_at": "2023-05-03T19:13:20.000Z"
+}
+```
+
+> **Important:** exports can take anywhere from a few seconds to several minutes, and a `200 OK` does not mean the export is ready. Keep polling only while `status` is `"PENDING"`; on `"SUCCESS"` download the file from the link in `result` (the link is only valid for a limited time, so re-request it if it expires); on `"ERROR"` stop polling and submit a new export. The only supported format today is CSV.
+
+***
+
+## Rate limits
+
+The result endpoint and the discovery endpoints can each be called up to 100 requests/second. See [Rate Limits](/docs/northbeam-api-data-export-rate-limits-1) for the full table.

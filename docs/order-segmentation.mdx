@@ -1,0 +1,447 @@
+---
+title: "Order Segmentation"
+icon: "layer-group"
+description: "Order Segmentation makes it easy to break down attributed revenue and orders into meaningful groups directly within your Northbeam dashboard."
+---
+## Introduction
+
+Order Segmentation makes it easy to break down attributed revenue and orders into meaningful groups directly within your Northbeam dashboard.
+
+You can create segmentations using:
+
+* Order tags
+* Discount codes
+* Shipping country
+
+For example, you could create a **Promo Code** segmentation to group orders based on the discount code used.
+
+**Segmentation:** `Promo Code`
+
+**Segments:**
+
+* Podcast
+* YouTube
+* IG Influencers
+* Friend Referrals
+
+Each segment can contain the discount codes associated with that group.
+
+For example, the **Podcast** segment could include all promo codes used by podcast partners, while the **YouTube** segment could include promo codes used by YouTube creators.
+
+Northbeam will then assign orders to the appropriate segment based on the discount code used on the order.
+
+Once created, you can compare Revenue, Orders, ROAS, CAC, and other supported metrics across each segment alongside your existing performance data.
+
+This gives you a fast way to answer questions like:
+
+* How much revenue came from podcast promo codes?
+* How many new customers came from influencer codes?
+* How does CAC compare across different partner groups?
+
+Previously, this type of reporting often required custom workarounds or separate dashboards. Order Segmentation lets you create and manage these groups directly in Northbeam.
+
+***
+
+## Before You Start
+
+Order Segmentation is the **easiest way** to **break down order groups** directly within a **single Northbeam dashboard**. It is quick to set up and does not require custom development or coordination between your development team and Northbeam.
+
+Separate dashboards can offer more flexibility for specific use cases, but they require additional setup and development work on both sides and are only available on certain service plans.
+
+<Note>
+  ## Current Limitations
+
+  - **All attribution models except Clicks + Deterministic Views support segmented reporting.** Clicks + Deterministic Views can still appear in your dashboard for overall performance, but they cannot currently be broken down by segment.
+
+  - **Spend and Visits are not segmented.** ROAS, CAC, and ECR use the row's total Spend or Visits.
+
+  - **Segmented metrics refresh once per day.** For the cleanest comparison, use a date range that ends yesterday.
+
+  - **Hourly reporting is not supported.** Segmented metrics are available at the daily level.
+
+  For more detail, see [Important Constraints](#important-constraints).
+</Note>
+
+***
+
+## Step 1: Open Order Segmentation
+
+Open [Order Segmentation](https://dashboard.northbeam.io/order-segmentations).
+
+If you do not see Order Segmentation in your account, contact Northbeam and we can enable it for you.
+
+<Frame>
+  <img src="https://files.readme.io/8b554458965685ea8a42d6a9ea42fde84fc0b38587e823ee38f2b6731e31e0b3-CleanShot_2026-08-18_at_14.05.12.png" alt="" />
+</Frame>
+
+***
+
+## Step 2: Create Your Segmentation
+
+Click **Add Segmentation**.
+
+<Frame>
+  <img src="https://files.readme.io/c07b710fef1596fd7fcbc8b5b65111c973553d3d3ab6203ede62171cd5d178c6-CleanShot_2026-08-18_at_14.05.57.png" alt="" />
+</Frame>
+
+Think of a **segmentation** as the overall category and **segments** as the groups within it.
+
+For example:
+
+**Segmentation:** `Promo Code`
+
+**Segments:**
+
+* Podcast
+* YouTube
+* IG Influencers
+* Friend Referrals
+
+This setup lets you compare performance based on the type of promo code used on an order.
+
+***
+
+## Step 3: Add Segment Rules
+
+For each segment, define the rules Northbeam should use to match orders.
+
+<Frame>
+  <img src="https://files.readme.io/f29e49bb68c56740b9925a96bbe90b8a97e63ab6ceeb9256a18d800b9578d8e5-CleanShot_2026-08-18_at_14.06.35.png" alt="" />
+</Frame>
+
+You can currently build rules using:
+
+* Order tags
+* Discount codes
+* Shipping country code
+
+For example, a Podcast segment could use:
+
+`Discount code` → `is one of` → `[list of podcast promo codes]`
+
+Use **Bulk edit** when adding a larger list of values.
+
+You can also use:
+
+* **AND conditions** when multiple conditions must be true
+* **OR groups** when an order can match one of several sets of conditions
+
+Supported operators include:
+
+* Equals
+* Contains
+* Starts with
+* Ends with
+* Is one of
+* Does not equal
+* Does not contain
+* Case-insensitive versions of supported operators
+
+<Note>
+  ### Order-level attributes only
+
+  Rules currently support order-level attributes.
+
+  Rules based on SKU, product, or order value are not currently supported.
+</Note>
+
+***
+
+## Step 4: Set Segment Priority
+
+Segments are evaluated from **top to bottom**.
+
+If an order matches more than one segment within the same segmentation, the **first matching segment wins**.
+
+<Frame>
+  <img src="https://files.readme.io/9c94092bb867e5f04dc584693a49721b15d66d27aa4d21c1857dbabca9cb362c-CleanShot_2026-08-18_at_14.09.24.png" alt="" />
+</Frame>
+
+For example:
+
+1. Podcast
+2. YouTube
+3. IG Influencers
+
+If an order matches both Podcast and YouTube, Northbeam assigns it to **Podcast** because Podcast has the higher priority.
+
+Drag and reorder segments to change their priority.
+
+An order can only match **one segment within the same segmentation**.
+
+However, the same order can belong to segments across different segmentations.
+
+For example:
+
+* `Promo Code: Podcast`
+* `Market: United States`
+
+***
+
+## Step 5: Test Your Segmentation
+
+Before saving, click **Test** in the upper-right corner.
+
+<Frame>
+  <img src="https://files.readme.io/e13f3c5c75d5985f877cdb13e7faaabe8b3e0689de68a153799f0eb9e746356a-CleanShot_2026-08-18_at_14.11.40.png" alt="" />
+</Frame>
+
+Northbeam will show how many orders matched each segment during the selected lookback period.
+
+You can test against the last:
+
+* 7 complete days
+* 14 complete days
+* 30 complete days
+* 60 complete days
+* 90 complete days
+
+The test counts **orders**, not attributed revenue.
+
+Use the test to confirm:
+
+1. Your rules match the orders you expect.
+2. Your segment priority is correct.
+3. Orders are not unexpectedly falling into `Uncategorized`.
+
+### What does `Uncategorized` mean?
+
+`Uncategorized` contains orders that did not match any segment in that segmentation.
+
+If your counts look lower than expected, check `Uncategorized` first.
+
+You can also click **View matched orders** to review the individual orders assigned to each segment.
+
+<Frame>
+  <img src="https://files.readme.io/196df10c9c656ba53781be25e875684196f30c3d9c2264b3bf4e930af76b258b-CleanShot_2026-08-18_at_14.10.52.png" alt="" />
+</Frame>
+
+***
+
+## Step 6: Choose Your Metrics
+
+Revenue and Orders are available for each segment, including New and Returning customer variants.
+
+You can also enable:
+
+* ROAS
+* CAC
+* ECR
+* AOV
+
+<Frame>
+  <img src="https://files.readme.io/348e73d63f87314c627b6940da1612f35a139ec14672a970c8839be40574f49b-CleanShot_2026-08-18_at_14.15.51.png" alt="" />
+</Frame>
+
+For example, a Promo Code segmentation could create metrics such as:
+
+* Promo Code: Podcast Revenue
+* Promo Code: Podcast Orders
+* Promo Code: Podcast CAC
+* Promo Code: YouTube Revenue
+* Promo Code: IG Influencers Revenue
+
+## How Spend and Visit Metrics Work
+
+Order Segmentation only splits **conversion-based metrics**, such as Revenue and Orders.
+
+It does **not** split:
+
+* Spend
+* Visits
+
+This means segment-level Spend and Visits do not exist.
+
+Metrics that depend on Spend or Visits use the row's total value:
+
+* **Segment ROAS** = `Segment Revenue / Total Spend`
+* **Segment CAC** = `Total Spend / Segment Orders`
+* **Segment ECR** = `Segment Orders / Total Visits`
+
+<Warning>
+  ### Spend and Visits are not segmented
+
+  For example, Podcast CAC uses total row Spend divided by Podcast Orders. It does not use Podcast-specific Spend.
+</Warning>
+
+***
+
+## Step 7: Save and View Your Segments
+
+Once your setup looks correct, click **Save**.
+
+Changes apply to historical orders immediately. There is no historical backfill to wait for because Northbeam evaluates the segmentation rules when the data is queried.
+
+To add segment metrics to the Sales page:
+
+1. Open the [Sales page](https://dashboard.northbeam.io/sales).
+2. Click **Customize Table**.
+3. Find **Order segments**.
+4. Select the metrics you want to add.
+
+<Frame>
+  <img src="https://files.readme.io/db3133c99a50b8cfc998415b864e430c45e1606516387cfdb86e57080964c145-CleanShot_2026-08-18_at_14.12.37.png" alt="" />
+</Frame>
+
+***
+
+## Segment Combinations
+
+Segment Combinations let you combine existing segments into a broader reporting group.
+
+For example, if your Promo Code segmentation contains:
+
+* Podcast
+* YouTube
+* IG Influencers
+* Friend Referrals
+
+You could create a combination for:
+
+`Podcast + YouTube + IG Influencers`
+
+This lets you keep the individual segments while also reporting on the combined group.
+
+To create a Segment Combination:
+
+1. Open the **Segment Combinations** tab.
+2. Select the segmentation.
+3. Select the segments you want to combine.
+4. Enter a name.
+5. Click **Test**.
+6. Click **Save**.
+
+***
+
+## Supported Reporting
+
+Order Segmentation is currently supported in:
+
+| Surface            | Support                                            |
+| ------------------ | -------------------------------------------------- |
+| Sales              | Segment metrics can be added as columns            |
+| Metrics Explorer   | Segment metrics can be selected like other metrics |
+| Creative Analytics | Segment metrics can be added to creative reporting |
+| Overview           | Segment metrics can be used in tiles               |
+| Custom Metrics     | Segment metrics can be used in formulas            |
+| Orders             | View matched segments and filter orders by segment |
+
+Order Segmentation is not currently supported in:
+
+* Data Export
+* Scheduled Reports
+* Profit Benchmarks
+* MMM
+* Incrementality
+* LTV
+* Model Comparison
+* Performance Alerts / Monitor
+* Hourly reporting
+* Clicks + Deterministic Views
+
+***
+
+## Important Constraints
+
+## Touchpoint-Based Metrics Refresh Once Per Day
+
+Order Segmentation uses Northbeam's touchpoint-based metrics.
+
+These metrics are rebuilt **once per day**. This is the same cadence used by other features that rely on touchpoint data.
+
+Examples include:
+
+* Order Segment metrics
+* Clicks + Deterministic Views
+* Custom Metrics that depend on touchpoint-based metrics
+
+Standard metrics may update more frequently.
+
+Because of this, date ranges that include **today** can show differences between Order Segment metrics and fresher standard metrics.
+
+For the cleanest comparison, use a date range that ends **yesterday**.
+
+Hourly reporting is not currently supported.
+
+## Attribution Model Support
+
+Order Segmentation supports **all attribution models except Clicks + Deterministic Views**.
+
+Clicks + Deterministic Views can still appear in your dashboard for overall performance, but Northbeam cannot currently break those results down by Order Segment.
+
+For example, Northbeam can show your total Clicks + Deterministic Views Revenue, but cannot split that revenue into Podcast, YouTube, or other Order Segments.
+
+## Unmatched Orders
+
+Orders that do not match a defined segment fall into:
+
+`Uncategorized`
+
+Include `Uncategorized` when reconciling segment totals.
+
+***
+
+## Order Segmentation FAQ
+
+## Do I need to wait for a backfill?
+
+No. New and edited segmentations can apply to historical orders immediately.
+
+## What does `Uncategorized` mean?
+
+`Uncategorized` contains orders that did not match any segment within that segmentation.
+
+## Can an order match multiple segments?
+
+Within the same segmentation, no.
+
+If an order matches multiple segments, the first matching segment wins.
+
+Across different segmentations, yes.
+
+## Can I change segment priority?
+
+Yes. Drag and reorder your segments.
+
+Northbeam evaluates them from top to bottom.
+
+## Can I preview a segmentation before saving?
+
+Yes. Click **Test** to see how many orders match each segment.
+
+The test counts orders, not attributed revenue.
+
+## Can I use segment metrics in Custom Metrics?
+
+Yes. Supported Order Segment metrics can be used in Custom Metrics.
+
+## Can I export segment metrics?
+
+No. Segment metrics are not currently supported in Data Export or Scheduled Reports.
+
+## Does Order Segmentation support hourly reporting?
+
+No. Segmented metrics are available at the daily level and refresh once per day.
+
+## Which attribution models support Order Segmentation?
+
+Order Segmentation supports all attribution models except **Clicks + Deterministic Views**.
+
+Clicks + Deterministic Views can still be used for overall performance reporting, but cannot currently be broken down by Order Segment.
+
+## Why don't my segment totals match standard Revenue?
+
+Check the following:
+
+1. **Does your date range include today?** Segmented metrics refresh once per day, while some standard metrics may update more frequently.
+2. **Are orders falling into **`Uncategorized`**?** Include `Uncategorized` when reconciling your totals.
+
+## Does Order Segmentation work with Amazon orders?
+
+Partially.
+
+Shipping country and discount code rules can work with Amazon orders.
+
+Amazon does not provide merchant-created order tags in the same way Shopify does. Rules based on Shopify or Orders API order tags will generally not match Amazon orders and may fall into `Uncategorized`.
+
+Amazon PII is also removed after 90 days, so keep this in mind when reviewing older Amazon order data.

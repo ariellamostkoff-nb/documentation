@@ -1,0 +1,41 @@
+---
+title: "Northbeam MCP Server FAQs"
+description: "How the Northbeam MCP server works, what data it sends to your AI provider, and how that provider handles it."
+icon: "circle-question"
+---
+[← Connect Northbeam to Your AI Assistant](/docs/northbeam-mcp)
+
+### What is MCP, and why does it matter for security?
+
+MCP (Model Context Protocol) is a standard way for AI applications such as Claude or ChatGPT to request information from services such as Northbeam.
+
+An MCP connection has two parts:
+
+* Northbeam runs the MCP server and controls what data it makes available and who can access it.
+* Your AI provider runs the MCP client and controls how the data is handled after it reaches the AI application.
+
+For questions about access to Northbeam data, contact Northbeam. For questions about storage, retention, or model training, check with your AI provider.
+
+### What Northbeam data can the AI access?
+
+Through the Northbeam MCP server, an AI application can access the same types of information available on the Northbeam dashboard, including performance metrics, attribution data, orders, and—if enabled—product-level attribution.
+
+The Northbeam MCP server follows each user’s existing permissions. It does not give users additional access. If someone cannot view certain information in Northbeam, they cannot access it through the MCP server either.
+
+### How much data is sent?
+
+The Northbeam MCP server sends data only when the AI application makes a specific request, called a “tool call.” Each tool retrieves a limited set of information, such as metrics for a date range or details about an order.
+
+There is no automatic background sync or bulk export. However, the AI application may make several tool calls to answer one question. The AI provider—not Northbeam—determines which tools are called, how often they are called, and what information is requested.
+
+### Is my data stored after a query or used to train AI models?
+
+After the Northbeam MCP server sends data to the AI application, the AI provider’s policies apply. Northbeam does not control whether the provider stores the data, keeps conversation history, or uses the data for model training.
+
+Review your AI provider’s trust center, privacy documentation, and commercial terms for details.
+
+### Does my AI plan affect how my data is handled?
+
+The Northbeam MCP server works the same way regardless of your AI plan. However, AI providers may offer different privacy, retention, and training policies for different plans—for example, Claude Enterprise versus Claude Pro or ChatGPT Business versus ChatGPT Plus.
+
+Check your AI provider’s documentation to understand the policies that apply to your specific plan.

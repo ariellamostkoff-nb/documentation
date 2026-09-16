@@ -1,0 +1,37 @@
+---
+title: "Purchases or Orders Are Missing"
+description: "Determine whether an order is missing browser tracking, server data, or both."
+icon: "triangle-exclamation"
+---
+Start with one example order. Record its exact order ID, timestamp, checkout domain, and payment flow.
+
+## 1. Find the order
+
+Open [Orders](https://dashboard.northbeam.io/orders) and search for the exact order ID.
+
+| What you find       | What it means                                                                  | Next check                                            |
+| :------------------ | :----------------------------------------------------------------------------- | :---------------------------------------------------- |
+| Order is absent     | Northbeam may not have received the server-side order.                         | Check the commerce connection or Orders API response. |
+| Attributed: **No**  | Northbeam received the order but could not attribute it to a customer journey. | Check `firePurchaseEvent` and the order ID.           |
+| Attributed: **Yes** | The order is attributed.                                                       | Check dashboard filters and reporting settings.       |
+
+## 2. Compare order IDs
+
+`firePurchaseEvent` and the backend order must use the same identifier. Compare the values character for character, including:
+
+* Capitalization
+* Prefixes and suffixes
+* Spaces and punctuation
+* Order number versus UUID or checkout-session ID
+
+## 3. Check whether pixel tracking is expected
+
+Some orders do not complete through a web checkout and are not expected to have browser pixel data. Examples include recurring subscriptions, draft orders, offline or POS orders, wholesale orders, and some marketplace or app purchases.
+
+## 4. Check the source
+
+* **Shopify or another commerce integration:** Open [Connections](https://dashboard.northbeam.io/settings/connections) and confirm that the correct store is connected without errors.
+* **Orders API:** Review the API response and validation errors. Confirm that the request used the intended production or UAT endpoint.
+* **firePurchaseEvent:** Review [Pixel and Event Tracking](https://dashboard.northbeam.io/settings/tracking-script-tags) and the [Purchase Pixel guide](/docs/add-pixel).
+
+For detailed pixel-tracking checks, see [Troubleshooting Pixel Tracking](/docs/guide-to-troubleshooting-pixel-tracking).

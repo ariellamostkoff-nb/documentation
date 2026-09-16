@@ -1,49 +1,150 @@
 ---
-title: "All Other Platforms Installation"
-sidebarTitle: "Non-Shopify install"
-description: "Add the Northbeam pixel to your storefront"
-icon: "store"
+title: "Purchase Events"
+icon: "cart-shopping"
+description: "Purchase conversion events are purchases that occur on your website."
 ---
+## What are Purchase Events?
 
-## Northbeam Pixel Installation
+Purchase conversion events are purchases that occur on your website. It's extremely important that these are captured on all your checkout flows.
 
-There are two methods of installing the pixel:
+## How Do You Track Purchase Events?
 
-* Pasting the pixel in the header of your theme file
-* Creating it as a tag within Google Tag Manager
+We use a single event: `firePurchaseEvent`.
+
+This event fires when a transaction is completed, typically on the Order Confirmation or Thank You page.
+
+This payload includes order details that we match against the backend source of truth (Raw Shopify orders; Orders API data)
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Checkout Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Shopify's Native Checkout
+      </td>
+
+      <td>
+        Tracks completed purchases that occur on Shopify's checkout.
+
+        Triggered by Shopify's [checkout_completed](https://shopify.dev/docs/api/web-pixels-api/standard-events/checkout_completed)  Web Pixel standard event.
+
+        _Note: This does not include Shop App_.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        All Other Checkouts
+      </td>
+
+      <td>
+        This is our generic Purchase script. Used to track all Non-Shopify Checkout Experiences
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <br />
 
-You’ll need to install this script in the `<head>` section of every page on your site. Be sure to replace `{DATA_CLIENT_ID}` with your unique Northbeam Data Client ID, which you can find [here](https://dashboard.northbeam.io/settings/api-keys).
+***
+
+<br />
+
+## Tracking Purchases on Shopify Stores
+
+This script tracks completed purchases from your Shopify Checkout.  This is required for tracking Purchases in Northbeam.
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/19bb8e74bae442fab6a72ccc11a01add?sid=d6653fbc-961c-4887-8f9e-8a91eebad9b1" width="100%" height="450" allowfullscreen></iframe>
+</Frame>
+
+## Step 1: Find the Customer Events script
+
+1. In the Onboarding Flow:
+   1. Navigate to **Step 7: Add Pixel**
+   2. Find the script called **Shopify: Customer Events**
+2. In the Dashboard:
+   1. Click on **Settings**
+   2. Click on **Northbeam Pixel and Event Tracking**
+   3. Find the script called **Shopify: Customer Events**
+
+<Frame caption="Shopify: Customer Events">
+  <img src="https://files.readme.io/073a2348bba9a528e483255e5e80f85d2105e66b272a17d7b23431c4a6b524d1-Screenshot_2025-06-12_at_9.49.52_PM.png" alt="The script in your dashboard is pre-populated with your unique Client ID" />
+</Frame>
+
+## Step 2: Add the script in your Customer Events
+
+1. Log into your Shopify account, click **Settings**
+2. In the side navigation, click **Customer Events**
+3. In the top right, click **Add Custom Pixel**
+4. Name the pixel anything you'd like (e.g. "Northbeam Event Tracking”), then click **Add Pixel**
+5. Paste the script into the **code editor**
+6. In the top right corner, click **Save**
+7. Below the editor, click **Connect**
+8. In the modal, click **Connect** to give the pixel secure access to your online store, checkout, and order confirmation.
+
+<Frame caption="Settings > Customer Events">
+  <img src="https://files.readme.io/209c23082fd73f649d3c34b6acf99bc8556e9b97ed6b7ccaca13e3d8c1e1ba80-Screenshot_2025-06-13_at_4.02.07_PM.png" alt="Settings > Customer Events" />
+</Frame>
+
+<br />
+
+## Step 3: Change data access settings
+
+1. From your Shopify admin, go to Settings > Customer events.
+2. Click the App pixels tab.
+3. For the Northbeam pixel, click the pixel's current data access setting in the Data column.
+4. In the dialog, select Always on, and then click Apply.
+
+<Frame caption="Shopify: Data access settings">
+  <img src="https://files.readme.io/787df7ae00624fb065efd195205271e4bb38b249ceecb7dbeca24009a2feaba6-CleanShot_2026-01-14_at_12.07.15.png" alt="" />
+</Frame>
+
+## Step 4: Customer Privacy
+
+Under **Customer Privacy**, ensure a consent banner is configured.
+
+If data restrictions are enabled without a banner:
+
+* Users cannot opt in
+* Tracking may be blocked
+* The Customer Events script may not fire
+* Conversion tracking may break
+
+Always confirm privacy settings and consent are aligned before going live.
+
+<br />
+
+## Step 5: Notify Northbeam
+
+Once the script is installed, [submit a support ticket](https://www.northbeam.io/submit-a-support-ticket) to let our team know. We'll finalize setup to ensure accurate page view tracking.
 
 <Warning>
-  Do not modify the script
+  ### Important:
 
-  Other than setting your Data Client ID, **do not modify the script in any way**.
-</Warning>
+  **Failing to **[notify our team](https://www.northbeam.io/submit-a-support-ticket)** may result in incorrect page view tracking.**
 
-```html
-<!-- Begin: Northbeam pixel -->
-<script>(function(){var t;(n=t=t||{}).A="identify",n.B="trackPageView",n.C="fireEmailCaptureEvent",n.D="fireCustomGoal",n.E="firePurchaseEvent",n.F="trackPageViewInitial",n.G="fireSlimPurchaseEvent",n.H="identifyCustomerId";var n="//j.northbeam.io/ota-sp/{DATA_CLIENT_ID}.js";function r(n){for(var e=[],t=1;t<arguments.length;t++)e[t-1]=arguments[t];i.push({fnName:n,args:e})}var e,i=[],a=((e={})[t.F]=function(n){r(t.F,n)},(a={_q:i})[t.A]=function(n,e){return r(t.A,n,e)},a[t.B]=function(){return r(t.B)},a[t.C]=function(n,e){return r(t.C,n,e)},a[t.D]=function(n,e){return r(t.D,n,e)},a[t.E]=function(n){return r(t.E,n)},a[t.G]=function(n){return r(t.G,n)},a[t.H]=function(n,e){return r(t.H,n,e)},Object.assign(function(n){for(var e=[],t=1;t<arguments.length;t++)e.push(arguments[t]);return r.apply(null,[n].concat(e))},a));window.Northbeam=a,(a=document.createElement("script")).async=!0,a.src=n,document.head.appendChild(a),e.trackPageViewInitial(window.location.href);})()</script>
-<!-- End: Northbeam pixel -->
-```
-
-<Warning>
-  Content Security Policy
-
-  In order for the pixel to use this subdomain, your Content Security Policy (CSP) must explicitly or implicitly allow traffic to the i subdomain. Please make sure your CSP includes either:
-
-  * `*.your-store.com`, or
-  * `i.your-store.com`
-
-  in the connect-src of your CSP.
+  Page view tracking is a foundational event in Northbeam's conversion tracking system — without it, purchase attribution may be incomplete or inaccurate.
 </Warning>
 
 <br />
 
 ***
 
-## `firePurchaseEvent` Installation
+<br />
+
+## Tracking Purchases on Non-Shopify Stores
 
 <br />
 
@@ -54,22 +155,24 @@ Use the `window.Northbeam.fireSlimPurchaseEvent` OR `window.Northbeam.firePurcha
 | `fireSlimPurchaseEvent` | Directly targets an order for attribution if the only guaranteed value is the Order Number and/or when backend revenue data will be sent on time for actionability. **This our default recommended function**. | Low        |
 | `firePurchaseEvent`     | Directly targets an order for attribution when revenue values need to be actionable before backend revenue data is sent to us.                                                                                 | Moderate   |
 
+<br />
+
 *Either* event **must** fire when a transaction is completed — once the final order details are available — typically on the **Order Confirmation** or **Thank You** page.  A timely and proper trigger is required for purchase matching in Northbeam, and they can be deployed natively into your site's code or injected externally via Google Tag Manager.
 
 <br />
 
-### &#x20;Global Requirements  (both `fireSlimPurchaseEvent` and `firePurchaseEvent`)
+##  Global Requirements  (both `fireSlimPurchaseEvent` and `firePurchaseEvent`)
 
 **Your chosen function must:**
 
 * Fire **after the core Northbeam base pixel.**
 * Fire **only after the order is finalized and all charges have been processed** to prevent ingestion of cancelled transactions.
-* Fire **once per completed order; do not repeat `id` values.**
+* Fire **once per completed order; do not repeat **`id`** values.**
 * Contain **all corresponding keys with defined values**. `NULL` values are invalid.
 
 <br />
 
-### Critical: `id` = `order_id`
+## Critical: `id` = `order_id`
 
 We use the value from the `id` key (Please see function requirements below) to match the frontend purchase event (`fireSlimPurchaseEvent` AND/OR `firePurchaseEvent`) to your backend source of truth (orders sent via the [Northbeam Orders API](/reference/post_orders)).
 
@@ -79,11 +182,13 @@ If the value does not exactly match the corresponding server-side order (Case-se
 
 <br />
 
-### &#x20;*window\.Northbeam.fireSlimPurchaseEvent*
+##  *window\.Northbeam.fireSlimPurchaseEvent*
 
-#### Definitions
+### Definitions
 
 This lightweight function signals that the order/transaction number passed in the `id` field is a valid conversion that should be attributed. It only requires a single value for activation. This is our**primary recommended function for most\* implementations**.
+
+<br />
 
 | Key  | Type     | Description                                                                                                                                                                                                                                               | Example |
 | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ |
@@ -91,7 +196,7 @@ This lightweight function signals that the order/transaction number passed in th
 
 <br />
 
-#### fireSlimPurchaseEvent example
+### fireSlimPurchaseEvent example
 
 ```javascript
 <script type="application/javascript">
@@ -102,17 +207,21 @@ This lightweight function signals that the order/transaction number passed in th
 * Note: The `id` key/field is an **implicit parameter** in `fireSlimPurchaseEvent` and does ***not*** need to be externally defined for the function to operate. It only needs a *value*, which is automatically mapped to the implicit `id` key.
 * In the above example: "A123" is a hard-coded string with your order\_id, but this should be a variable that ties to the value.
 
-#### Considerations
+<br />
+
+### Considerations
 
 * `fireSlimPurchaseEvent` does *not* process monetary values and is therefore not recommended when operational actionability is a crucial consideration -AND- your corresponding backend Northbeam API upsert implementation is not synchronized to your Dashboard processing cycles. On such cases: `firePurchaseEvent` is best used instead of `fireSlimPurchaseEvent`.
 
 <br />
 
-### &#x20;*window\.Northbeam.firePurchaseEvent*
+##  *window\.Northbeam.firePurchaseEvent*
 
-#### Definitions
+### Definitions
 
 This full-fledged function not only signals that the order/transaction number passed in the `id` field is a valid conversion that should be attributed, but it also contains transactional information that is actionable for revenue, tax, and shipping calculations in your Northbeam Dashboard. This function **requires** a full transactional object `{}` with distinct keys rather than the `order_id` string alone, which increases complexity and should only be used when actionable data is a crucial concern -AND- your corresponding backend Northbeam API upsert implementation is not synchronized to your Dashboard processing cycles.
+
+<br />
 
 <table>
   <thead>
@@ -268,20 +377,20 @@ This full-fledged function not only signals that the order/transaction number pa
       </td>
 
       <td>
-        _Array `[]` of Objects `{}`_
+        _Array _`[]`_ of Objects _`{}`
       </td>
 
       <td>
-        The list of individual items purchased in the order. This is a _**single**_ array `[]` composed of individual objects `{}` (One per product) all nested within the array. The object uses the following keys (Which must all exist and contain a value): `productId`, `variantId`, `productName`, `variantName`, `price` and `quantity`.
+        The list of individual items purchased in the order. This is a **_single_** array `[]` composed of individual objects `{}` (One per product) all nested within the array. The object uses the following keys (Which must all exist and contain a value): `productId`, `variantId`, `productName`, `variantName`, `price` and `quantity`.
       </td>
 
       <td>
         `[{productId: "SKU-0001",
-                                                              variantId: "0001-A",
-                                                              productName: "Pants",
-                                                              variantName: "Blue",
-                                                              price: 10,
-                                                              quantity: 1}]`
+                                                      variantId: "0001-A",
+                                                      productName: "Pants",
+                                                      variantName: "Blue",
+                                                      price: 10,
+                                                      quantity: 1}]`
       </td>
     </tr>
 
@@ -397,7 +506,7 @@ This full-fledged function not only signals that the order/transaction number pa
 
 <br />
 
-#### firePurchaseEvent example
+### firePurchaseEvent example
 
 ```javascript
 <script type="application/javascript">
@@ -427,7 +536,7 @@ This full-fledged function not only signals that the order/transaction number pa
 
 <br />
 
-#### Considerations
+### Considerations
 
 * Values from `totalPrice`, `shippingPrice` and `taxPrice` will directly power Northbeam Dashboard metrics tied to revenue, shipping, and taxes respectively.
 * The Northbeam Orders API is the ultimate source of truth. In case of a value conflict with the corresponding `order_id` payload: Values from `firePurchaseEvent` will be overwritten and replaced by the Northbeam API value.
@@ -435,7 +544,7 @@ This full-fledged function not only signals that the order/transaction number pa
 
 <br />
 
-### Validation and testing
+## Validation and testing
 
 A valid/fully-compliant event trigger for *either* `fireSlimPurchaseEvent` or `firePurchaseEvent` shows a network request (**nb-collector**) with a payload containing the data object **ue** (`data: [{e: "ue",…}]`) alongside second payload containing the data object **se** (`data: [{e: "se",…}]`). The **se\_la** key of the **se** object **contains the order number we received** .
 
@@ -445,7 +554,7 @@ These events can can only be reviewed if the network console is open *before* th
 
 <br />
 
-### Sequencing
+## Sequencing
 
 The [Northbeam base pixel](/docs/add-pixel) must fire **before** `firePurchaseEvent`.
 
@@ -455,7 +564,7 @@ Improper sequencing may prevent the purchase event from registering.
 
 <br />
 
-### Publishing
+## Publishing
 
 If deploying via Google Tag Manager:
 
@@ -466,7 +575,7 @@ Unpublished containers will prevent tracking.
 
 <br />
 
-### Final Checklist
+## Final Checklist
 
 Before going live, confirm:
 
@@ -480,14 +589,12 @@ If these conditions are met, purchase matching will function correctly.
 
 <br />
 
-### Best Practices
+## Best Practices
 
 * Wrap `fireSlimPurchaseEvent` or `firePurchaseEvent` in a function that logs if the script was successful or if it failed. This eases debugging and validation.
 * Wrap `fireSlimPurchaseEvent` or `firePurchaseEvent` in a function that checks if `window.Northbeam` is defined and ready to push the function, or retry if it isn't. This helps with scrip sequencing issues.
 
-<br />
-
-#### fireSlimPurchaseEvent with debug function example
+### fireSlimPurchaseEvent with debug function example
 
 ```javascript
 <script type="application/javascript">
@@ -517,7 +624,3 @@ If these conditions are met, purchase matching will function correctly.
 })();
 </script>
 ```
-
-<br />
-
-<br />

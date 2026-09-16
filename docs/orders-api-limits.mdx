@@ -1,0 +1,33 @@
+---
+title: "Limits"
+description: "This Page describes the limitations of the Orders API and suggested uses"
+icon: "gauge"
+---
+The Orders API upsert function allows for uploads of order batches.  While the API has a hard limit of 1000 orders per call, we recommend using the order size per call that best suits your needs.
+
+## Rate limits
+
+Order upload requests are rate-limited per API key by the total request-body size sent over a sliding time window.
+
+| Endpoint           | Limit per API key    |
+| ------------------ | -------------------- |
+| `POST /v1/orders`  | 30 MB per 60 seconds |
+| `POST /v2/orders`  | 30 MB per 60 seconds |
+| `PATCH /v2/orders` | 30 MB per 60 seconds |
+
+The budget is shared across all three endpoints — bytes sent to any of them count toward the same 30 MB / 60 s window per API key.
+
+## Response when rate-limited
+
+When the limit is exceeded, the API responds with:
+
+* HTTP status `429 Too Many Requests`
+* `Retry-After` header with the number of seconds until you can retry
+* JSON body:
+
+  ```json
+  {
+    "error": "rate_limit_error",
+    "retry_after_seconds": 37
+  }
+  ```

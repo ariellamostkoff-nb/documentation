@@ -1,0 +1,50 @@
+---
+title: "Orders Export"
+description: "Export your orders, including product information, to your own GCS or S3 bucket."
+icon: "file-export"
+---
+The **Orders** report is one of the report types available in [Data Exports](/docs/northbeam-api-data-exports-overview). It exports your orders — one row per order — including product information, directly to your own GCS or S3 bucket.
+
+This page covers only what's specific to the Orders report. For the setup shared by every report — **authentication**, **destinations** (GCS/S3), and **polling for results** — see the [Data Exports](/docs/northbeam-api-data-exports-overview) overview.
+
+## Creating an Orders export
+
+Send a `POST` request to `/data-export/orders`. The export runs asynchronously; the response returns an `id` you poll for the result (see [Fetching your export results](/docs/northbeam-api-data-exports-overview#fetching-your-export-results)).
+
+Required fields:
+
+* `bucket_name` — the GCS or S3 bucket to export to. For an **S3** destination, also provide `aws_role` and `region`; omit them for **GCS**. See [Destinations](/docs/northbeam-api-data-exports-overview#destinations).
+* `start_date` / `end_date` — the export window (ISO 8601 date-times). `start_date` is inclusive, `end_date` is exclusive.
+
+## Columns
+
+If you omit `columns`, the export uses its **default** set of order columns, which includes the customer type. To customize the file, pass `columns` as a list of column ids — you then get **exactly** the columns you list, in that order. A few notes:
+
+* `customer_type` (first-time vs. returning) is part of the default set. It is included when you omit `columns`; if you send an explicit `columns` list, include `"customer_type"` in it to keep it.
+* `products` is a single column of the order's product **SKUs**, comma-separated, falling back to the product id when a SKU is not set.
+* `order_tags` and `source_name` are also available as columns.
+
+For the complete list of available column ids, see the `columns` field in the [API Reference](/reference/post_data-export-orders).
+
+## Example request
+
+```json
+{
+  "bucket_name": "my-northbeam-exports",
+  "start_date": "2026-01-01T00:00:00Z",
+  "end_date": "2026-02-01T00:00:00Z",
+  "columns": ["order_id", "order_ts", "order_revenue_total", "customer_type", "products"]
+}
+```
+
+The response contains the export `id`:
+
+```json
+{
+  "id": "<export_id>"
+}
+```
+
+Poll `GET /data-export/result/{export_id}` with that id until `status` is `SUCCESS` — see [Fetching your export results](/docs/northbeam-api-data-exports-overview#fetching-your-export-results).
+
+> For the full request/response schema, see the [API Reference](/reference/post_data-export-orders).

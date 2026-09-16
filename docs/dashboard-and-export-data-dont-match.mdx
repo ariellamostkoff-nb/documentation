@@ -1,0 +1,43 @@
+---
+title: "Dashboard and Export Data Don't Match"
+description: "Reconcile CSV, scheduled, GCS, and Data Export API results with the Northbeam dashboard."
+icon: "triangle-exclamation"
+---
+An export only matches the dashboard when both requests use the same settings and data state.
+
+## 1. Identify the export
+
+Record whether you are comparing a:
+
+* One-time CSV export
+* Scheduled export
+* Google Cloud Storage export
+* Data Export API response
+
+Also record when the export was generated.
+
+## 2. Match every setting
+
+Confirm that the export and dashboard use the same:
+
+* Account
+* Date range and timezone
+* Metrics
+* Attribution model and window
+* Accounting mode
+* Filters and breakdown level
+* Granularity, such as daily, weekly, or monthly
+
+For the Data Export API, compare the request parameters directly with the dashboard settings.
+
+## 3. Compare the same data state
+
+Recent data can change as new orders, spend, and attribution inputs are processed. Regenerate the export before comparing it with the current dashboard.
+
+## 4. Check export-specific options
+
+Options such as aggregated data, zero-value row removal, chart values versus table values, and included breakdowns can change the result.
+
+Review [Exporting Data](/docs/exporting-data) for the available export methods and settings. You can also open [Sales](https://dashboard.northbeam.io/sales), [Documents](https://dashboard.northbeam.io/customers/documents), or [Manage Exports](https://dashboard.northbeam.io/settings/manage-exports).
+
+If the discrepancy remains, provide Support with the export file, generation time, request parameters, dashboard URL, and screenshots of both totals.

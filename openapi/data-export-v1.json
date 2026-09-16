@@ -177,6 +177,58 @@
           }
         }
       }
+    },
+    "/data-export/orders": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Create an Orders export (orders + product information)",
+        "description": "Trigger a one-off Orders export to your own GCS or S3 bucket. The export contains one row per order. By default it uses the default order columns (which include the customer type, first-time vs. returning); if you pass an explicit `columns` list you get exactly those columns. Product ids/SKUs, order tags, and the order source name are available as optional columns. Poll the returned `id` with `GET /data-export/result/{export_id}`.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrdersExport"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Orders export created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Invalid Body Params"
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -578,8 +630,85 @@
             "$ref": "#/components/schemas/Export_To_S3_Bucket"
           }
         ]
+      },
+      "CreateOrdersExport": {
+        "type": "object",
+        "additionalProperties": false,
+        "description": "Request to trigger a one-off Orders export (orders plus product information) to your own storage bucket. For an S3 destination provide both `aws_role` and `region`; omit them for a GCS destination.",
+        "required": [
+          "bucket_name",
+          "start_date",
+          "end_date"
+        ],
+        "properties": {
+          "bucket_name": {
+            "description": "Name of the external GCS or S3 bucket to export to.",
+            "type": "string"
+          },
+          "aws_role": {
+            "description": "AWS role ARN with access to the S3 bucket (required for S3 exports).",
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "description": "AWS region of the S3 bucket (required for S3 exports).",
+            "type": "string",
+            "nullable": true
+          },
+          "export_file_name": {
+            "description": "Name of the exported file. A default name is used if omitted.",
+            "type": "string",
+            "minLength": 3,
+            "pattern": "^(?!/)(?!.*//)[A-Za-z0-9_/-]+(?<!/)$"
+          },
+          "start_date": {
+            "description": "Start of the export window (inclusive).",
+            "type": "string",
+            "format": "date-time"
+          },
+          "end_date": {
+            "description": "End of the export window (exclusive).",
+            "type": "string",
+            "format": "date-time"
+          },
+          "columns": {
+            "description": "Optional list of column ids to include, in order. When omitted, the default columns are used. When provided, it must be a non-empty list of distinct ids, and you get exactly the columns you list \u2014 any subset of the allowed ids is valid and nothing is mandatory (`customer_type` is a default column, so include it here if you want it). `products` is a single column of comma-separated SKUs, falling back to the product id when a SKU is missing.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "order_id",
+                "order_number",
+                "order_ts",
+                "platform",
+                "order_revenue_total",
+                "refund_amount_in_dollars",
+                "attributed",
+                "customer_type",
+                "customer_first_name_sha256",
+                "customer_email_sha256",
+                "customer_phone_sha256",
+                "customer_city_sha256",
+                "customer_country_code_sha256",
+                "customer_province_code_sha256",
+                "customer_zip_sha256",
+                "ip_address",
+                "products",
+                "order_tags",
+                "source_name"
+              ]
+            }
+          }
+        }
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Orders",
+      "description": "Export your orders (one row per order) with product information to your own GCS or S3 bucket."
+    }
+  ]
 }

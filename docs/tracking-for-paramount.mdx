@@ -1,0 +1,139 @@
+---
+title: "Tracking for Paramount"
+icon: "tv"
+description: "This guide will show you how to set up Paramount Ads spend tracking and deterministic view attribution in Northbeam."
+---
+## Introduction
+
+This guide will show you how to set up Paramount Ads spend tracking and deterministic view attribution in Northbeam.
+
+Once the Paramount pixel is installed and the account is connected, Northbeam will receive:
+
+* Spend data from Paramount Ads
+* Deterministic impression and view data used for Clicks + Deterministic Views attribution
+* Paramount revenue and ROAS reporting when eligible views can be matched to orders
+
+Paramount Ads is a TV platform and does not provide clicks for this integration. As a result, Paramount does not use UTMs or NBT parameters and is not supported in click based attribution models.
+
+| Input                    | Output                                                                                                        | If the input is missing                                                        |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Paramount pixel          | Deterministic impression and view data can be matched to orders for Clicks + Deterministic Views attribution. | Paramount view based revenue and conversion attribution will not be available. |
+| Paramount Ads connection | Paramount spend and view data appears in Northbeam reporting.                                                 | Paramount data will not appear in Northbeam.                                   |
+
+***
+
+## Step 1: Install the Paramount Pixel
+
+Before connecting the integration, install the Paramount pixel on the website where customers place orders.
+
+The pixel is required for Paramount view data to be matched to Shopify orders.
+
+[Open the Paramount Ads Manager pixel setup page](https://adsmanager-us.paramount.com/pixel/manual?utm_source=Grid&utm_content=Pixel)
+
+<Frame>
+  <img src="https://files.readme.io/b9ab6c65b7e9476ecdc515b1bf55c5f86899f7e154e44877e56d31c5128fa224-image.png" alt="" />
+</Frame>
+
+> **Sign in required:** You must be signed in to Paramount Ads Manager to open the pixel setup page.
+
+***
+
+## Step 2: Connect Your Paramount Ads Account
+
+Northbeam connects to Paramount Ads through an authorization flow.
+
+* **Onboarding:** Go to **Integrations → Paramount Ads**.
+* **Dashboard:** Open [Connections](https://dashboard.northbeam.io/settings/connections) and select **Paramount Ads**.
+
+1. Click **Connect** on the Paramount Ads integration card.
+
+   <Frame>
+     <img src="https://files.readme.io/a22472c012b40a0f40b58bb5e8ff0f30a173ad5cb2c0cc87f3ac25f64590a549-image.png" alt="" />
+   </Frame>
+
+2. Sign in using your Paramount Ads Manager email address and password.
+
+   <Frame>
+     <img src="https://files.readme.io/c5e39e2627f5fed39e37c0c2f63afb8182d28ffe4fd8e6a6533cdc499a64f4d2-02-sign-in.png" alt="" />
+   </Frame>
+
+3. Review the requested permissions and click **Allow Access**.
+
+   <Frame>
+     <img src="https://files.readme.io/1c08a5e17b32dfde7f80690071ec8ca7ce6c9d8fe15809c621b0cdad95230ef6-03-authorize-access.png" alt="" />
+   </Frame>
+
+4. After you are redirected to Northbeam, confirm that the correct ad account appears under **Linked accounts**.
+
+   <Frame>
+     <img src="https://files.readme.io/dad7a6a848e23eb2b34c8dd8104d6b51caec0c48d6f1c3c97966a6e579733356-image.png" alt="" />
+   </Frame>
+
+A green check confirms that the Paramount Ads account is connected successfully.
+
+> **To connect another account, select Link an additional ad account.**
+
+***
+
+## Step 3: Verify the Integration
+
+Allow up to 24 hours after setup for Paramount spend and view data to appear.
+
+You can then verify the integration from the Sales Attribution or Model Comparison page.
+
+* Select the **Clicks + Deterministic Views** model.
+* Confirm that Paramount spend is present for the expected date range.
+* Confirm that Paramount revenue and ROAS populate when deterministic views are matched to orders.
+
+  <Frame>
+    <img src="https://files.readme.io/28d5c3193a1dd00c84ac27a518aff90d035243a0aa7e10091841ad886484bbf6-image.png" alt="" />
+  </Frame>
+
+***
+
+## Paramount Ads FAQ
+
+## 1. Does the Paramount Ads integration support attribution or revenue tracking?
+
+Yes. Paramount supports Clicks + Deterministic Views attribution when the Paramount pixel is installed and the account is connected.
+
+It does not support click based attribution because Paramount does not provide click data for this TV integration.
+
+## 2. Does Paramount require UTMs or NBT parameters?
+
+No. Paramount is a view based TV platform in this integration, so UTMs and NBT parameters are not required or supported.
+
+## 3. Which Northbeam attribution model should I use for Paramount?
+
+Use **Clicks + Deterministic Views**.
+
+Clicks Only, Last Click, First Click, Linear, and Clicks + Modeled Views are not supported for Paramount attribution.
+
+## 4. How far does Paramount spend backfill?
+
+When the account is first connected, the integration can backfill the full available spend history provided by Paramount.
+
+## 5. Why might Paramount reporting differ from Northbeam?
+
+Paramount uses a 30 day attribution lookback period in its platform reporting and may assign full credit to conversions it attributes to Paramount.
+
+Northbeam uses its own attribution methodology, selected attribution window, and cross channel touchpoint data. Differences between the two platforms are therefore expected.
+
+## 6. Why don't I see Paramount data yet?
+
+Paramount spend and view data may take up to 24 hours to appear after the integration is connected.
+
+If the data is still missing after 24 hours:
+
+* Open [Connections](https://dashboard.northbeam.io/settings/connections) and check the Paramount Ads connection for errors.
+* Confirm that the Paramount pixel is installed on the website where orders are placed.
+* Reconnect the integration if the authorization has expired.
+* Confirm that the correct Paramount Ads account is linked.
+
+## 7. I think there's an issue with my Paramount integration. Please help!
+
+Please reference [Troubleshooting Northbeam Data](/docs/troubleshooting-tracking-issues).
+
+* Connection: Open [Connections](https://dashboard.northbeam.io/settings/connections) and check for any errors on the Paramount Ads connection.
+* Authentication: Reconnect the integration if authorization has expired
+* Data Sync Timing: Spend data may take some time to appear after connecting, depending on Paramount Ads data sync timing

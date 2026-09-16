@@ -1,0 +1,266 @@
+---
+title: "Tracking for ShopMy"
+icon: "bag-shopping"
+description: "ShopMy manages the Meta ad account used for Spotlight campaigns, so you do not need to connect that Meta ad account directly to Northbeam."
+---
+## Introduction
+
+**This guide shows you how to track ShopMy Spotlight spend and revenue in Northbeam.**
+
+ShopMy manages the Meta ad account used for Spotlight campaigns, so you do not need to connect that Meta ad account directly to Northbeam.
+
+Instead:
+
+* ShopMy sends your Spotlight spend to Northbeam automatically.
+* ShopMy adds UTMs to your Spotlight campaigns.
+* Northbeam uses those UTMs to track visits and attributed revenue.
+* Northbeam labels group matching spend and revenue into the same campaign row.
+
+Once set up, you can view Spotlight spend, attributed revenue, and ROAS in Northbeam.
+
+<Warning>
+  ### Do not use [Northbeam's Meta UTMs](/docs/setting-up-facebook-ads-tracking#step-2-insert-northbeam-utm-parameters) on ShopMy Spotlight campaigns.
+
+  ShopMy automatically adds the UTMs needed for Spotlight tracking. Leave these UTMs as provided by ShopMy.
+
+  **Using** [**Northbeam's Meta UTMs**](/docs/setting-up-facebook-ads-tracking#step-2-insert-northbeam-utm-parameters)** will prevent the Spotlight spend and revenue from matching at the campaign level.** You may still be able to group the data under the same platform, but metrics such as **ROAS and CAC by creator** will not consolidate correctly.
+</Warning>
+
+***
+
+## Step 1: Connect ShopMy to Northbeam
+
+First, create your Northbeam API credentials.
+
+In Northbeam:
+
+1. Open [API Keys](https://dashboard.northbeam.io/settings/api-keys).
+2. Click **Create new API Key**.
+3. Copy your **API Key** and **Data Client ID**.
+
+In ShopMy:
+
+1. Go to **Account Settings > Integrations and Tracking**.
+2. Find the **Northbeam** connection.
+3. Paste in your **API Key** and **Data Client ID**.
+4. Save the connection.
+
+That's it. ShopMy will start sending your Spotlight spend to Northbeam on its next daily sync.
+
+You do not need to upload Spotlight spend manually.
+
+***
+
+## Step 2: Set Up Your ShopMy Labels
+
+<Note>
+  ### This label setup should take about 2 minutes.
+
+  If you would like help with this step, contact your Northbeam CSM or [submit a support ticket](https://www.northbeam.io/submit-a-support-ticket).
+</Note>
+
+Next, set up two labels so your Spotlight spend and attributed revenue appear together in Northbeam:
+
+1. Group ShopMy Spotlight spend and revenue under the same platform.
+2. Consolidate matching campaign rows.
+
+<br />
+
+## Part 1: Create the ShopMy Platform Label
+
+First, group your ShopMy Spotlight spend and revenue under the same platform.
+
+1. Go to the [Breakdowns menu](https://dashboard.northbeam.io/breakdowns).
+2. Look for an existing breakdown called `Platform (Northbeam)`.
+3. If it does not exist, create a new breakdown called `Platform (Northbeam)`.
+
+> **Important:** Use `Platform (Northbeam)` exactly as written, including capitalization and spacing.
+
+<Frame caption="If Platform (Northbeam) doesn't already exist, create it using the exact name shown above.">
+  <img src="https://files.readme.io/87d051db4ef0854c7fdd2c9c325365b373198f82b47436b5bf1e9149219e1b2a-CleanShot_2026-08-14_at_10.24.54.png" alt="" />
+</Frame>
+
+4. Create a new segment called `ShopMy - Spotlights`.
+5. Add the rule `Name contains Spotlight`.
+6. Click **Save**.
+
+<Frame>
+  <img src="https://files.readme.io/529cc9ee2f32a3a2022ca2c17924268e7ca14ce8eeb9c06ca4bce24ec5d9a0d2-CleanShot_2026-08-14_at_10.13.29.png" alt="" />
+</Frame>
+
+This groups your ShopMy Spotlight spend and revenue under the same platform because both use `Spotlight` in the campaign name.
+
+<br />
+
+## Part 2: Create the Consolidation Breakdown
+
+Next, create a breakdown that combines matching spend and revenue rows.
+
+### Create the Breakdown
+
+1. Create a new breakdown, such as `Spend + Rev Consolidation`.
+2. Switch to the **Advanced Editor**.
+
+<Frame>
+  <img src="https://files.readme.io/93f331f1756bedec8981ac0e97c43693b97f85bafe553b1c4676b463d3db093e-CleanShot_2026-08-14_at_11.02.46.png" alt="" />
+</Frame>
+
+### Add the Consolidation Logic
+
+1. Create a new segment, such as `All Campaigns Consolidation`.
+2. Add the rule `Name` `does not contain` `??!!!`.
+
+> **Note:** `??!!!` is just a placeholder used to make this rule apply to all campaigns. You can replace it with any value that would not normally appear in a campaign name.
+>
+> This also makes the breakdown reusable for other Spend Sheet or Spend API channels that need matching campaign names to consolidate.
+
+3. Set the **Output Label Value** to `{{{data.name}}}`.
+4. Click **Add Segment**.
+
+<Frame>
+  <img src="https://files.readme.io/02991bacc41534ca389fcd38f0afcaa08a40535f959474c9958c2ebe7b5ba601-CleanShot_2026-08-14_at_11.01.21.png" alt="" />
+</Frame>
+
+5. Click **Save**.
+
+<Frame>
+  <img src="https://files.readme.io/75935a3cd10c146b30465bb1509bf9a909357631458129d8df0f647a5e141eb2-CleanShot_2026-08-14_at_11.13.43.png" alt="" />
+</Frame>
+
+The **Spend + Rev Consolidation** breakdown and segment names can be changed.
+
+The important part is the **Output Label Value**. `{{{data.name}}}` uses the existing campaign name as the label.
+
+When the ShopMy spend campaign name matches its `utm_campaign`, Northbeam gives both rows the same output label and groups them together.
+
+For example, if both use `Spotlight 1111 - John Doe`, the spend and attributed revenue will appear under the same campaign.
+
+### Optional: Use Raw Code
+
+Instead of creating the segment manually, you can paste the code below into the raw editor.
+
+```json
+[
+  {
+    "name": "All Campaigns Consolidation",
+    "output": "{{{data.name}}}",
+    "active": true,
+    "priority": 10,
+    "matcher": {
+      "and": [
+        {
+          "!contains": [
+            {
+              "var": "name"
+            },
+            "??!!!"
+          ]
+        }
+      ]
+    },
+    "createdAt": "2026-08-14T15:43:48.231Z"
+  }
+]
+```
+
+1. Create your `Spend + Rev Consolidation` breakdown and click **View Raw**.
+
+<Frame>
+  <img src="https://files.readme.io/ee781b0699c2d571cf685e2cc74522fd53e7ec5dc37377399354ab308ba33ed7-CleanShot_2026-08-14_at_11.06.41.png" alt="" />
+</Frame>
+
+2. Paste in the code from above.
+
+<Frame>
+  <img src="https://files.readme.io/17e35020be2d6b1dd8ef0b3a98664153e81ca56864e65fc47e29ef5d918f6ede-CleanShot_2026-08-14_at_11.07.50.png" alt="" />
+</Frame>
+
+3. Scroll down and click **Save**.
+
+<Frame>
+  <img src="https://files.readme.io/26a739c118be410dfc81e8142ec2253afe09b94f0d2aeda3c6af13222c6b2c4d-CleanShot_2026-08-14_at_11.08.17.png" alt="" />
+</Frame>
+
+<br />
+
+***
+
+## Step 3: Validate Your Setup
+
+After your labels are set up:
+
+1. Apply **Platform (Northbeam)** as a breakdown.
+2. Add your **Spend + Rev Consolidation** breakdown underneath it.
+3. Find **ShopMy - Spotlights**.
+4. Add metrics that include both Spend and Session or Conversion data (ex. **Spend, Visits, Cost per Visit, Orders, CPO, Revenue, or ROAS**)
+5. Confirm that your Spotlight campaigns show both spend and visits where expected.
+
+Visits are the best first check because they usually appear before orders or revenue. If a campaign has both spend and visits, that is a good sign that the spend and attribution data are connecting correctly.
+
+It is normal for some campaigns to only show spend or visits.
+
+If you expect a campaign to have both, check that the ShopMy campaign name matches the `utm_campaign`.
+
+Look for differences in:
+
+* Spelling
+* Spaces
+* Capitalization
+* Punctuation
+* Hyphens
+
+***
+
+## ShopMy Organic Traffic
+
+The setup above is for **ShopMy Spotlights**.
+
+For organic ShopMy traffic, you can use your normal UTM structure.
+
+We recommend using a clear `utm_campaign`, such as `utm_campaign=[campaign name]`, so you can easily identify ShopMy campaigns in Northbeam.
+
+Organic ShopMy traffic does not require the spend consolidation setup above.
+
+***
+
+## ShopMy FAQ
+
+## 1. Does ShopMy automatically send spend to Northbeam?
+
+Yes. Once you add your Northbeam API Key and Data Client ID in ShopMy, ShopMy sends your Spotlight spend to Northbeam during its daily sync.
+
+## 2. Do I need to add UTMs to my Spotlight campaigns?
+
+No. ShopMy automatically adds the required UTMs to Spotlight campaigns.
+
+## 3. Why do I need the labels?
+
+The labels group matching ShopMy spend and Northbeam-attributed revenue together at the campaign level.
+
+This lets you view Spend, Revenue, and ROAS for each Spotlight campaign in one place.
+
+## 4. Why aren't my spend and revenue appearing together?
+
+Check that the ShopMy campaign name matches the corresponding `utm_campaign`.
+
+Look for differences in spelling, spaces, capitalization, punctuation, or hyphens.
+
+If the names match and you still have an issue, contact your Northbeam CSM or submit a support ticket.
+
+## 5. Why are my ShopMy, Meta, and Northbeam numbers different?
+
+ShopMy, Meta, and Northbeam use different attribution methods.
+
+Because of this, revenue, conversions, and ROAS may differ between platforms.
+
+## 6. Does this setup apply to organic ShopMy traffic?
+
+No. This setup is specifically for **ShopMy Spotlights**.
+
+Organic ShopMy traffic can use your normal UTM structure and does not require Spotlight spend consolidation.
+
+## 7. I need help setting up my labels. What should I do?
+
+Contact your Northbeam CSM or [submit a support ticket](https://www.northbeam.io/submit-a-support-ticket) and ask for help setting up your **ShopMy Spotlight labels**.
+
+<br />

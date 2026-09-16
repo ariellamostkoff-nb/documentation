@@ -3,10 +3,17 @@ title: "Enable Apex for Meta"
 description: "Prepare your Meta account for Custom Attribution."
 icon: "toggle-on"
 ---
+### Note: Enabling Apex is step 1 of a 2-step process. 
 
-# How to enable Apex for Meta
+Northbeam handles the setup (Custom Attribution Source, CAPI dataset, passback pixel) automatically on your behalf. 
 
-Everything happens inside the Northbeam dashboard. You do not need to configure anything in Meta Business Manager — Northbeam handles the Meta-side setup (Custom Attribution Source, CAPI dataset, passback pixel) automatically on your behalf.
+Once your Custom Attribution Source is ready, step 2 is [setting up a new campaign](/docs/setting-up-a-meta-custom-attribution-campaign) in Meta Ads Manager to begin optimizing your ads with Northbeam data.
+
+![](https://files.readme.io/f8fbccfdb24a8e4dbcc2c2a90e364fcbd052ec371bc022d1bc6ed21754e2abd3-Email_Heading_1_54.png)
+
+***
+
+## How to enable Apex for Meta
 
 ## Before you start
 
@@ -23,33 +30,36 @@ Before setting up Apex for Meta, make sure you have the following ready:
 
 In [**Settings → Apex**](https://dashboard.northbeam.io/settings/apex):
 
-1. **Define your North Star metric** — attribution model, attribution window, and accounting mode are the three settings that directly drive Meta's auction.
-2. **Toggle on Apex** consent for Meta.
+**Define your North Star metric** — attribution model, attribution window, and accounting mode are the three settings that directly drive Meta's auction.
+
+**Your North Star tells Meta what to optimize toward based on Northbeam's attribution data**, not Meta's. For example, if you set it to 1st time revenue, Meta trains against Northbeam's revenue from new customers — not Meta's own definition of a new customer.
 
 Any user on your Northbeam account can complete this step — it does not require the account owner.
 
 <Frame>
-  <img src="https://files.readme.io/041bedc09d233c9f2a5ade81a9061002bb8fb5aa4c5595a5a12996551e31877b-CleanShot_2026-05-29_at_13.29.19.png" alt="" />
+  <img src="https://files.readme.io/d97f7e0c202089d10fcbd358acc2d3ec33c22585c399caff5e9dd2165d4b5db2-image.png" alt="" />
 </Frame>
 
-<Info>
-  ### **Recommended:&#x20;**&#x55;se Accrual as your accounting mode
+<Warning>
+  Note: **Meta's Custom Attribution does not currently support C+DV**. 
 
-  We've consistently seen better performance with Accrual as the North Star. The reason: Meta has no native visibility into accrual-based revenue, which means you're giving its algorithm two genuinely new signals at once — MTA attribution and accrual revenue. This setting is independent of how you report internally, so you can keep making decisions on Cash while Apex trains on Accrual — and better accrual performance drives cash.
-</Info>
+  To run a Custom Attribution test today, set your North Star to Clicks-only. If you switch from C+DV to Clicks-only, wait at least 10 days after the change before starting the test, and evaluate results under the Clicks-only model.
+</Warning>
 
 <Tip>
-  ### **Your North Star is what Meta's algorithm trains to maximize.**
+  Recommended: **Use Accrual as your accounting mode. **
 
-  Choose carefully —**&#x20;your North Star tells Meta what to optimize toward based on Northbeam's attribution data**, not Meta's. For example, if you set it to 1st time revenue, Meta trains against Northbeam's revenue from new customers — not Meta's own definition of a new customer.
+  We've consistently seen better performance with Accrual as the North Star. The reason: Meta has no native visibility into accrual-based revenue, which means you're giving its algorithm two genuinely new signals at once — MTA attribution and accrual revenue. This setting is independent of how you report internally, so you can keep making decisions on Cash while Apex trains on Accrual — and better accrual performance drives cash.
 </Tip>
+
+<br />
 
 ## Step 2 — Connect, Configure, and Validate
 
 Toggling on consent launches a three-step in-app wizard. You can return to it from the Apex page if you don't finish in one session.
 
 <Warning>
-  ### The user completing this step must have **Meta Business Manager admin** permissions.&#x20;
+  The user completing this step must have **Meta Business Manager admin** permissions. 
 
   Agency-managed accounts typically only have ads management permission and will need a brand-side user to complete this step.
 </Warning>
@@ -83,15 +93,15 @@ Northbeam runs the per-pixel setup with Meta and surfaces any errors inline. The
 <Warning>
   ### Validation failing with "Configuration failed."?
 
-  Your North Star hasn't been saved. On the Apex page, the **North Star Metric** dropdowns will show empty **"Select.."** placeholders when nothing is configured — make your selections and click **Save**, then re-run validation.&#x20;
+  Your North Star hasn't been saved. On the Apex page, the **North Star Metric** dropdowns will show empty **"Select.."** placeholders when nothing is configured — make your selections and click **Save**, then re-run validation. 
 
   <Frame caption="Seeing this error? Your North Star isn't saved.">
-  <img src="https://files.readme.io/c1bbd08024aa3aac029a2b1f5b9998d5835abfad2247cfd1f7c1e494fe897461-image_14.png" alt="" />
-</Frame>
+    <img src="https://files.readme.io/c1bbd08024aa3aac029a2b1f5b9998d5835abfad2247cfd1f7c1e494fe897461-image_14.png" alt="" />
+  </Frame>
 
   <Frame caption="Select your North Star Metric and click Save, then re-run validation.">
-  <img src="https://files.readme.io/8eb0a39027271a74daa10e5bf7275f21e88ba82a891b2c5b9a9907c652f402c8-CleanShot_2026-06-08_at_13.28.15.png" alt="" />
-</Frame>
+    <img src="https://files.readme.io/8eb0a39027271a74daa10e5bf7275f21e88ba82a891b2c5b9a9907c652f402c8-CleanShot_2026-06-08_at_13.28.15.png" alt="" />
+  </Frame>
 
 </Warning>
 
@@ -103,7 +113,7 @@ After setup, verify your Enhanced Apex configuration using the following three c
 
 ### 1. Northbeam UI verification
 
-You'll see a badge on the Northbeam Apex page and Connections page confirming how many pixels are configured.&#x20;
+You'll see a badge in [Apex](https://dashboard.northbeam.io/settings/apex) and [Connections](https://dashboard.northbeam.io/settings/connections) confirming how many pixels are configured. 
 
 <Frame caption="Pixel Configuration badge -- setup complete.">
   <img src="https://files.readme.io/b9282c4456a826c5061b252095f0c7335c1ab3bbd258cb3bf441c579246db048-Screenshot_2026-06-01_at_10.18.03_AM.png" alt="" />
@@ -111,7 +121,7 @@ You'll see a badge on the Northbeam Apex page and Connections page confirming ho
 
 <br />
 
-*Note:&#x20;*&#x53;ome early Enhanced Apex customers are on our legacy setup flow and may see the legacy **Enhanced Apex badge**. If this applies to you, your Apex setup is stil&#x6C;**&#x20;working as expected**.
+*Note: *&#x53;ome early Enhanced Apex customers are on our legacy setup flow and may see the legacy **Enhanced Apex badge**. If this applies to you, your Apex setup is stil&#x6C;** working as expected**.
 
 <Frame caption="Enhanced Apex badge -- setup complete.">
   <img src="https://files.readme.io/7e865486dd19fcb7d63ecff0b29c94e578818ed45050cb8550721132c9b1f3e1-CleanShot_2026-06-05_at_15.06.50.png" alt="" />
@@ -129,11 +139,11 @@ You'll see a test event called **NorthbeamApexConnectionTest** (or **NorthbeamTe
 
 ### 3. Meta readiness verification
 
-A readiness indicator on the Custom Attribution quality page will climb toward **High** over approximately **14 days**. The campaign creation option in Ads Manager is grayed out until this training period completes. During that time, you can prepare your test campaign, but you cannot launch it yet.
+A readiness indicator on the Custom Attribution quality page will climb toward **High** over approximately **10 days**. The campaign creation option in Ads Manager is grayed out until this training period completes. During that time, you can prepare your test campaign, but you cannot launch it yet.
 
 In Events Manager, your Custom attribution source carries a status badge that reflects where Meta is in the training process. It moves through two states:
 
-* `In training` — Meta is still warming up the model on your Apex data. This is the expected state for approximately the first **14 days** after setup. The campaign creation option in Ads Manager is grayed out during this period — you can prepare your test campaign, but you cannot launch it yet.
+* `In training` — Meta is still warming up the model on your Apex data. This is the expected state for approximately the first **10 days** after setup. The campaign creation option in Ads Manager is grayed out during this period — you can prepare your test campaign, but you cannot launch it yet.
 * `Ready to use` — training is complete and Custom Attribution is selectable in Ads Manager.
 
 <Frame caption="In Training">

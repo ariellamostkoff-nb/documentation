@@ -1133,6 +1133,132 @@
       "path": "reference/post_spend.mdx",
       "source_url": "https://docs.northbeam.io/reference/post_spend",
       "nav_section": "reference"
+    },
+    {
+      "title": "Tracking for OpenAI",
+      "description": "This guide will show you how to set up OpenAI Ads spend and click based attribution tracking in Northbeam.",
+      "path": "docs/tracking-for-openai-ads.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-openai-ads",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Orders Export",
+      "description": "Export your orders, including product information, to your own GCS or S3 bucket.",
+      "path": "docs/northbeam-api-orders-export.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-api-orders-export",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Data Exports",
+      "description": "Export your Northbeam data to your own cloud storage. An overview of the report types, destinations, and the shared results endpoint.",
+      "path": "docs/northbeam-api-data-exports-overview.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-api-data-exports-overview",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Northbeam MCP Server FAQs",
+      "description": "How the Northbeam MCP server works, what data it sends to your AI provider, and how that provider handles it.",
+      "path": "docs/northbeam-mcp-server-faqs.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-mcp-server-faqs",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Connect Northbeam to Your AI Assistant",
+      "description": "Northbeam MCP lets an AI assistant like ChatGPT or Claude read your Northbeam data, so you can ask questions in plain language and get answers from your own dashboards.",
+      "path": "docs/northbeam-mcp.mdx",
+      "source_url": "https://docs.northbeam.io/docs/northbeam-mcp",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Connect Northbeam to ChatGPT",
+      "description": "Connect Northbeam to ChatGPT so it can read your dashboards. Requires a paid ChatGPT plan.",
+      "path": "docs/connect-northbeam-to-chatgpt.mdx",
+      "source_url": "https://docs.northbeam.io/docs/connect-northbeam-to-chatgpt",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Purchase Events",
+      "description": "Purchase conversion events are purchases that occur on your website.",
+      "path": "docs/purchase-pixel.mdx",
+      "source_url": "https://docs.northbeam.io/docs/purchase-pixel",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Sales Page Export",
+      "description": "Export the performance data shown on the Sales page as a CSV download or straight into your own Google Cloud Storage bucket, once or on a schedule.",
+      "path": "docs/sales-page-export.mdx",
+      "source_url": "https://docs.northbeam.io/docs/sales-page-export",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Purchases or Orders Are Missing",
+      "description": "Determine whether an order is missing browser tracking, server data, or both.",
+      "path": "docs/purchases-or-orders-are-missing.mdx",
+      "source_url": "https://docs.northbeam.io/docs/purchases-or-orders-are-missing",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Why Northbeam Differs From Another Platform",
+      "description": "Make an apples-to-apples comparison before investigating a reporting discrepancy.",
+      "path": "docs/why-northbeam-differs-from-another-platform.mdx",
+      "source_url": "https://docs.northbeam.io/docs/why-northbeam-differs-from-another-platform",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for Paramount",
+      "description": "This guide will show you how to set up Paramount Ads spend tracking and deterministic view attribution in Northbeam.",
+      "path": "docs/tracking-for-paramount.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-paramount",
+      "nav_section": "docs"
+    },
+    {
+      "title": "First-Time and Returning Data",
+      "description": "Understand how Northbeam identifies first-time and returning visitors, customers, and subscriptions.",
+      "path": "docs/new-vs-returning-data-1.mdx",
+      "source_url": "https://docs.northbeam.io/docs/new-vs-returning-data-1",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Dashboard and Export Data Don't Match",
+      "description": "Reconcile CSV, scheduled, GCS, and Data Export API results with the Northbeam dashboard.",
+      "path": "docs/dashboard-and-export-data-dont-match.mdx",
+      "source_url": "https://docs.northbeam.io/docs/dashboard-and-export-data-dont-match",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Order Segmentation",
+      "description": "Order Segmentation makes it easy to break down attributed revenue and orders into meaningful groups directly within your Northbeam dashboard.",
+      "path": "docs/order-segmentation.mdx",
+      "source_url": "https://docs.northbeam.io/docs/order-segmentation",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Tracking for ShopMy",
+      "description": "ShopMy manages the Meta ad account used for Spotlight campaigns, so you do not need to connect that Meta ad account directly to Northbeam.",
+      "path": "docs/tracking-for-shopmy.mdx",
+      "source_url": "https://docs.northbeam.io/docs/tracking-for-shopmy",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Limits",
+      "description": "This Page describes the limitations of the Orders API and suggested uses",
+      "path": "docs/orders-api-limits.mdx",
+      "source_url": "https://docs.northbeam.io/docs/orders-api-limits",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Connect Northbeam to Another AI Tool",
+      "description": "Connect Northbeam to any AI assistant that supports custom connectors, using the Northbeam MCP server URL.",
+      "path": "docs/connect-northbeam-to-ai-agent.mdx",
+      "source_url": "https://docs.northbeam.io/docs/connect-northbeam-to-ai-agent",
+      "nav_section": "docs"
+    },
+    {
+      "title": "Create an Orders export",
+      "description": null,
+      "path": "reference/post_data-export-orders.mdx",
+      "source_url": "https://docs.northbeam.io/reference/post_data-export-orders",
+      "nav_section": "reference"
     }
   ]
 }

@@ -1,0 +1,51 @@
+---
+title: "First-Time and Returning Data"
+description: "Understand how Northbeam identifies first-time and returning visitors, customers, and subscriptions."
+icon: "user-plus"
+---
+Northbeam is able to identify New and Returning visitors and orders. We offer three different kinds of New and Returning data:
+
+* First-Time and Returning **Visitors**
+* First-Time and Returning **Customers**
+* First-Time and Recurring **Subscriptions**
+
+| Type                                       | How we define                    | Example Associated Metrics                                                                                       |
+| :----------------------------------------- | :------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
+| First-Time and Returning **Visitors**      | Northbeam Pixel and Device Graph | New Visits, Visits                                                                                               |
+| First-Time and Returning **Customers**     | Customer ID                      | Transactions (1st Time), Transactions (Returning), Attributed Revenue (1st Time), Attributed Revenue (Returning) |
+| First-Time and Recurring **Subscriptions** | Order Tags                       | Subscriptions (1st Time), Subscriptions (Recurring)                                                              |
+
+## First-Time vs Returning Visitors
+
+Our **Northbeam Pixel** uses a variety of inputs to create user profiles and track customer journeys across various devices and households. All of this information feeds into our backend device graph.
+
+* **First-Time Visitor** - The Northbeam Pixel did not recognize any previous events from this user
+* **Returning Visitor** - The Northbeam Pixel recognized previous event(s) from this user
+
+## First-Time and Returning Customers
+
+New and Returning Customers are based on **Customer IDs** and timestamps associated to each order.
+
+* **First-Time Customer** - When an order has a Customer ID that doesn't exist on a historical order in Northbeam
+* **Returning Customer** - When an order has a Customer ID that exists on a historical order in Northbeam
+
+| Order Number | Date of Order | Customer ID | Customer Type | Reasoning for Customer Type               |
+| :----------- | :------------ | :---------- | :------------ | :---------------------------------------- |
+| 01           | Jan 1, 2024   | 1000        | First Time    | ID doesn't exist on a previous order.     |
+| 02           | Jan 1, 2024   | 1001        | First Time    | ID doesn't exist on a previous order.     |
+| 03           | Jan 2, 2024   | 1000        | Returning     | ID exists on a previous order (Order 01). |
+| 04           | Jan 3, 2024   | 1002        | First Time    | ID doesn't exist on a previous order.     |
+| 05           | Jan 4, 2024   | 1001        | Returning     | ID exists on a previous order (Order 02). |
+
+<Note>
+  For the most accurate New and Returning data...
+
+  1. **Backfill Historical Order Data** - It's important to backfill as much order data as possible so we have your entire customer base, along with their IDs.
+  1. *Note: This is primarily relevant for customers who are on a Custom setup (Shopify customers should already have historical data pulled in).*
+  2. **Consistent Customer ID formats** - Ensure that all of your Customer IDs are in a consistent format. This way could properly identify New and Returning Customers, or IDs.
+  1. *Note: Also primarily relevant for customers on a Custom setup (i.e. Shopify customers have Customer IDs automatically pulled in).*
+</Note>
+
+## First-Time and Recurring Subscriptions
+
+These are based on Order Tags. To learn more, reference [Subscription Analytics](/docs/subscription-analytics).
