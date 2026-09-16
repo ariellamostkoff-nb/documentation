@@ -19,7 +19,7 @@ Mintlify (Djibril, Marco) : plan tier, auth, custom domain, agent
 Day by day
 
 Tue 16 Sep | Plan approved, asks sent | BOTH
-Send Mintlify the asks list. Request TXT record values for docs.northbeam.io. Confirm contract status; it must be signed by Thu 18 Sep.
+Contract signed. Send Mintlify the asks list. Request TXT record values for docs.northbeam.io and seats for Tyler, Scott, Dan and Christine.
 Test: none.
 
 Wed 17 Sep | Import and DNS pre-stage | NB, MINT
@@ -64,7 +64,7 @@ Week of 19 Oct: ReadMe export final, custom domain removed from ReadMe, ReadMe c
 Post MVP backlog: approvals before publish, Notion and Jira agent integrations, versioning, changelog RSS.
 
 Risks
-Contract not signed by 18 Sep: soft launch moves day for day.
+Mintlify turnaround on TXT values, partial authentication and the Slack agent by Thu 18 Sep: each day late moves soft launch day for day.
 Ariella is the single owner of import, redirects and config on 17 and 18 Sep; Tyler and Scott take testing and authoring so those days stay parallel.
 Anchors on split channel guides may land on the overview rather than the step; acceptable for MVP, fixed in the week of 28 Sep.
 Partial authentication misconfigured would gate the public site; caught by the Thu 18 and Mon 21 tests.

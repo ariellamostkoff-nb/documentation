@@ -2,7 +2,7 @@ Part 1 : What we need from Mintlify to get up and running
 For Djibril and Marco. Grouped by when we need it. Repo is github.com/ariellamostkoff-nb/documentation, site is northbeam.mintlify.io.
 
 This week (by Fri 19 Sep)
-1. Contract, security questionnaire and legal paperwork finished. This is the only hard dependency on a 29 Sep cutover.
+1. Contract signed 16 Sep. Confirm any remaining security or legal paperwork is closed.
 2. Confirm the plan tier and exactly what it unlocks for us: custom domain, partial authentication, private authentication for employees, Slack agent, web editor seats, API playground, Intercom integration. Tell us which of these need Enterprise.
 3. Editor seats and dashboard access for Christine Anderson, Tyler, Scott and Dan, in addition to Ariella.
 4. Custom domain: add docs.northbeam.io in the Mintlify dashboard and send us the two TXT record values (_acme-challenge and _cf-custom-hostname). Our zone is Google Cloud DNS, not Cloudflare proxied. We will add the TXT records on 22 Sep and the CNAME on 29 Sep.
