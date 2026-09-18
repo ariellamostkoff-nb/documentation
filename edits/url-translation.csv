@@ -1,0 +1,244 @@
+old_readme_url,new_mintlify_url,what_happened,new_page_title
+https://docs.northbeam.io/docs/5-install-the-northbeam-pixel,https://docs.northbeam.io/docs/add-pixel,moved,Pixel and Event Tracking
+https://docs.northbeam.io/docs/5-install-the-northbeam-pixel#shopify-instructions,https://docs.northbeam.io/docs/add-pixel#shopify-instructions,moved,Pixel and Event Tracking
+https://docs.northbeam.io/docs/8-append-our-utms,https://docs.northbeam.io/docs/integrations-and-utms,moved,Integrations and UTMs
+https://docs.northbeam.io/docs/8c-add-order-tags-in-shopify,https://docs.northbeam.io/docs/8c-add-order-tags-in-shopify,same page,Add order tags in Shopify
+https://docs.northbeam.io/docs/8d-configure-northbeam-order-exclusions-optional,https://docs.northbeam.io/docs/8d-configure-northbeam-order-exclusions-optional,same page,Configure Northbeam order exclusions (Shopify)
+https://docs.northbeam.io/docs/accounting-modes,https://docs.northbeam.io/docs/accounting-modes,same page,Accounting Modes
+https://docs.northbeam.io/docs/ad-accounts,https://docs.northbeam.io/docs/ad-accounts,same page,Adding / Removing Ad Accounts
+https://docs.northbeam.io/docs/add-domain,https://docs.northbeam.io/docs/link-dns,moved,Link DNS
+https://docs.northbeam.io/docs/add-orders,https://docs.northbeam.io/docs/add-orders,same page,Add Orders
+https://docs.northbeam.io/docs/add-pixel,https://docs.northbeam.io/docs/add-pixel,same page,Pixel and Event Tracking
+https://docs.northbeam.io/docs/add-spend,https://docs.northbeam.io/docs/add-spend,same page,Add Spend
+https://docs.northbeam.io/docs/adding-a-store-or-dashboard,https://docs.northbeam.io/docs/adding-a-store-or-dashboard,same page,Setting Up Multiple Stores or Regions
+https://docs.northbeam.io/docs/adding-or-removing-users-copy,https://docs.northbeam.io/docs/adding-or-removing-users-copy,same page,Adding / Removing Users
+https://docs.northbeam.io/docs/adding-or-removing-users-copy-1,https://docs.northbeam.io/docs/adding-or-removing-users-copy-1,same page,Changing Currency
+https://docs.northbeam.io/docs/all-other-platforms-overview,https://docs.northbeam.io/docs/all-other-platforms-overview,same page,All Other Platforms Overview
+https://docs.northbeam.io/docs/apex-faqs,https://docs.northbeam.io/docs/apex-faqs,same page,Apex FAQs
+https://docs.northbeam.io/docs/applovin,https://docs.northbeam.io/docs/channels/applovin/overview,guide split into steps,Tracking for AppLovin
+https://docs.northbeam.io/docs/applovin#step-1-report-api-key,https://docs.northbeam.io/docs/channels/applovin/connect-the-account#step-1-report-api-key,section moved to its own page,AppLovin: Connect the account
+https://docs.northbeam.io/docs/applovin#step-2-find-your-account-id,https://docs.northbeam.io/docs/channels/applovin/connect-the-account#step-2-find-your-account-id,section moved to its own page,AppLovin: Connect the account
+https://docs.northbeam.io/docs/applovin#step-4-add-northbeam-utms,https://docs.northbeam.io/docs/channels/applovin/insert-the-utms#step-4-add-northbeam-utms,section moved to its own page,AppLovin: Insert the UTMs
+https://docs.northbeam.io/docs/attribution-models,https://docs.northbeam.io/docs/attribution-models,same page,Attribution Models
+https://docs.northbeam.io/docs/attribution-page,https://docs.northbeam.io/docs/attribution-page,same page,📊 Attribution Home Page
+https://docs.northbeam.io/docs/attribution-windows,https://docs.northbeam.io/docs/attribution-windows,same page,Attribution Windows
+https://docs.northbeam.io/docs/authentication,https://docs.northbeam.io/docs/authentication,same page,Authentication
+https://docs.northbeam.io/docs/best-practices-by-teams-and-departments,https://docs.northbeam.io/docs/best-practices-by-teams-and-departments,same page,🧐 Best Practices by Teams and Departments
+https://docs.northbeam.io/docs/business-information,https://docs.northbeam.io/docs/business-information,same page,Business Information
+https://docs.northbeam.io/docs/case-scenario-cash-vs-accrual,https://docs.northbeam.io/docs/case-scenario-cash-vs-accrual,same page,Case scenario: Cash snapshot vs Accrual performance
+https://docs.northbeam.io/docs/case-scenario-clicks-views-vs-clicks-only,https://docs.northbeam.io/docs/case-scenario-clicks-views-vs-clicks-only,same page,Case scenario: Clicks + Modeled Views vs Clicks-Only
+https://docs.northbeam.io/docs/channel-tracking-overview,https://docs.northbeam.io/docs/all-other-platforms-overview,moved,All Other Platforms Overview
+https://docs.northbeam.io/docs/checking-api-connections,https://docs.northbeam.io/docs/checking-api-connections,same page,Checking Ad Platform Connections
+https://docs.northbeam.io/docs/checking-utm-tracking,https://docs.northbeam.io/docs/checking-utm-tracking,same page,Checking UTM Tracking
+https://docs.northbeam.io/docs/clicks-deterministic-views,https://docs.northbeam.io/docs/clicks-deterministic-views,same page,🧬 Clicks + Deterministic Views (C+DV)
+https://docs.northbeam.io/docs/clicks-deterministic-views#/what-is-clicks--deterministic-views,https://docs.northbeam.io/docs/clicks-deterministic-views#/what-is-clicks--deterministic-views,same page,🧬 Clicks + Deterministic Views (C+DV)
+https://docs.northbeam.io/docs/clicks-views-enhanced,https://docs.northbeam.io/docs/clicks-deterministic-views,moved,🧬 Clicks + Deterministic Views (C+DV)
+https://docs.northbeam.io/docs/confirm-setup-requirements,https://docs.northbeam.io/docs/confirm-setup-requirements,same page,Confirm Setup Requirements
+https://docs.northbeam.io/docs/connect-northbeam-to-chatgpt,https://docs.northbeam.io/docs/connect-northbeam-to-chatgpt,same page,Connect Northbeam to ChatGPT
+https://docs.northbeam.io/docs/connect-northbeam-to-claude,https://docs.northbeam.io/docs/connect-northbeam-to-claude,same page,Connect Northbeam to Claude
+https://docs.northbeam.io/docs/correct-system-setups,https://docs.northbeam.io/docs/confirm-setup-requirements,moved,Confirm Setup Requirements
+https://docs.northbeam.io/docs/create-a-dashboard,https://docs.northbeam.io/docs/what-to-expect-during-implementation,moved,What To Expect During Implementation
+https://docs.northbeam.io/docs/creative-analytics,https://docs.northbeam.io/docs/creative-analytics,same page,🎨 Creative Analytics
+https://docs.northbeam.io/docs/creative-analytics-walkthrough,https://docs.northbeam.io/docs/creative-analytics,moved,🎨 Creative Analytics
+https://docs.northbeam.io/docs/credit-allocation-examples,https://docs.northbeam.io/docs/credit-allocation-examples,same page,How Credit Is Assigned in Northbeam
+https://docs.northbeam.io/docs/currency,https://docs.northbeam.io/docs/currency,same page,Currency
+https://docs.northbeam.io/docs/dashboard-and-export-data-dont-match,https://docs.northbeam.io/docs/dashboard-and-export-data-dont-match,same page,Dashboard and Export Data Don't Match
+https://docs.northbeam.io/docs/difference-between-blotout-and-northbeam-do-i-need-both,https://docs.northbeam.io/docs/difference-between-blotout-and-northbeam-do-i-need-both,same page,What’s the difference between Blotout and Northbeam—and do I need both?
+https://docs.northbeam.io/docs/differences-ad-performance,https://docs.northbeam.io/docs/differences-ad-performance,same page,Differences in Ad Performance
+https://docs.northbeam.io/docs/differences-in-ad-data,https://docs.northbeam.io/docs/differences-in-ad-data,same page,Differences in Ad Spend
+https://docs.northbeam.io/docs/differences-in-total-revenue,https://docs.northbeam.io/docs/why-doesnt-northbeam-match-my-shopify-reporting,moved,Why Doesn't Northbeam Match My Shopify Reporting?
+https://docs.northbeam.io/docs/differences-in-unattributed-data,https://docs.northbeam.io/docs/differences-in-unattributed-data,same page,Differences in Unattributed Data
+https://docs.northbeam.io/docs/differences-in-visits,https://docs.northbeam.io/docs/differences-in-visits,same page,Differences in Visits and Journeys
+https://docs.northbeam.io/docs/email-sms-retention,https://docs.northbeam.io/docs/email-sms-retention,same page,📧 Email/SMS/Retention Team
+https://docs.northbeam.io/docs/errors,https://docs.northbeam.io/docs/errors,same page,Errors
+https://docs.northbeam.io/docs/executive-team,https://docs.northbeam.io/docs/executive-team,same page,🔝 Executive Team
+https://docs.northbeam.io/docs/exporting-data,https://docs.northbeam.io/docs/exporting-data,same page,Exporting Data
+https://docs.northbeam.io/docs/facebook-utms-for-legacy-platforms,https://docs.northbeam.io/docs/facebook-utms-for-legacy-platforms,same page,UTMs for Legacy Platforms
+https://docs.northbeam.io/docs/frequently-asked-questions,https://docs.northbeam.io/docs/frequently-asked-questions,same page,❓Frequently Asked Questions
+https://docs.northbeam.io/docs/gclid-fbclid-redirects,https://docs.northbeam.io/docs/gclid-fbclid-redirects,same page,"Gclid, Fbclid, and Redirects"
+https://docs.northbeam.io/docs/getting-started,https://docs.northbeam.io/docs/orders-api,moved,Orders API
+https://docs.northbeam.io/docs/getting-started-with-northbeam,https://docs.northbeam.io/docs/quickstart,moved,Quickstart
+https://docs.northbeam.io/docs/google-tag-manager-installation,https://docs.northbeam.io/docs/non-shopify-installation,moved,All Other Platforms Installation
+https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking,https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking,same page,Troubleshooting Pixel Tracking
+https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#%F0%9F%9F%A1-not-trackable,https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#%F0%9F%9F%A1-not-trackable,same page,Troubleshooting Pixel Tracking
+https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#%F0%9F%9F%A1-pixel-data-missing,https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#%F0%9F%9F%A1-pixel-data-missing,same page,Troubleshooting Pixel Tracking
+https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#%F0%9F%9F%A2-fully-tracked,https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#%F0%9F%9F%A2-fully-tracked,same page,Troubleshooting Pixel Tracking
+https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#-server-data-missing-non-shopify-orders,https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#-server-data-missing-non-shopify-orders,same page,Troubleshooting Pixel Tracking
+https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#-server-data-missing-shopify-orders,https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#-server-data-missing-shopify-orders,same page,Troubleshooting Pixel Tracking
+https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#step-1-check-pixel-tracked-percentages,https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#step-1-check-pixel-tracked-percentages,same page,Troubleshooting Pixel Tracking
+https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#step-2-check-order-tracking-status,https://docs.northbeam.io/docs/guide-to-troubleshooting-pixel-tracking#step-2-check-order-tracking-status,same page,Troubleshooting Pixel Tracking
+https://docs.northbeam.io/docs/hashing-customer-data,https://docs.northbeam.io/docs/hashing-customer-data,same page,Hashing Customer Data
+https://docs.northbeam.io/docs/how-do-i-correctly-confidently-interpret-non-click-channels,https://docs.northbeam.io/docs/how-do-i-correctly-confidently-interpret-non-click-channels,same page,How do I correctly and confidently interpret non-click channels?
+https://docs.northbeam.io/docs/how-does-northbeam-track-orders-and-ads,https://docs.northbeam.io/docs/how-does-northbeam-track-orders-and-ads,same page,How does Northbeam track Orders and Ads?
+https://docs.northbeam.io/docs/implementation-guide,https://docs.northbeam.io/docs/what-to-expect-during-implementation,moved,What To Expect During Implementation
+https://docs.northbeam.io/docs/influencer,https://docs.northbeam.io/docs/tracking-for-other-platforms,moved,Tracking for Non-Integrated Channels
+https://docs.northbeam.io/docs/integration-matrix,https://docs.northbeam.io/docs/integration-matrix,same page,Northbeam's Integrations
+https://docs.northbeam.io/docs/integrations-and-utms,https://docs.northbeam.io/docs/integrations-and-utms,same page,Integrations and UTMs
+https://docs.northbeam.io/docs/invite-team,https://docs.northbeam.io/docs/invite-team,same page,Invite Team
+https://docs.northbeam.io/docs/limits,https://docs.northbeam.io/docs/orders-api-limits,moved,Limits
+https://docs.northbeam.io/docs/link-dns,https://docs.northbeam.io/docs/link-dns,same page,Link DNS
+https://docs.northbeam.io/docs/lookback-windows,https://docs.northbeam.io/docs/lookback-windows,same page,Lookback Windows
+https://docs.northbeam.io/docs/manage-breakdowns,https://docs.northbeam.io/docs/manage-breakdowns,same page,Manage Breakdowns and Saved Views
+https://docs.northbeam.io/docs/metrics-explorer,https://docs.northbeam.io/docs/metrics-explorer,same page,🔭 Metrics Explorer Home Page
+https://docs.northbeam.io/docs/metrics-explorer-best-practices-7-tips,https://docs.northbeam.io/docs/metrics-explorer-best-practices-7-tips,same page,🔭 Metrics Explorer Best Practices: 7 Tips
+https://docs.northbeam.io/docs/metrics-explorer-quickstart-guide,https://docs.northbeam.io/docs/metrics-explorer-quickstart-guide,same page,🚀 Metrics Explorer Quickstart Guide
+https://docs.northbeam.io/docs/multi-brand-configuration,https://docs.northbeam.io/docs/adding-a-store-or-dashboard,moved,Setting Up Multiple Stores or Regions
+https://docs.northbeam.io/docs/multi-dashboard-setup-with-configurators,https://docs.northbeam.io/docs/multi-dashboard-setup-with-configurators,same page,Multi-Dashboard Setup with Configurators
+https://docs.northbeam.io/docs/multi-domain-configuration,https://docs.northbeam.io/docs/adding-a-store-or-dashboard,moved,Setting Up Multiple Stores or Regions
+https://docs.northbeam.io/docs/multi-region-configuration,https://docs.northbeam.io/docs/adding-a-store-or-dashboard,moved,Setting Up Multiple Stores or Regions
+https://docs.northbeam.io/docs/my-facebook-roas-is-07-in-northbeam-is-this-normal,https://docs.northbeam.io/docs/why-is-my-fb-roas-so-much-lower-in-northbeam,moved,Why is my FB ROAS so much lower in Northbeam?
+https://docs.northbeam.io/docs/navigating-northbeam,https://docs.northbeam.io/docs/navigating-northbeam,same page,Navigating Northbeam: Your Guided Ramp-Up
+https://docs.northbeam.io/docs/new-to-northbeam-how-to-get-oriented,https://docs.northbeam.io/docs/navigating-northbeam,moved,Navigating Northbeam: Your Guided Ramp-Up
+https://docs.northbeam.io/docs/new-vs-returning-data-1,https://docs.northbeam.io/docs/new-vs-returning-data-1,same page,First-Time and Returning Data
+https://docs.northbeam.io/docs/non-integrated-channel-setup-spend-api-utms,https://docs.northbeam.io/docs/non-integrated-channel-setup-spend-api-utms,same page,Non-Integrated Channel Setup: Spend API + UTMs
+https://docs.northbeam.io/docs/non-shopify-installation,https://docs.northbeam.io/docs/non-shopify-installation,same page,All Other Platforms Installation
+https://docs.northbeam.io/docs/non-shopify-installation#northbeam-pixel-installation,https://docs.northbeam.io/docs/non-shopify-installation#northbeam-pixel-installation,same page,All Other Platforms Installation
+https://docs.northbeam.io/docs/northbeam-30,https://docs.northbeam.io/docs/northbeam-30,same page,⚡ Northbeam 3.0
+https://docs.northbeam.io/docs/northbeam-apex,https://docs.northbeam.io/docs/northbeam-apex,same page,🏍️ Northbeam Apex
+https://docs.northbeam.io/docs/northbeam-apex#/,https://docs.northbeam.io/docs/northbeam-apex#/,same page,🏍️ Northbeam Apex
+https://docs.northbeam.io/docs/northbeam-api-data-export-1,https://docs.northbeam.io/docs/northbeam-api-data-export-1,same page,Data Export
+https://docs.northbeam.io/docs/northbeam-api-data-export-gcs-export-1,https://docs.northbeam.io/docs/northbeam-api-data-export-gcs-export-1,same page,Exporting To GCS
+https://docs.northbeam.io/docs/northbeam-api-data-export-rate-limits-1,https://docs.northbeam.io/docs/northbeam-api-data-export-rate-limits-1,same page,Rate Limits
+https://docs.northbeam.io/docs/northbeam-api-data-export-s3-export-1,https://docs.northbeam.io/docs/northbeam-api-data-export-s3-export-1,same page,Exporting To S3
+https://docs.northbeam.io/docs/northbeam-api-data-exports-overview,https://docs.northbeam.io/docs/northbeam-api-data-exports-overview,same page,Data Exports
+https://docs.northbeam.io/docs/northbeam-api-orders-export,https://docs.northbeam.io/docs/northbeam-api-orders-export,same page,Orders Export
+https://docs.northbeam.io/docs/northbeam-data-sources,https://docs.northbeam.io/docs/northbeam-data-sources,same page,Northbeam's Data Sources
+https://docs.northbeam.io/docs/northbeam-mcp,https://docs.northbeam.io/docs/northbeam-mcp,same page,Connect Northbeam to Your AI Assistant
+https://docs.northbeam.io/docs/northbeam-mcp-server-faqs,https://docs.northbeam.io/docs/northbeam-mcp-server-faqs,same page,Northbeam MCP Server FAQs
+https://docs.northbeam.io/docs/northbeam-metrics-101,https://docs.northbeam.io/docs/northbeam-metrics-101,same page,Northbeam Metrics 101
+https://docs.northbeam.io/docs/northbeam-pixel,https://docs.northbeam.io/docs/add-pixel,moved,Pixel and Event Tracking
+https://docs.northbeam.io/docs/offline-channel,https://docs.northbeam.io/docs/offline-channel,same page,🌚 Offline Channel
+https://docs.northbeam.io/docs/onboarding-faqs,https://docs.northbeam.io/docs/onboarding-faqs,same page,Onboarding FAQs
+https://docs.northbeam.io/docs/optional-additional-methods,https://docs.northbeam.io/docs/optional-additional-methods,same page,Additional Events
+https://docs.northbeam.io/docs/order-definition,https://docs.northbeam.io/docs/order-definition,same page,Order Definition
+https://docs.northbeam.io/docs/order-segmentation,https://docs.northbeam.io/docs/order-segmentation,same page,Order Segmentation
+https://docs.northbeam.io/docs/order-tags,https://docs.northbeam.io/docs/order-tags,same page,Order Tags
+https://docs.northbeam.io/docs/order-tags-1,https://docs.northbeam.io/docs/order-tags,moved,Order Tags
+https://docs.northbeam.io/docs/orders-api,https://docs.northbeam.io/docs/orders-api,same page,Orders API
+https://docs.northbeam.io/docs/orders-api#backfilling-past-orders,https://docs.northbeam.io/docs/orders-api#backfilling-past-orders,same page,Orders API
+https://docs.northbeam.io/docs/orders-api#order-exclusions,https://docs.northbeam.io/docs/orders-api#order-exclusions,same page,Orders API
+https://docs.northbeam.io/docs/orders-api#roles-of-order_tags-of-an-order,https://docs.northbeam.io/docs/orders-api#roles-of-order_tags-of-an-order,same page,Orders API
+https://docs.northbeam.io/docs/orders-api-1,https://docs.northbeam.io/docs/orders-api,moved,Orders API
+https://docs.northbeam.io/docs/orders-api-limits,https://docs.northbeam.io/docs/orders-api-limits,same page,Limits
+https://docs.northbeam.io/docs/orders-tracking,https://docs.northbeam.io/docs/orders-tracking,same page,📦 Orders
+https://docs.northbeam.io/docs/overview-page,https://docs.northbeam.io/docs/overview-page,same page,🏠 Overview Home Page
+https://docs.northbeam.io/docs/page-view-events,https://docs.northbeam.io/docs/page-view-events,same page,Page View Events
+https://docs.northbeam.io/docs/paid-search-team,https://docs.northbeam.io/docs/paid-search-team,same page,🔎 Paid Search Team
+https://docs.northbeam.io/docs/paid-social-team,https://docs.northbeam.io/docs/paid-social-team,same page,📱 Paid Social Team
+https://docs.northbeam.io/docs/product-analytics,https://docs.northbeam.io/docs/product-analytics,same page,🌡️ Product Analytics
+https://docs.northbeam.io/docs/profitability-benchmarks,https://docs.northbeam.io/docs/profitability-benchmarks,same page,💸 Profit Benchmarks
+https://docs.northbeam.io/docs/purchase-pixel,https://docs.northbeam.io/docs/purchase-pixel,same page,Purchase Events
+https://docs.northbeam.io/docs/purchase-pixel#-windownorthbeamfireslimpurchaseevent,https://docs.northbeam.io/docs/purchase-pixel#-windownorthbeamfireslimpurchaseevent,same page,Purchase Events
+https://docs.northbeam.io/docs/purchases-or-orders-are-missing,https://docs.northbeam.io/docs/purchases-or-orders-are-missing,same page,Purchases or Orders Are Missing
+https://docs.northbeam.io/docs/sales,https://docs.northbeam.io/docs/sales,same page,💰 Sales
+https://docs.northbeam.io/docs/sales-page-export,https://docs.northbeam.io/docs/sales-page-export,same page,Sales Page Export
+https://docs.northbeam.io/docs/saved-views-and-breakdowns,https://docs.northbeam.io/docs/manage-breakdowns,moved,Manage Breakdowns and Saved Views
+https://docs.northbeam.io/docs/setting-up-a-meta-custom-attribution-campaign,https://docs.northbeam.io/docs/setting-up-a-meta-custom-attribution-campaign,same page,Set up a Meta Custom Attribution Campaign
+https://docs.northbeam.io/docs/setting-up-apex,https://docs.northbeam.io/docs/setting-up-apex,same page,Enable Apex for Meta
+https://docs.northbeam.io/docs/setting-up-custom-goals,https://docs.northbeam.io/docs/setting-up-custom-goals,same page,Custom Goals
+https://docs.northbeam.io/docs/setting-up-email-signups,https://docs.northbeam.io/docs/channels/klaviyo/overview,guide split into steps,Tracking for Klaviyo
+https://docs.northbeam.io/docs/setting-up-facebook-ads-tracking,https://docs.northbeam.io/docs/channels/meta/overview,guide split into steps,Tracking for Meta Ads
+https://docs.northbeam.io/docs/setting-up-facebook-ads-tracking#step-2-insert-northbeam-utm-parameters,https://docs.northbeam.io/docs/channels/meta/insert-the-utms#step-2-insert-northbeam-utm-parameters,section moved to its own page,Meta Ads: Insert the UTMs
+https://docs.northbeam.io/docs/setting-up-google-ads-for-northbeam,https://docs.northbeam.io/docs/channels/google/overview,guide split into steps,Tracking for Google + YouTube Ads
+https://docs.northbeam.io/docs/setting-up-google-ads-for-northbeam#adding-an-extra-google-ads-account,https://docs.northbeam.io/docs/channels/google/faq#adding-an-extra-google-ads-account,section moved to its own page,Google + YouTube Ads FAQ
+https://docs.northbeam.io/docs/setting-up-google-ads-for-northbeam#step-1-insert-northbeam-utm-parameters,https://docs.northbeam.io/docs/channels/google/insert-the-utms#step-1-insert-northbeam-utm-parameters,section moved to its own page,Google + YouTube Ads: Insert the UTMs
+https://docs.northbeam.io/docs/setting-up-google-ads-for-northbeam#step-2-insert-northbeam-utm-parameters,https://docs.northbeam.io/docs/channels/google/overview#step-2-insert-northbeam-utm-parameters,guide split into steps,Tracking for Google + YouTube Ads
+https://docs.northbeam.io/docs/setting-up-klaviyo-for-northbeam,https://docs.northbeam.io/docs/channels/klaviyo/overview,guide split into steps,Tracking for Klaviyo
+https://docs.northbeam.io/docs/setting-up-klaviyo-for-northbeam#part-1-setting-account-wide-utms,https://docs.northbeam.io/docs/channels/klaviyo/overview#part-1-setting-account-wide-utms,guide split into steps,Tracking for Klaviyo
+https://docs.northbeam.io/docs/setting-up-multiple-stores-or-regions,https://docs.northbeam.io/docs/adding-a-store-or-dashboard,moved,Setting Up Multiple Stores or Regions
+https://docs.northbeam.io/docs/setting-up-pinterest-ads-for-northbeam,https://docs.northbeam.io/docs/channels/pinterest/overview,guide split into steps,Tracking for Pinterest Ads
+https://docs.northbeam.io/docs/setting-up-pinterest-ads-for-northbeam#step-2-insert-northbeam-utm-parameters,https://docs.northbeam.io/docs/channels/pinterest/insert-the-utms#step-2-insert-northbeam-utm-parameters,section moved to its own page,Pinterest Ads: Insert the UTMs
+https://docs.northbeam.io/docs/setting-up-tiktok-ads-for-northbeam,https://docs.northbeam.io/docs/channels/tiktok/overview,guide split into steps,Tracking for TikTok Ads
+https://docs.northbeam.io/docs/setting-up-tiktok-ads-for-northbeam#step-2-insert-northbeam-utm-,https://docs.northbeam.io/docs/channels/tiktok/overview#step-2-insert-northbeam-utm-,guide split into steps,Tracking for TikTok Ads
+https://docs.northbeam.io/docs/setting-up-tiktok-ads-for-northbeam#step-2-insert-northbeam-utm-parameters,https://docs.northbeam.io/docs/channels/tiktok/insert-the-utms#step-2-insert-northbeam-utm-parameters,section moved to its own page,TikTok Ads: Insert the UTMs
+https://docs.northbeam.io/docs/sftp-orders-upload,https://docs.northbeam.io/docs/sftp-orders-upload,same page,SFTP Orders Upload
+https://docs.northbeam.io/docs/shopify-installation,https://docs.northbeam.io/docs/shopify-installation,same page,Shopify Installation
+https://docs.northbeam.io/docs/shopify-migration-preserving-customer-stages,https://docs.northbeam.io/docs/shopify-migration-preserving-customer-stages,same page,Shopify Migration: Preserving Customer Stages
+https://docs.northbeam.io/docs/shopify-order-sync,https://docs.northbeam.io/docs/shopify-order-sync,same page,Shopify
+https://docs.northbeam.io/docs/shopify-overview,https://docs.northbeam.io/docs/what-to-expect-during-implementation,moved,What To Expect During Implementation
+https://docs.northbeam.io/docs/spend-api,https://docs.northbeam.io/docs/spend-api,same page,Spend API
+https://docs.northbeam.io/docs/spend-api-1,https://docs.northbeam.io/docs/spend-api,moved,Spend API
+https://docs.northbeam.io/docs/spend-api-best-practices-and-limits,https://docs.northbeam.io/docs/spend-api-best-practices-and-limits,same page,Best Practices and Limits
+https://docs.northbeam.io/docs/subscription-analytics,https://docs.northbeam.io/docs/subscription-analytics,same page,Subscription Analytics
+https://docs.northbeam.io/docs/subscription-metrics,https://docs.northbeam.io/docs/subscription-metrics,same page,Subscription Metrics
+https://docs.northbeam.io/docs/the-media-buyer-newsletter,https://docs.northbeam.io/docs/the-media-buyer-newsletter,same page,🛰️ The Media Buyer Newsletter
+https://docs.northbeam.io/docs/third-party-checkouts,https://docs.northbeam.io/docs/third-party-checkouts,same page,Third-Party Checkouts
+https://docs.northbeam.io/docs/touchpoints-export,https://docs.northbeam.io/docs/touchpoints-export,same page,📂 Touchpoints Export
+https://docs.northbeam.io/docs/tracking-for-amazon,https://docs.northbeam.io/docs/channels/amazon/overview,guide split into steps,Tracking for Amazon
+https://docs.northbeam.io/docs/tracking-for-bliss-point-by-tinuiti,https://docs.northbeam.io/docs/tracking-for-bliss-point-by-tinuiti,same page,Tracking for Bliss Point by Tinuiti
+https://docs.northbeam.io/docs/tracking-for-bliss-point-media,https://docs.northbeam.io/docs/tracking-for-bliss-point-by-tinuiti,moved,Tracking for Bliss Point by Tinuiti
+https://docs.northbeam.io/docs/tracking-for-impact,https://docs.northbeam.io/docs/channels/impact/overview,guide split into steps,Tracking for Impact
+https://docs.northbeam.io/docs/tracking-for-influencers,https://docs.northbeam.io/docs/tracking-for-other-platforms,moved,Tracking for Non-Integrated Channels
+https://docs.northbeam.io/docs/tracking-for-keynes,https://docs.northbeam.io/docs/channels/keynes/overview,guide split into steps,Tracking for Keynes
+https://docs.northbeam.io/docs/tracking-for-liveintent,https://docs.northbeam.io/docs/channels/liveintent/overview,guide split into steps,Tracking for LiveIntent
+https://docs.northbeam.io/docs/tracking-for-microsoft,https://docs.northbeam.io/docs/channels/microsoft/overview,guide split into steps,Tracking for Microsoft Ads
+https://docs.northbeam.io/docs/tracking-for-microsoft#1-do-i-need-specific-utm-parameters,https://docs.northbeam.io/docs/channels/microsoft/faq#1-do-i-need-specific-utm-parameters,section moved to its own page,Microsoft Ads FAQ
+https://docs.northbeam.io/docs/tracking-for-mntn,https://docs.northbeam.io/docs/channels/mntn/overview,guide split into steps,Tracking for MNTN
+https://docs.northbeam.io/docs/tracking-for-off-domain-sites,https://docs.northbeam.io/docs/tracking-for-off-domain-sites,same page,Tracking Ads using Off-Domain Sites
+https://docs.northbeam.io/docs/tracking-for-openai-ads,https://docs.northbeam.io/docs/tracking-for-openai-ads,same page,Tracking for OpenAI
+https://docs.northbeam.io/docs/tracking-for-other-platforms,https://docs.northbeam.io/docs/tracking-for-other-platforms,same page,Tracking for Non-Integrated Channels
+https://docs.northbeam.io/docs/tracking-for-other-platforms#if-your-platform-is-not-in-the-guide-please-use-standard-utm-parameters,https://docs.northbeam.io/docs/tracking-for-other-platforms#if-your-platform-is-not-in-the-guide-please-use-standard-utm-parameters,same page,Tracking for Non-Integrated Channels
+https://docs.northbeam.io/docs/tracking-for-paramount,https://docs.northbeam.io/docs/tracking-for-paramount,same page,Tracking for Paramount
+https://docs.northbeam.io/docs/tracking-for-pinterest-ads,https://docs.northbeam.io/docs/channels/pinterest/overview,guide split into steps,Tracking for Pinterest Ads
+https://docs.northbeam.io/docs/tracking-for-pinterest-ads#step-2-insert-northbeam-utm-parameter,https://docs.northbeam.io/docs/channels/pinterest/overview#step-2-insert-northbeam-utm-parameter,guide split into steps,Tracking for Pinterest Ads
+https://docs.northbeam.io/docs/tracking-for-pinterest-ads#step-2-insert-northbeam-utm-parameters,https://docs.northbeam.io/docs/channels/pinterest/insert-the-utms#step-2-insert-northbeam-utm-parameters,section moved to its own page,Pinterest Ads: Insert the UTMs
+https://docs.northbeam.io/docs/tracking-for-rakuten,https://docs.northbeam.io/docs/channels/rakuten/overview,guide split into steps,Tracking for Rakuten
+https://docs.northbeam.io/docs/tracking-for-rakuten#step-1-inserting-click-utms,https://docs.northbeam.io/docs/channels/rakuten/insert-the-utms#step-1-inserting-click-utms,section moved to its own page,Rakuten: Insert the UTMs
+https://docs.northbeam.io/docs/tracking-for-rakuten#step-2-creating-a-scheduled-report,https://docs.northbeam.io/docs/channels/rakuten/overview#step-2-creating-a-scheduled-report,guide split into steps,Tracking for Rakuten
+https://docs.northbeam.io/docs/tracking-for-rokt,https://docs.northbeam.io/docs/channels/rokt/overview,guide split into steps,Tracking for ROKT
+https://docs.northbeam.io/docs/tracking-for-rokt#step-1-enter-your-app-id-and-app-secret,https://docs.northbeam.io/docs/channels/rokt/connect-the-account#step-1-enter-your-app-id-and-app-secret,section moved to its own page,ROKT: Connect the account
+https://docs.northbeam.io/docs/tracking-for-shopmy,https://docs.northbeam.io/docs/tracking-for-shopmy,same page,Tracking for ShopMy
+https://docs.northbeam.io/docs/tracking-for-shops,https://docs.northbeam.io/docs/channels/shops/overview,guide split into steps,"Shops Tracking (Meta Shops, TikTok Shops)"
+https://docs.northbeam.io/docs/tracking-for-snapchat-ads,https://docs.northbeam.io/docs/channels/snapchat/overview,guide split into steps,Tracking for Snapchat Ads
+https://docs.northbeam.io/docs/tracking-for-snapchat-ads#step-2-insert-northbeam-utm-parameters,https://docs.northbeam.io/docs/channels/snapchat/insert-the-utms#step-2-insert-northbeam-utm-parameters,section moved to its own page,Snapchat Ads: Insert the UTMs
+https://docs.northbeam.io/docs/tracking-for-tatari,https://docs.northbeam.io/docs/channels/tatari/overview,guide split into steps,Tracking for Tatari
+https://docs.northbeam.io/docs/tracking-for-tatari#step-2-share-your-tatari-id-with-northbeam,https://docs.northbeam.io/docs/channels/tatari/overview#step-2-share-your-tatari-id-with-northbeam,guide split into steps,Tracking for Tatari
+https://docs.northbeam.io/docs/tracking-for-tatari#step-4-insert-aws-credentials,https://docs.northbeam.io/docs/channels/tatari/overview#step-4-insert-aws-credentials,guide split into steps,Tracking for Tatari
+https://docs.northbeam.io/docs/tracking-for-tradedesk,https://docs.northbeam.io/docs/channels/tradedesk/overview,guide split into steps,Tracking for TradeDesk
+https://docs.northbeam.io/docs/tracking-for-tradedesk#important-attribution-notes,https://docs.northbeam.io/docs/channels/tradedesk/overview#important-attribution-notes,guide split into steps,Tracking for TradeDesk
+https://docs.northbeam.io/docs/tracking-for-tradedesk#step-2-inserting-click-and-impressions-utms,https://docs.northbeam.io/docs/channels/tradedesk/overview#step-2-inserting-click-and-impressions-utms,guide split into steps,Tracking for TradeDesk
+https://docs.northbeam.io/docs/tracking-for-tradedesk#step-3-creating-a-scheduled-report,https://docs.northbeam.io/docs/channels/tradedesk/overview#step-3-creating-a-scheduled-report,guide split into steps,Tracking for TradeDesk
+https://docs.northbeam.io/docs/tracking-for-twitter-ads,https://docs.northbeam.io/docs/channels/x/overview,guide split into steps,Tracking for X Ads
+https://docs.northbeam.io/docs/tracking-for-universal,https://docs.northbeam.io/docs/channels/universal/overview,guide split into steps,Tracking for Universal
+https://docs.northbeam.io/docs/tracking-for-vibe-co,https://docs.northbeam.io/docs/channels/vibe/overview,guide split into steps,Tracking for Vibe.co
+https://docs.northbeam.io/docs/tracking-for-x-ads,https://docs.northbeam.io/docs/channels/x/overview,guide split into steps,Tracking for X Ads
+https://docs.northbeam.io/docs/troubleshooting-tracking-issues,https://docs.northbeam.io/docs/troubleshooting-tracking-issues,same page,Troubleshooting Tracking Issues
+https://docs.northbeam.io/docs/update-your-dns,https://docs.northbeam.io/docs/link-dns,moved,Link DNS
+https://docs.northbeam.io/docs/using-the-api,https://docs.northbeam.io/docs/using-the-api,same page,Using the API
+https://docs.northbeam.io/docs/what-is-a-good-bad-number-in-northbeam,https://docs.northbeam.io/docs/what-is-a-good-bad-number-in-northbeam,same page,What is a good/bad number in Northbeam?
+https://docs.northbeam.io/docs/what-is-northbeam,https://docs.northbeam.io/docs/what-is-northbeam,same page,What is Northbeam? Start here.
+https://docs.northbeam.io/docs/what-is-northbeam-model-comparison-tool,https://docs.northbeam.io/docs/what-is-northbeam-model-comparison-tool,same page,What is Northbeam's Model Comparison Tool?
+https://docs.northbeam.io/docs/what-is-northbeam-mta-methodology,https://docs.northbeam.io/docs/what-is-northbeam-mta-methodology,same page,What is Northbeam's MTA Methodology?
+https://docs.northbeam.io/docs/what-to-expect-during-implementation,https://docs.northbeam.io/docs/what-to-expect-during-implementation,same page,What To Expect During Implementation
+https://docs.northbeam.io/docs/whats-the-difference-between-organic-vs-unattributed,https://docs.northbeam.io/docs/whats-the-difference-between-organic-vs-unattributed,same page,What's the difference between Organic vs Unattributed?
+https://docs.northbeam.io/docs/why-doesnt-northbeam-match-my-shopify-reporting,https://docs.northbeam.io/docs/why-doesnt-northbeam-match-my-shopify-reporting,same page,Why Doesn't Northbeam Match My Shopify Reporting?
+https://docs.northbeam.io/docs/why-is-my-fb-roas-so-much-lower-in-northbeam,https://docs.northbeam.io/docs/why-is-my-fb-roas-so-much-lower-in-northbeam,same page,Why is my FB ROAS so much lower in Northbeam?
+https://docs.northbeam.io/docs/why-is-so-much-of-my-revenue-unattributed,https://docs.northbeam.io/docs/differences-in-unattributed-data,moved,Differences in Unattributed Data
+https://docs.northbeam.io/docs/why-is-the-northbeam-methodology-better-than-internal-platforms,https://docs.northbeam.io/docs/what-is-northbeam-mta-methodology,moved,What is Northbeam's MTA Methodology?
+https://docs.northbeam.io/docs/why-northbeam-differs-from-another-platform,https://docs.northbeam.io/docs/why-northbeam-differs-from-another-platform,same page,Why Northbeam Differs From Another Platform
+https://docs.northbeam.io/docs/working-tracking-for-attentive,https://docs.northbeam.io/docs/channels/attentive/overview,guide split into steps,Tracking for Attentive
+https://docs.northbeam.io/docs/working-tracking-for-attentive#step-1-create-an-attentive-sftp-account,https://docs.northbeam.io/docs/channels/attentive/connect-the-account#step-1-create-an-attentive-sftp-account,section moved to its own page,Attentive: Connect the account
+https://docs.northbeam.io/docs/working-tracking-for-attentive#step-3-set-up-daily-logs,https://docs.northbeam.io/docs/channels/attentive/connect-the-account#step-3-set-up-daily-logs,section moved to its own page,Attentive: Connect the account
+https://docs.northbeam.io/docs/working-tracking-for-attentive#step-5-implement-sign-up-event,https://docs.northbeam.io/docs/channels/attentive/overview#step-5-implement-sign-up-event,section moved to its own page,Tracking for Attentive
+https://docs.northbeam.io/docs/working-tracking-for-attentive#this-guide-will-show-you-how-to-set-up-tracking-for-the-following-attentive-metrics-in-northbeam,https://docs.northbeam.io/docs/channels/attentive/overview#this-guide-will-show-you-how-to-set-up-tracking-for-the-following-attentive-metrics-in-northbeam,guide split into steps,Tracking for Attentive
+https://docs.northbeam.io/docs/working-tracking-for-attentive-copy,https://docs.northbeam.io/docs/channels/attentive/overview,guide split into steps,Tracking for Attentive
+https://docs.northbeam.io/reference/addorderaliases,https://docs.northbeam.io/reference/addorderaliases,same page,Add aliases to existing orders
+https://docs.northbeam.io/reference/delete_spend,https://docs.northbeam.io/reference/delete_spend,same page,Delete a spend record
+https://docs.northbeam.io/reference/delete_spend-hourly,https://docs.northbeam.io/reference/delete_spend-hourly,same page,Delete a spend record
+https://docs.northbeam.io/reference/get_attribution-models-1,https://docs.northbeam.io/reference/get_attribution-models-1,same page,Fetch all available attribution models
+https://docs.northbeam.io/reference/get_breakdowns-1,https://docs.northbeam.io/reference/get_breakdowns-1,same page,Fetch all labels available for breakdown
+https://docs.northbeam.io/reference/get_data-export-result-export-id-1,https://docs.northbeam.io/reference/get_data-export-result-export-id-1,same page,Fetch a data export result
+https://docs.northbeam.io/reference/get_metrics-1,https://docs.northbeam.io/reference/get_metrics-1,same page,Fetch all available metrics
+https://docs.northbeam.io/reference/get_orders,https://docs.northbeam.io/reference/get_orders,same page,Fetch a list of orders
+https://docs.northbeam.io/reference/get_orders-1,https://docs.northbeam.io/reference/get_orders-1,same page,Fetch a list of orders
+https://docs.northbeam.io/reference/get_spend,https://docs.northbeam.io/reference/get_spend,same page,List spend records
+https://docs.northbeam.io/reference/get_spend-hourly,https://docs.northbeam.io/reference/get_spend-hourly,same page,List spend records
+https://docs.northbeam.io/reference/patchorders,https://docs.northbeam.io/reference/patchorders,same page,Partially update existing orders
+https://docs.northbeam.io/reference/post_data-export,https://docs.northbeam.io/reference/post_data-export-1,moved,Create a data export config
+https://docs.northbeam.io/reference/post_data-export-1,https://docs.northbeam.io/reference/post_data-export-1,same page,Create a data export config
+https://docs.northbeam.io/reference/post_data-export-orders,https://docs.northbeam.io/reference/post_data-export-orders,same page,Create an Orders export
+https://docs.northbeam.io/reference/post_orders,https://docs.northbeam.io/reference/post_orders,same page,"Upsert a list of orders to Northbeam (V1, deprecated)"
+https://docs.northbeam.io/reference/post_orders-1,https://docs.northbeam.io/reference/post_orders-1,same page,Upsert a list of orders to Northbeam
+https://docs.northbeam.io/reference/post_spend,https://docs.northbeam.io/reference/post_spend,same page,Upsert one or multiple spend records
+https://docs.northbeam.io/reference/post_spend-hourly,https://docs.northbeam.io/reference/post_spend-hourly,same page,Upsert one or multiple hourly spend records
+https://docs.northbeam.io/reference/spend,https://docs.northbeam.io/reference/post_spend,moved,Upsert one or multiple spend records

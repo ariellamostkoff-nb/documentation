@@ -1118,6 +1118,570 @@
     {
       "source": "/docs/update-your-dns",
       "destination": "/docs/link-dns"
+    },
+    {
+      "source": "/v2.2/docs/new-to-northbeam-how-to-get-oriented",
+      "destination": "/docs/navigating-northbeam"
+    },
+    {
+      "source": "/v2.1/docs/new-to-northbeam-how-to-get-oriented",
+      "destination": "/docs/navigating-northbeam"
+    },
+    {
+      "source": "/v2.2/docs/implementation-guide",
+      "destination": "/docs/what-to-expect-during-implementation"
+    },
+    {
+      "source": "/v2.1/docs/implementation-guide",
+      "destination": "/docs/what-to-expect-during-implementation"
+    },
+    {
+      "source": "/v2.2/docs/create-a-dashboard",
+      "destination": "/docs/what-to-expect-during-implementation"
+    },
+    {
+      "source": "/v2.1/docs/create-a-dashboard",
+      "destination": "/docs/what-to-expect-during-implementation"
+    },
+    {
+      "source": "/v2.2/docs/add-domain",
+      "destination": "/docs/link-dns"
+    },
+    {
+      "source": "/v2.1/docs/add-domain",
+      "destination": "/docs/link-dns"
+    },
+    {
+      "source": "/v2.2/docs/shopify-overview",
+      "destination": "/docs/what-to-expect-during-implementation"
+    },
+    {
+      "source": "/v2.1/docs/shopify-overview",
+      "destination": "/docs/what-to-expect-during-implementation"
+    },
+    {
+      "source": "/v2.2/docs/multi-brand-configuration",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/v2.1/docs/multi-brand-configuration",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/v2.2/docs/multi-domain-configuration",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/v2.1/docs/multi-domain-configuration",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/v2.2/docs/multi-region-configuration",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/v2.1/docs/multi-region-configuration",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/v2.2/docs/8-append-our-utms",
+      "destination": "/docs/integrations-and-utms"
+    },
+    {
+      "source": "/v2.1/docs/8-append-our-utms",
+      "destination": "/docs/integrations-and-utms"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-influencers",
+      "destination": "/docs/tracking-for-other-platforms"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-influencers",
+      "destination": "/docs/tracking-for-other-platforms"
+    },
+    {
+      "source": "/v2.2/docs/influencer",
+      "destination": "/docs/tracking-for-other-platforms"
+    },
+    {
+      "source": "/v2.1/docs/influencer",
+      "destination": "/docs/tracking-for-other-platforms"
+    },
+    {
+      "source": "/v2.2/docs/why-is-the-northbeam-methodology-better-than-internal-platforms",
+      "destination": "/docs/what-is-northbeam-mta-methodology"
+    },
+    {
+      "source": "/v2.1/docs/why-is-the-northbeam-methodology-better-than-internal-platforms",
+      "destination": "/docs/what-is-northbeam-mta-methodology"
+    },
+    {
+      "source": "/v2.2/docs/my-facebook-roas-is-07-in-northbeam-is-this-normal",
+      "destination": "/docs/why-is-my-fb-roas-so-much-lower-in-northbeam"
+    },
+    {
+      "source": "/v2.1/docs/my-facebook-roas-is-07-in-northbeam-is-this-normal",
+      "destination": "/docs/why-is-my-fb-roas-so-much-lower-in-northbeam"
+    },
+    {
+      "source": "/v2.2/docs/why-is-so-much-of-my-revenue-unattributed",
+      "destination": "/docs/differences-in-unattributed-data"
+    },
+    {
+      "source": "/v2.1/docs/why-is-so-much-of-my-revenue-unattributed",
+      "destination": "/docs/differences-in-unattributed-data"
+    },
+    {
+      "source": "/v2.2/docs/authentication",
+      "destination": "/docs/orders-api"
+    },
+    {
+      "source": "/v2.1/docs/authentication",
+      "destination": "/docs/orders-api"
+    },
+    {
+      "source": "/v2.2/docs/getting-started",
+      "destination": "/docs/orders-api"
+    },
+    {
+      "source": "/v2.1/docs/getting-started",
+      "destination": "/docs/orders-api"
+    },
+    {
+      "source": "/v2.2/docs/limits",
+      "destination": "/docs/orders-api-limits"
+    },
+    {
+      "source": "/v2.1/docs/limits",
+      "destination": "/docs/orders-api-limits"
+    },
+    {
+      "source": "/v2.2/docs/order-tags-1",
+      "destination": "/docs/order-tags"
+    },
+    {
+      "source": "/v2.1/docs/order-tags-1",
+      "destination": "/docs/order-tags"
+    },
+    {
+      "source": "/v2.2/docs/setting-up-facebook-ads-tracking",
+      "destination": "/docs/channels/meta/overview"
+    },
+    {
+      "source": "/v2.1/docs/setting-up-facebook-ads-tracking",
+      "destination": "/docs/channels/meta/overview"
+    },
+    {
+      "source": "/v2.2/docs/setting-up-google-ads-for-northbeam",
+      "destination": "/docs/channels/google/overview"
+    },
+    {
+      "source": "/v2.1/docs/setting-up-google-ads-for-northbeam",
+      "destination": "/docs/channels/google/overview"
+    },
+    {
+      "source": "/v2.2/docs/setting-up-tiktok-ads-for-northbeam",
+      "destination": "/docs/channels/tiktok/overview"
+    },
+    {
+      "source": "/v2.1/docs/setting-up-tiktok-ads-for-northbeam",
+      "destination": "/docs/channels/tiktok/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-microsoft",
+      "destination": "/docs/channels/microsoft/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-microsoft",
+      "destination": "/docs/channels/microsoft/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-pinterest-ads",
+      "destination": "/docs/channels/pinterest/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-pinterest-ads",
+      "destination": "/docs/channels/pinterest/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-snapchat-ads",
+      "destination": "/docs/channels/snapchat/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-snapchat-ads",
+      "destination": "/docs/channels/snapchat/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-x-ads",
+      "destination": "/docs/channels/x/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-x-ads",
+      "destination": "/docs/channels/x/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-amazon",
+      "destination": "/docs/channels/amazon/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-amazon",
+      "destination": "/docs/channels/amazon/overview"
+    },
+    {
+      "source": "/v2.2/docs/setting-up-klaviyo-for-northbeam",
+      "destination": "/docs/channels/klaviyo/overview"
+    },
+    {
+      "source": "/v2.1/docs/setting-up-klaviyo-for-northbeam",
+      "destination": "/docs/channels/klaviyo/overview"
+    },
+    {
+      "source": "/v2.2/docs/working-tracking-for-attentive",
+      "destination": "/docs/channels/attentive/overview"
+    },
+    {
+      "source": "/v2.1/docs/working-tracking-for-attentive",
+      "destination": "/docs/channels/attentive/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-shops",
+      "destination": "/docs/channels/shops/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-shops",
+      "destination": "/docs/channels/shops/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-impact",
+      "destination": "/docs/channels/impact/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-impact",
+      "destination": "/docs/channels/impact/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-keynes",
+      "destination": "/docs/channels/keynes/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-keynes",
+      "destination": "/docs/channels/keynes/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-tradedesk",
+      "destination": "/docs/channels/tradedesk/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-tradedesk",
+      "destination": "/docs/channels/tradedesk/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-mntn",
+      "destination": "/docs/channels/mntn/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-mntn",
+      "destination": "/docs/channels/mntn/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-tatari",
+      "destination": "/docs/channels/tatari/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-tatari",
+      "destination": "/docs/channels/tatari/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-rokt",
+      "destination": "/docs/channels/rokt/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-rokt",
+      "destination": "/docs/channels/rokt/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-vibe-co",
+      "destination": "/docs/channels/vibe/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-vibe-co",
+      "destination": "/docs/channels/vibe/overview"
+    },
+    {
+      "source": "/v2.2/docs/applovin",
+      "destination": "/docs/channels/applovin/overview"
+    },
+    {
+      "source": "/v2.1/docs/applovin",
+      "destination": "/docs/channels/applovin/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-liveintent",
+      "destination": "/docs/channels/liveintent/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-liveintent",
+      "destination": "/docs/channels/liveintent/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-rakuten",
+      "destination": "/docs/channels/rakuten/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-rakuten",
+      "destination": "/docs/channels/rakuten/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-universal",
+      "destination": "/docs/channels/universal/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-universal",
+      "destination": "/docs/channels/universal/overview"
+    },
+    {
+      "source": "/v2.2/docs/5-install-the-northbeam-pixel",
+      "destination": "/docs/add-pixel"
+    },
+    {
+      "source": "/v2.1/docs/5-install-the-northbeam-pixel",
+      "destination": "/docs/add-pixel"
+    },
+    {
+      "source": "/v2.2/docs/creative-analytics-walkthrough",
+      "destination": "/docs/creative-analytics"
+    },
+    {
+      "source": "/v2.1/docs/creative-analytics-walkthrough",
+      "destination": "/docs/creative-analytics"
+    },
+    {
+      "source": "/v2.2/docs/getting-started-with-northbeam",
+      "destination": "/docs/quickstart"
+    },
+    {
+      "source": "/v2.1/docs/getting-started-with-northbeam",
+      "destination": "/docs/quickstart"
+    },
+    {
+      "source": "/v2.2/docs/google-tag-manager-installation",
+      "destination": "/docs/non-shopify-installation"
+    },
+    {
+      "source": "/v2.1/docs/google-tag-manager-installation",
+      "destination": "/docs/non-shopify-installation"
+    },
+    {
+      "source": "/v2.2/docs/saved-views-and-breakdowns",
+      "destination": "/docs/manage-breakdowns"
+    },
+    {
+      "source": "/v2.1/docs/saved-views-and-breakdowns",
+      "destination": "/docs/manage-breakdowns"
+    },
+    {
+      "source": "/v2.2/docs/setting-up-pinterest-ads-for-northbeam",
+      "destination": "/docs/channels/pinterest/overview"
+    },
+    {
+      "source": "/v2.1/docs/setting-up-pinterest-ads-for-northbeam",
+      "destination": "/docs/channels/pinterest/overview"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-bliss-point-media",
+      "destination": "/docs/tracking-for-bliss-point-by-tinuiti"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-bliss-point-media",
+      "destination": "/docs/tracking-for-bliss-point-by-tinuiti"
+    },
+    {
+      "source": "/v2.2/docs/tracking-for-twitter-ads",
+      "destination": "/docs/channels/x/overview"
+    },
+    {
+      "source": "/v2.1/docs/tracking-for-twitter-ads",
+      "destination": "/docs/channels/x/overview"
+    },
+    {
+      "source": "/v2.2/docs/update-your-dns",
+      "destination": "/docs/link-dns"
+    },
+    {
+      "source": "/v2.1/docs/update-your-dns",
+      "destination": "/docs/link-dns"
+    },
+    {
+      "source": "/v2.2/docs/:slug*",
+      "destination": "/docs/:slug*"
+    },
+    {
+      "source": "/v2.2/reference/:slug*",
+      "destination": "/reference/:slug*"
+    },
+    {
+      "source": "/v2.1/docs/:slug*",
+      "destination": "/docs/:slug*"
+    },
+    {
+      "source": "/v2.1/reference/:slug*",
+      "destination": "/reference/:slug*"
+    },
+    {
+      "source": "/docs/working-tracking-for-attentive-copy",
+      "destination": "/docs/channels/attentive/overview"
+    },
+    {
+      "source": "/v2.2/docs/working-tracking-for-attentive-copy",
+      "destination": "/docs/channels/attentive/overview"
+    },
+    {
+      "source": "/v2.1/docs/working-tracking-for-attentive-copy",
+      "destination": "/docs/channels/attentive/overview"
+    },
+    {
+      "source": "/docs/northbeam-pixel",
+      "destination": "/docs/add-pixel"
+    },
+    {
+      "source": "/v2.2/docs/northbeam-pixel",
+      "destination": "/docs/add-pixel"
+    },
+    {
+      "source": "/v2.1/docs/northbeam-pixel",
+      "destination": "/docs/add-pixel"
+    },
+    {
+      "source": "/docs/orders-api-1",
+      "destination": "/docs/orders-api"
+    },
+    {
+      "source": "/v2.2/docs/orders-api-1",
+      "destination": "/docs/orders-api"
+    },
+    {
+      "source": "/v2.1/docs/orders-api-1",
+      "destination": "/docs/orders-api"
+    },
+    {
+      "source": "/docs/channel-tracking-overview",
+      "destination": "/docs/all-other-platforms-overview"
+    },
+    {
+      "source": "/v2.2/docs/channel-tracking-overview",
+      "destination": "/docs/all-other-platforms-overview"
+    },
+    {
+      "source": "/v2.1/docs/channel-tracking-overview",
+      "destination": "/docs/all-other-platforms-overview"
+    },
+    {
+      "source": "/docs/clicks-views-enhanced",
+      "destination": "/docs/clicks-deterministic-views"
+    },
+    {
+      "source": "/v2.2/docs/clicks-views-enhanced",
+      "destination": "/docs/clicks-deterministic-views"
+    },
+    {
+      "source": "/v2.1/docs/clicks-views-enhanced",
+      "destination": "/docs/clicks-deterministic-views"
+    },
+    {
+      "source": "/docs/setting-up-multiple-stores-or-regions",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/v2.2/docs/setting-up-multiple-stores-or-regions",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/v2.1/docs/setting-up-multiple-stores-or-regions",
+      "destination": "/docs/adding-a-store-or-dashboard"
+    },
+    {
+      "source": "/reference/post_data-export",
+      "destination": "/reference/post_data-export-1"
+    },
+    {
+      "source": "/v2.2/reference/post_data-export",
+      "destination": "/reference/post_data-export-1"
+    },
+    {
+      "source": "/v2.1/reference/post_data-export",
+      "destination": "/reference/post_data-export-1"
+    },
+    {
+      "source": "/docs/differences-in-total-revenue",
+      "destination": "/docs/why-doesnt-northbeam-match-my-shopify-reporting"
+    },
+    {
+      "source": "/v2.2/docs/differences-in-total-revenue",
+      "destination": "/docs/why-doesnt-northbeam-match-my-shopify-reporting"
+    },
+    {
+      "source": "/v2.1/docs/differences-in-total-revenue",
+      "destination": "/docs/why-doesnt-northbeam-match-my-shopify-reporting"
+    },
+    {
+      "source": "/reference/spend",
+      "destination": "/reference/post_spend"
+    },
+    {
+      "source": "/v2.2/reference/spend",
+      "destination": "/reference/post_spend"
+    },
+    {
+      "source": "/v2.1/reference/spend",
+      "destination": "/reference/post_spend"
+    },
+    {
+      "source": "/docs/setting-up-email-signups",
+      "destination": "/docs/channels/klaviyo/overview"
+    },
+    {
+      "source": "/v2.2/docs/setting-up-email-signups",
+      "destination": "/docs/channels/klaviyo/overview"
+    },
+    {
+      "source": "/v2.1/docs/setting-up-email-signups",
+      "destination": "/docs/channels/klaviyo/overview"
+    },
+    {
+      "source": "/docs/purchase-pixel",
+      "destination": "/docs/add-pixel"
+    },
+    {
+      "source": "/v2.2/docs/purchase-pixel",
+      "destination": "/docs/add-pixel"
+    },
+    {
+      "source": "/v2.1/docs/purchase-pixel",
+      "destination": "/docs/add-pixel"
+    },
+    {
+      "source": "/docs/correct-system-setups",
+      "destination": "/docs/confirm-setup-requirements"
+    },
+    {
+      "source": "/v2.2/docs/correct-system-setups",
+      "destination": "/docs/confirm-setup-requirements"
+    },
+    {
+      "source": "/v2.1/docs/correct-system-setups",
+      "destination": "/docs/confirm-setup-requirements"
+    },
+    {
+      "source": "/docs/spend-api-1",
+      "destination": "/docs/spend-api"
+    },
+    {
+      "source": "/v2.2/docs/spend-api-1",
+      "destination": "/docs/spend-api"
+    },
+    {
+      "source": "/v2.1/docs/spend-api-1",
+      "destination": "/docs/spend-api"
     }
   ],
   "background": {
